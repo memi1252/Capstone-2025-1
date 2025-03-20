@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GravityOffset : MonoBehaviour
 {
+    [SerializeField] public GameObject RopeObject;
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -19,6 +21,7 @@ public class GravityOffset : MonoBehaviour
             Rigidbody rd = other.GetComponent<Rigidbody>();
             rd.useGravity = false;
             GameManager.Instance.isSpace = true;
+            RopeObject.SetActive(true);
         }
     }
     
@@ -29,6 +32,7 @@ public class GravityOffset : MonoBehaviour
             GameManager.Instance.isSpace = false; 
             Vector3 eulerAngles = other.transform.eulerAngles;
             other.transform.rotation = Quaternion.Euler(0, eulerAngles.y, 0);
+            RopeObject.SetActive(false);
             if(eulerAngles.x >= -90 && eulerAngles.x <= 90)
                 GameManager.Instance.playerCamera.transform.localRotation = Quaternion.Euler(eulerAngles.x, 0, 0);
             else 

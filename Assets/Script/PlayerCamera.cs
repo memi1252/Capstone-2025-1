@@ -5,8 +5,7 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 100f;
     private Transform playerBody;
     private float xRotation = 0f;
-    public float mouseX;
-    public float mouseY;
+    
 
     private void Start()
     {
@@ -16,8 +15,8 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
         
         if(!GameManager.Instance.isSpace)
         {

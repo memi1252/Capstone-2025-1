@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float rollSpeed = 50f; // Q, E 키로 회전하는 속도
     [SerializeField] private float boostMultiplier = 2f; // 부스터 속도 배율
     [SerializeField] private float ItemPickUpDistance; // 아이템 획득 거리
+    [SerializeField] private GameObject Rope;
+    [SerializeField] public bool isMove = true;
 
     
     
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if(Rope != null)
+            Rope.transform.position = transform.position;
         if(GameManager.Instance.isSpace)
         {
             HandleMovement();
@@ -43,33 +47,39 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
+        if (isMove)
+        {
+            float v = Input.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
 
-        
-        Vector3 move = new Vector3(h, 0, v);
-        transform.Translate(move * moveSpeed * Time.deltaTime);
+
+            Vector3 move = new Vector3(h, 0, v);
+            transform.Translate(move * moveSpeed * Time.deltaTime);
+        }
     }
     
     void HandleMovement()
     {
-        Vector3 moveDirection = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
-        if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
-        if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed;   // 좌측 이동
-        if (Input.GetKey(KeyCode.D)) moveDirection += transform.right * Time.deltaTime * moveSpeed;   // 우측 이동
-        if (Input.GetKey(KeyCode.Space)) moveDirection += transform.up * Time.deltaTime * moveSpeed;  // 상승
-        if (Input.GetKey(KeyCode.LeftControl)) moveDirection -= transform.up * Time.deltaTime * moveSpeed; // 하강
-
-        float speed = thrustPower;
-
-        if (Input.GetKey(KeyCode.LeftShift)) // 부스터 기능
+        if (isMove)
         {
-            speed *= boostMultiplier;
-        }
+            Vector3 moveDirection = Vector3.zero;
 
-        rigidbody.AddForce(moveDirection * speed, ForceMode.Acceleration);
+            if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
+            if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
+            if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed; // 좌측 이동
+            if (Input.GetKey(KeyCode.D)) moveDirection += transform.right * Time.deltaTime * moveSpeed; // 우측 이동
+            if (Input.GetKey(KeyCode.Space)) moveDirection += transform.up * Time.deltaTime * moveSpeed; // 상승
+            if (Input.GetKey(KeyCode.LeftControl)) moveDirection -= transform.up * Time.deltaTime * moveSpeed; // 하강
+
+            float speed = thrustPower;
+
+            if (Input.GetKey(KeyCode.LeftShift)) // 부스터 기능
+            {
+                speed *= boostMultiplier;
+            }
+
+            rigidbody.AddForce(moveDirection * speed, ForceMode.Acceleration);
+        }
     }
 
     void HandleRotation()
