@@ -558,7 +558,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!59 &297058048
 HingeJoint:
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   rotationSpeed: 2
   rollSpeed: 50
   boostMultiplier: 2
-  ItemPickUpDistance: 1.5
+  ItemPickUpDistance: 3
   Rope: {fileID: 1044387799}
   isMove: 1
 --- !u!136 &1062366503

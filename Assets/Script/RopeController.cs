@@ -16,7 +16,6 @@ public class RopeController : MonoBehaviour
     private void Update()
     {   
         ropeLength = Vector3.Distance(loopStart.transform.position, loopEnd.transform.position);
-        Debug.Log(ropeLength);
 
         GameObject Player = GameManager.Instance.player.gameObject;
         Rigidbody playerRigidbody = Player.GetComponent<Rigidbody>();
