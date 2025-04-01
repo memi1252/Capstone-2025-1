@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ebebad7165c6454fb9348a476cd1fca
+guid: 4a14f9ac8e9db174baa0346b48b4252b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hungry_0
+      name: 02_0
       rect:
         serializedVersion: 2
-        x: 195
-        y: 26
-        width: 88
-        height: 83
+        x: 0
+        y: 0
+        width: 700
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dfabb263f68267468c582e25ed95fcc
-      internalID: -1961308989
+      spriteID: 807145e3ee673164f95d4703aa8ed779
+      internalID: 1278335543
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: cb51d1b0b9facfe459676211c78e9f4c
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hungry_0: -1961308989
+      02_0: 1278335543
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
