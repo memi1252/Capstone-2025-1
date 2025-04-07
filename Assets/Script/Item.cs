@@ -8,4 +8,5 @@ public class Item : MonoBehaviour
     public int ItemId;
     public Sprite ItemSprite;
     public GameObject ItemPrefab;
+    public GameObject Image;
 }
