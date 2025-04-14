@@ -4,7 +4,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float fastMoveSpeed = 10f;
     [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] private float jumpForce = 5;
+    [SerializeField] private float jumpDistance = 1.1f;
     [SerializeField] private float thrustPower = 5f;  // 이동 속도 (추진력)
     [SerializeField] private float rotationSpeed = 2f; // 회전 속도
     [SerializeField] private float rollSpeed = 50f; // Q, E 키로 회전하는 속도
@@ -12,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float ItemPickUpDistance; // 아이템 획득 거리
     [SerializeField] private GameObject Rope;
     [SerializeField] public bool isMove = true;
+    private bool isjump = false;
 
     
     
@@ -30,19 +34,29 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(Rope != null)
-            Rope.transform.position = transform.position;
-        if(GameManager.Instance.isSpace)
+        if (GameManager.Instance.ismove)
         {
-            HandleMovement();
-            HandleRotation();
-            HandleRoll();
+            if(Rope != null)
+                Rope.transform.position = transform.position;
+            if(GameManager.Instance.isSpace)
+            {
+                HandleMovement();
+                HandleRotation();
+                HandleRoll();
+            }
+            else
+            {
+                Move();
+                Jump();
+            }
+        
+            // 바닥에 닿아 있으면 점프 상태 해제
+            if (IsGrounded())
+            {
+                isjump = false;
+            }
+            ItemPickUp();
         }
-        else
-        {
-            Move();
-        }
-        ItemPickUp();
     }
 
     void Move()
@@ -54,8 +68,31 @@ public class Player : MonoBehaviour
 
 
             Vector3 move = new Vector3(h, 0, v);
-            transform.Translate(move * moveSpeed * Time.deltaTime);
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                transform.Translate(move * fastMoveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(move * moveSpeed * Time.deltaTime);
+            }
+            
+            
         }
+    }
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isjump && IsGrounded())
+        {
+            isjump = true; 
+            rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+    
+    bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, jumpDistance);
     }
     
     void HandleMovement()

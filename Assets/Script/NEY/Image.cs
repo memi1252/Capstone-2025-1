@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Image : MonoBehaviour
+public class ItemImage : MonoBehaviour
 {
     public GameObject Items;
     void Start()

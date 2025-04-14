@@ -7,4 +7,6 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] public PlayerCamera playerCamera;
 
     public bool isSpace = true;
+    public bool ismove = true;
+    public bool isCamera;
 }

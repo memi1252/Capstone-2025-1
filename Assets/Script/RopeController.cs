@@ -18,8 +18,7 @@ public class RopeController : MonoBehaviour
 
         GameObject Player = GameManager.Instance.player.gameObject;
         Rigidbody playerRigidbody = Player.GetComponent<Rigidbody>();
-
-        Debug.Log(ropeLength);
+        
         
         if (ropeLength >= maxRopeLength)
         {
