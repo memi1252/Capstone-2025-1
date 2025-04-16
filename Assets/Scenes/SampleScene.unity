@@ -1901,6 +1901,8 @@ MonoBehaviour:
   player: {fileID: 1062366501}
   playerCamera: {fileID: 330585548}
   isSpace: 1
+  ismove: 1
+  isCamera: 0
 --- !u!1001 &60924773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49450,7 +49452,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  fastMoveSpeed: 10
   maxSpeed: 4
+  jumpForce: 5
+  jumpDistance: 1.1
   thrustPower: 10
   rotationSpeed: 2
   rollSpeed: 50
@@ -61070,6 +61075,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5682171066937024534, guid: 0470517e9c198d34d940c8a19619387c, type: 3}
   m_PrefabInstance: {fileID: 1307883342}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1310017557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1310017558}
+  m_Layer: 0
+  m_Name: test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1310017558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310017557}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.455498, y: -4.4325747, z: 67.34802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1310975354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95359,3 +95395,4 @@ SceneRoots:
   - {fileID: 669964143}
   - {fileID: 1641118034}
   - {fileID: 545958641}
+  - {fileID: 1310017558}
