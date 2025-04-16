@@ -38,62 +38,14 @@ public class Player : MonoBehaviour
         {
             if(Rope != null)
                 Rope.transform.position = transform.position;
-            if(GameManager.Instance.isSpace)
-            {
-                HandleMovement();
-                HandleRotation();
-                HandleRoll();
-            }
-            else
-            {
-                Move();
-                Jump();
-            }
-        
-            // 바닥에 닿아 있으면 점프 상태 해제
-            if (IsGrounded())
-            {
-                isjump = false;
-            }
+            
+            HandleMovement();
+            HandleRotation();
+            HandleRoll();
             ItemPickUp();
         }
     }
-
-    void Move()
-    {
-        if (isMove)
-        {
-            float v = Input.GetAxis("Vertical");
-            float h = Input.GetAxis("Horizontal");
-
-
-            Vector3 move = new Vector3(h, 0, v);
-
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                transform.Translate(move * fastMoveSpeed * Time.deltaTime);
-            }
-            else
-            {
-                transform.Translate(move * moveSpeed * Time.deltaTime);
-            }
-            
-            
-        }
-    }
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && !isjump && IsGrounded())
-        {
-            isjump = true; 
-            rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-    }
     
-    bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, Vector3.down, jumpDistance);
-    }
     
     void HandleMovement()
     {

@@ -14,30 +14,33 @@ public class RopeController : MonoBehaviour
 
     private void Update()
     {
-        ropeLength = Vector3.Distance(loopStart.transform.position, loopEnd.transform.position);
-
-        GameObject Player = GameManager.Instance.player.gameObject;
-        Rigidbody playerRigidbody = Player.GetComponent<Rigidbody>();
-        
-        
-        if (ropeLength >= maxRopeLength)
+        if (GameManager.Instance.isSpace)
         {
-            Vector3 directionBackToRope = (loopStart.transform.position - Player.transform.position).normalized;
-            
-            Vector3 currentVelocity = playerRigidbody.linearVelocity;
-            
-            if (Vector3.Dot(currentVelocity, directionBackToRope) < 0)
+            ropeLength = Vector3.Distance(loopStart.transform.position, loopEnd.transform.position);
+
+            GameObject Player = GameManager.Instance.player.gameObject;
+            Rigidbody playerRigidbody = Player.GetComponent<Rigidbody>();
+        
+        
+            if (ropeLength >= maxRopeLength)
             {
-                playerRigidbody.linearVelocity = Vector3.zero;
+                Vector3 directionBackToRope = (loopStart.transform.position - Player.transform.position).normalized;
+            
+                Vector3 currentVelocity = playerRigidbody.linearVelocity;
+            
+                if (Vector3.Dot(currentVelocity, directionBackToRope) < 0)
+                {
+                    playerRigidbody.linearVelocity = Vector3.zero;
+                }
+                else
+                {
+                    GameManager.Instance.player.isMove = true;
+                }
             }
             else
             {
                 GameManager.Instance.player.isMove = true;
             }
-        }
-        else
-        {
-            GameManager.Instance.player.isMove = true;
         }
     }
 }

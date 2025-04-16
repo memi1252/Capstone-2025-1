@@ -2225,6 +2225,7 @@ GameObject:
   - component: {fileID: 70662547}
   - component: {fileID: 70662550}
   - component: {fileID: 70662549}
+  - component: {fileID: 70662551}
   m_Layer: 0
   m_Name: GravityOfsset
   m_TagString: Untagged
@@ -2508,6 +2509,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.190991, y: 2.4256268, z: 8.435374}
   m_Center: {x: 0.03665328, y: 0.42366415, z: 37.021683}
+--- !u!65 &70662551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70662537}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 25.149527, y: 3.8209817, z: 4.716441}
+  m_Center: {x: 16.473263, y: 1.4104899, z: 21.481522}
 --- !u!1001 &73779315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42878,11 +42900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97cbfa6c9745334ab8ecbc3b553ec4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCamera: {fileID: 0}
-  renderTexture: {fileID: 0}
-  distortionMaterial: {fileID: 2100000, guid: 4793114eb0c56b841a26d4a63c69eb1e, type: 2}
-  displayImage: {fileID: 0}
-  targetCanvas: {fileID: 0}
 --- !u!114 &1179164891
 MonoBehaviour:
   m_ObjectHideFlags: 0
