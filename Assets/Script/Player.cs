@@ -3,12 +3,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float fastMoveSpeed = 10f;
-    [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5;
     [SerializeField] private float jumpDistance = 1.1f;
-    [SerializeField] private float thrustPower = 5f;  // 이동 속도 (추진력)
+    [SerializeField] public float thrustPower = 5f;  // 이동 속도 (추진력)
     [SerializeField] private float rotationSpeed = 2f; // 회전 속도
     [SerializeField] private float rollSpeed = 50f; // Q, E 키로 회전하는 속도
     [SerializeField] private float boostMultiplier = 2f; // 부스터 속도 배율
