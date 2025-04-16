@@ -49,7 +49,7 @@ public class PlayerRay : MonoBehaviour
                     if (itemIndex < prefabSlot.Count)
                     {
                         GameObject spawnedItem = Instantiate(prefabSlot[itemIndex], temSlot[i].transform);
-                        spawnedItem.AddComponent<DraggableItem>(); // 드래그 가능 컴포넌트 추가
+                        /*spawnedItem.AddComponent<DraggableItem>(); // 드래그 가능 컴포넌트 추가*/
                         Debug.Log($"{itemIndex}번째 아이템 추가 완료: {spawnedItem.name}");
                         itemIndex++;
                         slotFound = true;
