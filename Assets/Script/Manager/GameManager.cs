@@ -11,6 +11,11 @@ public class GameManager : MonoSingleton<GameManager>
     public bool ismove = true;
     public bool isCamera;
 
+    private void Start()
+    {
+        MouseCursor(false);
+    }
+
     private void Update()
     {
         //임시
@@ -18,6 +23,20 @@ public class GameManager : MonoSingleton<GameManager>
         {
             //미니게임 전선연결 오픈
             UIManager.Instance.wireManager.Show();
+        }
+    }
+    
+    public void MouseCursor(bool isShow)
+    {
+        if (isShow)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }
