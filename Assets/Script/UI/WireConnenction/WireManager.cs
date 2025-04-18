@@ -48,10 +48,12 @@ public class WireManager : UIBase
         base.Show();
         GameManager.Instance.ismove = false;
         GameManager.Instance.isCamera = false;
+        GameManager.Instance.MouseCursor(true);
     }
 
     public override void Hide()
     {
+        GameManager.Instance.MouseCursor(false);
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         ResetWires();
