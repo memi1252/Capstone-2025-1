@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject Rope;
     [SerializeField] public bool isMove = true;
     private bool isjump = false;
+    public List<string> haveKeycode = new List<string>();
 
     
     

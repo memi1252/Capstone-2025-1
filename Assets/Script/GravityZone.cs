@@ -47,7 +47,7 @@ public class GravityZone : MonoBehaviour
                 GameManager.Instance.player.thrustPower -= thrustPowerAddORSub;
                 if (isRotate)
                 {
-                    GameManager.Instance.player.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
+                    GameManager.Instance.player.transform.GetChild(0).rotation = GameManager.Instance.player.transform.rotation;
                     _rigidbody.freezeRotation = true;
                 }
             }

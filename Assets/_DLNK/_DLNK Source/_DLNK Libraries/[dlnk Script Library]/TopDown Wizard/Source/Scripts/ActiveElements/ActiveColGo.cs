@@ -10,6 +10,11 @@ public class ActiveColGo : MonoBehaviour
     public bool actived;
     [HideInInspector]
     public bool hasexit;
+    [Header("key")]
+    public bool keyActive;
+
+    private bool isOpen;
+    public string keycode;
 
     private void Start()
     {
@@ -21,16 +26,39 @@ public class ActiveColGo : MonoBehaviour
         //Check character in range and keycode pressed or automatic to start action
         if (trig.GetComponent<Collider>() == tdscene.PlayerChar)
         {
-            hasexit = false;
-            actived = true;
+            if (keyActive)
+            {
+                foreach (var key in tdscene.PlayerChar.GetComponent<Player>().haveKeycode)
+                {
+                    if (key == keycode)
+                    {
+                        hasexit = false;
+                        actived = true;
+                        isOpen = true;
+                        UIManager.Instance.tooltipUI.Hide();
+                        break;
+                    }
+                }
+                UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
+                UIManager.Instance.tooltipUI.Show();
+            }
+            else
+            {
+                hasexit = false;
+                actived = true;
+            }
         }
     }
     void OnTriggerExit(Collider trig)
     {
         if (trig.GetComponent<Collider>() == tdscene.PlayerChar)
         {
-            actived = false;
-            hasexit = true;
+            if (!isOpen)
+            {
+                actived = false;
+                hasexit = true;
+            }
+            UIManager.Instance.tooltipUI.Hide();
         }
 
     }
