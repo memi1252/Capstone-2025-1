@@ -1,0 +1,4 @@
+repository "Capstone@Cicada0125@cloud"
+  path "/"
+    br "/main"
+    co "/main"
