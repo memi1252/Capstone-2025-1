@@ -5,13 +5,15 @@ public class GravityZone : MonoBehaviour
 {
     [SerializeField] private float movespeedAddORSub;
     [SerializeField] private float thrustPowerAddORSub;
+    [SerializeField] private bool isRotate;
     
     private int playerInsideCount = 0;
     private Collider _collider;
+    private Rigidbody _rigidbody;
 
-    private void Awake()
+    private void Start()
     {
-        
+        _rigidbody = GameManager.Instance.player.GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +27,10 @@ public class GravityZone : MonoBehaviour
                 GameManager.Instance.isSpace = false;
                 GameManager.Instance.player.moveSpeed += movespeedAddORSub;
                 GameManager.Instance.player.thrustPower += thrustPowerAddORSub;
+                if (isRotate)
+                {
+                    _rigidbody.freezeRotation = false;
+                }
             }
         }
     }
@@ -39,6 +45,11 @@ public class GravityZone : MonoBehaviour
                 GameManager.Instance.isSpace = true;
                 GameManager.Instance.player.moveSpeed -= movespeedAddORSub;
                 GameManager.Instance.player.thrustPower -= thrustPowerAddORSub;
+                if (isRotate)
+                {
+                    GameManager.Instance.player.transform.GetChild(0).rotation = GameManager.Instance.player.transform.rotation;
+                    _rigidbody.freezeRotation = true;
+                }
             }
         }
     }
