@@ -24,6 +24,11 @@ public class GameManager : MonoSingleton<GameManager>
             //미니게임 전선연결 오픈
             UIManager.Instance.wireManager.Show();
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            //미니게임 전선연결 종료
+            UIManager.Instance.RotaionGame.Show();
+        }
     }
     
     public void MouseCursor(bool isShow)
