@@ -1,7 +1,25 @@
+using System;
 using UnityEngine;
 
 public class RotaionGame : MonoBehaviour
 {
+    [SerializeField] private ScrewPoint[] screwPoints;
+
+    private void Update()
+    {
+        for (int i = 0; i <  screwPoints.Length; i++)
+        {
+            if (!screwPoints[i].Seccess)
+            {
+                break;
+            }
+            if (i ==  screwPoints.Length - 1)
+            {
+                Hide();
+            }
+        }
+    }
+
     public void Show()
     {
         gameObject.SetActive(true);
@@ -9,7 +27,7 @@ public class RotaionGame : MonoBehaviour
         GameManager.Instance.ismove = false;
         GameManager.Instance.isCamera = false;
         RenderSettings.ambientIntensity = 5;
-        GameManager.Instance.MouseCursor(false);
+        GameManager.Instance.MouseCursor(true);
     }
 
     public void Hide()
@@ -17,7 +35,7 @@ public class RotaionGame : MonoBehaviour
         RenderSettings.ambientIntensity = 0;
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
-        GameManager.Instance.MouseCursor(true);
+        GameManager.Instance.MouseCursor(false);
         gameObject.SetActive(false);
     }
 }
