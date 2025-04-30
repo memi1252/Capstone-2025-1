@@ -49,10 +49,13 @@ public class ObjectRotation : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
-        isMouseOver = true; 
+        isMouseOver = true;
     }
-    
-    
+
+    private void OnMouseExit()
+    {
+        isMouseOver = false;
+    }
 }

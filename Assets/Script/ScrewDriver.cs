@@ -15,7 +15,7 @@ public class ScrewDriver : MonoBehaviour
 
     void Update()
     {
-        if (isDragging && Input.GetMouseButton(0) && !isuse)
+        if (isMouseOver && Input.GetMouseButton(0) && !isuse)
         {
            animator.SetTrigger("use");
            transform.parent.GetComponent<ScrewPoint>().count++;
@@ -37,8 +37,16 @@ public class ScrewDriver : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         isMouseOver = true;
     }
+
+    private void OnMouseExit()
+    {
+        isMouseOver = false;
+        
+    }
+    
+    
 }

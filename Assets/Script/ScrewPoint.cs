@@ -35,8 +35,15 @@ public class ScrewPoint : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         isMouseOver = true;
     }
+
+    private void OnMouseExit()
+    {
+        isMouseOver = false;
+    }
+    
+    
 }
