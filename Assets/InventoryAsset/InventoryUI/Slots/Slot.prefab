@@ -193,8 +193,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4684738407456627645, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 700cfde8f32f79e40974b9ea3654d00f, type: 2}
+    - target: {fileID: 4684738407456627645, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
       propertyPath: checkPaddingRequired
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684738407456627645, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684738407456627645, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
