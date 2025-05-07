@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using InventorySystem;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour
             HandleMovement();
             HandleRotation();
             HandleRoll();
-            ItemPickUp();
+            PickUpItem();
         }
     }
     
@@ -91,25 +93,19 @@ public class Player : MonoBehaviour
             transform.Rotate(Vector3.back * rollSpeed * Time.deltaTime, Space.Self);
         }
     }
-    
-    void ItemPickUp()
+
+    void PickUpItem()
     {
-        // 아이템 획득
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Transform cameraTransform = Camera.main.transform;
-            Debug.DrawRay(cameraTransform.position, cameraTransform.forward * ItemPickUpDistance, Color.red);
-            bool isPickUp = Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit hit,
-                ItemPickUpDistance);
-            if (isPickUp)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance))
             {
                 if (hit.collider.CompareTag("Item"))
                 {
-                    Item item = hit.transform.GetComponent<Item>();
-                    Debug.Log("아이템 이름 : " + item.ItemName + " 아이템 무게 : " + item.ItemWeight + " 아이템 갯수 : " + item.ItemCount + " 아이템 아이디 : " + item.ItemId);
-                    // 아이템 획득
-                    Debug.Log("아이템 획득");
-                    Destroy(hit.collider.gameObject);
+                    // 아이템 획득 로직
+                    hit.transform.GetComponent<item>().Pickup(hit.collider.gameObject);
+                    
                 }
             }
         }
