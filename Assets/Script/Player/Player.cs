@@ -105,7 +105,6 @@ public class Player : MonoBehaviour
                 {
                     // 아이템 획득 로직
                     hit.transform.GetComponent<item>().Pickup(hit.collider.gameObject);
-                    
                 }
             }
         }
