@@ -28,6 +28,8 @@ public class GameManager : MonoSingleton<GameManager>
         {
             UIManager.Instance.RotaionGame.Show();
         }
+
+        InventoryOpen();
     }
     
     public void MouseCursor(bool isShow)
@@ -41,6 +43,27 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+    }
+    
+    private void InventoryOpen()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (UIManager.Instance.InvneoryUI.activeSelf)
+            {
+                isCamera = true;
+                ismove = true;
+                MouseCursor(false);
+                UIManager.Instance.InvneoryUI.SetActive(false);
+            }
+            else
+            {
+                UIManager.Instance.InvneoryUI.SetActive(true);
+                ismove = false;
+                isCamera = false;
+                MouseCursor(true);
+            }
         }
     }
 }
