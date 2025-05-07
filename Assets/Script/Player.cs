@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
         float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-        transform.Rotate(Vector3.up * mouseX, Space.World);
+        transform.Rotate(Vector3.up * mouseX, Space.Self);
         transform.Rotate(Vector3.left * mouseY, Space.Self);
     }
     
