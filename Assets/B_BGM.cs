@@ -1,20 +1,19 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class B_BGM : MonoBehaviour
 {
-    [SerializeField] private AudioSource Background;
-    /*private AudioSource BackgoundSound;*/
-    void Start()
-    {
-        /*AudioSource BackgoundSound = Background.GetComponent<AudioSource>();*/
-    }
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private Slider volumeSlider;
 
-    void Update()
+    public void AudioControl()
     {
+        float sound = volumeSlider.value;
         
+        if(sound <= -40f) audioMixer.SetFloat("Bgound", -80);
+        else audioMixer.SetFloat("Bgound", sound);
     }
-
-    public void B_BGM_Sound()
-    {
-    }
+    
 }
+    
