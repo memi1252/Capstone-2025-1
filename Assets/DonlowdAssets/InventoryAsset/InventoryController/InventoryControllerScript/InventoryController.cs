@@ -766,5 +766,7 @@ namespace InventorySystem
         {
             InventorySaveSystem.SaveInventory(inventoryManager, SceneManager.GetActiveScene().name);
         }
+        
+        
     }
 }

@@ -966,6 +966,5 @@ namespace InventorySystem
             Space,
             Tab,
         }
-
     }
 }

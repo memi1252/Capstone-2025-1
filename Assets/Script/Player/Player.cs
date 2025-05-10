@@ -96,17 +96,22 @@ public class Player : MonoBehaviour
 
     void PickUpItem()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance))
+            if (hit.collider.CompareTag("Item"))
             {
-                if (hit.collider.CompareTag("Item"))
+                item item = hit.transform.GetComponent<item>();
+                if (Input.GetKeyDown(KeyCode.F))
                 {
-                    // 아이템 획득 로직
-                    hit.transform.GetComponent<item>().Pickup(hit.collider.gameObject);
+                    item.Pickup(hit.collider.gameObject);
                 }
+                UIManager.Instance.tooltipUI.SetText(item.itemName);
             }
+            
+        }else
+        {
+            UIManager.Instance.tooltipUI.Hide();
         }
     }
 }
