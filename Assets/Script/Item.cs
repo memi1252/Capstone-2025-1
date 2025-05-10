@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class item : MonoBehaviour
 {
-    [SerializeField] private string itemName;
+    [SerializeField] public string itemName;
     [SerializeField] private int itemCount;
     public void Pickup(GameObject item)
     {
