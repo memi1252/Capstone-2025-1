@@ -316,7 +316,7 @@ Material:
     - _HalftoneTiling: 4
     - _HologramContrast: 1
     - _HologramDistortionDensity: 0.5
-    - _HologramDistortionOffset: 0.08
+    - _HologramDistortionOffset: 0.04
     - _HologramDistortionScale: 10
     - _HologramDistortionSpeed: 2
     - _HologramFade: 1
