@@ -38997,15 +38997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb55be146b240ab4099cee62a00d0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 2
-  temSlot:
-  - {fileID: 1862451915}
-  - {fileID: 1205229584}
-  - {fileID: 1579071288}
-  - {fileID: 784122445}
-  prefabSlot:
-  - {fileID: 1162732028396985990, guid: 271ed3a76049a27468f6b59a8de79a2f, type: 3}
-  - {fileID: 3170677703255694265, guid: 8950081a52461204899242732a5e040a, type: 3}
 --- !u!1001 &1062978216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48974,6 +48965,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BBASSS_cpastone
       objectReference: {fileID: 0}
+    - target: {fileID: 6745302439343835087, guid: 074797cee9fc1bd4c892365b3e78eaa0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 820f2e425d5de3d41a22b7c6e6139f32, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
