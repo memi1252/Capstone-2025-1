@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-946848666390280102
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BBASS_shader
+  m_Name: bbassmainSHADER
   m_Shader: {fileID: -6465566751694194690, guid: f27b84109d424e042ac778693e04f436, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -34,8 +21,8 @@ Material:
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
-  - MOTIONVECTORS
   - DepthOnly
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -45,26 +32,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ScanLineTexture:
-        m_Texture: {fileID: 2800000, guid: 473d67f54ce86624eb8dd1c82bcc1983, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_0ca313a43688421bac6ea16e5523361e_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 473d67f54ce86624eb8dd1c82bcc1983, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_2f38c0dae5e04d40a5ac6b0685cf7bf4_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 7b6840dc6fc53f7448dc0f5fab843ad5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_4948bc2742ee41f0ac7986d7c3e414cf_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 7b6840dc6fc53f7448dc0f5fab843ad5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_b0463f4791d8493897383b3f6eac5b94_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 5fdf12a36ba5d67488ef58e8e7bc1397, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_cac70b9c9fad495e832b41664e4d29a5_Out_0_Texture2D:
         m_Texture: {fileID: 2800000, guid: 473d67f54ce86624eb8dd1c82bcc1983, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -92,7 +59,7 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _FresnelPower: 3.76
+    - _FresnelPower: 4.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5
@@ -102,8 +69,21 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _FresnelColor: {r: 3.168045, g: 39.880096, b: 44.775043, a: 1}
-    - _ScanLineTilling: {r: 0, g: 20, b: 0, a: 0}
+    - _FresnelColor: {r: 7.9571834, g: 51.11887, b: 49.074368, a: 0}
+    - _ScanLineTilling: {r: 1, g: 20, b: 0, a: 0}
     - _ScanfLineSpeed: {r: 0, g: 0.7, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &6722619726537334652
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
