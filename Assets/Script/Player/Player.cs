@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 5;
     [SerializeField] private float jumpDistance = 1.1f;
     [SerializeField] public float thrustPower = 5f;  // 이동 속도 (추진력)
-    [SerializeField] private float rotationSpeed = 2f; // 회전 속도
+    [SerializeField] public float rotationSpeed = 2f; // 회전 속도
     [SerializeField] private float rollSpeed = 50f; // Q, E 키로 회전하는 속도
     [SerializeField] private float boostMultiplier = 2f; // 부스터 속도 배율
     [SerializeField] private float ItemPickUpDistance; // 아이템 획득 거리
