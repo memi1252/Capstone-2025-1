@@ -42,10 +42,11 @@ public class Player : MonoBehaviour
                 Rope.transform.position = transform.position;
             
             HandleMovement();
-            HandleRotation();
-            HandleRoll();
-            PickUpItem();
+            //HandleRotation();
+            //HandleRoll();
+            
         }
+        PickUpItem();
     }
     
     
@@ -97,14 +98,20 @@ public class Player : MonoBehaviour
     void PickUpItem()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance))
+        Vector3 origin = Camera.main.transform.position;
+        Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * ItemPickUpDistance, Color.red);
+        if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance))
         {
             if (hit.collider.CompareTag("Item"))
             {
                 item item = hit.transform.GetComponent<item>();
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.F) && !item.isFrontItem)
                 {
-                    item.Pickup(hit.collider.gameObject);
+                    item.frontitem(hit.collider.gameObject);
+                }
+                if (Input.GetKeyDown(KeyCode.F) && item.isRotateItem)
+                {
+                    item.Pickup();
                 }
                 UIManager.Instance.tooltipUI.SetText(item.itemName);
             }

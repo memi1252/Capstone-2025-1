@@ -9,6 +9,8 @@ public class ObjectRotation : MonoBehaviour
     private bool isMouseOver = false;
     private bool isDragging = false;
     private bool success = false;
+
+    public bool ss;
     
     
     
@@ -37,8 +39,15 @@ public class ObjectRotation : MonoBehaviour
         float rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
         float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
         
-        transform.Rotate(Vector3.down, rotationX, Space.World); 
-        transform.Rotate(Vector3.right, rotationY, Space.World); 
+        transform.Rotate(Vector3.down, rotationX, Space.World);
+        if (ss)
+        {
+            transform.Rotate(Vector3.right, rotationY, Space.World); 
+        }
+        else
+        {
+            transform.Rotate(Vector3.left, rotationY, Space.World); 
+        }
     }
 
     private void OnMouseDown()
@@ -52,6 +61,7 @@ public class ObjectRotation : MonoBehaviour
     private void OnMouseOver()
     {
         isMouseOver = true;
+        Debug.Log(isMouseOver);
     }
 
     private void OnMouseExit()
