@@ -228,7 +228,6 @@ public class ProductionSystem : MonoBehaviour
     private void DestroyResultItem()
     {
         itemCrafted = false;
-        Debug.Log("삭제됨");
         if (makeItem.name != null)
         {
             makeItem.isCreate = false;
