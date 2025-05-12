@@ -1701,6 +1701,7 @@ MonoBehaviour:
   isSpace: 1
   ismove: 1
   isCamera: 1
+  isItemPickUp: 0
 --- !u!1001 &60924773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28434,6 +28435,13 @@ MonoBehaviour:
   tooltipUI: {fileID: 399388885}
   RotaionGame: {fileID: 0}
   InvneoryUI: {fileID: 0}
+  QuitSlotUI: {fileID: 0}
+  ProductSlotUI: {fileID: 0}
+  ProductUI: {fileID: 0}
+  StastUI: {fileID: 0}
+  MinMapUI: {fileID: 0}
+  QuestUI: {fileID: 0}
+  itemDescriptionUI: {fileID: 0}
 --- !u!4 &792436014
 Transform:
   m_ObjectHideFlags: 0
@@ -33867,7 +33875,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
+  itemDescription: 
   itemCount: 0
+  itemMoveSpeed: 1
+  mouseSensitivity: 100
+  isFrontItem: 0
+  isMoveItem: 0
+  isBackItem: 0
+  isRotateItem: 0
 --- !u!114 &893634350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77303,6 +77318,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6049f16224f34a14eac4b7d0f7438e0d, type: 2}
+    - target: {fileID: 8863655607920229898, guid: 734c8737fe9a86145b552be9ea1e697e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 80c2d96e23ead07499b4bc3b20308cec, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
