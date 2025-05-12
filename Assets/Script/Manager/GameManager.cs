@@ -10,6 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isSpace = true;
     public bool ismove = true;
     public bool isCamera;
+    public bool isItemPickUp = false;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class GameManager : MonoSingleton<GameManager>
     
     private void InventoryOpen()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !isItemPickUp)
         {
             if (UIManager.Instance.InvneoryUI.activeSelf)
             {

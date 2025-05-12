@@ -61,7 +61,6 @@ public class ObjectRotation : MonoBehaviour
     private void OnMouseOver()
     {
         isMouseOver = true;
-        Debug.Log(isMouseOver);
     }
 
     private void OnMouseExit()

@@ -2352,6 +2352,7 @@ MonoBehaviour:
   isSpace: 1
   ismove: 1
   isCamera: 1
+  isItemPickUp: 0
 --- !u!1001 &59781108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87499,7 +87500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1858152299215483727, guid: 0f239c05cb7780046847a16a7de8032a, type: 3}
       propertyPath: itemCount
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1858152299215483727, guid: 0f239c05cb7780046847a16a7de8032a, type: 3}
       propertyPath: itemMoveSpeed

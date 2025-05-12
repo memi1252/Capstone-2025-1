@@ -35,6 +35,7 @@ public class item : MonoBehaviour
         UIManager.Instance.MinMapUI.SetActive(false);
         UIManager.Instance.StastUI.SetActive(false);
         isMoveItem = true;
+        GameManager.Instance.isItemPickUp = true;
     }
 
     private void Update()
@@ -97,6 +98,7 @@ public class item : MonoBehaviour
         GameManager.Instance.MouseCursor(false);
         GameManager.Instance.player.transform.GetChild(2).gameObject.SetActive(false);
         Camera.main.transform.GetComponent<Volume>().enabled = true;
+        GameManager.Instance.isItemPickUp= false;
         UIManager.Instance.itemDescriptionUI.Hide();
     }
     
@@ -105,32 +107,14 @@ public class item : MonoBehaviour
         if (!InventoryController.instance.InventoryFull("Quitslot", itemName))
         {
             InventoryController.instance.AddItem("Quitslot", itemName, itemCount);
-            GameManager.Instance.MouseCursor(false);
-            GameManager.Instance.ismove = true;
-            GameManager.Instance.isCamera = true;
-            UIManager.Instance.QuitSlotUI.SetActive(true);
-            UIManager.Instance.MinMapUI.SetActive(true);
-            UIManager.Instance.StastUI.SetActive(true);
-            Camera.main.transform.GetComponent<Volume>().enabled = true;
-            GameManager.Instance.player.transform.GetChild(2).gameObject.SetActive(false);
-            UIManager.Instance.itemDescriptionUI.Hide();
-            Destroy(Item);
+            ItemAddInventory();
         }
         else
         {
             if (!InventoryController.instance.InventoryFull("MainSlot",itemName))
             {
                 InventoryController.instance.AddItem("MainSlot", itemName, itemCount);
-                GameManager.Instance.MouseCursor(false);
-                GameManager.Instance.ismove = true;
-                GameManager.Instance.isCamera = true;
-                UIManager.Instance.QuitSlotUI.SetActive(true);
-                UIManager.Instance.MinMapUI.SetActive(true);
-                UIManager.Instance.StastUI.SetActive(true);
-                Camera.main.transform.GetComponent<Volume>().enabled = true;
-                GameManager.Instance.player.transform.GetChild(2).gameObject.SetActive(false);
-                UIManager.Instance.itemDescriptionUI.Hide();
-                Destroy(Item);
+                ItemAddInventory();
                 
             }
             else
@@ -141,5 +125,20 @@ public class item : MonoBehaviour
 
         }
         
+    }
+    
+    private void ItemAddInventory()
+    {
+        GameManager.Instance.MouseCursor(false);
+        GameManager.Instance.ismove = true;
+        GameManager.Instance.isCamera = true;
+        UIManager.Instance.QuitSlotUI.SetActive(true);
+        UIManager.Instance.MinMapUI.SetActive(true);
+        UIManager.Instance.StastUI.SetActive(true);
+        Camera.main.transform.GetComponent<Volume>().enabled = true;
+        GameManager.Instance.player.transform.GetChild(2).gameObject.SetActive(false);
+        UIManager.Instance.itemDescriptionUI.Hide();
+        GameManager.Instance.isItemPickUp= false;
+        Destroy(Item);
     }
 }
