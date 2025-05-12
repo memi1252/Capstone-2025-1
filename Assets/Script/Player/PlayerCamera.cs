@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
@@ -22,8 +23,29 @@ public class PlayerCamera : MonoBehaviour
             
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-            transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-            playerBody.localRotation = Quaternion.Euler(0, mouseX, 0);
+            playerBody.transform.Rotate(Vector3.up * mouseX, Space.Self);
+            
+            Vector3 bodyRotation = playerBody.eulerAngles;
+            playerBody.rotation = Quaternion.Euler(bodyRotation.x, bodyRotation.y, 0f);
+
+            if (Input.GetKeyUp(KeyCode.LeftAlt))
+            {
+                transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftAlt))
+            {
+                xRotation = 0;
+            }
+            
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            }
+            else
+            {
+                playerBody.transform.Rotate(Vector3.left * mouseY, Space.Self);
+            }
         }
     }
     
