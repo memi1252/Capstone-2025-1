@@ -14104,7 +14104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 5
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: f8ef3e49c1ae2a04fa5f11fce44b1d5d, type: 2}
@@ -51817,7 +51817,7 @@ MonoBehaviour:
     itemIndex: 0600000008000000
     requiredItems:
     - Item
-    - Item2
+    - Item
     resultItem: Item
     resultAmount: 1
     isCreate: 0
@@ -72799,7 +72799,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39607844}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
