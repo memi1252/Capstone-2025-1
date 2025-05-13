@@ -8,5 +8,6 @@ public class NextScene : MonoBehaviour
     public void ClickButton()
     {
         SceneManager.LoadScene(SceneNumber);
+        GameManager.Instance.isCamera = true;
     }
 }
