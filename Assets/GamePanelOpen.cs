@@ -27,12 +27,10 @@ public class GamePanelOpen : MonoBehaviour
 
         if (gamePanel.activeSelf == false)
         {
-            Player.GetComponent<Player>().rotationSpeed = 2f;
             MouseCursor(false);
         }
         else if (gamePanel.activeSelf)
         {
-            Player.GetComponent<Player>().rotationSpeed = 0f;
             MouseCursor(true);
         }
     }
