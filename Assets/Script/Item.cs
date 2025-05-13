@@ -27,6 +27,7 @@ public class item : MonoBehaviour
         origiPos = transform.position;
         origiRot = transform.rotation;
         isFrontItem = true;
+        Item.transform.GetComponent<Collider>().isTrigger = true;
         GameManager.Instance.ismove = false;
         GameManager.Instance.isCamera = false;
         GameManager.Instance.MouseCursor(true);
@@ -76,6 +77,9 @@ public class item : MonoBehaviour
                 UIManager.Instance.QuitSlotUI.SetActive(true);
                 UIManager.Instance.MinMapUI.SetActive(true);
                 UIManager.Instance.StastUI.SetActive(true);
+                Item.transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                Item.transform.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+                Item.transform.GetComponent<Collider>().isTrigger = false;
             }
         }
         
@@ -100,6 +104,7 @@ public class item : MonoBehaviour
         Camera.main.transform.GetComponent<Volume>().enabled = true;
         GameManager.Instance.isItemPickUp= false;
         UIManager.Instance.itemDescriptionUI.Hide();
+        
     }
     
     public void Pickup()
