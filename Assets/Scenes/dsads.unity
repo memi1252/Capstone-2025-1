@@ -2349,11 +2349,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1062366501}
   playerCamera: {fileID: 330585548}
-  nextSceneName: PpTTestScene
+  WireConnectionScene: WireConnectionScene
   isSpace: 1
   ismove: 1
   isCamera: 1
   isItemPickUp: 0
+  miniGameScene: 1
 --- !u!1001 &59781108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31330,7 +31331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8999959c56705b847909bcc01b518605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 1195698834}
   tooltipUI: {fileID: 399388885}
   RotaionGame: {fileID: 83893043}
   InvneoryUI: {fileID: 222290573}
@@ -45888,11 +45888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad87f068ab719db41bf94215bb1975a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wires:
-  - {fileID: 1845483255}
-  - {fileID: 1390630339}
-  isDragging: 0
-  clear: 0
 --- !u!1001 &1202744329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51658,10 +51653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cf89449223a9848a0dd433c4214497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 2030823281}
-  endPoint: {fileID: 1135157799}
-  targetPoint: {fileID: 1357961348}
-  wireImage: {fileID: 192157422}
 --- !u!224 &1390630340
 RectTransform:
   m_ObjectHideFlags: 0
@@ -76373,10 +76364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cf89449223a9848a0dd433c4214497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 422958852}
-  endPoint: {fileID: 1703251568}
-  targetPoint: {fileID: 2069164796}
-  wireImage: {fileID: 337646024}
 --- !u!1001 &1848347892
 PrefabInstance:
   m_ObjectHideFlags: 0

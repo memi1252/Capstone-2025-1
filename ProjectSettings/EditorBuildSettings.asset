@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/dsads.unity
     guid: 34de8018ad789084dacd8b4cbd923a56
   - enabled: 1
-    path: Assets/Scenes/PpTTestScene.unity
-    guid: fadf19090c113aa439f0567dce005e8e
+    path: Assets/Scenes/WireConnectionScene.unity
+    guid: e46cc59f88cec1e4d951a21062bcc30f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5a157b05d8bb44d43b122c6cab265aae, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

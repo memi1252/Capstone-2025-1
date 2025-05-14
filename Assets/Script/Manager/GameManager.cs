@@ -8,13 +8,13 @@ public class GameManager : MonoSingleton<GameManager>
     [Header("Player")]   
     [SerializeField] public Player player;
     [SerializeField] public PlayerCamera playerCamera;
-    public string nextSceneName;
+    public string WireConnectionScene;
 
     public bool isSpace = true;
     public bool ismove = true;
     public bool isCamera;
     public bool isItemPickUp = false;
-    private bool ss = true;
+    public bool miniGameScene = true;
 
     private void Start()
     {
@@ -24,29 +24,26 @@ public class GameManager : MonoSingleton<GameManager>
     private void Update()
     {
         //임시
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            //미니게임 전선연결 오픈
-            UIManager.Instance.wireManager.Show();
-        }
         if (Input.GetKeyDown(KeyCode.H))
         {
             UIManager.Instance.RotaionGame.Show();
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))  //미니게임 전선연결 오픈
         {
-            if (ss)
+            if (miniGameScene)
             {
-                SceneManager.LoadScene(nextSceneName, LoadSceneMode.Additive);
-                ss = false;
+                SceneManager.LoadScene(WireConnectionScene, LoadSceneMode.Additive);
+                ismove = false;
+                isCamera = false;
+                MouseCursor(true);
+                UIManager.Instance.StastUI.SetActive(false);
+                UIManager.Instance.MinMapUI.SetActive(false);
+                UIManager.Instance.QuitSlotUI.SetActive(false);
+                UIManager.Instance.QuestUI.SetActive(false);
+                playerCamera.gameObject.SetActive(false);
+                miniGameScene = false;
             }
-            else
-            {
-                SceneManager.UnloadSceneAsync(nextSceneName);
-                ss = true;
-            }
-            
         }
 
         InventoryOpen();
