@@ -16,13 +16,12 @@ public class GamePanelOpen : MonoBehaviour
         {
             if (gamePanel.activeSelf == false)
             {
+                MouseCursor(true);
                 gamePanel.SetActive(true);
-                MouseCursor(false);
-                
             }
             else
             {
-                MouseCursor(true);
+                MouseCursor(false);
                 gamePanel.SetActive(false);
             }
         }
