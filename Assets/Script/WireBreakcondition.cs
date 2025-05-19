@@ -6,24 +6,37 @@ using UnityEngine.SceneManagement;
 public class WireBreakcondition : MonoBehaviour
 {
     [SerializeField] private Wire[] wires;
-    [SerializeField] private Wire breakWire;
+    [SerializeField] private Wire[] breakWire;
+    [SerializeField] private int cutCount;
 
     private bool Success = false;
     private bool Fail = false;
     
+
     private void Update()
     {
-        if(breakWire.isCut)
+        foreach (var wire in breakWire)
         {
-            if (!Success)
+            if(wire.isCut)
             {
-                Success = true;
-                breakWire.gameObject.SetActive(false);
-                StartCoroutine(RetrunScene());
-                WireManager.instance.Success();
+                wire.gameObject.SetActive(false);
+
+                if (!wire.isCount)
+                {
+                    wire.isCount = true;
+                    cutCount++;
+                }
             }
-            
         }
+        
+        
+        if(cutCount == breakWire.Length)
+        {
+            Success = true;
+            WireManager.instance.Success();
+            StartCoroutine(RetrunScene());
+        }
+        
 
         if (!Fail)
         {

@@ -1,9 +1,13 @@
+using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WireManager : MonoBehaviour
 {
     public static WireManager instance;
+    [SerializeField] private GameObject[] wirecontainer;
     
     private void Awake()
     {
@@ -16,7 +20,12 @@ public class WireManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    private void Start()
+    {
+        wirecontainer[Random.Range(0, wirecontainer.Length)].SetActive(true);
+    }
+
     public TextMeshProUGUI statusText;
     
     public void Success()
