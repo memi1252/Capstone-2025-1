@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/dsads.unity
+    path: Assets/Scenes/KDY_Scene.unity
     guid: 34de8018ad789084dacd8b4cbd923a56
   - enabled: 1
     path: Assets/Scenes/WireConnectionScene.unity
