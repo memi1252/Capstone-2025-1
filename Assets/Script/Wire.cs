@@ -3,6 +3,7 @@ using UnityEngine;
 public class Wire : MonoBehaviour
 {
     public bool isCut = false;
+    public bool isCount;
     
     private void OnTriggerStay(Collider collision)
     {
