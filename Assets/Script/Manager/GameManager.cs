@@ -9,6 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] public Player player;
     [SerializeField] public PlayerCamera playerCamera;
     public string WireConnectionScene;
+    public Material outlineMaterial;
 
     public bool isSpace = true;
     public bool ismove = true;

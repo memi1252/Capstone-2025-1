@@ -95,6 +95,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    private item lookAtItem;
     void PickUpItem()
     {
         RaycastHit hit;
@@ -105,6 +106,12 @@ public class Player : MonoBehaviour
             if (hit.collider.CompareTag("Item"))
             {
                 item item = hit.transform.GetComponent<item>();
+                lookAtItem = item;
+                if (!item.outline)
+                {
+                    item.outline = true;
+                    item.GetComponent<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.01f);
+                }
                 if (Input.GetKeyDown(KeyCode.F) && !item.isFrontItem)
                 {
                     item.frontitem(hit.collider.gameObject);
@@ -115,9 +122,24 @@ public class Player : MonoBehaviour
                 }
                 UIManager.Instance.tooltipUI.SetText(item.itemName);
             }
+            else
+            {
+                if (lookAtItem != null)
+                {
+                    lookAtItem.outline = false;
+                    lookAtItem.GetComponent<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
+                }
+                lookAtItem = null;
+            }
             
         }else
         {
+            if (lookAtItem != null)
+            {
+                lookAtItem.outline = false;
+                lookAtItem.GetComponent<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
+            }
+            lookAtItem = null;
             UIManager.Instance.tooltipUI.Hide();
         }
     }

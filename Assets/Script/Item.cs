@@ -3,6 +3,7 @@ using InventorySystem;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class item : MonoBehaviour
 {
@@ -19,7 +20,17 @@ public class item : MonoBehaviour
     public bool isMoveItem = false;
     public bool isBackItem = false;
     public bool isRotateItem = false;
+    public bool outline = false;
     private GameObject Item;
+    
+    private Volume volume;
+    private DepthOfField depthOfField;
+
+    private void Start()
+    {
+        volume = Camera.main.transform.GetComponent<Volume>();
+        volume.profile.TryGet(out depthOfField);
+    }
 
     public void frontitem(GameObject item)
     {
@@ -41,6 +52,11 @@ public class item : MonoBehaviour
 
     private void Update()
     {
+        if (outline)
+        {
+            //GetComponent<Renderer>().material.SetColor("_EmissionColor", 0.0f * Color.white);
+            //outline = false;
+        }
         if (isFrontItem)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -56,8 +72,9 @@ public class item : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, GameManager.Instance.player.transform.GetChild(1).position, itemMoveSpeed * Time.deltaTime);
             if (transform.position == GameManager.Instance.player.transform.GetChild(1).position)
             {
-                GameManager.Instance.player.transform.GetChild(2).gameObject.SetActive(true);
-                Camera.main.transform.GetComponent<Volume>().enabled = false;
+                GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                // Camera.main.transform.GetComponent<Volume>().enabled = false;
+                depthOfField.active = true;
                 UIManager.Instance.itemDescriptionUI.Show();
                 UIManager.Instance.itemDescriptionUI.SetItem(this);
                 isMoveItem = false;
@@ -100,8 +117,9 @@ public class item : MonoBehaviour
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         GameManager.Instance.MouseCursor(false);
-        GameManager.Instance.player.transform.GetChild(2).gameObject.SetActive(false);
-        Camera.main.transform.GetComponent<Volume>().enabled = true;
+        GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        // Camera.main.transform.GetComponent<Volume>().enabled = true;
+        depthOfField.active = false;
         GameManager.Instance.isItemPickUp= false;
         UIManager.Instance.itemDescriptionUI.Hide();
         
@@ -140,8 +158,8 @@ public class item : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         UIManager.Instance.MinMapUI.SetActive(true);
         UIManager.Instance.StastUI.SetActive(true);
-        Camera.main.transform.GetComponent<Volume>().enabled = true;
-        GameManager.Instance.player.transform.GetChild(2).gameObject.SetActive(false);
+        depthOfField.active = false;
+        GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         UIManager.Instance.itemDescriptionUI.Hide();
         GameManager.Instance.isItemPickUp= false;
         Destroy(Item);
