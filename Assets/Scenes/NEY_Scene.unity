@@ -2515,10 +2515,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 654197256}
   playerCamera: {fileID: 0}
+  WireConnectionScene: 
   isSpace: 1
   ismove: 1
   isCamera: 1
   isItemPickUp: 0
+  miniGameScene: 1
 --- !u!1001 &60924773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33129,7 +33131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8999959c56705b847909bcc01b518605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireManager: {fileID: 1195698834}
   tooltipUI: {fileID: 399388885}
   RotaionGame: {fileID: 83893043}
   InvneoryUI: {fileID: 1516173471}
