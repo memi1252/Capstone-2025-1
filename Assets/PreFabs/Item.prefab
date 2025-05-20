@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6784317372646689175}
-  - component: {fileID: 1450269002683645850}
+  - component: {fileID: 6275607506032864713}
   - component: {fileID: 3899883649975045729}
-  - component: {fileID: 8157521891320151139}
+  - component: {fileID: 5208228138023133200}
   - component: {fileID: 6633915087775516090}
   - component: {fileID: 1858152299215483727}
   - component: {fileID: 1144865491610545254}
@@ -37,14 +37,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1450269002683645850
+--- !u!33 &6275607506032864713
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5003002866334136487}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &3899883649975045729
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -69,6 +69,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 70043a6e1c10a1a49b72c41c1751f935, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,8 +91,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8157521891320151139
-BoxCollider:
+--- !u!135 &5208228138023133200
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,7 +110,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6633915087775516090
 Rigidbody:
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Item
+  itemDescription: 
   itemCount: 1
   itemMoveSpeed: 1
   mouseSensitivity: 100
@@ -158,6 +160,7 @@ MonoBehaviour:
   isMoveItem: 0
   isBackItem: 0
   isRotateItem: 0
+  outline: 0
 --- !u!114 &1144865491610545254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,3 +174,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  ss: 0

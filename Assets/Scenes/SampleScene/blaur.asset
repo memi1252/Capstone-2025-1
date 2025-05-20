@@ -56,52 +56,6 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 1
     m_Value: -10
---- !u!114 &-931077359204316006
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 0
-  mode:
-    m_OverrideState: 1
-    m_Value: 2
-  gaussianStart:
-    m_OverrideState: 1
-    m_Value: 259.42
-  gaussianEnd:
-    m_OverrideState: 1
-    m_Value: 305.74
-  gaussianMaxRadius:
-    m_OverrideState: 1
-    m_Value: 0.848
-  highQualitySampling:
-    m_OverrideState: 1
-    m_Value: 1
-  focusDistance:
-    m_OverrideState: 1
-    m_Value: 91.8
-  aperture:
-    m_OverrideState: 1
-    m_Value: 1
-  focalLength:
-    m_OverrideState: 1
-    m_Value: 209
-  bladeCount:
-    m_OverrideState: 1
-    m_Value: 7
-  bladeCurvature:
-    m_OverrideState: 1
-    m_Value: 0.64
-  bladeRotation:
-    m_OverrideState: 1
-    m_Value: -56
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,14 +66,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Main Camera Profile
+  m_Name: blaur
   m_EditorClassIdentifier: 
   components:
   - {fileID: -5735245401799242452}
   - {fileID: 1279507040788256281}
   - {fileID: 4092475200307757120}
   - {fileID: -1050920632756235203}
-  - {fileID: -931077359204316006}
+  - {fileID: 1993392743867189713}
 --- !u!114 &1279507040788256281
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -136,6 +90,52 @@ MonoBehaviour:
   intensity:
     m_OverrideState: 1
     m_Value: 0.3
+--- !u!114 &1993392743867189713
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
+  m_Name: DepthOfField
+  m_EditorClassIdentifier: 
+  active: 0
+  mode:
+    m_OverrideState: 1
+    m_Value: 2
+  gaussianStart:
+    m_OverrideState: 0
+    m_Value: 10
+  gaussianEnd:
+    m_OverrideState: 0
+    m_Value: 30
+  gaussianMaxRadius:
+    m_OverrideState: 0
+    m_Value: 1
+  highQualitySampling:
+    m_OverrideState: 0
+    m_Value: 0
+  focusDistance:
+    m_OverrideState: 1
+    m_Value: 91.8
+  aperture:
+    m_OverrideState: 1
+    m_Value: 1
+  focalLength:
+    m_OverrideState: 1
+    m_Value: 97
+  bladeCount:
+    m_OverrideState: 1
+    m_Value: 5
+  bladeCurvature:
+    m_OverrideState: 1
+    m_Value: 0.387
+  bladeRotation:
+    m_OverrideState: 1
+    m_Value: -46
 --- !u!114 &4092475200307757120
 MonoBehaviour:
   m_ObjectHideFlags: 3
