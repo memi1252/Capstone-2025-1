@@ -4,7 +4,7 @@ using UnityEngine;
 public class HammerGame : MonoBehaviour
 {
     [SerializeField] private Animator HammerAnim;
-    [SerializeField] private AudioSource HammerSound;
+    [SerializeField] private AudioSource HammerAudio;
 
 void Start()
     {
@@ -23,6 +23,6 @@ void Start()
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Hello");
-        HammerSound.Play();
+        HammerAudio.Play();
     }
 }
