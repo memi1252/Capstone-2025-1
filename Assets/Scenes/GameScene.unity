@@ -2380,6 +2380,7 @@ MonoBehaviour:
   player: {fileID: 654197256}
   playerCamera: {fileID: 2015142742}
   WireConnectionScene: WireConnectionScene
+  outlineMaterial: {fileID: 0}
   isSpace: 1
   ismove: 1
   isCamera: 1
