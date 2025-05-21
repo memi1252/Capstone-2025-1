@@ -22,6 +22,7 @@ void Start()
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Hello");
         HammerSound.Play();
     }
 }
