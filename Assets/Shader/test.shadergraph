@@ -1015,8 +1015,8 @@
     "m_ObjectId": "0dd4a54403194f2bb7a81cbd32cc6665",
     "m_Title": "Breath",
     "m_Position": {
-        "x": 589.9999389648438,
-        "y": 1487.9998779296875
+        "x": 589.5999755859375,
+        "y": 1487.2000732421875
     }
 }
 
@@ -3234,8 +3234,8 @@
     "m_ObjectId": "9334167839fb41fdb115ac84c2d44fa0",
     "m_Title": "Fresnel",
     "m_Position": {
-        "x": 1251.9998779296875,
-        "y": 240.99993896484376
+        "x": 1251.2000732421875,
+        "y": 240.0
     }
 }
 
@@ -3892,7 +3892,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"5fdf12a36ba5d67488ef58e8e7bc1397\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -4949,8 +4949,8 @@
     "m_ObjectId": "e5417e828c3248a4916b7193641e7b21",
     "m_Title": "Flicker",
     "m_Position": {
-        "x": 396.0,
-        "y": 1923.999755859375
+        "x": 395.2000732421875,
+        "y": 1923.2000732421875
     }
 }
 
@@ -5292,8 +5292,8 @@
     "m_ObjectId": "fe32c78ce26c445a949394f240938126",
     "m_Title": "Scan Lines",
     "m_Position": {
-        "x": 716.9999389648438,
-        "y": 737.0
+        "x": 716.8001708984375,
+        "y": 736.0001220703125
     }
 }
 
