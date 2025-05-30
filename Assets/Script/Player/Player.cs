@@ -98,6 +98,7 @@ public class Player : MonoBehaviour
     private item lookAtItem;
     void PickUpItem()
     {
+        if(Camera.main == null) return;
         RaycastHit hit;
         Vector3 origin = Camera.main.transform.position;
         Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * ItemPickUpDistance, Color.red);
