@@ -12,10 +12,10 @@ public class Test_TestMessage_Selection : MonoBehaviour
         var dialogTexts = new List<DialogData>();
 
         dialogTexts.Add(new DialogData("이거진짜된다"));
-        dialogTexts.Add(new DialogData("승철정한지수준휘순영원우지훈"));
-        dialogTexts.Add(new DialogData("명호민규석민승관한솔찬"));
-        dialogTexts.Add(new DialogData("변지우바보바보바보"));
-        dialogTexts.Add(new DialogData("이바보바보바보"));
+        dialogTexts.Add(new DialogData("아니 근데     진짜"));
+        dialogTexts.Add(new DialogData("알로알로 T.H.U.N.D.E.R 알로알로"));
+        dialogTexts.Add(new DialogData("떠올라 마치 번개처럼 번쩍"));
+        dialogTexts.Add(new DialogData("알로알로 T.H.U.N.D.E.R 알로알로"));
 
         DialogManager.Show(dialogTexts);
     }

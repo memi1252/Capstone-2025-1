@@ -24,11 +24,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
-        //임시
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            UIManager.Instance.RotaionGame.Show();
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.J))  //미니게임 전선연결 오픈
         {
