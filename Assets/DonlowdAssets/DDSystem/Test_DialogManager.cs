@@ -30,25 +30,58 @@ public class Test_DialogManager : MonoBehaviour
 
     // 대사 리스트 순서대로 출력
     private IEnumerator PrintDialogList(List<DialogData> dataList)
-{
-    Printer.SetActive(true);  // 대화창 표시
-
-    foreach (var data in dataList) //dataList 길이만큼 반복복
     {
-           
-                foreach (var command in data.Commands)
+        Printer.SetActive(true);  // 대화창 표시
+
+        foreach (var data in dataList) //dataList 길이만큼 반복
+        {
+            foreach (var command in data.Commands)
+            {
+                if (command.Command == Command.print)
                 {
-                    if (command.Command == Command.print)
-                    {
-                        yield return StartCoroutine(PrintText(command.Context));
-                        yield return new WaitForSeconds(0.6f); // 문장 간 텀
-                    }
+                    yield return StartCoroutine(PrintText(command.Context));
+                    yield return WaitForMouseClick(); // 마우스 클릭 대기
                 }
-        
+            }
+        }
+
+        Printer.SetActive(false); // 출력 종료 시 숨김
     }
 
-    Printer.SetActive(false); // 출력 종료 시 숨김
+private IEnumerator WaitForMouseClick()
+{
+    // 클릭할 때까지 대기
+    while (!Input.GetMouseButtonDown(0))
+    {
+        yield return null; // 다음 프레임까지 대기
+    }
+
+    // 클릭했으면 0.1초 정도 대기 (더블클릭 방지 등 안정성)
+    yield return new WaitForSeconds(0.1f);
 }
+
+
+
+    //     private IEnumerator PrintDialogList(List<DialogData> dataList)
+    // {
+    //     Printer.SetActive(true);  // 대화창 표시
+
+    //     foreach (var data in dataList) //dataList 길이만큼 반복
+    //     {
+
+    //                 foreach (var command in data.Commands)
+    //                 {
+    //                     if (command.Command == Command.print)
+    //                     {
+    //                         yield return StartCoroutine(PrintText(command.Context));
+    //                         yield return new WaitForSeconds(0.6f); // 문장 간 텀
+    //                     }
+    //                 }
+
+    //     }
+
+    //     Printer.SetActive(false); // 출력 종료 시 숨김
+    // }
 
 
     // 한 문장을 한 글자씩 출력
