@@ -12,8 +12,10 @@ public class Test_TestMessage_Selection : MonoBehaviour
         var dialogTexts = new List<DialogData>();
 
         dialogTexts.Add(new DialogData("이거진짜된다"));
-        dialogTexts.Add(new DialogData("아니 근데     진짜짜"));
-        dialogTexts.Add(new DialogData("이건 아니잖아아ㅏㅏ"));
+        dialogTexts.Add(new DialogData("아니 근데     진짜"));
+        dialogTexts.Add(new DialogData("알로알로 T.H.U.N.D.E.R 알로알로"));
+        dialogTexts.Add(new DialogData("떠올라 마치 번개처럼 번쩍"));
+        dialogTexts.Add(new DialogData("알로알로 T.H.U.N.D.E.R 알로알로"));
 
         DialogManager.Show(dialogTexts);
     }
