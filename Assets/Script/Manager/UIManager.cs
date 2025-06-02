@@ -3,7 +3,6 @@ using UnityEngine;
 public class UIManager : MonoSingleton<UIManager>
 {
     public TooltipUI tooltipUI;
-    public RotaionGame RotaionGame;
     public GameObject InvneoryUI;
     public GameObject QuitSlotUI;
     public GameObject ProductSlotUI;
