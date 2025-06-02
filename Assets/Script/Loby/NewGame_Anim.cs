@@ -17,7 +17,7 @@ public class NewGame_Anim : MonoBehaviour
     public void StartAnim()
     {
         animation.SetTrigger("StartAnim");
-        Invoke("NewScene", 4f);
+        Invoke("NewScene",5f);
     }
 
     public void NewScene()
