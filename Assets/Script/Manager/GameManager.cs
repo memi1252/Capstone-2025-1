@@ -9,6 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] public Player player;
     [SerializeField] public PlayerCamera playerCamera;
     public string WireConnectionScene;
+    public string ReplacingPartsScene;
     public Material outlineMaterial;
 
     public bool isSpace = true;
@@ -35,7 +36,22 @@ public class GameManager : MonoSingleton<GameManager>
                 isCamera = false;
                 MouseCursor(true);
                 UIManager.Instance.StastUI.SetActive(false);
-                UIManager.Instance.MinMapUI.SetActive(false);
+                UIManager.Instance.QuitSlotUI.SetActive(false);
+                UIManager.Instance.QuestUI.SetActive(false);
+                playerCamera.gameObject.SetActive(false);
+                miniGameScene = false;
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.L))  //미니게임 부품교체 오픈
+        {
+            if (miniGameScene)
+            {
+                SceneManager.LoadScene(ReplacingPartsScene, LoadSceneMode.Additive);
+                ismove = false;
+                isCamera = false;
+                MouseCursor(true);
+                UIManager.Instance.StastUI.SetActive(false);
                 UIManager.Instance.QuitSlotUI.SetActive(false);
                 UIManager.Instance.QuestUI.SetActive(false);
                 playerCamera.gameObject.SetActive(false);
