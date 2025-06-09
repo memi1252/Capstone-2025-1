@@ -29,7 +29,20 @@ public class WireManager : MonoBehaviour
     }
 
     public TextMeshProUGUI statusText;
-    
+    public TextMeshProUGUI countText;
+
+    public int count = 4;
+
+    private void Update()
+    {
+        countText.text = $"남은 횟수 : {count}";
+        
+        if(count <= 0)
+        {
+            Fail();
+        }
+    }
+
     public void Success()
     {
         statusText.gameObject.SetActive(true);
@@ -45,7 +58,6 @@ public class WireManager : MonoBehaviour
         GameManager.Instance.isCamera = true;
         GameManager.Instance.MouseCursor(false);
         UIManager.Instance.StastUI.SetActive(true);
-        UIManager.Instance.MinMapUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
         UIManager.Instance.QuestUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
@@ -67,7 +79,6 @@ public class WireManager : MonoBehaviour
         GameManager.Instance.isCamera = true;
         GameManager.Instance.MouseCursor(false);
         UIManager.Instance.StastUI.SetActive(true);
-        UIManager.Instance.MinMapUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
         UIManager.Instance.QuestUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);

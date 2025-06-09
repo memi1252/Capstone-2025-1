@@ -9,6 +9,7 @@ public class WireConnections : MonoBehaviour
     public WirePoint wirePointB;
     public bool A;
     public bool B;
+    
 
 
     private void Update()
@@ -24,8 +25,10 @@ public class WireConnections : MonoBehaviour
                     wire.SetActive(true);
                 }
             }
-            wirePointA.meshRenderer.material.color = Color.green;
-            wirePointB.meshRenderer.material.color = Color.green;
+            wirePointA.meshRenderer.materials[4].color = Color.green;
+            wirePointB.meshRenderer.materials[4].color = Color.green;
+            wirePointA.meshRenderer.material.color = wirePointA.originalColor;
+            wirePointB.meshRenderer.material.color = wirePointB.originalColor;
             wirePointA.isWire = true;
             wirePointB.isWire = true;
             wirePointB = null;
@@ -36,12 +39,17 @@ public class WireConnections : MonoBehaviour
         else
         {
             Debug.Log("전선 불일치");
-            wirePointA.meshRenderer.material.color = Color.white;
-            wirePointB.meshRenderer.material.color = Color.white;
+            wirePointA.click = false;
+            wirePointB.click = false;
+            wirePointA.meshRenderer.materials[4].color = Color.red;
+            wirePointB.meshRenderer.materials[4].color = Color.red;
+            wirePointA.meshRenderer.material.color = wirePointA.originalColor;
+            wirePointB.meshRenderer.material.color = wirePointB.originalColor;
             wirePointB = null;
             wirePointA = null;
             A = false;
             B = false;
+            WireManager.instance.count--;
         }
 
         foreach (var WirePoint in wirePoints)

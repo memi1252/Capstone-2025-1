@@ -7,15 +7,18 @@ public class WirePoint : MonoBehaviour
 {
     public string wireName;
     public bool isWire;
+    public  bool click;
 
-    private TMP_Text text;
+    private TextMeshProUGUI text;
     public MeshRenderer meshRenderer;
     private WireConnections wireConnections;
-    private bool inside;
+    public bool inside;
+    public Color originalColor;
+    
 
     private void Awake()
     {
-        text = GetComponentInChildren<TMP_Text>();
+        text = GetComponentInChildren<TextMeshProUGUI>();
         meshRenderer = GetComponent<MeshRenderer>();
         wireConnections = GetComponentInParent<WireConnections>();
     }
@@ -23,21 +26,27 @@ public class WirePoint : MonoBehaviour
     private void Start()
     {
         text.text = wireName;
+        text.fontSize = 0.4f;
+        text.color = new Color(0.2f, 0.2f, 0.2f, 1f);
+        meshRenderer.materials[4].color = Color.red;
+        originalColor = meshRenderer.material.color;
     }
 
     private void Update()
     {
-        if (inside)
+        if (inside && !click)
         {
             if (Input.GetMouseButtonDown(0))
             {
+                click = true;
                 if (isWire)
                 {
-                    meshRenderer.material.color = Color.green;
+
+                    meshRenderer.material.color = originalColor;
                 }
                 else
                 {
-                    meshRenderer.material.color = Color.red;
+                    meshRenderer.material.color = Color.yellow;
                     if (!wireConnections.A)
                     {
                         wireConnections.A = true;
@@ -54,11 +63,12 @@ public class WirePoint : MonoBehaviour
                 }
             }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "CutObject")
+        if (other.CompareTag("MouseFollow"))
         {
             inside = true;
         }
@@ -66,7 +76,7 @@ public class WirePoint : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "CutObject")
+        if (other.CompareTag("MouseFollow"))
         {
             inside = false;
         }

@@ -44,7 +44,6 @@ public class item : MonoBehaviour
         GameManager.Instance.MouseCursor(true);
         GameManager.Instance.player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         UIManager.Instance.QuitSlotUI.SetActive(false);
-        UIManager.Instance.MinMapUI.SetActive(false);
         UIManager.Instance.StastUI.SetActive(false);
         isMoveItem = true;
         GameManager.Instance.isItemPickUp = true;
@@ -92,7 +91,6 @@ public class item : MonoBehaviour
                 transform.position = origiPos;
                 transform.rotation = origiRot;
                 UIManager.Instance.QuitSlotUI.SetActive(true);
-                UIManager.Instance.MinMapUI.SetActive(true);
                 UIManager.Instance.StastUI.SetActive(true);
                 Item.transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 Item.transform.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
@@ -156,7 +154,6 @@ public class item : MonoBehaviour
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         UIManager.Instance.QuitSlotUI.SetActive(true);
-        UIManager.Instance.MinMapUI.SetActive(true);
         UIManager.Instance.StastUI.SetActive(true);
         depthOfField.active = false;
         GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
