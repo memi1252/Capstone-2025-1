@@ -12,7 +12,7 @@ public class WirePoint : MonoBehaviour
     private TextMeshProUGUI text;
     public MeshRenderer meshRenderer;
     private WireConnections wireConnections;
-    private bool inside;
+    public bool inside;
     public Color originalColor;
     
 
