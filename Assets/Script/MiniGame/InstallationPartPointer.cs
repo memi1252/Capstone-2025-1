@@ -22,6 +22,7 @@ public class InstallationPartPointer : MonoBehaviour
                 ReplacingPartsManager.instance.takePart.transform.position = transform.position;
                 ReplacingPartsManager.instance.takePart.boxCollider.enabled = true;
                 ReplacingPartsManager.instance.takePart.insPartPointer = this;
+                GetComponent<InstallationPartPointer>().enabled = false;
                 Invoke("takePartReset", 0.03f);
             }
         }

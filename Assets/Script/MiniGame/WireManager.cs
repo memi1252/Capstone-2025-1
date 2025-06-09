@@ -10,6 +10,10 @@ public class WireManager : MonoBehaviour
 {
     public static WireManager instance;
     [SerializeField] private GameObject[] wirecontainer;
+    [SerializeField] private MeshRenderer[] Light_Bulbs;
+    
+    private AudioSource audioSource;
+    public AudioClip[] audioClips;
     
     private void Awake()
     {
@@ -22,10 +26,13 @@ public class WireManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    
 
     private void Start()
     {
         //wirecontainer[Random.Range(0, wirecontainer.Length)].SetActive(true);
+        audioSource = GetComponent<AudioSource>();
     }
 
     public TextMeshProUGUI statusText;
@@ -45,9 +52,16 @@ public class WireManager : MonoBehaviour
 
     public void Success()
     {
-        statusText.gameObject.SetActive(true);
-        statusText.text = "성공";
-        statusText.color = Color.green;
+        //statusText.color = Color.green;
+        foreach (var meshRenderer in Light_Bulbs)
+        {
+            meshRenderer.material.color = Color.green;
+            var material = meshRenderer.material;
+            material.EnableKeyword("_EMISSION");
+            material.SetColor("_EmissionColor", Color.green * 2f);
+        }
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
         StartCoroutine(SuccessCoroutine());
     }
     
@@ -67,9 +81,15 @@ public class WireManager : MonoBehaviour
     
     public void Fail()
     {
-        statusText.gameObject.SetActive(true);
-        statusText.text = "실패";
-        statusText.color = Color.red;
+        foreach (var meshRenderer in Light_Bulbs)
+        {
+            meshRenderer.material.color = Color.red;
+            var material = meshRenderer.material;
+            material.EnableKeyword("_EMISSION");
+            material.SetColor("_EmissionColor", Color.red * 2f);
+        }
+        audioSource.clip = audioClips[1];
+        audioSource.Play();
         StartCoroutine(FailCoroutine());
     }
     IEnumerator FailCoroutine()

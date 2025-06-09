@@ -118,6 +118,7 @@ public class item : MonoBehaviour
         GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         // Camera.main.transform.GetComponent<Volume>().enabled = true;
         depthOfField.active = false;
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
         GameManager.Instance.isItemPickUp= false;
         UIManager.Instance.itemDescriptionUI.Hide();
         

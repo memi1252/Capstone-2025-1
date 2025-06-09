@@ -48,13 +48,13 @@ MonoBehaviour:
   selectedItemIndex: 0
   SelectedInventoryIndex: 0
   item:
-    itemType: ITEM
-    itemImage: {fileID: 21300000, guid: eecc8ab6084e5da4481e7e6bcdd3e92b, type: 3}
+    itemType: IronPlateItem
+    itemImage: {fileID: 21300000, guid: e67aaecb9b87d80459f6781be48d2536, type: 3}
     maxStackAmount: 5
     displayItemAmount: 1
     draggable: 1
     pressable: 0
-    RelatedGameObject: {fileID: 0}
+    RelatedGameObject: {fileID: 7610792486514434882, guid: 3e023d72c89f2224faaa88db59a30ac9, type: 3}
     itemAction:
       m_PersistentCalls:
         m_Calls: []
