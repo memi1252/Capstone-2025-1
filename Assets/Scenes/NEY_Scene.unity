@@ -693,6 +693,7 @@ MonoBehaviour:
   position: 3
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 22433117}
+  ScaleSize: 1
 --- !u!222 &12766103
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1534,7 +1535,7 @@ RectTransform:
   m_Father: {fileID: 434830199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1954,6 +1955,7 @@ MonoBehaviour:
   position: 10
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1948992358}
+  ScaleSize: 1
 --- !u!222 &51803628
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2267,6 +2269,7 @@ MonoBehaviour:
   player: {fileID: 654197256}
   playerCamera: {fileID: 0}
   WireConnectionScene: 
+  ReplacingPartsScene: 
   outlineMaterial: {fileID: 0}
   isSpace: 1
   ismove: 1
@@ -7443,8 +7446,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 41130076}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14055,7 +14058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &399388883
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16254,6 +16257,7 @@ MonoBehaviour:
   position: 5
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1589258413}
+  ScaleSize: 1
 --- !u!222 &458890742
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16697,7 +16701,7 @@ RectTransform:
   m_Father: {fileID: 158113290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -1.2044, y: 5.5553}
   m_SizeDelta: {x: 2.4089, y: 24.2263}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27216,6 +27220,7 @@ MonoBehaviour:
   position: 8
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 567796826}
+  ScaleSize: 1
 --- !u!222 &652442535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28164,6 +28169,7 @@ MonoBehaviour:
   position: 1
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1925642676}
+  ScaleSize: 1
 --- !u!222 &678479352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29837,6 +29843,7 @@ MonoBehaviour:
   position: 1
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1931227823}
+  ScaleSize: 1
 --- !u!222 &703318721
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29929,6 +29936,7 @@ MonoBehaviour:
   position: 0
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1867571582}
+  ScaleSize: 1
 --- !u!222 &706653821
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31973,6 +31981,7 @@ MonoBehaviour:
   position: 9
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 11595883}
+  ScaleSize: 1
 --- !u!222 &774808428
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32249,6 +32258,7 @@ MonoBehaviour:
   position: 4
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 566899754}
+  ScaleSize: 1
 --- !u!222 &783982594
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32378,7 +32388,6 @@ MonoBehaviour:
   ProductSlotUI: {fileID: 0}
   ProductUI: {fileID: 0}
   StastUI: {fileID: 0}
-  MinMapUI: {fileID: 0}
   QuestUI: {fileID: 0}
   itemDescriptionUI: {fileID: 0}
 --- !u!4 &792436014
@@ -34403,7 +34412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &833311686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35093,6 +35102,7 @@ MonoBehaviour:
   position: 7
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1758776887}
+  ScaleSize: 1
 --- !u!222 &843318896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48919,7 +48929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1179164891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50153,6 +50163,7 @@ MonoBehaviour:
   position: 6
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 154764179}
+  ScaleSize: 1
 --- !u!222 &1204965881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50811,7 +50822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1235760128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -54106,6 +54117,7 @@ MonoBehaviour:
   position: 11
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1041836649}
+  ScaleSize: 1
 --- !u!222 &1317155560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65944,8 +65956,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 230510512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -67668,6 +67680,7 @@ MonoBehaviour:
   position: 2
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 689860166}
+  ScaleSize: 1
 --- !u!222 &1675457810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -72266,6 +72279,7 @@ MonoBehaviour:
   position: 3
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 2033612796}
+  ScaleSize: 1
 --- !u!222 &1776591659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -72358,6 +72372,7 @@ MonoBehaviour:
   position: 2
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 1525685178}
+  ScaleSize: 1
 --- !u!222 &1778354464
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -72761,7 +72776,7 @@ RectTransform:
   m_Father: {fileID: 1818737300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 1.4754, y: 5.171}
   m_SizeDelta: {x: 3.9507, y: 21.6186}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -73423,6 +73438,7 @@ MonoBehaviour:
   position: 0
   slotChildPrefab: {fileID: 2957332009402564875, guid: 1c44132505c5b1f42b38381654fa5f6e, type: 3}
   SlotItemHolder: {fileID: 2033479646}
+  ScaleSize: 1
 --- !u!222 &1806672673
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -77931,7 +77947,7 @@ RectTransform:
   m_Father: {fileID: 981135939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -86631,7 +86647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1197188359247438129
 GameObject:
   m_ObjectHideFlags: 0
