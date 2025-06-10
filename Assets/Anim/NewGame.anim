@@ -99,7 +99,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.0333333
+        time: 3.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -111,7 +111,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Back_Cylinder.044/VFX_Fire_01_Big (3)
+    path: Cylinder.045/VFX_Fire_01_Big (3)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -129,7 +129,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.0333333
+        time: 3.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -141,7 +141,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Back_Cylinder.041/VFX_Fire_01_Big (3)
+    path: Cylinder.044/VFX_Fire_01_Big (4)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -159,7 +159,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.0333333
+        time: 3.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -171,7 +171,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Back_Cylinder.045/VFX_Fire_01_Big (3)
+    path: Cylinder.041/VFX_Fire_01_Big (3)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -202,7 +202,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3897193202
+      path: 669904522
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -211,7 +211,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1701443031
+      path: 4151770067
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -220,7 +220,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2005987692
+      path: 890563121
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -498,7 +498,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.0333333
+        time: 3.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -510,7 +510,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Back_Cylinder.044/VFX_Fire_01_Big (3)
+    path: Cylinder.045/VFX_Fire_01_Big (3)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -528,7 +528,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.0333333
+        time: 3.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -540,7 +540,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Back_Cylinder.041/VFX_Fire_01_Big (3)
+    path: Cylinder.044/VFX_Fire_01_Big (4)
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -558,7 +558,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 3.0333333
+        time: 3.05
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -570,7 +570,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Back_Cylinder.045/VFX_Fire_01_Big (3)
+    path: Cylinder.041/VFX_Fire_01_Big (3)
     classID: 1
     script: {fileID: 0}
     flags: 0
