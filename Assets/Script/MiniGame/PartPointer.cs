@@ -25,11 +25,11 @@ public class PartPointer : MonoBehaviour
     {
         if (inside && !take)
         {
-            Debug.Log("inside");
             if (Input.GetMouseButtonDown(0) && ReplacingPartsManager.instance.takePart == null)
             {
                 Debug.Log("ss");
                 take = true;
+                insPartPointer.enabled = true;
                 ReplacingPartsManager.instance.takePart = this;
                 objectFollow.enabled = true;
                 boxCollider.enabled = false;

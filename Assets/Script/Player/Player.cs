@@ -111,11 +111,12 @@ public class Player : MonoBehaviour
                 if (!item.outline)
                 {
                     item.outline = true;
-                    item.GetComponent<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.01f);
+                    item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.01f);
                 }
                 if (Input.GetKeyDown(KeyCode.F) && !item.isFrontItem)
                 {
                     item.frontitem(hit.collider.gameObject);
+                    item.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Item");
                 }
                 if (Input.GetKeyDown(KeyCode.F) && item.isRotateItem)
                 {
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour
                 if (lookAtItem != null)
                 {
                     lookAtItem.outline = false;
-                    lookAtItem.GetComponent<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
+                    lookAtItem.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
                 }
                 lookAtItem = null;
             }
@@ -138,7 +139,7 @@ public class Player : MonoBehaviour
             if (lookAtItem != null)
             {
                 lookAtItem.outline = false;
-                lookAtItem.GetComponent<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
+                lookAtItem.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
             }
             lookAtItem = null;
             UIManager.Instance.tooltipUI.Hide();

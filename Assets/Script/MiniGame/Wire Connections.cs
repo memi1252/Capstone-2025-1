@@ -10,6 +10,13 @@ public class WireConnections : MonoBehaviour
     public bool A;
     public bool B;
     
+    private AudioSource audioSource;
+    public AudioClip[] clip;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
 
     private void Update()
@@ -18,6 +25,8 @@ public class WireConnections : MonoBehaviour
         if (wirePointA.wireName == wirePointB.wireName)
         {
             Debug.Log("전선 연결");
+            audioSource.clip = clip[0];
+            audioSource.Play();
             foreach (var wire in wires)
             {
                 if(wire.name == "Wire" + wirePointB.wireName)
@@ -27,6 +36,14 @@ public class WireConnections : MonoBehaviour
             }
             wirePointA.meshRenderer.materials[4].color = Color.green;
             wirePointB.meshRenderer.materials[4].color = Color.green;
+            var material = wirePointA.meshRenderer.materials[4];
+            material.EnableKeyword("_EMISSION");
+            material.SetColor("_EmissionColor", Color.green * 2f);
+            material = wirePointB.meshRenderer.materials[4];
+            material.EnableKeyword("_EMISSION");
+            material.SetColor("_EmissionColor", Color.green * 2f);
+            
+            
             wirePointA.meshRenderer.material.color = wirePointA.originalColor;
             wirePointB.meshRenderer.material.color = wirePointB.originalColor;
             wirePointA.isWire = true;
@@ -39,6 +56,8 @@ public class WireConnections : MonoBehaviour
         else
         {
             Debug.Log("전선 불일치");
+            audioSource.clip = clip[1];
+            audioSource.Play();
             wirePointA.click = false;
             wirePointB.click = false;
             wirePointA.meshRenderer.materials[4].color = Color.red;

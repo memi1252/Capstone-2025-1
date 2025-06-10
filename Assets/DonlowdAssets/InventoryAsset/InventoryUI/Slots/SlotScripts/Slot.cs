@@ -16,7 +16,9 @@ namespace InventorySystem
         [SerializeField]
         private GameObject slotChildPrefab;//This holds the prefab for the image allowing it to be instantiated when the child object is dragged to a new location
         [SerializeField]
-        private GameObject SlotItemHolder;//This is a child object that is used to display an image of the object
+        private GameObject SlotItemHolder; //This is a child object that is used to display an image of the object
+        [SerializeField]
+        private float ScaleSize = 1.0f;//This is the scale of the slot child, it is used to set the scale of the slot child when it is instantiated
 
         private InventoryItem item;//This is the current item in the inventory, there is always an item however item.GetIsNull() determines if the object contains a real item
         private UnityEngine.Color color;//This is the color of the slot
@@ -93,6 +95,7 @@ namespace InventorySystem
             GameObject newInstance = Instantiate(slotChildPrefab, initialSlotChildPosition, Quaternion.identity);
             newInstance.transform.SetParent(transform);
             newInstance.transform.localScale = initialChildScale;
+            newInstance.GetComponent<RectTransform>().sizeDelta = new Vector2(ScaleSize, ScaleSize);
             Vector2 prevTextPos = SlotItemHolder.GetComponent<DragItem>().GetTextPosition();
 
             SlotItemHolder = newInstance;

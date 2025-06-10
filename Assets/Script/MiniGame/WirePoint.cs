@@ -15,12 +15,15 @@ public class WirePoint : MonoBehaviour
     public bool inside;
     public Color originalColor;
     
+    private AudioSource audioSource;
+    
 
     private void Awake()
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
         meshRenderer = GetComponent<MeshRenderer>();
         wireConnections = GetComponentInParent<WireConnections>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     private void Start()
@@ -39,6 +42,7 @@ public class WirePoint : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 click = true;
+                audioSource.Play();
                 if (isWire)
                 {
 
