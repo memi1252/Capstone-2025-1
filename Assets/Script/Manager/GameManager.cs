@@ -1,6 +1,8 @@
 using System;
 using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -9,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] public Player player;
     [SerializeField] public PlayerCamera playerCamera;
     public string WireConnectionScene;
+    public string ReplacingPartsScene;
     public Material outlineMaterial;
 
     public bool isSpace = true;
@@ -17,9 +20,14 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isItemPickUp = false;
     public bool miniGameScene = true;
 
+    private Volume volume;
+    private DepthOfField depthOfField;
+    
     private void Start()
     {
         MouseCursor(false);
+        volume = Camera.main.transform.GetComponent<Volume>();
+        volume.profile.TryGet(out depthOfField);
     }
 
     private void Update()
@@ -35,7 +43,22 @@ public class GameManager : MonoSingleton<GameManager>
                 isCamera = false;
                 MouseCursor(true);
                 UIManager.Instance.StastUI.SetActive(false);
-                UIManager.Instance.MinMapUI.SetActive(false);
+                UIManager.Instance.QuitSlotUI.SetActive(false);
+                UIManager.Instance.QuestUI.SetActive(false);
+                playerCamera.gameObject.SetActive(false);
+                miniGameScene = false;
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.L))  //미니게임 부품교체 오픈
+        {
+            if (miniGameScene)
+            {
+                SceneManager.LoadScene(ReplacingPartsScene, LoadSceneMode.Additive);
+                ismove = false;
+                isCamera = false;
+                MouseCursor(true);
+                UIManager.Instance.StastUI.SetActive(false);
                 UIManager.Instance.QuitSlotUI.SetActive(false);
                 UIManager.Instance.QuestUI.SetActive(false);
                 playerCamera.gameObject.SetActive(false);
@@ -91,11 +114,13 @@ public class GameManager : MonoSingleton<GameManager>
                 isCamera = true;
                 ismove = true;
                 MouseCursor(false);
+                depthOfField.active = false;
                 UIManager.Instance.InvneoryUI.SetActive(false);
             }
             else
             {
                 UIManager.Instance.InvneoryUI.SetActive(true);
+                depthOfField.active = true;
                 ismove = false;
                 isCamera = false;
                 MouseCursor(true);

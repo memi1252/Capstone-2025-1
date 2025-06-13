@@ -8,7 +8,6 @@ public class UIManager : MonoSingleton<UIManager>
     public GameObject ProductSlotUI;
     public GameObject ProductUI;
     public GameObject StastUI;
-    public GameObject MinMapUI;
     public GameObject QuestUI;
     public ItemDescriptionUI itemDescriptionUI;
 }
