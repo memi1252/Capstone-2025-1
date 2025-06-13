@@ -77657,6 +77657,63 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.1282487, y: 6.4607706, z: 8.068848}
   m_Center: {x: 3.0641243, y: 2.7303853, z: -3.5344238}
+--- !u!1001 &8642483889711832531
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349824215694258079, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869092064535082277, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
+      propertyPath: m_Name
+      value: CapstoneSpaceshipINSIDE_bench
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd06f78f4b287174f884a8d90c618e19, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -77688,3 +77745,4 @@ SceneRoots:
   - {fileID: 229575311}
   - {fileID: 652401256}
   - {fileID: 5443916925926973139}
+  - {fileID: 8642483889711832531}
