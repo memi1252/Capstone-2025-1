@@ -8,6 +8,7 @@ TagManager:
   - TdLevelManager
   - Slot
   - MouseFollow
+  - dockingstation
   layers:
   - Default
   - TransparentFX
