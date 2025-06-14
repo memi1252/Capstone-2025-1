@@ -21,10 +21,19 @@ public class BBASS_Emotion : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.F) && !Cheak)
         {
-            BBASSEmotion.SetTexture("_bbassTexture", emotion2);
+            
             Cheak = true;
         }
 
 
-    }
+        if (Cheak)
+        {
+            BBASSEmotion.SetTexture("_bbassTexture", emotion2);
+        }
+        else
+        {
+            BBASSEmotion.SetTexture("_bbassTexture", emotion1);
+        }
+
+}
 }

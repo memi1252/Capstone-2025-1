@@ -893,6 +893,19 @@ namespace InventorySystem
                 Debug.LogError("Dictionary does not contain slot at: " + location);
             }
         }
+        
+        public GameObject GetSlot(int location)
+        {
+            if (positionToSlotDict.ContainsKey(location))
+            {
+                return positionToSlotDict[location];
+            }
+            else
+            {
+                Debug.LogError("Dictionary does not contain slot at: " + location);
+                return null;
+            }
+        }
 
         public Transform GetUI()
         {

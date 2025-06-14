@@ -8,6 +8,7 @@ public class QuitslotItemSelect : MonoBehaviour
     [SerializeField] private GameObject[] HandItem; 
     private GameObject currentHandItem = null;
     private int currentHandItemIndex = -1;
+    private GameObject currentSlot;
 
     
     private void Update()
@@ -51,6 +52,8 @@ public class QuitslotItemSelect : MonoBehaviour
                     {
                         currentHandItem.SetActive(false);
                         currentHandItem = null;
+                        currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                        currentSlot = null;
                         currentHandItemIndex = -1;
                     }
                 }
@@ -72,6 +75,8 @@ public class QuitslotItemSelect : MonoBehaviour
                     if (currentHandItem == null)
                     {
                         items.SetActive(true);
+                        currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
+                        currentSlot.transform.GetChild(1).gameObject.SetActive(true);
                         currentHandItem = items;
                     }
                     else
@@ -80,11 +85,16 @@ public class QuitslotItemSelect : MonoBehaviour
                         {
                             currentHandItem.SetActive(false);
                             items.SetActive(true);
+                            currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                            currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
+                            currentSlot.transform.GetChild(1).gameObject.SetActive(true);
                             currentHandItem = items;
                         }
                         else
                         {
                             currentHandItem.SetActive(false);
+                            currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                            currentSlot = null;
                             currentHandItem = null;
                         }
                     }

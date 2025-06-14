@@ -26,7 +26,8 @@ public class TDScene : MonoBehaviour
     void Start()
     {
         if ((PlayerChar) == null)
-        PlayerChar = GameObject.FindWithTag("Player").GetComponent<Collider>();
+        PlayerChar = GameManager.Instance.player.GetComponent<Collider>();
+        PlayerChar.gameObject.SetActive(false);
         previousFloor = ActiveFloor;
     }
 

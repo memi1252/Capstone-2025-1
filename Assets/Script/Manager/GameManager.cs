@@ -16,6 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public bool isSpace = true;
     public bool ismove = true;
+    public bool inSpaceShip = true;
     public bool isCamera;
     public bool isItemPickUp = false;
     public bool miniGameScene = true;
@@ -25,7 +26,6 @@ public class GameManager : MonoSingleton<GameManager>
     
     private void Start()
     {
-        MouseCursor(false);
         volume = Camera.main.transform.GetComponent<Volume>();
         volume.profile.TryGet(out depthOfField);
     }
