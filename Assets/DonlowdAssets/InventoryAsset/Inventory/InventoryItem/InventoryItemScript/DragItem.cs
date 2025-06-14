@@ -467,7 +467,14 @@ namespace InventorySystem
                 text.gameObject.SetActive(item.GetDisplayAmount());
                 if (item.GetDisplayAmount())
                 {
-                    text.SetText(item.GetAmount().ToString());
+                    if (item.GetAmount() == 1)
+                    {
+                        text.SetText(""); // 아이템이 1개면 텍스트를 비웁니다.
+                    }
+                    else
+                    {
+                        text.SetText(item.GetAmount().ToString());
+                    }
                 }
             }
         }

@@ -485,6 +485,7 @@ namespace InventorySystem
             {
                 itemsTotal += inventoryList[item].GetAmount();
             }
+            
             return itemsTotal;
         }
         /// <summary>
