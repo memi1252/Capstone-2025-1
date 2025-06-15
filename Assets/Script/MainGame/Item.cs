@@ -68,10 +68,10 @@ public class item : MonoBehaviour
 
         if (isMoveItem)
         {
-            transform.position = Vector3.MoveTowards(transform.position, GameManager.Instance.player.transform.GetChild(1).position, itemMoveSpeed * Time.deltaTime);
-            if (transform.position == GameManager.Instance.player.transform.GetChild(1).position)
+            transform.position = Vector3.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("itemviewPos").transform.position, itemMoveSpeed * Time.deltaTime);
+            if (transform.position == GameObject.FindGameObjectWithTag("itemviewPos").transform.position)
             {
-                GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                //GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                 // Camera.main.transform.GetComponent<Volume>().enabled = false;
                 depthOfField.active = true;
                 UIManager.Instance.itemDescriptionUI.Show();
@@ -115,7 +115,7 @@ public class item : MonoBehaviour
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         GameManager.Instance.MouseCursor(false);
-        GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        //GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         // Camera.main.transform.GetComponent<Volume>().enabled = true;
         depthOfField.active = false;
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
@@ -157,7 +157,7 @@ public class item : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         UIManager.Instance.StastUI.SetActive(true);
         depthOfField.active = false;
-        GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+       // GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         UIManager.Instance.itemDescriptionUI.Hide();
         GameManager.Instance.isItemPickUp= false;
         Destroy(Item);
