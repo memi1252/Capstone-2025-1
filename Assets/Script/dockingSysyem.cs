@@ -54,8 +54,8 @@ public class dockingSysyem : MonoBehaviour
             GetComponent<MeshRenderer>().enabled = false;
             SpaceShip.SetActive(true);
             GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
-            BBASS.transform.position = new Vector3(2,18,15.5539999f);
-            BBASS.transform.rotation = Quaternion.Euler(0,180,0);
+            BBASS.GetComponent<BBASS_Ment1>().enabled = false;
+            BBASS.GetComponent<BBASS_Ment2>().enabled = true;
             SpaceShip.GetComponent<Animator>().SetTrigger("Docking");
             StartCoroutine(spaceShipToPlayer());
         }
@@ -131,9 +131,8 @@ public class dockingSysyem : MonoBehaviour
             GetComponent<MeshRenderer>().enabled = false;
             SpaceShip.SetActive(true);
             GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
-            BBASS.transform.position = new Vector3(2,18,15.5539999f);
-            BBASS.transform.rotation = Quaternion.Euler(0,180,0);
             BBASS.GetComponent<BBASS_Ment1>().enabled = false;
+            BBASS.GetComponent<BBASS_Ment2>().enabled = true;
             SpaceShip.GetComponent<Animator>().SetTrigger("Docking");
             
             StartCoroutine(spaceShipToPlayer());
@@ -155,6 +154,9 @@ public class dockingSysyem : MonoBehaviour
         player.transform.rotation = PlayerRot;
         GameManager.Instance.MouseCursor(false);
         gameObject.SetActive(false);
+        GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
+        BBASS.transform.position = new Vector3(2,18,15.5539999f);
+        BBASS.transform.rotation = Quaternion.Euler(0,180,0);
         
     }
 }
