@@ -27,10 +27,11 @@ public class BBASS_Ment2 : BBASS_MentBASE
         GameManager.Instance.MouseCursor(false);
         UIManager.Instance.StastUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
-        
+        FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
         
         play = false;
         Printer.SetActive(false);
+        enabled = false;
     }
     
 
