@@ -124,6 +124,7 @@ public class GameManager : MonoSingleton<GameManager>
                 ismove = false;
                 isCamera = false;
                 MouseCursor(true);
+                UIManager.Instance.InvneoryUI.transform.localPosition = new Vector3(-180, 1f, 0);
             }
         }
     }

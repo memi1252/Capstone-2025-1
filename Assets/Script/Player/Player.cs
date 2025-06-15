@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -177,6 +179,9 @@ public class Player : MonoBehaviour
     private item lookAtItem;
     void PickUpItem()
     {
+        Collider[] items = Physics.OverlapSphere(transform.position, 10);
+        
+        
         if(Camera.main == null) return;
         RaycastHit hit;
         Vector3 origin = Camera.main.transform.position;
@@ -211,7 +216,8 @@ public class Player : MonoBehaviour
                     lookAtItem.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
                 }
                 lookAtItem = null;
-                UIManager.Instance.tooltipUI.Hide();
+                if(SceneManager.GetActiveScene().name != "lastScene")
+                    UIManager.Instance.tooltipUI.Hide();
             }
             
             
@@ -226,7 +232,8 @@ public class Player : MonoBehaviour
                 lookAtItem.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
             }
             lookAtItem = null;
-            UIManager.Instance.tooltipUI.Hide();
+            if(SceneManager.GetActiveScene().name != "lastScene")
+                UIManager.Instance.tooltipUI.Hide();
         }
         
         
@@ -234,7 +241,7 @@ public class Player : MonoBehaviour
         if (Camera.main != null)
         {
             Vector3 origin2 = Camera.main.transform.position;
-            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-4), Color.red);
+            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3), Color.red);
             if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 4f))
             {
                 if (hit2.collider.CompareTag("crafting table"))
@@ -287,6 +294,12 @@ public class Player : MonoBehaviour
                         }
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
+                }else if (hit2.collider.GetComponent<BBAAbattery>() != null)
+                {
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        hit2.collider.GetComponent<BBAAbattery>().charing = true;
+                    }
                 }
             }
         }
@@ -312,6 +325,7 @@ public class Player : MonoBehaviour
                     UIManager.Instance.ProductUI.SetActive(true);
                     UIManager.Instance.ProductSlotUI.SetActive(true);
                     UIManager.Instance.InvneoryUI.SetActive(true);
+                    UIManager.Instance.InvneoryUI.transform.localPosition = new Vector3(330, 1f, 0);
                     UIManager.Instance.QuitSlotUI.SetActive(true);
                     GameManager.Instance.MouseCursor(true);
                     goToCrafting = true;

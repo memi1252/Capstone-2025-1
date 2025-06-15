@@ -12,6 +12,7 @@ TagManager:
   - crafting table
   - cockpit
   - itemviewPos
+  - BBASS
   layers:
   - Default
   - TransparentFX
