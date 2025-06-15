@@ -9,6 +9,8 @@ TagManager:
   - Slot
   - MouseFollow
   - dockingstation
+  - crafting table
+  - cockpit
   layers:
   - Default
   - TransparentFX
