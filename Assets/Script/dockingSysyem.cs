@@ -12,6 +12,8 @@ public class dockingSysyem : MonoBehaviour
     [SerializeField] private Vector3 PlayerPos;
     [SerializeField] private Quaternion PlayerRot;
     [SerializeField] private Image transparency;
+    
+    [SerializeField] private Image helpImage;
 
     private float h;
     private float v;
@@ -23,10 +25,19 @@ public class dockingSysyem : MonoBehaviour
 
     public bool ismove;
     private float a =1;
+    private bool SpaceON;
 
     private void Start()
     {
         UIManager.Instance.tooltipUI.gameObject.SetActive(false);
+    }
+
+
+    public void close()
+    {
+        helpImage.gameObject.SetActive(false);
+        GameManager.Instance.MouseCursor(false);
+        SpaceON = true;
     }
 
     private void Update()
@@ -42,11 +53,14 @@ public class dockingSysyem : MonoBehaviour
             }
             GetComponent<MeshRenderer>().enabled = false;
             SpaceShip.SetActive(true);
+            GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
+            BBASS.transform.position = new Vector3(2,18,15.5539999f);
+            BBASS.transform.rotation = Quaternion.Euler(0,180,0);
             SpaceShip.GetComponent<Animator>().SetTrigger("Docking");
             StartCoroutine(spaceShipToPlayer());
         }
         
-        if(transparency != null)
+        if(transparency != null && SpaceON)
         {
             a -= Time.deltaTime * 0.3f;
             if (transparency.color.a > 0.3f)
@@ -88,13 +102,10 @@ public class dockingSysyem : MonoBehaviour
     {
         if (lookCamera != null)
         {
-            mouseX = Input.GetAxis("Mouse X");
-            mouseY = Input.GetAxis("Mouse Y");
-            
+            mouseX = Input.GetAxis("Mouse X") *0.3f;
+            mouseY = Input.GetAxis("Mouse Y") * 0.5f;
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -80f, 80f);
-            
-            
             
             transform.Rotate(Vector3.up * mouseX);
             lookCamera.transform.eulerAngles = new Vector3(xRotation, lookCamera.transform.rotation.eulerAngles.y, 0f);
@@ -119,7 +130,12 @@ public class dockingSysyem : MonoBehaviour
             }
             GetComponent<MeshRenderer>().enabled = false;
             SpaceShip.SetActive(true);
+            GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
+            BBASS.transform.position = new Vector3(2,18,15.5539999f);
+            BBASS.transform.rotation = Quaternion.Euler(0,180,0);
+            BBASS.GetComponent<BBASS_Ment1>().enabled = false;
             SpaceShip.GetComponent<Animator>().SetTrigger("Docking");
+            
             StartCoroutine(spaceShipToPlayer());
         }
     }

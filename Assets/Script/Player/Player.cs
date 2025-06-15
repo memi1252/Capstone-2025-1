@@ -172,6 +172,14 @@ public class Player : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX, Space.Self);
         transform.Rotate(Vector3.left * mouseY, Space.Self);
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("ground"))
+        {
+            isjump = false; // 땅에 닿으면 점프 가능
+        }
+    }
     
     
 
@@ -241,8 +249,8 @@ public class Player : MonoBehaviour
         if (Camera.main != null)
         {
             Vector3 origin2 = Camera.main.transform.position;
-            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3), Color.red);
-            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 4f))
+            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3.5f), Color.red);
+            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3.5f))
             {
                 if (hit2.collider.CompareTag("crafting table"))
                 {
@@ -255,6 +263,7 @@ public class Player : MonoBehaviour
                             UIManager.Instance.ProductSlotUI.SetActive(false);
                             UIManager.Instance.InvneoryUI.SetActive(false);
                             UIManager.Instance.QuitSlotUI.SetActive(false);
+                            UIManager.Instance.StastUI.SetActive(true);
                             backToCrafting = true;
                         }
                         else if(!isCrafting)
@@ -262,6 +271,7 @@ public class Player : MonoBehaviour
                             CraftingTableTransform = hit.collider.transform;
                             CameraOriginalPosition = Camera.main.transform.localPosition;
                             CameraOriginalRotation = Camera.main.transform.rotation;
+                            UIManager.Instance.StastUI.SetActive(false);
                             GameManager.Instance.ismove = false;
                             GameManager.Instance.isCamera = false;
                             isCrafting = true;
@@ -282,7 +292,7 @@ public class Player : MonoBehaviour
                         SPACESTART spaceStart = FindAnyObjectByType<SPACESTART>();
                         if (spaceStart != null)
                         {
-                            spaceStart.transform.parent.parent.gameObject.SetActive(false);
+                            spaceStart.transform.parent.gameObject.SetActive(false);
                             spaceStart.doking.SetActive(true);
                             UIManager.Instance.tooltipUI.Hide();
                             rigidbody.linearVelocity = Vector3.zero;
@@ -294,12 +304,44 @@ public class Player : MonoBehaviour
                         }
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
-                }else if (hit2.collider.GetComponent<BBAAbattery>() != null)
+                }else if (hit2.collider.CompareTag("BBAAbattery"))
                 {
                     if (Input.GetKeyDown(KeyCode.F))
                     {
                         hit2.collider.GetComponent<BBAAbattery>().charing = true;
+                        FindAnyObjectByType<SPACESTART>().ispos1 = false;
                     }
+                    UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS 배터리 충전");
+                }else if (hit2.collider.CompareTag("BBASS"))
+                {
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        if (hit2.collider.GetComponent<BBASS_Ment1>().enabled)
+                        {
+                            if (!hit2.collider.GetComponent<BBASS_Ment1>().play)
+                            {
+                                hit2.collider.GetComponent<BBASS_Ment1>().line();
+                                GameManager.Instance.ismove = false;
+                                GameManager.Instance.isCamera = false;
+                                GameManager.Instance.MouseCursor(true);
+                                UIManager.Instance.StastUI.SetActive(false);
+                                UIManager.Instance.QuitSlotUI.SetActive(false);
+                            }
+                        }else if (hit2.collider.GetComponent<BBASS_Ment2>().enabled)
+                        {
+                            if (!hit2.collider.GetComponent<BBASS_Ment2>().play)
+                            {
+                                hit2.collider.GetComponent<BBASS_Ment2>().line();
+                                GameManager.Instance.ismove = false;
+                                GameManager.Instance.isCamera = false;
+                                GameManager.Instance.MouseCursor(true);
+                                UIManager.Instance.StastUI.SetActive(false);
+                                UIManager.Instance.QuitSlotUI.SetActive(false);
+                            }
+                        }
+                        Debug.Log(hit2.collider.name);
+                    }
+                    UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS와 대화");
                 }
             }
         }
@@ -322,6 +364,7 @@ public class Player : MonoBehaviour
                 if (Camera.main.transform.localPosition == CameracraftingPositon &&
                     Camera.main.transform.rotation == CameracraftingRotation)
                 {
+                    UIManager.Instance.StastUI.SetActive(false);
                     UIManager.Instance.ProductUI.SetActive(true);
                     UIManager.Instance.ProductSlotUI.SetActive(true);
                     UIManager.Instance.InvneoryUI.SetActive(true);

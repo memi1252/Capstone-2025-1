@@ -10,6 +10,7 @@ public class BBAAbattery : MonoBehaviour
     
     private bool insie;
     public bool charing = false;
+    bool ispos1 = false;
     private void Awake()
     {
         rend = GetComponent<Renderer>();
@@ -66,28 +67,38 @@ public class BBAAbattery : MonoBehaviour
 
     private void Charing()
     {
-        GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
+        GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS").transform.GetChild(0).gameObject;
         BBASS.GetComponent<Animator>().enabled = false;
-        BBASS.GetComponentInChildren<Light>().enabled = false;
+        BBASS = BBASS.transform.parent.gameObject;
         if (BBASS != null)
         {
-            if (BBASS.transform.position != pos1.transform.position)
+            if (BBASS.transform.position != pos1.transform.position && !ispos1)
             {
-                BBASS.transform.position = Vector3.MoveTowards(BBASS.transform.position, pos1.transform.position, 2f * Time.deltaTime);
-                
+                BBASS.transform.position = Vector3.MoveTowards(BBASS.transform.position, pos1.transform.position,
+                    2f * Time.deltaTime);
+                BBASS.transform.LookAt(pos1.transform.position);
             }
             else
             {
                 if (BBASS.transform.rotation != pos1.transform.rotation)
                 {
-                    BBASS.transform.rotation = Quaternion.RotateTowards(BBASS.transform.rotation, pos1.transform.rotation, 100f * Time.deltaTime);
+                    BBASS.transform.rotation = Quaternion.RotateTowards(BBASS.transform.rotation,
+                        pos1.transform.rotation, 100f * Time.deltaTime);
                 }
                 else
                 {
-                    charing = false;
+                    ispos1 = true;
+                    if (BBASS.transform.position != pos2.transform.position)
+                    {
+                        BBASS.transform.position = Vector3.MoveTowards(BBASS.transform.position,
+                            pos2.transform.position, 1f * Time.deltaTime);
+                    }
+                    else
+                    {
+                        charing = false;
+                    }
                 }
             }
         }
     }
-
 }

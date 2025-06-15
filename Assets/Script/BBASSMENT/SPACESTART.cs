@@ -5,35 +5,22 @@ using Doublsb.Dialog;
 using TMPro;
 using UnityEngine;
 
-public class SPACESTART : MonoBehaviour
+public class SPACESTART : BBASS_MentBASE
 {
-    [Header("UI")]
-    public GameObject Printer; //대화창 오브젝트 
-    public TextMeshProUGUI PrinterText; //출력될 텍스트
-
-    [Header("Audio")]
-    public AudioSource SEAudio; //타이핑 효과음
-
-    [Header("설정")]
-    public float Delay = 0.1f; //글자 간 딜레이
-
-    private Coroutine printingRoutine;
+    
     public Animator Animator;
     public float AnimationDelay = 0.5f; //애니메이션 딜레이
 
     public GameObject camera;
 
     public GameObject doking;
+    public GameObject pos1;
+    public bool ispos1;
 
     private bool first =false;
     private bool second =false;
     //Test_TestMessage_Selection에서 대사 리스트를 받아 출력
-    public void Show(List<DialogData> dataList)
-    {
-        if (printingRoutine != null)
-            StopCoroutine(printingRoutine);
-        printingRoutine = StartCoroutine(PrintDialogList(dataList));
-    }
+    
 
     private void Update()
     {
@@ -49,35 +36,51 @@ public class SPACESTART : MonoBehaviour
             UIManager.Instance.StastUI.SetActive(true);
             UIManager.Instance.QuitSlotUI.SetActive(true);
             GameManager.Instance.MouseCursor(false);
+            ispos1 = true;
         }
-        
+
+        if (ispos1)
+        {
+            GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS").transform.GetChild(0).gameObject;
+            BBASS.GetComponent<Animator>().enabled = false;
+            BBASS = BBASS.transform.parent.gameObject;
+            if (BBASS != null)
+            {
+                if(BBASS.transform.position != pos1.transform.position)
+                {
+                    BBASS.transform.position = Vector3.MoveTowards(BBASS.transform.position, pos1.transform.position, Time.deltaTime * 2);
+                    BBASS.transform.LookAt(pos1.transform.position);
+                }
+                else
+                {
+                    if (BBASS.transform.rotation != pos1.transform.rotation)
+                    {
+                        BBASS.transform.rotation = Quaternion.RotateTowards(BBASS.transform.rotation, pos1.transform.rotation, Time.deltaTime * 100);
+                    }
+                    else
+                    {
+                        ispos1 = false;
+                        BBASS.transform.position =pos1.transform.position;
+                        BBASS.transform.GetChild(0).GetComponent<Animator>().enabled = true;
+                    }
+                }
+            }
+        }
     }
 
-
-    //대사 리스트 순서대로 출력
-    private IEnumerator PrintDialogList(List<DialogData> dataList)
+    public override IEnumerator PrintDialogList(List<DialogData> dataList)
     {
         if (first == false)
         {
             Animator.SetTrigger("Show");
             yield return new WaitForSeconds(AnimationDelay);
         }
-        Printer.SetActive(true);  //대화창 표시
 
-        foreach (var data in dataList) //dataList 길이만큼 반복
-        {
-            foreach (var command in data.Commands)
-            {
-                if (command.Command == Command.print)
-                {
-                    yield return StartCoroutine(PrintText(command.Context));
-                    yield return WaitForMouseClick(); //마우스 클릭 대기
-                }
-            }
-        }
-
+        yield return StartCoroutine(base.PrintDialogList(dataList));
+    
         if (!first)
         {
+            ispos1 = true;
             GameManager.Instance.player.gameObject.SetActive(true);
             camera.SetActive(false);
             Printer.SetActive(false);
@@ -99,45 +102,9 @@ public class SPACESTART : MonoBehaviour
             Printer.SetActive(false);
             second = true;
         }
-        
-        
     }
 
-    private IEnumerator WaitForMouseClick()
-    {
-        while (!Input.GetMouseButtonDown(0))
-        {
-            yield return null;
-        }
-
-        // 클릭했으면 0.1초 정도 대기 (더블클릭 방지)
-        yield return new WaitForSeconds(0.1f);
-    }
-
-
-
-
-    // 한 문장을 한 글자씩 출력
-    private IEnumerator PrintText(string text)
-    {
-        PrinterText.text = "";
-        string current = "";
-
-        for (int i = 0; i < text.Length; i++)
-        {
-            current += text[i];
-            PrinterText.text = current;
-
-            if (text[i] != ' ' && SEAudio != null)
-                SEAudio.Play();
-
-            yield return new WaitForSeconds(Delay);
-        }
-    }
-    
-    
-    
-
+   
     private void Awake()
     {
         var dialogTexts = new List<DialogData>();
