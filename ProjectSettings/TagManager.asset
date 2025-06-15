@@ -8,6 +8,10 @@ TagManager:
   - TdLevelManager
   - Slot
   - MouseFollow
+  - dockingstation
+  - crafting table
+  - cockpit
+  - itemviewPos
   layers:
   - Default
   - TransparentFX

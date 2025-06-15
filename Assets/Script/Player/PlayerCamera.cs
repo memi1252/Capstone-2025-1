@@ -18,34 +18,49 @@ public class PlayerCamera : MonoBehaviour
     {
         if (GameManager.Instance.isCamera)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-            
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-            playerBody.transform.Rotate(Vector3.up * mouseX, Space.Self);
-            
-            Vector3 bodyRotation = playerBody.eulerAngles;
-            playerBody.rotation = Quaternion.Euler(bodyRotation.x, bodyRotation.y, 0f);
-
-            if (Input.GetKeyUp(KeyCode.LeftAlt))
+            if (GameManager.Instance.inSpaceShip)
             {
-                transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            }
-
-            if (Input.GetKeyDown(KeyCode.LeftAlt))
-            {
-                xRotation = 0;
-            }
+                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+                float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
             
-            if (Input.GetKey(KeyCode.LeftAlt))
-            {
+                xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+                playerBody.transform.Rotate(Vector3.up * mouseX, Space.Self);
+            
                 transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             }
             else
             {
-                playerBody.transform.Rotate(Vector3.left * mouseY, Space.Self);
+                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+                float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+            
+                xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+                playerBody.transform.Rotate(Vector3.up * mouseX, Space.Self);
+            
+                Vector3 bodyRotation = playerBody.eulerAngles;
+                playerBody.rotation = Quaternion.Euler(bodyRotation.x, bodyRotation.y, 0f);
+
+                if (Input.GetKeyUp(KeyCode.LeftAlt))
+                {
+                    transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                }
+
+                if (Input.GetKeyDown(KeyCode.LeftAlt))
+                {
+                    xRotation = 0;
+                }
+            
+                if (Input.GetKey(KeyCode.LeftAlt))
+                {
+                    transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                }
+                else
+                {
+                    playerBody.transform.Rotate(Vector3.left * mouseY, Space.Self);
+                }
             }
+            
         }
     }
     
