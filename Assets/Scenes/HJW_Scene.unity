@@ -28705,7 +28705,7 @@ Transform:
   m_GameObject: {fileID: 784472920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.052, y: 4.3147755, z: -15.819786}
+  m_LocalPosition: {x: 2.004, y: 4.3147755, z: -17.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77599,6 +77599,63 @@ Transform:
   - {fileID: 308073532}
   m_Father: {fileID: 14988030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &501827486671630922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.8468237
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415707430098066849, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7899931888897754907, guid: c17215320f8c3824b99cec7dad970671, type: 3}
+      propertyPath: m_Name
+      value: CapstoneSpaceshipINSIDE_Bed
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c17215320f8c3824b99cec7dad970671, type: 3}
 --- !u!1001 &5443916925926973139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77926,3 +77983,4 @@ SceneRoots:
   - {fileID: 8642483889711832531}
   - {fileID: 784472923}
   - {fileID: 6650609120028770721}
+  - {fileID: 501827486671630922}
