@@ -29,6 +29,10 @@ public class SpaceShipIn : MonoBehaviour
           {
                other.GetComponent<Rigidbody>().useGravity = false;
                GameManager.Instance.inSpaceShip = false;
+               if(Camera.main != null)
+               {
+                    Camera.main.transform.localRotation = Quaternion.Euler(0f, Camera.main.transform.localRotation.y, 0f);
+               }
           }
      }
 }

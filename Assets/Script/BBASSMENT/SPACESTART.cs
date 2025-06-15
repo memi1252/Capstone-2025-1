@@ -46,8 +46,11 @@ public class SPACESTART : MonoBehaviour
             Printer.SetActive(false);
             GameManager.Instance.ismove = true;
             GameManager.Instance.isCamera = true;
+            UIManager.Instance.StastUI.SetActive(true);
+            UIManager.Instance.QuitSlotUI.SetActive(true);
             GameManager.Instance.MouseCursor(false);
         }
+        
     }
 
 
@@ -91,6 +94,8 @@ public class SPACESTART : MonoBehaviour
             GameManager.Instance.MouseCursor(false);
             GameManager.Instance.ismove = true;
             GameManager.Instance.isCamera = true;
+            UIManager.Instance.StastUI.SetActive(true);
+            UIManager.Instance.QuitSlotUI.SetActive(true);
             Printer.SetActive(false);
             second = true;
         }

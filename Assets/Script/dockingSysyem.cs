@@ -31,6 +31,21 @@ public class dockingSysyem : MonoBehaviour
 
     private void Update()
     {
+        // 스킵
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            if(GetComponentInChildren<Canvas>() != null)
+                GetComponentInChildren<Canvas>().gameObject.SetActive(false);
+            foreach (var varCamera in GetComponentsInChildren<Camera>())
+            {
+                varCamera.enabled = false;
+            }
+            GetComponent<MeshRenderer>().enabled = false;
+            SpaceShip.SetActive(true);
+            SpaceShip.GetComponent<Animator>().SetTrigger("Docking");
+            StartCoroutine(spaceShipToPlayer());
+        }
+        
         if(transparency != null)
         {
             a -= Time.deltaTime * 0.3f;
