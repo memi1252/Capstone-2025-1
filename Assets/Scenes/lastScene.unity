@@ -90040,7 +90040,7 @@ MonoBehaviour:
       Rotation:
         value:
           x: -0.43702647
-          y: -0.01615334
+          y: -0.016153347
           z: -0.32711792
           w: 0.8376997
     - Position:
@@ -96734,6 +96734,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8298710490229369108, guid: 02f24335e1af4024fab95ae09a623be7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 8298710490229369112, guid: 02f24335e1af4024fab95ae09a623be7, type: 3}
       propertyPath: m_Center.y
       value: 0.44
