@@ -344,6 +344,20 @@ public class Player : MonoBehaviour
                         Debug.Log(hit2.collider.name);
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS와 대화");
+                }else if (hit2.collider.GetComponent<CabinetDoor>())
+                {
+                    CabinetDoor cabinetDoor = hit2.collider.GetComponent<CabinetDoor>();
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        if (cabinetDoor.isOpen)
+                        {
+                            cabinetDoor.Close();
+                        }
+                        else
+                        {
+                            cabinetDoor.Open();
+                        }
+                    }
                 }
             }
         }

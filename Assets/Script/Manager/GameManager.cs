@@ -66,29 +66,7 @@ public class GameManager : MonoSingleton<GameManager>
                 miniGameScene = false;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (UIManager.Instance.ProductUI.activeSelf)
-            {
-                isCamera = true;
-                ismove = true;
-                MouseCursor(false);
-                UIManager.Instance.ProductUI.SetActive(false);
-                UIManager.Instance.ProductSlotUI.SetActive(false);
-            }
-            else
-            {
-                UIManager.Instance.ProductUI.SetActive(true);
-                UIManager.Instance.ProductSlotUI.SetActive(true);
-                ismove = false;
-                isCamera = false;
-                MouseCursor(true);
-            }
-            
-            
-        }
-
+        
         InventoryOpen();
     }
     
