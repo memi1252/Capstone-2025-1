@@ -13,10 +13,11 @@ public class InstallationPartPointer : MonoBehaviour
     
     void Update()
     {
-        if (inside && ReplacingPartsManager.instance.takePart != null && ReplacingPartsManager.instance.takePart.take && !take)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (inside && ReplacingPartsManager.instance.takePart != null && ReplacingPartsManager.instance.takePart.take && !take)
             {
+            
                 Debug.Log("Taking part");
                 ReplacingPartsManager.instance.takePart.objectFollow.enabled = false;
                 ReplacingPartsManager.instance.takePart.transform.position = transform.position;

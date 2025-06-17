@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7253763230059591150}
   - component: {fileID: 2336280452094658577}
   - component: {fileID: 6523804028138191112}
-  m_Layer: 3
+  - component: {fileID: 120333524191056897}
+  m_Layer: 0
   m_Name: IronPlateItem
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -83,10 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991d11a69bb53d14dae44c011423ebfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: IronPlate
+  itemName: IronPlateItem
   itemDescription: 
   itemCount: 1
-  itemMoveSpeed: 1
+  itemMoveSpeed: 5
   mouseSensitivity: 100
   isFrontItem: 0
   isMoveItem: 0
@@ -107,6 +108,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   ss: 0
+--- !u!65 &120333524191056897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610792486514434882}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.26, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &482062214930101296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,9 +137,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4092054576496717271}
     m_Modifications:
+    - target: {fileID: 3680454687641665664, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3680454687641665664, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70043a6e1c10a1a49b72c41c1751f935, type: 2}
     - target: {fileID: 6206025740125466775, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
       propertyPath: m_Name
       value: ironplate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206025740125466775, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 6376532860083314118, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
       propertyPath: m_LocalScale.x
@@ -133,15 +167,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6376532860083314118, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0078063
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6376532860083314118, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0026032103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6376532860083314118, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.014950167
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6376532860083314118, guid: 94f062bf25e9ee241bfd4449ffdaf00c, type: 3}
       propertyPath: m_LocalRotation.w

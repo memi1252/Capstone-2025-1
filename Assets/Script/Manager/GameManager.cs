@@ -13,6 +13,7 @@ public class GameManager : MonoSingleton<GameManager>
     public string WireConnectionScene;
     public string ReplacingPartsScene;
     public Material outlineMaterial;
+    public GameObject DirectionalLight;
 
     public bool isSpace = true;
     public bool ismove = true;

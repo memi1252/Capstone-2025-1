@@ -3,14 +3,22 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ReplacingPartsManager : MonoBehaviour
 {
     public static ReplacingPartsManager instance;
+    public bool isStart = false;
     public PartPointer takePart;
     public PartPointer[] parts;
     public bool success;
     public TextMeshProUGUI statusText;
+    public Image TimerImage;
+    public float TImer;
+    public GameObject helpImage;
+    private float currentTime;
+
+    public GameObject line;
     
     public void Awake()
     {
@@ -24,29 +32,53 @@ public class ReplacingPartsManager : MonoBehaviour
         }
     }
 
+    public void GameStart()
+    {
+        isStart = true;
+        GameManager.Instance.DirectionalLight.SetActive(true);
+        helpImage.SetActive(false);
+    }
+
     private void Update()
     {
-        if (!success)
+        if (isStart)
         {
-            foreach (PartPointer p in parts)
+            currentTime += Time.deltaTime;
+            if (currentTime >= TImer)
             {
-                if(p.insPartPointer == null) break;
-                if (p.value != p.insPartPointer.value) break;
-                if(p == parts[parts.Length - 1])
+                TimerImage.fillAmount = 0f;
+                if (!success)
                 {
-                    success = true;
-                    Success();
+                    Fail();
+                }
+            }
+            else
+            {
+                TimerImage.fillAmount = 1- (currentTime / TImer);
+                if (!success)
+                {
+                    foreach (PartPointer p in parts)
+                    {
+                        if(p.insPartPointer == null) break;
+                        if (p.value != p.insPartPointer.value) break;
+                        if(p == parts[parts.Length - 1])
+                        {
+                            success = true;
+                            Success();
+                        }
+                    }
                 }
             }
         }
-        
     }
     
     public void Success()
     {
-        statusText.gameObject.SetActive(true);
-        statusText.text = "성공";
-        statusText.color = Color.green;
+        var material = line.GetComponent<MeshRenderer>().material;
+        material.EnableKeyword("_EMISSION");
+        // statusText.gameObject.SetActive(true);
+        // statusText.text = "성공";
+        // statusText.color = Color.green;
         StartCoroutine(SuccessCoroutine());
     }
     
