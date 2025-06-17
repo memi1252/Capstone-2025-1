@@ -166,10 +166,10 @@ public class BBAAbattery : BBASS_MentBASE
                 ispos1 = false;
                 if (!completed)
                 {
-                    // var dialogTexts = new List<DialogData>();
-                    // dialogTexts.Add(new DialogData("충전이 완료되었습니다."));
-                    // Show(dialogTexts);
-                    // completed = true;
+                    var dialogTexts = new List<DialogData>();
+                    dialogTexts.Add(new DialogData("충전이 완료되었습니다."));
+                    Show(dialogTexts);
+                    completed = true;
                 }
                 if (BBASS.transform.position != spaceStart.pos1.transform.position)
                 {

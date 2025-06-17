@@ -76,6 +76,7 @@ public class ReplacingPartsManager : MonoBehaviour
     {
         var material = line.GetComponent<MeshRenderer>().material;
         material.EnableKeyword("_EMISSION");
+        material.SetColor("_EmissionColor", Color.green * 2f);
         // statusText.gameObject.SetActive(true);
         // statusText.text = "성공";
         // statusText.color = Color.green;
@@ -98,9 +99,9 @@ public class ReplacingPartsManager : MonoBehaviour
     
     public void Fail()
     {
-        statusText.gameObject.SetActive(true);
-        statusText.text = "실패";
-        statusText.color = Color.red;
+        var material = line.GetComponent<MeshRenderer>().material;
+        material.EnableKeyword("_EMISSION");
+        material.SetColor("_EmissionColor", Color.black * 2f);
         StartCoroutine(FailCoroutine());
     }
     IEnumerator FailCoroutine()

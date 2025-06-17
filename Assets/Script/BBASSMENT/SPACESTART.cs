@@ -16,9 +16,7 @@ public class SPACESTART : BBASS_MentBASE
     public GameObject doking;
     public GameObject pos1;
     public bool ispos1;
-
-    private bool first =false;
-    private bool second =false;
+    
     //Test_TestMessage_Selection에서 대사 리스트를 받아 출력
     
 
@@ -37,6 +35,8 @@ public class SPACESTART : BBASS_MentBASE
             UIManager.Instance.QuitSlotUI.SetActive(true);
             GameManager.Instance.MouseCursor(false);
             ispos1 = true;
+            Printer.SetActive(false);
+            UIManager.Instance.tutorialsUI.MoveOn();
         }
 
         if (ispos1)
@@ -70,38 +70,23 @@ public class SPACESTART : BBASS_MentBASE
 
     public override IEnumerator PrintDialogList(List<DialogData> dataList)
     {
-        if (first == false)
-        {
-            Animator.SetTrigger("Show");
-            yield return new WaitForSeconds(AnimationDelay);
-        }
-
+        
+        Animator.SetTrigger("Show");
+        yield return new WaitForSeconds(AnimationDelay);
         yield return StartCoroutine(base.PrintDialogList(dataList));
     
-        if (!first)
-        {
-            ispos1 = true;
-            GameManager.Instance.player.gameObject.SetActive(true);
-            camera.SetActive(false);
-            Printer.SetActive(false);
-            GameManager.Instance.ismove = false;
-            GameManager.Instance.isCamera = false;
-            var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("WASD로 이동할수 있고 Shift로 달릴수있어요"));
-            dialogTexts.Add(new DialogData("ctrl를 누르면 하강하고 Space를 누르면 상승할수있어요"));
-            dialogTexts.Add(new DialogData("F키를 눌러 아이템을 줍거나 상호작용할수있어요"));
-            first = true;
-            Show(dialogTexts);
-        }else if (!second)
-        {
-            GameManager.Instance.MouseCursor(false);
-            GameManager.Instance.ismove = true;
-            GameManager.Instance.isCamera = true;
-            UIManager.Instance.StastUI.SetActive(true);
-            UIManager.Instance.QuitSlotUI.SetActive(true);
-            Printer.SetActive(false);
-            second = true;
-        }
+        
+        GameManager.Instance.player.gameObject.SetActive(true);
+        camera.SetActive(false);
+        Printer.SetActive(false);
+        GameManager.Instance.ismove = true;
+        GameManager.Instance.isCamera = true;
+        UIManager.Instance.StastUI.SetActive(true);
+        UIManager.Instance.QuitSlotUI.SetActive(true);
+        GameManager.Instance.MouseCursor(false);
+        ispos1 = true;
+        Printer.SetActive(false);
+        UIManager.Instance.tutorialsUI.MoveOn();
     }
 
    
