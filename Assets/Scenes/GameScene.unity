@@ -29892,6 +29892,7 @@ MonoBehaviour:
   rollSpeed: 50
   boostMultiplier: 2
   ItemPickUpDistance: 5
+  ItemDetectionRadius: 15
   Rope: {fileID: 0}
   isMove: 1
   haveKeycode: []
@@ -43074,15 +43075,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4092054576496717271, guid: 3e023d72c89f2224faaa88db59a30ac9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.120152
+      value: 7.5378685
       objectReference: {fileID: 0}
     - target: {fileID: 4092054576496717271, guid: 3e023d72c89f2224faaa88db59a30ac9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.16
+      value: 0.46808034
       objectReference: {fileID: 0}
     - target: {fileID: 4092054576496717271, guid: 3e023d72c89f2224faaa88db59a30ac9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18
+      value: 16.066488
       objectReference: {fileID: 0}
     - target: {fileID: 4092054576496717271, guid: 3e023d72c89f2224faaa88db59a30ac9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -70500,7 +70501,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 8.92
-  m_Range: 20
+  m_Range: 11.36
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

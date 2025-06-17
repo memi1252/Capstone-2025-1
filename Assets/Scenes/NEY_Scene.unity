@@ -2271,6 +2271,7 @@ MonoBehaviour:
   WireConnectionScene: 
   ReplacingPartsScene: 
   outlineMaterial: {fileID: 0}
+  DirectionalLight: {fileID: 0}
   isSpace: 1
   ismove: 1
   inSpaceShip: 1
@@ -3845,6 +3846,79 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.4610648, y: 2.170156, z: 6.070646}
   m_Center: {x: 24.316406, y: 0.58507764, z: 16.363216}
+--- !u!1001 &72344004
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.212591
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.7470717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -34.98768
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
+      propertyPath: m_Name
+      value: SpaceShipREALFINALFIX (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d8dc6285fba96247b65b7e88dcf0d3c, type: 3}
 --- !u!1001 &73779315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10725,7 +10799,7 @@ Transform:
   m_GameObject: {fileID: 286538777}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.3, y: 9.84, z: -28.5}
+  m_LocalPosition: {x: -23.3, y: 6.0041995, z: -38.79706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27434,6 +27508,7 @@ MonoBehaviour:
   rollSpeed: 50
   boostMultiplier: 2
   ItemPickUpDistance: 5
+  ItemDetectionRadius: 15
   Rope: {fileID: 0}
   isMove: 1
   haveKeycode: []
@@ -90944,3 +91019,4 @@ SceneRoots:
   - {fileID: 4024794422344448340}
   - {fileID: 916628865}
   - {fileID: 286538778}
+  - {fileID: 72344004}
