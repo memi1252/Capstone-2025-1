@@ -330,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Printer: {fileID: 704245513792101317}
   Characters: {fileID: 1374395278344505220}
-  Printer_Text: {fileID: 8636071015562984497}
+  Printer_Text: {fileID: 0}
   SEAudio: {fileID: 4111588356256959529}
   CallAudio: {fileID: 2075979468196241610}
   Delay: 0.02
