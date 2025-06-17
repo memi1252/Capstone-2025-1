@@ -127,17 +127,9 @@ public class Player : MonoBehaviour
                 
                 Vector3 moveDirection = Vector3.zero;
 
-                if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
-                if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
-                if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed; // 좌측 이동
-                if (Input.GetKey(KeyCode.D)) moveDirection += transform.right * Time.deltaTime * moveSpeed; // 우측 이동
-                if (Input.GetKey(KeyCode.Space)) moveDirection += transform.up * Time.deltaTime * moveSpeed; // 상승
-                if (Input.GetKey(KeyCode.LeftControl)) moveDirection -= transform.up * Time.deltaTime * moveSpeed; // 하강
-
-                float speed = thrustPower;
-                
-                if(moveDirection != Vector3.zero)
+                if (Input.GetKey(KeyCode.W))
                 {
+                    moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
                     Camera.main.transform.localPosition = new Vector3(0, 1.05900002f, 0.690999985f);
                     animator.SetBool("walk", true);
                     animator.SetBool("Run", isRun);
@@ -147,7 +139,16 @@ public class Player : MonoBehaviour
                     Camera.main.transform.localPosition = CameraOriginalPosition;
                     animator.SetBool("walk", false);
                     animator.SetBool("Run", isRun);
+
                 }
+                
+                if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
+                if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed; // 좌측 이동
+                if (Input.GetKey(KeyCode.D)) moveDirection += transform.right * Time.deltaTime * moveSpeed; // 우측 이동
+                if (Input.GetKey(KeyCode.Space)) moveDirection += transform.up * Time.deltaTime * moveSpeed; // 상승
+                if (Input.GetKey(KeyCode.LeftControl)) moveDirection -= transform.up * Time.deltaTime * moveSpeed; // 하강
+
+                float speed = thrustPower;
 
                 if (Input.GetKey(KeyCode.LeftShift)) // 부스터 기능
                 {

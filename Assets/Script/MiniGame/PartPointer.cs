@@ -9,6 +9,7 @@ public class PartPointer : MonoBehaviour
     public bool take = false;
     public InstallationPartPointer insPartPointer;
     public int value;
+    public GameObject particle;
 
     private void Awake()
     {
@@ -23,9 +24,9 @@ public class PartPointer : MonoBehaviour
     
     void Update()
     {
-        if (inside && !take)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0) && ReplacingPartsManager.instance.takePart == null)
+            if (inside && !take && ReplacingPartsManager.instance.takePart == null)
             {
                 Debug.Log("ss");
                 take = true;
@@ -34,8 +35,21 @@ public class PartPointer : MonoBehaviour
                 objectFollow.enabled = true;
                 boxCollider.enabled = false;
                 insPartPointer.take = false;
+                particle.SetActive(false);
                 insPartPointer = null;
                 
+            }
+        }
+
+        if (insPartPointer != null)
+        {
+            if (value != insPartPointer.value)
+            {
+                particle.SetActive(true);
+            }
+            else
+            {
+                particle.SetActive(false);
             }
         }
     }
