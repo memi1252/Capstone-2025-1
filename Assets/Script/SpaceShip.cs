@@ -60,7 +60,7 @@ public class SpaceShip : BBASS_MentBASE
     {
         var dialogTexts = new List<DialogData>();
 
-        dialogTexts.Add(new DialogData("이문을 열고 나가시면 됩니다!"));
+        dialogTexts.Add(new DialogData("이문을 열고 나가시면 바로 밑에 우주정거장 입구가 있습니다!"));
         
         Show(dialogTexts);
     }
