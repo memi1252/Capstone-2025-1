@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 25dfe2ff7d2ad8341bd2fa2137f6ebbf
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 697
+        width: 539
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37aaf9a2084d1943965373fb5e63c56
+      internalID: 1838966848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_1"
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 720
+        width: 541
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bea0e87023694d4e924e357f4864b9f
+      internalID: -148044307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_2"
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 706
+        width: 479
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6afed691bc1a32e45b00a3c5e3e3f7c9
+      internalID: 535329914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_4"
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 715
+        width: 456
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb4eed14db49b7438aa9b4d3a70677e
+      internalID: -1858235964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_5"
+      rect:
+        serializedVersion: 2
+        x: 2329
+        y: 966
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7409e3d309b4848ac434172b046780
+      internalID: -1121245268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_7"
+      rect:
+        serializedVersion: 2
+        x: 2492
+        y: 728
+        width: 454
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a62644a969be04fb33ad8afed441a7
+      internalID: 1394357295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_8"
+      rect:
+        serializedVersion: 2
+        x: 2703
+        y: 958
+        width: 121
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1d97b92ca6e7047933a9c70eb6a524
+      internalID: 614903550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_17"
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 27
+        width: 428
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 465d94316fa866f4eacf87336d6edc93
+      internalID: -1546183150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_18"
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 9
+        width: 505
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7593fd145a3ee0b45ab55118caf6f553
+      internalID: 1785008155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_20"
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 296
+        width: 137
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab850e8b19f406f45875e7b182657f87
+      internalID: -520297550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_22"
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 0
+        width: 526
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8fb7e6c4b115540a72887649a8be1b
+      internalID: -597766204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_24"
+      rect:
+        serializedVersion: 2
+        x: 2401
+        y: 12
+        width: 501
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd86f0df0c9b39468f4ed73bb2d7d16
+      internalID: 1535131182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_27"
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 4
+        width: 576
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae56a81aaa1dcf54c90beab584e86d60
+      internalID: -1937062932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fd80c2364ce4b75458514aba57723cd5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_0": 1838966848
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_1": -148044307
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_10": 1914704064
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_11": -305313935
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_12": 109367018
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_13": -1259974877
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_14": 702968850
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_15": 1812071232
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_16": -1962919449
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_17": -1546183150
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_18": 1785008155
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_19": -829950830
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_2": 535329914
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_20": -520297550
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_21": -276185512
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_22": -597766204
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_23": 223086348
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_24": 1535131182
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_25": 1561212806
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_26": -675314962
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_27": -1937062932
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_28": -438579927
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_29": 1116740358
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_3": -813769367
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_30": -949686024
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_31": 1499998790
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_32": 1791755237
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_33": 951214098
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_34": -1676053937
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_35": -1226054542
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_36": 2143997911
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_37": -1028937172
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_38": 1273650040
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_39": -348862109
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_4": -1858235964
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_40": 1725582175
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_5": -1121245268
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_6": 275529232
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_7": 1394357295
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_8": 614903550
+      "vecteezy_set-of-futuristic-tech-frame-vector_17413643 [\uBCC0\uD658\uB428]_9": 1264747234
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
