@@ -12,8 +12,8 @@ public class dockingSysyem : MonoBehaviour
     [SerializeField] private Vector3 PlayerPos;
     [SerializeField] private Quaternion PlayerRot;
     [SerializeField] private Image transparency;
-    
     [SerializeField] private Image helpImage;
+    [SerializeField] private GameObject dockingstationArrow;
 
     private float h;
     private float v;
@@ -42,6 +42,11 @@ public class dockingSysyem : MonoBehaviour
 
     private void Update()
     {
+        if (Vector3.Distance(transform.position, dockingstationArrow.transform.position) < 20f)
+        {
+            dockingstationArrow.SetActive(false);
+        }
+        
         // 스킵
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -134,7 +139,6 @@ public class dockingSysyem : MonoBehaviour
             BBASS.GetComponent<BBASS_Ment1>().enabled = false;
             BBASS.GetComponent<BBASS_Ment2>().enabled = true;
             SpaceShip.GetComponent<Animator>().SetTrigger("Docking");
-            
             StartCoroutine(spaceShipToPlayer());
         }
     }

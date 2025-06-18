@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpaceDoorOpen : MonoBehaviour
@@ -15,7 +16,8 @@ public class SpaceDoorOpen : MonoBehaviour
             Debug.LogError("Animator component not found on the GameObject.");
         }
     }
-    
+
+    private bool BBASSMove;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +26,7 @@ public class SpaceDoorOpen : MonoBehaviour
             colin = true;
             animator.SetBool("Opened", false);
             animator.SetTrigger("Actived");
+            
         }
     }
     
