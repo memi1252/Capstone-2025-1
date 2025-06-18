@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Doublsb.Dialog;
 using UnityEngine;
 
+
+
 public class SpaceShip : BBASS_MentBASE
 {
     [SerializeField] private GameObject posDoorFront;
