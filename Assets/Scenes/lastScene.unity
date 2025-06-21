@@ -7799,6 +7799,7 @@ MonoBehaviour:
   rollSpeed: 50
   boostMultiplier: 2
   ItemPickUpDistance: 5
+  ItemDetectionRadius: 15
   Rope: {fileID: 0}
   isMove: 1
   haveKeycode: []
@@ -40238,6 +40239,7 @@ MonoBehaviour:
   WireConnectionScene: WireConnectionScene
   ReplacingPartsScene: ReplacingpartsScene
   outlineMaterial: {fileID: 2100000, guid: 70043a6e1c10a1a49b72c41c1751f935, type: 2}
+  DirectionalLight: {fileID: 0}
   isSpace: 1
   ismove: 1
   inSpaceShip: 1
@@ -90040,7 +90042,7 @@ MonoBehaviour:
       Rotation:
         value:
           x: -0.43702647
-          y: -0.01615334
+          y: -0.016153347
           z: -0.32711792
           w: 0.8376997
     - Position:
@@ -95465,7 +95467,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4318907125198985722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0ac22e72c446c0d44ab849f70f9cafec, type: 2}
   m_CullingMode: 0
