@@ -15,6 +15,9 @@ TagManager:
   - BBASS
   - PW - Nature
   - BBAAbattery
+  - PW - Prop
+  - SkyboxCamera
+  - WireConnectionDoor
   layers:
   - Default
   - TransparentFX

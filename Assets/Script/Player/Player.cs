@@ -365,6 +365,10 @@ public class Player : MonoBehaviour
                             cabinetDoor.Open();
                         }
                     }
+                }else if (hit2.collider.CompareTag("WireConnectionDoor"))
+                {
+                    if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<WireConnectionDoor>().Clear)
+                        hit2.collider.GetComponent<WireConnectionDoor>().Open();
                 }
             }
         }
