@@ -127,21 +127,6 @@ public class Player : MonoBehaviour
                 animator.SetBool("SpaceShipIn", false);
                 
                 Vector3 moveDirection = Vector3.zero;
-
-                if (Input.GetKey(KeyCode.W))
-                {
-                    moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
-                    Camera.main.transform.localPosition = new Vector3(0, 1.05900002f, 0.690999985f);
-                    animator.SetBool("walk", true);
-                    animator.SetBool("Run", isRun);
-                }
-                else
-                {
-                    Camera.main.transform.localPosition = CameraOriginalPosition;
-                    animator.SetBool("walk", false);
-                    animator.SetBool("Run", isRun);
-
-                }
                 
                 if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
                 if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed; // 좌측 이동
