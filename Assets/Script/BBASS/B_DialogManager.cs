@@ -3,7 +3,6 @@ using Doublsb.Dialog;
 using TMPro;
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class B_DialogManager : MonoBehaviour
 {
