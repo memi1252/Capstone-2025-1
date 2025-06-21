@@ -205,7 +205,12 @@ public class Player : MonoBehaviour
                 {
                     item.outline = true;
                     renderer.materials[1].SetFloat("_outlien_thickness", 0.01f);
+                    GameManager.Instance.isItemPickUp = true;
                 }
+            }
+            else
+            {
+                GameManager.Instance.isItemPickUp = false;
             }
         }
         
@@ -233,17 +238,17 @@ public class Player : MonoBehaviour
             }
             else
             {
-                
-                if(SceneManager.GetActiveScene().name != "lastScene")
+                if (GameManager.Instance.isItemPickUp)
+                {
                     UIManager.Instance.tooltipUI.Hide();
+                }
             }
-            
-            
-            
         }else
         {
-            if(SceneManager.GetActiveScene().name != "lastScene")
+            if (GameManager.Instance.isItemPickUp)
+            {
                 UIManager.Instance.tooltipUI.Hide();
+            }
         }
         
         

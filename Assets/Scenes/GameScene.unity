@@ -2431,6 +2431,7 @@ MonoBehaviour:
   isCamera: 0
   isItemPickUp: 0
   miniGameScene: 1
+  isItemLookAt: 0
 --- !u!1001 &60415979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3654,8 +3655,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.483891, y: 4.203518, z: 8.165264}
-  m_Center: {x: 0.06365967, y: 1.6017578, z: 21.861824}
+  m_Size: {x: 9.176353, y: 4.203518, z: 8.165263}
+  m_Center: {x: -0.28255892, y: 1.6017578, z: 21.861824}
 --- !u!65 &70662546
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4053,8 +4054,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.3914337, y: 2.2315497, z: 4.243978}
-  m_Center: {x: 24.43688, y: 0.6157717, z: 29.208935}
+  m_Size: {x: 2.3733726, y: 2.5712204, z: 3.9592083}
+  m_Center: {x: 24.424465, y: 0.28880262, z: 25.260056}
 --- !u!65 &70662565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25245,7 +25246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &590880610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47687,6 +47688,10 @@ PrefabInstance:
       value: SmallShip00
       objectReference: {fileID: 0}
     - target: {fileID: 440263301076843201, guid: 68e77e35d7798e14095e37463581a1e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440263301076843201, guid: 68e77e35d7798e14095e37463581a1e9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -56212,6 +56217,7 @@ GameObject:
   - component: {fileID: 1179164892}
   - component: {fileID: 1179164891}
   - component: {fileID: 1179164895}
+  - component: {fileID: 1179164896}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -56320,6 +56326,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &1179164896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179164889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1001 &1181415573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72248,7 +72267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1551597434
 RectTransform:
   m_ObjectHideFlags: 0

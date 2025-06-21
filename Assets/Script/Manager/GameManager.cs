@@ -21,10 +21,11 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isCamera;
     public bool isItemPickUp = false;
     public bool miniGameScene = true;
+    public bool isItemLookAt = false;
 
     private Volume volume;
     private DepthOfField depthOfField;
-    
+
     private void Start()
     {
         volume = Camera.main.transform.GetComponent<Volume>();
