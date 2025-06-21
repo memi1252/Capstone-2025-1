@@ -21,10 +21,11 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isCamera;
     public bool isItemPickUp = false;
     public bool miniGameScene = true;
+    public bool isItemLookAt = false;
 
     private Volume volume;
     private DepthOfField depthOfField;
-    
+
     private void Start()
     {
         volume = Camera.main.transform.GetComponent<Volume>();
@@ -45,7 +46,6 @@ public class GameManager : MonoSingleton<GameManager>
                 MouseCursor(true);
                 UIManager.Instance.StastUI.SetActive(false);
                 UIManager.Instance.QuitSlotUI.SetActive(false);
-                UIManager.Instance.QuestUI.SetActive(false);
                 playerCamera.gameObject.SetActive(false);
                 miniGameScene = false;
             }
@@ -61,7 +61,6 @@ public class GameManager : MonoSingleton<GameManager>
                 MouseCursor(true);
                 UIManager.Instance.StastUI.SetActive(false);
                 UIManager.Instance.QuitSlotUI.SetActive(false);
-                UIManager.Instance.QuestUI.SetActive(false);
                 playerCamera.gameObject.SetActive(false);
                 miniGameScene = false;
             }
