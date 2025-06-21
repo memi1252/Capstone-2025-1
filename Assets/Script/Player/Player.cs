@@ -191,21 +191,35 @@ public class Player : MonoBehaviour
         Collider[] items = Physics.OverlapSphere(transform.position, ItemDetectionRadius); 
         
         
-        // 모든 아이템의 아웃라인 초기화
-        foreach (var item in FindObjectsOfType<item>())
+        var allItems = FindObjectsOfType<item>();
+        if (allItems != null)
         {
-            item.outline = false;
-            item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
+            foreach (var item in allItems)
+            {
+                if (item != null && item.GetComponentInChildren<Renderer>() != null)
+                {
+                    var renderer = item.GetComponentInChildren<Renderer>();
+                    if (renderer.materials.Length > 1)
+                    {
+                        item.outline = false;
+                        renderer.materials[1].SetFloat("_outlien_thickness", 0.0f);
+                    }
+                }
+            }
         }
-
+        
         // 콜라이더 안에 있는 아이템만 아웃라인 활성화
         foreach (var collider in items)
         {
-            if (collider.GetComponent<item>() != null)
+            var item = collider.GetComponent<item>();
+            if (item != null && item.GetComponentInChildren<Renderer>() != null)
             {
-                item Item = collider.GetComponent<item>();
-                Item.outline = true;
-                Item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.01f);
+                var renderer = item.GetComponentInChildren<Renderer>();
+                if (renderer.materials.Length > 1)
+                {
+                    item.outline = true;
+                    renderer.materials[1].SetFloat("_outlien_thickness", 0.01f);
+                }
             }
         }
         
@@ -251,8 +265,8 @@ public class Player : MonoBehaviour
         if (Camera.main != null)
         {
             Vector3 origin2 = Camera.main.transform.position;
-            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3.5f), Color.red);
-            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3.5f))
+            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3f), Color.red);
+            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3f))
             {
                 if (hit2.collider.CompareTag("crafting table"))
                 {
