@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class NewGame_Anim : MonoBehaviour
 {
     [SerializeField] private Animator animation;
+    [SerializeField] private NextScene nextScene;
     void Start()
     {
 
@@ -22,6 +23,6 @@ public class NewGame_Anim : MonoBehaviour
 
     public void NewScene()
     {
-        SceneManager.LoadScene(2);
+        nextScene.ClickButton();
     }
 }
