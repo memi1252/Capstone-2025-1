@@ -45,7 +45,6 @@ public class GameManager : MonoSingleton<GameManager>
                 MouseCursor(true);
                 UIManager.Instance.StastUI.SetActive(false);
                 UIManager.Instance.QuitSlotUI.SetActive(false);
-                UIManager.Instance.QuestUI.SetActive(false);
                 playerCamera.gameObject.SetActive(false);
                 miniGameScene = false;
             }
@@ -61,7 +60,6 @@ public class GameManager : MonoSingleton<GameManager>
                 MouseCursor(true);
                 UIManager.Instance.StastUI.SetActive(false);
                 UIManager.Instance.QuitSlotUI.SetActive(false);
-                UIManager.Instance.QuestUI.SetActive(false);
                 playerCamera.gameObject.SetActive(false);
                 miniGameScene = false;
             }

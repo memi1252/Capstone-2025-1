@@ -67,16 +67,18 @@ public class item : MonoBehaviour
 
         if (isMoveItem)
         {
+            //UIManager.Instance.InvneoryUI.SetActive(true);
             transform.position = Vector3.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("itemviewPos").transform.position, itemMoveSpeed * Time.deltaTime);
             if (transform.position == GameObject.FindGameObjectWithTag("itemviewPos").transform.position)
             {
+                UIManager.Instance.itemDescriptionUI.SetActive(true);
+                UIManager.Instance.itemDescriptionUI.GetComponent<ItemDescriptionUI>().SetItem(this);
+                isMoveItem = false;
+                isRotateItem = true;
                 //GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                 // Camera.main.transform.GetComponent<Volume>().enabled = false;
                 depthOfField.active = true;
-                UIManager.Instance.itemDescriptionUI.Show();
-                UIManager.Instance.itemDescriptionUI.SetItem(this);
-                isMoveItem = false;
-                isRotateItem = true;
+                
             }
         }
 
@@ -109,6 +111,10 @@ public class item : MonoBehaviour
 
     public void back()
     {
+        UIManager.Instance.itemDescriptionUI.SetActive(false);
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
+        GameManager.Instance.isItemPickUp= false;
+        
         isBackItem = true;
         isFrontItem = false;
         GameManager.Instance.ismove = true;
@@ -117,10 +123,6 @@ public class item : MonoBehaviour
         //GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         // Camera.main.transform.GetComponent<Volume>().enabled = true;
         depthOfField.active = false;
-        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
-        GameManager.Instance.isItemPickUp= false;
-        UIManager.Instance.itemDescriptionUI.Hide();
-        
     }
     
     public void Pickup()
@@ -150,15 +152,14 @@ public class item : MonoBehaviour
     
     private void ItemAddInventory()
     {
+        UIManager.Instance.itemDescriptionUI.SetActive(false);;
+        UIManager.Instance.QuitSlotUI.SetActive(true);
+        UIManager.Instance.StastUI.SetActive(true);
+        GameManager.Instance.isItemPickUp= false;
         GameManager.Instance.MouseCursor(false);
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
-        UIManager.Instance.QuitSlotUI.SetActive(true);
-        UIManager.Instance.StastUI.SetActive(true);
+        Destroy(gameObject);
         depthOfField.active = false;
-       // GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
-        UIManager.Instance.itemDescriptionUI.Hide();
-        GameManager.Instance.isItemPickUp= false;
-        Destroy(Item);
     }
 }

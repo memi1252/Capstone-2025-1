@@ -2972,6 +2972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 2005524188453145814}
+  nextScene: {fileID: 7930063227019014422}
 --- !u!224 &1231256273704721118
 RectTransform:
   m_ObjectHideFlags: 0
