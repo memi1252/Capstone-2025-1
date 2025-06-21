@@ -1,23 +1,39 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UIElements;
+using System.IO;
+public class saveData
+{
+    public Vector3 playerPosition;
+}
 public class DataManager : MonoBehaviour
 {
-    public static DataManager instance;
+    public saveData SaveData = new saveData();
+    string jsonData;
+
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(instance.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
+
     }
 
-    void Update()
+    public void GameSave()
+    {
+        jsonData = JsonUtility.ToJson(SaveData);
+    }
+    public void Gameload()
+    {
+
+    }
+    public GameObject fileName;
+    public void cheak()
+    {
+        if (jsonData == null)
+        {
+            fileName.SetActive(true);
+        }
+    }
+
+    public void nameClear()
     {
         
     }

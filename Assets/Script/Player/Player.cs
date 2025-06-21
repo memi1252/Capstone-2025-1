@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float rollSpeed = 50f; // Q, E 키로 회전하는 속도
     [SerializeField] private float boostMultiplier = 2f; // 부스터 속도 배율
     [SerializeField] private float ItemPickUpDistance; // 아이템 획득 거리
+    [SerializeField] private float ItemDetectionRadius = 15; //아이템 감지 반경
     [SerializeField] private GameObject Rope;
     [SerializeField] public bool isMove = true;
     private bool isjump = false;
@@ -127,17 +128,9 @@ public class Player : MonoBehaviour
                 
                 Vector3 moveDirection = Vector3.zero;
 
-                if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
-                if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
-                if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed; // 좌측 이동
-                if (Input.GetKey(KeyCode.D)) moveDirection += transform.right * Time.deltaTime * moveSpeed; // 우측 이동
-                if (Input.GetKey(KeyCode.Space)) moveDirection += transform.up * Time.deltaTime * moveSpeed; // 상승
-                if (Input.GetKey(KeyCode.LeftControl)) moveDirection -= transform.up * Time.deltaTime * moveSpeed; // 하강
-
-                float speed = thrustPower;
-                
-                if(moveDirection != Vector3.zero)
+                if (Input.GetKey(KeyCode.W))
                 {
+                    moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
                     Camera.main.transform.localPosition = new Vector3(0, 1.05900002f, 0.690999985f);
                     animator.SetBool("walk", true);
                     animator.SetBool("Run", isRun);
@@ -147,7 +140,16 @@ public class Player : MonoBehaviour
                     Camera.main.transform.localPosition = CameraOriginalPosition;
                     animator.SetBool("walk", false);
                     animator.SetBool("Run", isRun);
+
                 }
+                
+                if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
+                if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed; // 좌측 이동
+                if (Input.GetKey(KeyCode.D)) moveDirection += transform.right * Time.deltaTime * moveSpeed; // 우측 이동
+                if (Input.GetKey(KeyCode.Space)) moveDirection += transform.up * Time.deltaTime * moveSpeed; // 상승
+                if (Input.GetKey(KeyCode.LeftControl)) moveDirection -= transform.up * Time.deltaTime * moveSpeed; // 하강
+
+                float speed = thrustPower;
 
                 if (Input.GetKey(KeyCode.LeftShift)) // 부스터 기능
                 {
@@ -184,10 +186,28 @@ public class Player : MonoBehaviour
     
 
     
-    private item lookAtItem;
     void PickUpItem()
     {
-        Collider[] items = Physics.OverlapSphere(transform.position, 10);
+        Collider[] items = Physics.OverlapSphere(transform.position, ItemDetectionRadius); 
+        
+        
+        // 모든 아이템의 아웃라인 초기화
+        foreach (var item in FindObjectsOfType<item>())
+        {
+            item.outline = false;
+            item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
+        }
+
+        // 콜라이더 안에 있는 아이템만 아웃라인 활성화
+        foreach (var collider in items)
+        {
+            if (collider.GetComponent<item>() != null)
+            {
+                item Item = collider.GetComponent<item>();
+                Item.outline = true;
+                Item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.01f);
+            }
+        }
         
         
         if(Camera.main == null) return;
@@ -199,12 +219,7 @@ public class Player : MonoBehaviour
             if (hit.collider.CompareTag("Item"))
             {
                 item item = hit.transform.GetComponent<item>();
-                lookAtItem = item;
-                if (!item.outline)
-                {
-                    item.outline = true;
-                    item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.01f);
-                }
+                
                 if (Input.GetKeyDown(KeyCode.F) && !item.isFrontItem)
                 {
                     item.frontitem(hit.collider.gameObject);
@@ -218,12 +233,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                if (lookAtItem != null)
-                {
-                    lookAtItem.outline = false;
-                    lookAtItem.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
-                }
-                lookAtItem = null;
+                
                 if(SceneManager.GetActiveScene().name != "lastScene")
                     UIManager.Instance.tooltipUI.Hide();
             }
@@ -232,14 +242,6 @@ public class Player : MonoBehaviour
             
         }else
         {
-            
-            if (lookAtItem != null)
-            {
-                if(lookAtItem.tag != "item") return;
-                lookAtItem.outline = false;
-                lookAtItem.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
-            }
-            lookAtItem = null;
             if(SceneManager.GetActiveScene().name != "lastScene")
                 UIManager.Instance.tooltipUI.Hide();
         }
@@ -342,6 +344,20 @@ public class Player : MonoBehaviour
                         Debug.Log(hit2.collider.name);
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS와 대화");
+                }else if (hit2.collider.GetComponent<CabinetDoor>())
+                {
+                    CabinetDoor cabinetDoor = hit2.collider.GetComponent<CabinetDoor>();
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        if (cabinetDoor.isOpen)
+                        {
+                            cabinetDoor.Close();
+                        }
+                        else
+                        {
+                            cabinetDoor.Open();
+                        }
+                    }
                 }
             }
         }

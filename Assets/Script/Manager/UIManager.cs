@@ -10,4 +10,6 @@ public class UIManager : MonoSingleton<UIManager>
     public GameObject StastUI;
     public GameObject QuestUI;
     public ItemDescriptionUI itemDescriptionUI;
+    public TutorialsUI tutorialsUI;
+    public GameObject BBASSViewUI;
 }
