@@ -205,14 +205,15 @@ public class Player : MonoBehaviour
                 {
                     item.outline = true;
                     renderer.materials[1].SetFloat("_outlien_thickness", 0.01f);
-                    GameManager.Instance.isItemPickUp = true;
                 }
+                GameManager.Instance.isItemPickUp = true;
             }
             else
             {
                 GameManager.Instance.isItemPickUp = false;
             }
         }
+        
         
         
         if(Camera.main == null) return;
@@ -235,6 +236,7 @@ public class Player : MonoBehaviour
                     item.Pickup();
                 }
                 UIManager.Instance.tooltipUI.SetText(item.itemName);
+                GameManager.Instance.isItemPickUp = true;
             }
             else
             {

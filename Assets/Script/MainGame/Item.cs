@@ -25,14 +25,10 @@ public class item : MonoBehaviour
     private Volume volume;
     private DepthOfField depthOfField;
 
-    private void Start()
+    public void frontitem(GameObject item)
     {
         volume = Camera.main.transform.GetComponent<Volume>();
         volume.profile.TryGet(out depthOfField);
-    }
-
-    public void frontitem(GameObject item)
-    {
         Item = item;
         origiPos = transform.position;
         origiRot = transform.rotation;
@@ -120,6 +116,7 @@ public class item : MonoBehaviour
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         GameManager.Instance.MouseCursor(false);
+        UIManager.Instance.tooltipUI.Hide();
         //GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         // Camera.main.transform.GetComponent<Volume>().enabled = true;
         depthOfField.active = false;
@@ -153,13 +150,14 @@ public class item : MonoBehaviour
     private void ItemAddInventory()
     {
         UIManager.Instance.itemDescriptionUI.SetActive(false);;
+        UIManager.Instance.tooltipUI.Hide();
         UIManager.Instance.QuitSlotUI.SetActive(true);
         UIManager.Instance.StastUI.SetActive(true);
         GameManager.Instance.isItemPickUp= false;
         GameManager.Instance.MouseCursor(false);
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
-        Destroy(gameObject);
         depthOfField.active = false;
+        Destroy(gameObject);
     }
 }
