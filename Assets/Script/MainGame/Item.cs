@@ -1,6 +1,5 @@
 using System;
 using InventorySystem;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;

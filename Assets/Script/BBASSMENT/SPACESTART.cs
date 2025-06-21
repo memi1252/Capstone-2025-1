@@ -96,13 +96,19 @@ public class SPACESTART : BBASS_MentBASE
             second = false;
         }
 
+        if (second)
+        {
+            Printer.SetActive(false);
+        }
+
         if (!second)
         {
             Second();
             Combinations1.SetActive(true);
             second = true;
         }
-        Printer.SetActive(false);
+        
+        
     }
     
     
@@ -114,7 +120,7 @@ public class SPACESTART : BBASS_MentBASE
 
         dialogTexts.Add(new DialogData("드디어 일어나셨군요!!"));
         dialogTexts.Add(new DialogData("안녕하세요, 저는 AI도우미 BBASS입니다"));
-        dialogTexts.Add(new DialogData("현재 상황은 우주선이 오작동을 일으켜 GBSW-KNSH으로 못가는 중입니다."));
+        dialogTexts.Add(new DialogData("현재 상황은 우주선이 오작동을 일으켜 GBSW-KSHN으로 못가는 중입니다."));
         dialogTexts.Add(new DialogData("오작동이 일어난 곳은 전력 분배기, 생명 유지장치, 추진 제어판이있습니다"));
         dialogTexts.Add(new DialogData("현재 그 세 곳의 시스템을 고칠수 있는 도구가 없습니다."));
         dialogTexts.Add(new DialogData("다행이도 근처에 우주정거장이있습니다."));
