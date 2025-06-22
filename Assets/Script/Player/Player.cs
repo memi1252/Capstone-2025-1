@@ -247,10 +247,7 @@ public class Player : MonoBehaviour
             }
         }else
         {
-            if (GameManager.Instance.isItemPickUp)
-            {
-                UIManager.Instance.tooltipUI.Hide();
-            }
+            UIManager.Instance.tooltipUI.Hide();
         }
         
         
@@ -274,6 +271,7 @@ public class Player : MonoBehaviour
                             UIManager.Instance.QuitSlotUI.SetActive(false);
                             UIManager.Instance.StastUI.SetActive(true);
                             backToCrafting = true;
+                            GameManager.Instance.noInventoryOpen = false;
                         }
                         else if(!isCrafting)
                         {
@@ -285,6 +283,7 @@ public class Player : MonoBehaviour
                             GameManager.Instance.isCamera = false;
                             isCrafting = true;
                             rigidbody.linearVelocity = Vector3.zero;
+                            GameManager.Instance.noInventoryOpen = true;
                         }
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 작업대 열기");
@@ -306,6 +305,7 @@ public class Player : MonoBehaviour
                             UIManager.Instance.tooltipUI.Hide();
                             rigidbody.linearVelocity = Vector3.zero;
                             gameObject.SetActive(false);
+                            GameManager.Instance.noInventoryOpen = true;
                         }
                         else
                         {
@@ -369,6 +369,8 @@ public class Player : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<WireConnectionDoor>().Clear)
                         hit2.collider.GetComponent<WireConnectionDoor>().Open();
+                    if(!hit.collider.GetComponent<WireConnectionDoor>().Clear)
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 전선 연결문 열기(니퍼 필요");
                 }
             }
         }

@@ -5,7 +5,7 @@ public class GravityOffset : MonoBehaviour
 {
     [SerializeField] public GameObject RopeObject;
 
-    private int playerInsideCount = 0; 
+    private int playerInsideCount = 0;
 
     private void OnTriggerEnter(Collider other)
     {

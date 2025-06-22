@@ -93,6 +93,7 @@ public class ReplacingPartsManager : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }
     
@@ -113,6 +114,7 @@ public class ReplacingPartsManager : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }
 }

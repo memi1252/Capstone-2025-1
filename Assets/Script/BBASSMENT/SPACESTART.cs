@@ -38,6 +38,7 @@ public class SPACESTART : BBASS_MentBASE
             ispos1 = true;
             Printer.SetActive(false);
             UIManager.Instance.tutorialsUI.MoveOn();
+            GameManager.Instance.noInventoryOpen = false;
         }
 
         if (ispos1)
@@ -94,6 +95,7 @@ public class SPACESTART : BBASS_MentBASE
             ispos1 = true;
             first = true;
             second = false;
+            GameManager.Instance.noInventoryOpen = false;
         }
 
         if (second)

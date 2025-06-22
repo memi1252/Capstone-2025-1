@@ -38,6 +38,7 @@ public class WireConnectionDoor : MonoBehaviour
         GameManager.Instance.MouseCursor(true);
         UIManager.Instance.StastUI.SetActive(false);
         UIManager.Instance.QuitSlotUI.SetActive(false);
+        UIManager.Instance.BBASSViewUI.SetActive(false);
         GameManager.Instance.playerCamera.gameObject.SetActive(false);
         GameManager.Instance.miniGameScene = false;
     }

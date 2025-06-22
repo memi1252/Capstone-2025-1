@@ -80,6 +80,8 @@ public class WireManager : MonoBehaviour
         GameManager.Instance.miniGameScene = true;
         wireConnectionDoor.Clear = true;
         wireConnectionDoor.Close();
+        UIManager.Instance.BBASSViewUI.SetActive(true);
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.WireConnectionScene);
     }
     
@@ -107,6 +109,8 @@ public class WireManager : MonoBehaviour
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
         wireConnectionDoor.Close();
+        UIManager.Instance.BBASSViewUI.SetActive(true);
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.WireConnectionScene);
     }
 }
