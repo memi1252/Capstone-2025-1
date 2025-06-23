@@ -10,6 +10,7 @@ public class ActiveAnim : MonoBehaviour
     private TDScene tdscene;
     private bool _isIn;
 
+
     public void Start()
     {
         // find reference for vars
@@ -44,9 +45,10 @@ public class ActiveAnim : MonoBehaviour
                         }
                         else
                         {
-                            //Debug.Log("Activando animacion de salida");
+                            Debug.Log("Activando animacion de salida");
                             animator.SetTrigger("Actived");
                             animator.SetBool("Opened", true);
+
                         }
                     }
                 }
@@ -73,7 +75,7 @@ public class ActiveAnim : MonoBehaviour
         {
             _isIn = false;
 
-            if(_localAuto && activeParent.AutoOnExit)
+            if (_localAuto && activeParent.AutoOnExit)
             {
                 //Debug.Log("Activando animacion de salida");
                 animator.SetTrigger("Actived");

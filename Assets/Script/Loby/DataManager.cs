@@ -11,7 +11,7 @@ public class SaveDatas
 public class DataManager : MonoBehaviour
 {
     public SaveDatas[] _saveData = new SaveDatas[3];
-    string[] jsonData = {null, null, null};
+    string[] jsonData = { null, null, null };
 
     public TextMeshProUGUI _fileName;
     public TextMeshProUGUI[] gameFileName;
@@ -35,32 +35,32 @@ public class DataManager : MonoBehaviour
     }
 
     public void UpdateSlotFileNames()
-{
-    for (int i = 0; i < gameFileName.Length; i++)
     {
-        path = Application.persistentDataPath + $"/save_{i}.json";
-
-        if (File.Exists(path))
+        for (int i = 0; i < gameFileName.Length; i++)
         {
-            json = File.ReadAllText(path);
-            SaveDatas temp = JsonUtility.FromJson<SaveDatas>(json);
+            path = Application.persistentDataPath + $"/save_{i}.json";
 
-            if (temp != null && !string.IsNullOrEmpty(temp.fileName))
-                gameFileName[i].text = temp.fileName;
+            if (File.Exists(path))
+            {
+                json = File.ReadAllText(path);
+                SaveDatas temp = JsonUtility.FromJson<SaveDatas>(json);
+
+                if (temp != null && !string.IsNullOrEmpty(temp.fileName))
+                    gameFileName[i].text = temp.fileName;
+                else
+                    gameFileName[i].text = "빈 슬롯";
+            }
             else
+            {
                 gameFileName[i].text = "빈 슬롯";
-        }
-        else
-        {
-            gameFileName[i].text = "빈 슬롯";
+            }
         }
     }
-}
 
     int fileNumber;
     public void GameSave()
     {
-       _saveData[fileNumber] = new SaveDatas()
+        _saveData[fileNumber] = new SaveDatas()
         {
             fileName = _fileName.text,
         };
@@ -89,7 +89,7 @@ public class DataManager : MonoBehaviour
     public GameObject fileNameInputField;
     public void cheak(int num)
     {
-        
+
         fileNumber = num;
         Debug.Log("num = " + num);
         Debug.Log("filenumber = " + fileNumber);
@@ -99,6 +99,16 @@ public class DataManager : MonoBehaviour
 
     public void nameClear()
     {
-        
+
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            File.Delete(Application.persistentDataPath + "/save_0.json");
+            File.Delete(Application.persistentDataPath + "/save_1.json");
+               File.Delete(Application.persistentDataPath + "/save_2.json");
+        }
     }
 }
