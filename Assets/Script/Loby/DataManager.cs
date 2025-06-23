@@ -106,7 +106,9 @@ public class DataManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            File.Delete(json);
+            File.Delete(Application.persistentDataPath + "/save_0.json");
+            File.Delete(Application.persistentDataPath + "/save_1.json");
+               File.Delete(Application.persistentDataPath + "/save_2.json");
         }
     }
 }
