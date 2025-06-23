@@ -21,7 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isCamera;
     public bool isItemPickUp = false;
     public bool miniGameScene = true;
-    public bool isItemLookAt = false;
+    public bool noInventoryOpen = true;
 
     private Volume volume;
     private DepthOfField depthOfField;
@@ -85,7 +85,7 @@ public class GameManager : MonoSingleton<GameManager>
     
     private void InventoryOpen()
     {
-        if (Input.GetKeyDown(KeyCode.I) && !isItemPickUp)
+        if (Input.GetKeyDown(KeyCode.I) && !isItemPickUp && !noInventoryOpen)
         {
             if (UIManager.Instance.InvneoryUI.activeSelf)
             {

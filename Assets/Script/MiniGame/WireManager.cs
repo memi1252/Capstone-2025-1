@@ -28,17 +28,21 @@ public class WireManager : MonoBehaviour
     
     
 
+    
+
+    public TextMeshProUGUI statusText;
+    public TextMeshProUGUI countText;
+    private WireConnectionDoor wireConnectionDoor;
+
+    public int count = 4;
+
     private void Start()
     {
         //wirecontainer[Random.Range(0, wirecontainer.Length)].SetActive(true);
         audioSource = GetComponent<AudioSource>();
+        wireConnectionDoor = GameObject.FindGameObjectWithTag("WireConnectionDoor").GetComponent<WireConnectionDoor>();
     }
-
-    public TextMeshProUGUI statusText;
-    public TextMeshProUGUI countText;
-
-    public int count = 4;
-
+    
     private void Update()
     {
         countText.text = $"남은 횟수 : {count}";
@@ -74,6 +78,10 @@ public class WireManager : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        wireConnectionDoor.Clear = true;
+        wireConnectionDoor.Close();
+        UIManager.Instance.BBASSViewUI.SetActive(true);
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.WireConnectionScene);
     }
     
@@ -100,6 +108,9 @@ public class WireManager : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        wireConnectionDoor.Close();
+        UIManager.Instance.BBASSViewUI.SetActive(true);
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.WireConnectionScene);
     }
 }
