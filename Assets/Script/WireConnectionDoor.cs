@@ -15,6 +15,8 @@ public class WireConnectionDoor : MonoBehaviour
 
     public void Open()
     {
+        if(GameManager.Instance.player.GetComponent<QuitslotItemSelect>().currentHandItem.name != "NipperItem")
+            return;
         animator.SetTrigger("Open");
         GameManager.Instance.player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         if (!one)

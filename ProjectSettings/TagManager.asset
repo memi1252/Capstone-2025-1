@@ -18,6 +18,7 @@ TagManager:
   - PW - Prop
   - SkyboxCamera
   - WireConnectionDoor
+  - ReplacingpartsDoor
   layers:
   - Default
   - TransparentFX

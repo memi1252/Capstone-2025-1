@@ -19,6 +19,7 @@ public class ReplacingPartsManager : MonoBehaviour
     private float currentTime;
 
     public GameObject line;
+    private ReplacingpartsDoor ReplacingpartsDoor;
     
     public void Awake()
     {
@@ -30,6 +31,11 @@ public class ReplacingPartsManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        ReplacingpartsDoor = FindObjectOfType<ReplacingpartsDoor>();
     }
 
     public void GameStart()
@@ -93,6 +99,9 @@ public class ReplacingPartsManager : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        ReplacingpartsDoor.Clear = true;
+        ReplacingpartsDoor.Close();
+        UIManager.Instance.BBASSViewUI.SetActive(true);
         GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }
@@ -114,6 +123,9 @@ public class ReplacingPartsManager : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        ReplacingpartsDoor.Clear = false;
+        ReplacingpartsDoor.Close();
+        UIManager.Instance.BBASSViewUI.SetActive(true);
         GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }

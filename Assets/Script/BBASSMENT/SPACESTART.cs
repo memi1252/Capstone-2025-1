@@ -16,7 +16,7 @@ public class SPACESTART : BBASS_MentBASE
     public GameObject doking;
     public GameObject pos1;
     public bool ispos1;
-    public GameObject Combinations1;
+    public GameObject[] Combinations1;
     
     //Test_TestMessage_Selection에서 대사 리스트를 받아 출력
     
@@ -106,7 +106,8 @@ public class SPACESTART : BBASS_MentBASE
         if (!second)
         {
             Second();
-            Combinations1.SetActive(true);
+            Combinations1[0].SetActive(true);
+            Combinations1[1].SetActive(true);
             second = true;
         }
         
@@ -137,7 +138,7 @@ public class SPACESTART : BBASS_MentBASE
     {
         var dialogTexts = new List<DialogData>();
         
-        dialogTexts.Add(new DialogData("현재 필요한 도구의 조합법을 제작대에 띄어 놓았습니다"));
+        dialogTexts.Add(new DialogData("현재 필요한 도구의 조합법을 제작대에 띄워 놓았습니다"));
         
         Show(dialogTexts);
     }

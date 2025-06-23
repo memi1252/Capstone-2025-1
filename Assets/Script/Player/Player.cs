@@ -370,8 +370,18 @@ public class Player : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<WireConnectionDoor>().Clear)
                         hit2.collider.GetComponent<WireConnectionDoor>().Open();
                     if(!hit.collider.GetComponent<WireConnectionDoor>().Clear)
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 전선 연결문 열기(니퍼 필요");
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 전선 연결문 열기(니퍼 필요)");
+                }else if (hit2.collider.CompareTag("ReplacingpartsDoor"))
+                {
+                    if(Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
+                        hit2.collider.GetComponent<ReplacingpartsDoor>().Open();
+                    if (!hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 부품 교체문 열기(몽키스패너 필요)");
                 }
+            }
+            else
+            {
+                UIManager.Instance.tooltipUI.Hide();
             }
         }
     }

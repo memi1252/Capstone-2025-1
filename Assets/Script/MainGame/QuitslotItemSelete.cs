@@ -6,7 +6,7 @@ public class QuitslotItemSelect : MonoBehaviour
 {
     private string inventoryName = "Quitslot";
     [SerializeField] private GameObject[] HandItem; 
-    private GameObject currentHandItem = null;
+    public GameObject currentHandItem = null;
     private int currentHandItemIndex = -1;
     private GameObject currentSlot;
 

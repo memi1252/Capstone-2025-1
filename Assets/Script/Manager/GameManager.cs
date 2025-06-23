@@ -10,11 +10,15 @@ public class GameManager : MonoSingleton<GameManager>
     [Header("Player")]   
     [SerializeField] public Player player;
     [SerializeField] public PlayerCamera playerCamera;
+    [SerializeField] public BBASS_MentBASE BBASS;
     public string WireConnectionScene;
     public string ReplacingPartsScene;
     public Material outlineMaterial;
     public GameObject DirectionalLight;
 
+    public ProductionSystem ProductionSystem1;
+    public ProductionSystem ProductionSystem2;
+    
     public bool isSpace = true;
     public bool ismove = true;
     public bool inSpaceShip = true;
