@@ -12,7 +12,7 @@ public class GamePanelOpen : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.isItemPickUp)
         {
             if (gamePanel.activeSelf == false)
             {

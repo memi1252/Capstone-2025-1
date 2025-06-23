@@ -28,6 +28,8 @@ public class ActiveColGo : MonoBehaviour
         {
             if (keyActive)
             {
+                UIManager.Instance.tooltipUI.Show();
+                UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
                 foreach (var key in tdscene.PlayerChar.GetComponent<Player>().haveKeycode)
                 {
                     if (key == keycode)
@@ -39,8 +41,6 @@ public class ActiveColGo : MonoBehaviour
                         break;
                     }
                 }
-                UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
-                UIManager.Instance.tooltipUI.Show();
             }
             else
             {

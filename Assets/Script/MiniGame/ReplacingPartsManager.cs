@@ -91,9 +91,9 @@ public class ReplacingPartsManager : MonoBehaviour
         GameManager.Instance.MouseCursor(false);
         UIManager.Instance.StastUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
-        UIManager.Instance.QuestUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }
     
@@ -112,9 +112,9 @@ public class ReplacingPartsManager : MonoBehaviour
         GameManager.Instance.MouseCursor(false);
         UIManager.Instance.StastUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
-        UIManager.Instance.QuestUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
         GameManager.Instance.miniGameScene = true;
+        GameManager.Instance.noInventoryOpen = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }
 }

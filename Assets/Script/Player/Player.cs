@@ -127,22 +127,8 @@ public class Player : MonoBehaviour
                 animator.SetBool("SpaceShipIn", false);
                 
                 Vector3 moveDirection = Vector3.zero;
-
-                if (Input.GetKey(KeyCode.W))
-                {
-                    moveDirection += transform.forward * Time.deltaTime * moveSpeed; // 전진
-                    Camera.main.transform.localPosition = new Vector3(0, 1.05900002f, 0.690999985f);
-                    animator.SetBool("walk", true);
-                    animator.SetBool("Run", isRun);
-                }
-                else
-                {
-                    Camera.main.transform.localPosition = CameraOriginalPosition;
-                    animator.SetBool("walk", false);
-                    animator.SetBool("Run", isRun);
-
-                }
                 
+                if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward * Time.deltaTime * moveSpeed; //전진
                 if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward * Time.deltaTime * moveSpeed; // 후진
                 if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right * Time.deltaTime * moveSpeed; // 좌측 이동
                 if (Input.GetKey(KeyCode.D)) moveDirection += transform.right * Time.deltaTime * moveSpeed; // 우측 이동
@@ -191,23 +177,43 @@ public class Player : MonoBehaviour
         Collider[] items = Physics.OverlapSphere(transform.position, ItemDetectionRadius); 
         
         
-        // 모든 아이템의 아웃라인 초기화
-        foreach (var item in FindObjectsOfType<item>())
+        var allItems = FindObjectsOfType<item>();
+        if (allItems != null)
         {
-            item.outline = false;
-            item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.0f);
+            foreach (var item in allItems)
+            {
+                if (item != null && item.GetComponentInChildren<Renderer>() != null)
+                {
+                    var renderer = item.GetComponentInChildren<Renderer>();
+                    if (renderer.materials.Length > 1)
+                    {
+                        item.outline = false;
+                        renderer.materials[1].SetFloat("_outlien_thickness", 0.0f);
+                    }
+                }
+            }
         }
-
+        
         // 콜라이더 안에 있는 아이템만 아웃라인 활성화
         foreach (var collider in items)
         {
-            if (collider.GetComponent<item>() != null)
+            var item = collider.GetComponent<item>();
+            if (item != null && item.GetComponentInChildren<Renderer>() != null)
             {
-                item Item = collider.GetComponent<item>();
-                Item.outline = true;
-                Item.GetComponentInChildren<Renderer>().materials[1].SetFloat("_outlien_thickness", 0.01f);
+                var renderer = item.GetComponentInChildren<Renderer>();
+                if (renderer.materials.Length > 1)
+                {
+                    item.outline = true;
+                    renderer.materials[1].SetFloat("_outlien_thickness", 0.01f);
+                }
+                GameManager.Instance.isItemPickUp = true;
+            }
+            else
+            {
+                GameManager.Instance.isItemPickUp = false;
             }
         }
+        
         
         
         if(Camera.main == null) return;
@@ -230,20 +236,18 @@ public class Player : MonoBehaviour
                     item.Pickup();
                 }
                 UIManager.Instance.tooltipUI.SetText(item.itemName);
+                GameManager.Instance.isItemPickUp = true;
             }
             else
             {
-                
-                if(SceneManager.GetActiveScene().name != "lastScene")
+                if (GameManager.Instance.isItemPickUp)
+                {
                     UIManager.Instance.tooltipUI.Hide();
+                }
             }
-            
-            
-            
         }else
         {
-            if(SceneManager.GetActiveScene().name != "lastScene")
-                UIManager.Instance.tooltipUI.Hide();
+            UIManager.Instance.tooltipUI.Hide();
         }
         
         
@@ -251,8 +255,8 @@ public class Player : MonoBehaviour
         if (Camera.main != null)
         {
             Vector3 origin2 = Camera.main.transform.position;
-            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3.5f), Color.red);
-            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3.5f))
+            Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3f), Color.red);
+            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3f))
             {
                 if (hit2.collider.CompareTag("crafting table"))
                 {
@@ -267,6 +271,7 @@ public class Player : MonoBehaviour
                             UIManager.Instance.QuitSlotUI.SetActive(false);
                             UIManager.Instance.StastUI.SetActive(true);
                             backToCrafting = true;
+                            GameManager.Instance.noInventoryOpen = false;
                         }
                         else if(!isCrafting)
                         {
@@ -278,6 +283,7 @@ public class Player : MonoBehaviour
                             GameManager.Instance.isCamera = false;
                             isCrafting = true;
                             rigidbody.linearVelocity = Vector3.zero;
+                            GameManager.Instance.noInventoryOpen = true;
                         }
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 작업대 열기");
@@ -299,6 +305,7 @@ public class Player : MonoBehaviour
                             UIManager.Instance.tooltipUI.Hide();
                             rigidbody.linearVelocity = Vector3.zero;
                             gameObject.SetActive(false);
+                            GameManager.Instance.noInventoryOpen = true;
                         }
                         else
                         {
@@ -358,6 +365,12 @@ public class Player : MonoBehaviour
                             cabinetDoor.Open();
                         }
                     }
+                }else if (hit2.collider.CompareTag("WireConnectionDoor"))
+                {
+                    if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<WireConnectionDoor>().Clear)
+                        hit2.collider.GetComponent<WireConnectionDoor>().Open();
+                    if(!hit.collider.GetComponent<WireConnectionDoor>().Clear)
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 전선 연결문 열기(니퍼 필요");
                 }
             }
         }

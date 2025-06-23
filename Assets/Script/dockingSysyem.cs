@@ -151,7 +151,7 @@ public class dockingSysyem : MonoBehaviour
         player.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
         UIManager.Instance.StastUI.SetActive(true);
-        UIManager.Instance.itemDescriptionUI.Hide();
+        UIManager.Instance.itemDescriptionUI.SetActive(false);
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         player.transform.position = PlayerPos;
@@ -161,6 +161,7 @@ public class dockingSysyem : MonoBehaviour
         GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
         BBASS.transform.position = new Vector3(2,18,15.5539999f);
         BBASS.transform.rotation = Quaternion.Euler(0,180,0);
+        GameManager.Instance.noInventoryOpen = false;
         
     }
 }
