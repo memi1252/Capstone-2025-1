@@ -16,6 +16,8 @@ public class ActiveColGo : MonoBehaviour
     private bool isOpen;
     public string keycode;
 
+    public AudioSource doorOpenSound;
+
     private void Start()
     {
         tdscene = GameObject.FindWithTag("TdLevelManager").GetComponent<TDScene>();
@@ -36,6 +38,7 @@ public class ActiveColGo : MonoBehaviour
                     {
                         hasexit = false;
                         actived = true;
+                        doorOpenSound.Play();
                         isOpen = true;
                         UIManager.Instance.tooltipUI.Hide();
                         break;
@@ -46,6 +49,7 @@ public class ActiveColGo : MonoBehaviour
             {
                 hasexit = false;
                 actived = true;
+                doorOpenSound.Play();
             }
         }
     }
