@@ -19,6 +19,9 @@ public class BBASS_MentBASE : MonoBehaviour
     private Coroutine printingRoutine;
     
     
+    public bool isPlay = false; //대사 출력 중인지 여부
+    
+    
     //Test_TestMessage_Selection에서 대사 리스트를 받아 출력
     public void Show(List<DialogData> dataList)
     {
@@ -34,6 +37,7 @@ public class BBASS_MentBASE : MonoBehaviour
     {
         Printer.SetActive(true);  //대화창 표시
 
+        isPlay = true; //대사 출력 중 상태로 변경
         foreach (var data in dataList) //dataList 길이만큼 반복
         {
             foreach (var command in data.Commands)
@@ -45,6 +49,7 @@ public class BBASS_MentBASE : MonoBehaviour
                 }
             }
         }
+        isPlay = false; //대사 출력 완료 상태로 변경
     }
 
     private IEnumerator WaitForMouseClick()

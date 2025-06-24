@@ -32746,6 +32746,7 @@ MonoBehaviour:
   PrinterText: {fileID: 0}
   SEAudio: {fileID: 0}
   Delay: 0.1
+  isPlay: 0
   posDoorFront: {fileID: 7389441281574462239}
   isDoorFront: 0
 --- !u!1001 &8943235613627124536

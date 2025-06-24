@@ -10,9 +10,30 @@ public class QuitslotItemSelect : MonoBehaviour
     private int currentHandItemIndex = -1;
     private GameObject currentSlot;
 
+    private bool TakeKeycode = false;
     
     private void Update()
     {
+        if (currentHandItem == HandItem[5])
+        {
+            if (!TakeKeycode)
+            {
+                GameManager.Instance.player.haveKeycode.Add("1234");
+                TakeKeycode = true;
+            }
+        }else if (currentHandItem == HandItem[6])
+        {
+            if (!TakeKeycode)
+            {
+                GameManager.Instance.player.haveKeycode.Add("1252");
+                TakeKeycode = true;
+            }
+        }
+        else
+        {
+            TakeKeycode = false;
+            GameManager.Instance.player.haveKeycode.Clear();
+        }
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

@@ -53,6 +53,7 @@ public class SpaceShip : BBASS_MentBASE
         yield return StartCoroutine(base.PrintDialogList(dataList));
         
         Printer.SetActive(false);
+        FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
     }
 
     private bool DoorFrontMent = true;
