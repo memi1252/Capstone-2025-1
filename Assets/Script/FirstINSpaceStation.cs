@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class FirstINSpaceStation : MonoBehaviour
 {
+    private bool isPlay = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -17,10 +18,20 @@ public class FirstINSpaceStation : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!GameManager.Instance.BBASS.isPlay && isPlay)
+        {
+            GameManager.Instance.BBASS.Printer.SetActive(false);
+            isPlay = false;
+        }
+    }
+
     IEnumerator BBASSMent()
     {
         yield return new WaitForSeconds(2f);
         var dialogTexts = new List<DialogData>();
+        isPlay = true;
         dialogTexts.Add(new DialogData("우주정거장 탐색 결과 도구를 만들 재료는 충분합니다."));
         dialogTexts.Add(new DialogData("현재 필요한 재료는 철판, 나사, 볼트입니다."));
         dialogTexts.Add(new DialogData("피로도가 다 떨어지기 전에 모아서 우주선으로 돌아갑시다!"));

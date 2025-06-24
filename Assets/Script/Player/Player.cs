@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
     }
     
     
-
+private bool keycodeCheck = false;
     
     void PickUpItem()
     {
@@ -245,9 +245,6 @@ public class Player : MonoBehaviour
                     UIManager.Instance.tooltipUI.Hide();
                 }
             }
-        }else
-        {
-            UIManager.Instance.tooltipUI.Hide();
         }
         
         
@@ -307,10 +304,6 @@ public class Player : MonoBehaviour
                             rigidbody.linearVelocity = Vector3.zero;
                             gameObject.SetActive(false);
                             GameManager.Instance.noInventoryOpen = true;
-                        }
-                        else
-                        {
-                            Debug.LogError("SPACESTART not found in the scene.");
                         }
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
@@ -378,6 +371,21 @@ public class Player : MonoBehaviour
                         hit2.collider.GetComponent<ReplacingpartsDoor>().Open();
                     if (!hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
                         UIManager.Instance.tooltipUI.SetText("F를 눌러 부품 교체문 열기(몽키스패너 필요)");
+                }else if (hit2.collider.CompareTag("StationDoor"))
+                {
+                    keycodeCheck = false;
+                    foreach (var key in haveKeycode)
+                    {
+                        if (hit2.collider.GetComponentInChildren<ActiveColGo>().keycode == key)
+                        {
+                            keycodeCheck = true;
+                        }
+                    }
+
+                    if (!keycodeCheck)
+                    {
+                        UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
+                    }                    
                 }
             }
             else

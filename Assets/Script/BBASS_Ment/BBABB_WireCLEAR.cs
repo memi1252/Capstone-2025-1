@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class BBABB_WireCLEAR : BBASS_MentBASE
 {
+    [SerializeField] private GameObject Combinations1;
+    [SerializeField] private GameObject Combinations2;
     public override IEnumerator PrintDialogList(List<DialogData> dataList)
     {
+        Combinations2.SetActive(true);
+        Combinations1.SetActive(false);
         
         yield return StartCoroutine(base.PrintDialogList(dataList));
 
@@ -24,7 +28,7 @@ public class BBABB_WireCLEAR : BBASS_MentBASE
         var dialogTexts = new List<DialogData>();
 
         dialogTexts.Add(new DialogData("전선 연결이 완료되었습니다!"));
-        dialogTexts.Add(new DialogData("다움 수리에 필요한 도구의 조합법을 제작대에 띄워 놓았습니다."));
+        dialogTexts.Add(new DialogData("다음 수리에 필요한 도구의 조합법을 제작대에 띄워 놓았습니다."));
         dialogTexts.Add(new DialogData("오늘의 우주선에돌아가서 쉴까요?"));
         Show(dialogTexts);
         

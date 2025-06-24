@@ -19,6 +19,7 @@ TagManager:
   - SkyboxCamera
   - WireConnectionDoor
   - ReplacingpartsDoor
+  - StationDoor
   layers:
   - Default
   - TransparentFX
