@@ -302,6 +302,7 @@ public class Player : MonoBehaviour
                         {
                             spaceStart.transform.parent.gameObject.SetActive(false);
                             spaceStart.doking.SetActive(true);
+                            spaceStart.doking.GetComponent<dockingSysyem>().ss = spaceStart;
                             UIManager.Instance.tooltipUI.Hide();
                             rigidbody.linearVelocity = Vector3.zero;
                             gameObject.SetActive(false);

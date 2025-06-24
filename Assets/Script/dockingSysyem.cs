@@ -14,6 +14,10 @@ public class dockingSysyem : MonoBehaviour
     [SerializeField] private Image transparency;
     [SerializeField] private Image helpImage;
     [SerializeField] private GameObject dockingstationArrow;
+    [SerializeField] private Image TimerBar;
+    [SerializeField] private float maxTime;
+
+    private float currentTime;
 
     private float h;
     private float v;
@@ -26,10 +30,50 @@ public class dockingSysyem : MonoBehaviour
     public bool ismove;
     private float a =1;
     private bool SpaceON;
+    public SPACESTART ss;
+
+
+    private Vector3 originPos;
+    private Quaternion originRot;
+
 
     private void Start()
     {
         UIManager.Instance.tooltipUI.gameObject.SetActive(false);
+        currentTime = maxTime;
+        originPos = transform.position;
+        originRot = transform.rotation;
+    }
+
+    public void Init()
+    {
+        transform.position = originPos;
+        transform.rotation = originRot;
+        helpImage.gameObject.SetActive(true);
+        GameManager.Instance.MouseCursor(true);
+        SpaceON = false;
+        a = 1;
+        ismove = false;
+        currentTime = maxTime;
+        TimerBar.fillAmount = currentTime / maxTime;
+        transparency.enabled = true;
+    }
+
+    private void GameOver()
+    {
+        GameManager.Instance.ismove = true;
+        GameManager.Instance.isCamera = true;
+        GameManager.Instance.MouseCursor(false);
+        UIManager.Instance.StastUI.SetActive(true);
+        UIManager.Instance.QuitSlotUI.SetActive(true);
+        if (ss != null)
+        {
+            ss.transform.parent.gameObject.SetActive(true);
+            
+            Debug.Log("dd");
+        }
+        GameManager.Instance.noInventoryOpen = false;
+        GameManager.Instance.player.gameObject.SetActive(true);
     }
 
 
@@ -76,12 +120,32 @@ public class dockingSysyem : MonoBehaviour
             {
                 transparency.enabled = false;
                 ismove = true;
-                transparency = null;
+                SpaceON = false;
+                a = 0;
             }
         }
         if(!ismove) return;
         Move();
         CameraLook();
+        currentTime -= Time.deltaTime;
+        TimerBar.fillAmount = currentTime / maxTime;
+        if(currentTime <= 0)
+        {
+            transparency.enabled = true;
+            a += Time.deltaTime * 0.7f;
+            if (transparency.color.a < 0.9f)
+            {
+                transparency.color = new Color(0, 0, 0, a);
+            }
+            else
+            {
+                transparency.enabled = false;
+                ismove = false;
+                GameOver();
+                Init();
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     private void Move()
