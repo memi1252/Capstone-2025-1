@@ -17,6 +17,7 @@ public class ActiveColGo : MonoBehaviour
     public string keycode;
 
     public AudioSource doorOpenSound;
+    public AudioSource cardKeyDoorSound;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class ActiveColGo : MonoBehaviour
             if (keyActive)
             {
                 UIManager.Instance.tooltipUI.Show();
+                cardKeyDoorSound.Play();
                 UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
                 foreach (var key in tdscene.PlayerChar.GetComponent<Player>().haveKeycode)
                 {
