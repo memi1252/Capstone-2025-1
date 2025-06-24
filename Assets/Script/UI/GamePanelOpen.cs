@@ -18,11 +18,13 @@ public class GamePanelOpen : MonoBehaviour
             {
                 MouseCursor(true);
                 gamePanel.SetActive(true);
+                Time.timeScale = 0;
             }
             else
             {
                 MouseCursor(false);
                 gamePanel.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }

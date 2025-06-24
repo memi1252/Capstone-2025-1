@@ -121,15 +121,16 @@ public class SPACESTART : BBASS_MentBASE
     {
         var dialogTexts = new List<DialogData>();
 
-        dialogTexts.Add(new DialogData("드디어 일어나셨군요!!"));
-        dialogTexts.Add(new DialogData("안녕하세요, 저는 AI도우미 BBASS입니다"));
-        dialogTexts.Add(new DialogData("현재 상황은 우주선이 오작동을 일으켜 GBSW-KSHN으로 못가는 중입니다."));
-        dialogTexts.Add(new DialogData("오작동이 일어난 곳은 전력 분배기, 생명 유지장치, 추진 제어판이있습니다"));
-        dialogTexts.Add(new DialogData("현재 그 세 곳의 시스템을 고칠수 있는 도구가 없습니다."));
-        dialogTexts.Add(new DialogData("다행이도 근처에 우주정거장이있습니다."));
-        dialogTexts.Add(new DialogData("우주정거장에 가면 도구를 만들 재료를 구할수 있을것같습니다."));
-        dialogTexts.Add(new DialogData("현재 상황을 보면 우주정거장까지 갈수있을것같습니다."));
+        dialogTexts.Add(new DialogData("깨어나셨군요 무사하셔서 다행입니다"));
+        dialogTexts.Add(new DialogData("안녕하세요, 저는 AI도우미 로봇 BBASS입니다"));
+        dialogTexts.Add(new DialogData("현재 상황을 알려드리겠습니다"));
+        dialogTexts.Add(new DialogData("행성 HKSN로 가던 중 시스템 오작동으로 인해 더 이상 나아갈 수 없는 상황입니다"));
+        dialogTexts.Add(new DialogData("오작동이 일어난 곳은 전력 분배기, 생명 유지장치, 추진 제어판 입니다"));
+        dialogTexts.Add(new DialogData("수리를 위해 도구가 필요합니다"));
+        dialogTexts.Add(new DialogData("근처 우주정거장으로 이동해 도구를 만들기 위한 재료를 구해야 합니다"));
         dialogTexts.Add(new DialogData("우주정거장으로 이동해 주세요"));
+        dialogTexts.Add(new DialogData("참고로 55초 이내로 도달해야 합니다"));
+        dialogTexts.Add(new DialogData("행운을 빕니다"));
         
         Show(dialogTexts);
     }
