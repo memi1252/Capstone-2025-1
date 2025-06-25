@@ -9,7 +9,7 @@ public class OtherUIvalue : MonoBehaviour
     void Start()
     {
         StartCoroutine(FatigueBar());
-        StartCoroutine(HPbar());
+        // StartCoroutine(HPbar());
     }
 
     void Update()
@@ -25,24 +25,20 @@ public class OtherUIvalue : MonoBehaviour
         }
     }
 
-    IEnumerator HPbar()
-    {
-        while (true)
-        {
-            if (fatigueSlider.GetComponent<Slider>().value <= 90)
-            {
-                yield return new WaitForSeconds(7f);
-                HPSlider.GetComponent<Slider>().value -= 5;
-            }
-        }
-    }
+    // IEnumerator HPbar()
+    // {
+    //     while (true)
+    //     {
+    //         if (fatigueSlider.GetComponent<Slider>().value <= 90)
+    //         {
+    //             yield return new WaitForSeconds(7f);
+    //             HPSlider.GetComponent<Slider>().value -= 5;
+    //         }
+    //     }
+    // }
 
     void Gague()   
     {
         fatigueSlider.GetComponent<Slider>().value -= 7;
-        // if (fatigueSlider.GetComponent<Slider>().value <= 90)
-        // {
-        //     StartCoroutine(HPbar());
-        // }
     }
 }
