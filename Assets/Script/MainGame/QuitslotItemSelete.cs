@@ -14,32 +14,7 @@ public class QuitslotItemSelect : MonoBehaviour
     
     private void Update()
     {
-        if (currentHandItem != null)
-        {
-            if (currentHandItem == HandItem[5])
-            {
-                if (!TakeKeycode)
-                {
-                    GameManager.Instance.player.haveKeycode.Add("1234");
-                    TakeKeycode = true;
-                }
-            }else if (currentHandItem == HandItem[6])
-            {
-                if (!TakeKeycode)
-                {
-                    GameManager.Instance.player.haveKeycode.Add("1252");
-                    TakeKeycode = true;
-                }
-            }else
-            {
-                TakeKeycode = false;
-                GameManager.Instance.player.haveKeycode.Clear();
-            }
-        }else
-        {
-            TakeKeycode = false;
-            GameManager.Instance.player.haveKeycode.Clear();
-        }
+        
         
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -86,8 +61,26 @@ public class QuitslotItemSelect : MonoBehaviour
                     }
                 }
             }
+            if (currentHandItem == HandItem[5])
+            {
+                if (!TakeKeycode)
+                {
+                    GameManager.Instance.player.haveKeycode.Add("1234");
+                    TakeKeycode = true;
+                }
+            }else if (currentHandItem == HandItem[6])
+            {
+                if (!TakeKeycode)
+                {
+                    GameManager.Instance.player.haveKeycode.Add("1252");
+                    TakeKeycode = true;
+                }
+            }else
+            {
+                TakeKeycode = false;
+                GameManager.Instance.player.haveKeycode.Clear();
+            }
         }
-        
     }
 
     private void HandleSlotItem(int slotIndex)
