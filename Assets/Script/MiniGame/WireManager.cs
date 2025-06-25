@@ -63,6 +63,7 @@ public class WireManager : MonoBehaviour
             material.EnableKeyword("_EMISSION");
             material.SetColor("_EmissionColor", Color.green * 2f);
         }
+        QuestManager.Instance.quests[5].clear = true;
         audioSource.clip = audioClips[0];
         audioSource.Play();
         StartCoroutine(SuccessCoroutine());

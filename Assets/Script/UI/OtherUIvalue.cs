@@ -20,6 +20,8 @@ public class OtherUIvalue : MonoBehaviour
 
     void Update()
     {
+        
+        
         Oxy2.value = currentOxy2/ maxOxy;
         Oxy1.value = currentOxy1 / maxOxy;
         fatigueSlider.value -= Time.deltaTime * 0.4f;
@@ -38,6 +40,11 @@ public class OtherUIvalue : MonoBehaviour
             {
                 currentOxy1 -= Time.deltaTime * value;
             }
+        }
+        else
+        {
+            currentOxy1 = maxOxy;
+            currentOxy2 = maxOxy;
         }
     }
     
