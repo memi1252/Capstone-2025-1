@@ -36,7 +36,7 @@ public class BBASS_MentBASE : MonoBehaviour
     //대사 리스트 순서대로 출력
     public virtual IEnumerator PrintDialogList(List<DialogData> dataList)
     {
-        Printer.SetActive(true);  //대화창 표시
+        
 
         if (LookAtCamera)
         {
@@ -49,6 +49,7 @@ public class BBASS_MentBASE : MonoBehaviour
                 yield return null;
             }
         }
+        Printer.SetActive(true);  //대화창 표시
         isPlay = true; //대사 출력 중 상태로 변경
         foreach (var data in dataList) //dataList 길이만큼 반복
         {
@@ -57,6 +58,7 @@ public class BBASS_MentBASE : MonoBehaviour
                 if (command.Command == Command.print)
                 {
                     yield return StartCoroutine(PrintText(command.Context));
+                    
                     yield return WaitForMouseClick(); //마우스 클릭 대기
                 }
             }
@@ -98,7 +100,10 @@ public class BBASS_MentBASE : MonoBehaviour
 
             if (text[i] != ' ' && SEAudio != null)
                 SEAudio.Play();
-
+            if (LookAtCamera)
+            {
+                GameManager.Instance.BBASS.transform.LookAt(Camera.main.transform.position);
+            }
             yield return new WaitForSeconds(Delay);
         }
     }

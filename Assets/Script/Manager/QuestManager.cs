@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class QuestManager : MonoSingleton<QuestManager>
@@ -6,36 +7,28 @@ public class QuestManager : MonoSingleton<QuestManager>
     [Serializable]
     public struct QuestData
     {
-        public string type;
         public string name;
-        public string content;
+        public bool clear;
     }
     
     public QuestData[] quests;
     
     [Header("Quest")]
-    [SerializeField] private GameObject questUI;
-    [SerializeField] private GameObject questSlot;
+    [SerializeField] private TextMeshProUGUI QuestNameText;
+    [SerializeField] private TextMeshProUGUI QuestcountText;
 
     private void Start()
     {
-        questUI.SetActive(false);
+        QuestNameText.text = quests[0].name;
+        QuestcountText.text = "0 / 1";
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (!quests[0].clear)
         {
-            if (questUI.activeSelf)
-            {
-                questUI.SetActive(false);
-            }
-            else
-            {
-                questUI.SetActive(true);
-                questSlot.GetComponent<QuestSlot>().SetText(quests[0].type, quests[0].name, quests[0].content);
-            }
             
         }
+        
     }
 }
