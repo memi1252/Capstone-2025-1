@@ -75,13 +75,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 1.39
+    - _FresnelPower: 0.85
     - _QueueControl: 0
     - _QueueOffset: 0
     - _VertexOffset: 0.05
     - _blink_interval: 0
     m_Colors:
-    - _FresnelColor: {r: 0.26116514, g: 1.2477889, b: 1.7411011, a: 1}
+    - _FresnelColor: {r: 0.065291286, g: 0.31194723, b: 0.4352753, a: 1}
     - _ScanLinesSpeed: {r: 0, g: 1, b: 0, a: 0}
     - _ScansLinesTiling: {r: 1, g: 32, b: 0, a: 0}
   m_BuildTextureStacks: []
