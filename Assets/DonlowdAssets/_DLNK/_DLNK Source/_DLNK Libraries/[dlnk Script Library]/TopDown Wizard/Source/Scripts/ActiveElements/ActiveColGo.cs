@@ -31,7 +31,10 @@ public class ActiveColGo : MonoBehaviour
         {
             if (keyActive)
             {
-                cardKeyDoorSound.Play();
+                if (tdscene.PlayerChar.GetComponent<Player>().haveKeycode == null)
+                {
+                    cardKeyDoorSound.Play();
+                }
                 foreach (var key in tdscene.PlayerChar.GetComponent<Player>().haveKeycode)
                 {
                     if (key == keycode)
@@ -62,7 +65,6 @@ public class ActiveColGo : MonoBehaviour
                 actived = false;
                 hasexit = true;
             }
-            UIManager.Instance.tooltipUI.Hide();
         }
 
     }

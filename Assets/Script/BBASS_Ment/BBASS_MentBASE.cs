@@ -15,12 +15,13 @@ public class BBASS_MentBASE : MonoBehaviour
 
     [Header("설정")]
     public float Delay = 0.1f; //글자 간 딜레이
+    public bool LookAtCamera = true; //카메라를 바라볼지 여부
 
     private Coroutine printingRoutine;
     
     
     public bool isPlay = false; //대사 출력 중인지 여부
-    
+    private Quaternion originalRotation; 
     
     //Test_TestMessage_Selection에서 대사 리스트를 받아 출력
     public void Show(List<DialogData> dataList)
@@ -37,6 +38,17 @@ public class BBASS_MentBASE : MonoBehaviour
     {
         Printer.SetActive(true);  //대화창 표시
 
+        if (LookAtCamera)
+        {
+            originalRotation = GameManager.Instance.BBASS.transform.rotation;
+            Vector3 targetRotation = Camera.main.transform.position - GameManager.Instance.BBASS.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(targetRotation);
+            while (GameManager.Instance.BBASS.transform.rotation.eulerAngles != rotation.eulerAngles)
+            {
+                GameManager.Instance.BBASS.transform.rotation = Quaternion.RotateTowards(GameManager.Instance.BBASS.transform.rotation, rotation, 100f* Time.deltaTime);
+                yield return null;
+            }
+        }
         isPlay = true; //대사 출력 중 상태로 변경
         foreach (var data in dataList) //dataList 길이만큼 반복
         {
@@ -47,6 +59,15 @@ public class BBASS_MentBASE : MonoBehaviour
                     yield return StartCoroutine(PrintText(command.Context));
                     yield return WaitForMouseClick(); //마우스 클릭 대기
                 }
+            }
+        }
+
+        if (LookAtCamera)
+        {
+            while (GameManager.Instance.BBASS.transform.rotation.eulerAngles != originalRotation.eulerAngles)
+            {
+                GameManager.Instance.BBASS.transform.rotation = Quaternion.RotateTowards(GameManager.Instance.BBASS.transform.rotation, originalRotation, 100f* Time.deltaTime);
+                yield return null;
             }
         }
         isPlay = false; //대사 출력 완료 상태로 변경

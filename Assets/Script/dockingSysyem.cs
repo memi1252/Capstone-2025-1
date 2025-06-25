@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,10 @@ public class dockingSysyem : MonoBehaviour
     [SerializeField] private GameObject dockingstationArrow;
     [SerializeField] private Image TimerBar;
     [SerializeField] private float maxTime;
+    [SerializeField] private Button closeButton;
+    [SerializeField] private TextMeshProUGUI ButtonClickTimeText; 
+    [SerializeField] private float ButtonClickMaxTime = 5f;
+    private float ButtonClickCurrentTime;
 
     private float currentTime;
 
@@ -43,6 +48,7 @@ public class dockingSysyem : MonoBehaviour
         currentTime = maxTime;
         originPos = transform.position;
         originRot = transform.rotation;
+        ButtonClickCurrentTime = ButtonClickMaxTime;
     }
 
     public void Init()
@@ -57,6 +63,8 @@ public class dockingSysyem : MonoBehaviour
         currentTime = maxTime;
         TimerBar.fillAmount = currentTime / maxTime;
         transparency.enabled = true;
+        ButtonClickCurrentTime = ButtonClickMaxTime;
+        dockingstationArrow.SetActive(true);
     }
 
     private void GameOver()
@@ -86,6 +94,18 @@ public class dockingSysyem : MonoBehaviour
 
     private void Update()
     {
+        if (ButtonClickCurrentTime >= 0)
+        {
+            ButtonClickCurrentTime -= Time.deltaTime;
+            ButtonClickTimeText.text = $"{(int)ButtonClickCurrentTime}초후 버튼이 활성화 됩니다.";
+        }
+        else
+        {
+            closeButton.interactable = true;
+            ButtonClickTimeText.gameObject.SetActive(false);
+        }
+        
+        
         if (Vector3.Distance(transform.position, dockingstationArrow.transform.position) < 20f)
         {
             dockingstationArrow.SetActive(false);

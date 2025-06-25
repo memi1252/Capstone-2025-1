@@ -24,8 +24,8 @@ public class TutorialsUI : MonoBehaviour
     [SerializeField] private Sprite Holdf;
     [SerializeField] private Sprite HoldI;
 
-    [SerializeField] private GameObject move;
-    [SerializeField] private GameObject interaction;
+    [SerializeField] public GameObject move;
+    [SerializeField] public GameObject interaction;
 
 
     private bool ismove = true;

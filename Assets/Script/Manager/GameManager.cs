@@ -26,6 +26,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isItemPickUp = false;
     public bool miniGameScene = true;
     public bool noInventoryOpen = true;
+    public bool isInventoryOpen = false;
 
     private Volume volume;
     private DepthOfField depthOfField;
@@ -38,38 +39,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
-        
-
-        if (Input.GetKeyDown(KeyCode.J))  //미니게임 전선연결 오픈
-        {
-            if (miniGameScene)
-            {
-                SceneManager.LoadScene(WireConnectionScene, LoadSceneMode.Additive);
-                ismove = false;
-                isCamera = false;
-                MouseCursor(true);
-                UIManager.Instance.StastUI.SetActive(false);
-                UIManager.Instance.QuitSlotUI.SetActive(false);
-                playerCamera.gameObject.SetActive(false);
-                miniGameScene = false;
-            }
-        }
-        
-        if (Input.GetKeyDown(KeyCode.L))  //미니게임 부품교체 오픈
-        {
-            if (miniGameScene)
-            {
-                SceneManager.LoadScene(ReplacingPartsScene, LoadSceneMode.Additive);
-                ismove = false;
-                isCamera = false;
-                MouseCursor(true);
-                UIManager.Instance.StastUI.SetActive(false);
-                UIManager.Instance.QuitSlotUI.SetActive(false);
-                playerCamera.gameObject.SetActive(false);
-                miniGameScene = false;
-            }
-        }
-        
         InventoryOpen();
     }
     
@@ -97,6 +66,7 @@ public class GameManager : MonoSingleton<GameManager>
                 ismove = true;
                 MouseCursor(false);
                 depthOfField.active = false;
+                isInventoryOpen = false;
                 UIManager.Instance.InvneoryUI.SetActive(false);
             }
             else
@@ -105,6 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
                 depthOfField.active = true;
                 ismove = false;
                 isCamera = false;
+                isInventoryOpen = true;
                 MouseCursor(true);
                 UIManager.Instance.InvneoryUI.transform.localPosition = new Vector3(-180, 1f, 0);
             }

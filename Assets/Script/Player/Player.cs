@@ -220,7 +220,8 @@ private bool keycodeCheck = false;
         RaycastHit hit;
         Vector3 origin = Camera.main.transform.position;
         Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * ItemPickUpDistance, Color.red);
-        if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance))
+        if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance) &&
+            !GameManager.Instance.isItemPickUp)
         {
             if (hit.collider.CompareTag("Item"))
             {
@@ -253,7 +254,8 @@ private bool keycodeCheck = false;
         {
             Vector3 origin2 = Camera.main.transform.position;
             Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3f), Color.red);
-            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3f))
+            if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3f) &&
+                !GameManager.Instance.isInventoryOpen)
             {
                 if (hit2.collider.CompareTag("crafting table"))
                 {
@@ -304,6 +306,8 @@ private bool keycodeCheck = false;
                             rigidbody.linearVelocity = Vector3.zero;
                             gameObject.SetActive(false);
                             GameManager.Instance.noInventoryOpen = true;
+                            UIManager.Instance.tutorialsUI.move.SetActive(false);
+                            UIManager.Instance.tutorialsUI.interaction.SetActive(false);
                         }
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
@@ -364,13 +368,13 @@ private bool keycodeCheck = false;
                     if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<WireConnectionDoor>().Clear)
                         hit2.collider.GetComponent<WireConnectionDoor>().Open();
                     if(!hit.collider.GetComponent<WireConnectionDoor>().Clear)
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 전선 연결문 열기(니퍼 필요)");
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 전력 분배기문 열기(니퍼 필요)");
                 }else if (hit2.collider.CompareTag("ReplacingpartsDoor"))
                 {
                     if(Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
                         hit2.collider.GetComponent<ReplacingpartsDoor>().Open();
                     if (!hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 부품 교체문 열기(몽키스패너 필요)");
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 추진 제어판문 열기(몽키스패너 필요)");
                 }else if (hit2.collider.CompareTag("StationDoor"))
                 {
                     keycodeCheck = false;
