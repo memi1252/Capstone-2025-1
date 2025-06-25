@@ -8,37 +8,11 @@ public class OtherUIvalue : MonoBehaviour
     public Slider HPSlider;
     void Start()
     {
-        StartCoroutine(FatigueBar());
-        // StartCoroutine(HPbar());
     }
 
     void Update()
     {
-        
+        fatigueSlider.GetComponent<Slider>().value -= Time.deltaTime * 1;
     }
-    IEnumerator FatigueBar()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(6f);
-            Gague();
-        }
-    }
-
-    // IEnumerator HPbar()
-    // {
-    //     while (true)
-    //     {
-    //         if (fatigueSlider.GetComponent<Slider>().value <= 90)
-    //         {
-    //             yield return new WaitForSeconds(7f);
-    //             HPSlider.GetComponent<Slider>().value -= 5;
-    //         }
-    //     }
-    // }
-
-    void Gague()   
-    {
-        fatigueSlider.GetComponent<Slider>().value -= 7;
-    }
+    
 }
