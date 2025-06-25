@@ -31,6 +31,7 @@ public class BBASS_Ment2 : BBASS_MentBASE
         
         play = false;
         Printer.SetActive(false);
+        QuestManager.Instance.quests[1].clear = true;
         FindAnyObjectByType<SpaceShip>().isDoorFront = true;
         enabled = false;
     }

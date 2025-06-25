@@ -33,7 +33,6 @@ public class BBASS_Ment1 : BBASS_MentBASE
         UIManager.Instance.QuitSlotUI.SetActive(true);
         
         if(!first) first = true;
-        
         play = false;
         Printer.SetActive(false);
     }
