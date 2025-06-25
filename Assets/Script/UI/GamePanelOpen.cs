@@ -4,7 +4,6 @@ using UnityEngine;
 public class GamePanelOpen : MonoBehaviour
 {
     [SerializeField] private GameObject gamePanel;
-    [SerializeField] private GameObject Player;
     void Start()
     {
         

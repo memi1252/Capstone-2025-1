@@ -8,27 +8,35 @@ public class OtherUIvalue : MonoBehaviour
     public Slider HPSlider;
     public Slider Oxy1;
     public Slider Oxy2;
+    public float value;
+    public float maxOxy;
+    public float currentOxy1;
+    public float currentOxy2;
     void Start()
     {
+        currentOxy1 = maxOxy;
+        currentOxy2 = maxOxy ;
     }
 
     void Update()
     {
-        fatigueSlider.GetComponent<Slider>().value -= Time.deltaTime * 0.4f;
-        if (fatigueSlider.GetComponent<Slider>().value <= 0)
+        Oxy2.value = currentOxy2/ maxOxy;
+        Oxy1.value = currentOxy1 / maxOxy;
+        fatigueSlider.value -= Time.deltaTime * 0.4f;
+        if (fatigueSlider.value <= 0)
         {
-            HPSlider.GetComponent<Slider>().value -= Time.deltaTime * 3;
+            HPSlider.value -= Time.deltaTime * 3;
         }
 
-        if (GameManager.Instance.inSpaceShip == false)
+        if (!GameManager.Instance.inSpaceShip)
         {
-            if (Oxy1.GetComponent<Slider>().value > 0)
+            if (currentOxy2 >= 0)
             {
-                Oxy1.GetComponent<Slider>().value -= Time.deltaTime * 0.4f;
+                currentOxy2 -= Time.deltaTime * value;
             }
             else
             {
-                Oxy2.GetComponent<Slider>().value -= Time.deltaTime * 0.4f;
+                currentOxy1 -= Time.deltaTime * value;
             }
         }
     }

@@ -70,7 +70,7 @@ public class SPACESTART : BBASS_MentBASE
         }
     }
 
-    private bool first;
+    private bool first = false;
     private bool second = true;
     public override IEnumerator PrintDialogList(List<DialogData> dataList)
     {
@@ -129,8 +129,6 @@ public class SPACESTART : BBASS_MentBASE
         dialogTexts.Add(new DialogData("수리를 위해 도구가 필요합니다"));
         dialogTexts.Add(new DialogData("근처 우주정거장으로 이동해 도구를 만들기 위한 재료를 구해야 합니다"));
         dialogTexts.Add(new DialogData("우주정거장으로 이동해 주세요"));
-        dialogTexts.Add(new DialogData("참고로 55초 이내로 도달해야 합니다"));
-        dialogTexts.Add(new DialogData("행운을 빕니다"));
         
         Show(dialogTexts);
     }
