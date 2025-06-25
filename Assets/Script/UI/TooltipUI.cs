@@ -16,5 +16,10 @@ public class TooltipUI : UIBase
         text.text = tooltipText;
         Show();
     }
+
+    public override void Hide()
+    {
+        base.Hide();
+    }
     
 }

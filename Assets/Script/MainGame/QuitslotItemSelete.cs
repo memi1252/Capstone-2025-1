@@ -14,26 +14,33 @@ public class QuitslotItemSelect : MonoBehaviour
     
     private void Update()
     {
-        if (currentHandItem == HandItem[5])
+        if (currentHandItem != null)
         {
-            if (!TakeKeycode)
+            if (currentHandItem == HandItem[5])
             {
-                GameManager.Instance.player.haveKeycode.Add("1234");
-                TakeKeycode = true;
-            }
-        }else if (currentHandItem == HandItem[6])
-        {
-            if (!TakeKeycode)
+                if (!TakeKeycode)
+                {
+                    GameManager.Instance.player.haveKeycode.Add("1234");
+                    TakeKeycode = true;
+                }
+            }else if (currentHandItem == HandItem[6])
             {
-                GameManager.Instance.player.haveKeycode.Add("1252");
-                TakeKeycode = true;
+                if (!TakeKeycode)
+                {
+                    GameManager.Instance.player.haveKeycode.Add("1252");
+                    TakeKeycode = true;
+                }
+            }else
+            {
+                TakeKeycode = false;
+                GameManager.Instance.player.haveKeycode.Clear();
             }
-        }
-        else
+        }else
         {
             TakeKeycode = false;
             GameManager.Instance.player.haveKeycode.Clear();
         }
+        
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
