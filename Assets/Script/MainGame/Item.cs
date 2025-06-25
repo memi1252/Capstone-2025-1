@@ -128,6 +128,16 @@ public class item : MonoBehaviour
         {
             InventoryController.instance.AddItem("Quitslot", itemName, itemCount);
             ItemAddInventory();
+            if (itemName == "NutItem")
+            {
+                if(!GameManager.Instance.nipperMax[0]) GameManager.Instance.nipperMax[0] = true;
+            }else if (itemName == "Screwitem")
+            {
+                if(!GameManager.Instance.nipperMax[1]) GameManager.Instance.nipperMax[1] = true;
+            }else if (itemName == "IronPlateItem")
+            {
+                if(!GameManager.Instance.nipperMax[2]) GameManager.Instance.nipperMax[2] = true;
+            }
         }
         else
         {

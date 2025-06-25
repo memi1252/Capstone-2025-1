@@ -324,6 +324,7 @@ private bool keycodeCheck = false;
                             GameManager.Instance.noInventoryOpen = true;
                             UIManager.Instance.tutorialsUI.move.SetActive(false);
                             UIManager.Instance.tutorialsUI.interaction.SetActive(false);
+                            QuestManager.Instance.quests[0].clear = true;
                         }
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");

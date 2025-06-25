@@ -12,6 +12,7 @@ public class FirstINSpaceStation : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             UIManager.Instance.dayContViewUI.DayCountPlay(1);
+            QuestManager.Instance.quests[2].clear = true;
             GetComponent<Collider>().enabled = false;
             //gameObject.SetActive(false);
             StartCoroutine(BBASSMent());

@@ -46,6 +46,8 @@ public class SpaceShip : BBASS_MentBASE
                 }
             }
         }
+        
+        
     }
     
     public override IEnumerator PrintDialogList(List<DialogData> dataList)
@@ -64,6 +66,11 @@ public class SpaceShip : BBASS_MentBASE
         dialogTexts.Add(new DialogData("이문을 열고 나가시면 바로 밑에 우주정거장 입구가 있습니다!"));
         
         Show(dialogTexts);
+    }
+
+    private void NipperMatCheck()
+    {
+        // 인벤토리에 아이템이 있는지 체크하는 코드
     }
 
     

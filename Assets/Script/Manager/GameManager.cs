@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using Doublsb.Dialog;
+using InventorySystem;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -27,6 +30,11 @@ public class GameManager : MonoSingleton<GameManager>
     public bool miniGameScene = true;
     public bool noInventoryOpen = true;
     public bool isInventoryOpen = false;
+    
+    private bool isNipperMat = false;
+    public bool[] nipperMax = new bool[3] {false, false, false};
+    
+    
 
     private Volume volume;
     private DepthOfField depthOfField;
@@ -40,6 +48,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void Update()
     {
         InventoryOpen();
+        NipperMatCheck();
     }
     
     public void MouseCursor(bool isShow)
@@ -81,4 +90,32 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
     }
+
+    private void NipperMatCheck()
+    {
+        if (!isNipperMat)
+        {
+            foreach (var mat in nipperMax)
+            {
+                if(mat== false)
+                {
+                    isNipperMat = false;
+                    return;
+                }
+                if(mat == nipperMax[nipperMax.Length - 1])
+                {
+                    QuestManager.Instance.quests[3].clear = true;
+                    var dialogTexts = new List<DialogData>();
+                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어애 합니다."));
+                    dialogTexts.Add(new DialogData("오늘의 우주선으로 돌아갑시다."));
+                    BBASS.Show(dialogTexts);
+                    isNipperMat = true;
+                    return;
+                }
+            }
+        }
+    }
+
+    
 }

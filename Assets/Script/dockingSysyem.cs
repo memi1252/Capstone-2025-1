@@ -194,7 +194,7 @@ public class dockingSysyem : MonoBehaviour
             mouseX = Input.GetAxis("Mouse X") *0.3f;
             mouseY = Input.GetAxis("Mouse Y") * 0.5f;
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+            xRotation = Mathf.Clamp(xRotation, -45f, 45f);
             
             transform.Rotate(Vector3.up * mouseX);
             lookCamera.transform.eulerAngles = new Vector3(xRotation, lookCamera.transform.rotation.eulerAngles.y, 0f);
