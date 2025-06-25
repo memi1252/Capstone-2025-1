@@ -6,39 +6,31 @@ public class OtherUIvalue : MonoBehaviour
 {
     public Slider fatigueSlider;
     public Slider HPSlider;
+    public Slider Oxy1;
+    public Slider Oxy2;
     void Start()
     {
-        StartCoroutine(FatigueBar());
-        // StartCoroutine(HPbar());
     }
 
     void Update()
     {
-        
-    }
-    IEnumerator FatigueBar()
-    {
-        while (true)
+        fatigueSlider.GetComponent<Slider>().value -= Time.deltaTime * 0.4f;
+        if (fatigueSlider.GetComponent<Slider>().value <= 0)
         {
-            yield return new WaitForSeconds(6f);
-            Gague();
+            HPSlider.GetComponent<Slider>().value -= Time.deltaTime * 3;
+        }
+
+        if (GameManager.Instance.inSpaceShip == false)
+        {
+            if (Oxy1.GetComponent<Slider>().value > 0)
+            {
+                Oxy1.GetComponent<Slider>().value -= Time.deltaTime * 0.4f;
+            }
+            else
+            {
+                Oxy2.GetComponent<Slider>().value -= Time.deltaTime * 0.4f;
+            }
         }
     }
-
-    // IEnumerator HPbar()
-    // {
-    //     while (true)
-    //     {
-    //         if (fatigueSlider.GetComponent<Slider>().value <= 90)
-    //         {
-    //             yield return new WaitForSeconds(7f);
-    //             HPSlider.GetComponent<Slider>().value -= 5;
-    //         }
-    //     }
-    // }
-
-    void Gague()   
-    {
-        fatigueSlider.GetComponent<Slider>().value -= 7;
-    }
+    
 }
