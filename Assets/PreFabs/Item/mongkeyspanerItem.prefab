@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7105497911799637742}
   - component: {fileID: 3415390453714111501}
   - component: {fileID: 1630667594417631269}
+  - component: {fileID: 3956265925673546806}
   m_Layer: 3
   m_Name: mongkeyspanerItem
   m_TagString: Item
@@ -129,6 +130,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 0.17, z: 0.69}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3956265925673546806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842447557291641855}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.80081564, b: 0.9056604, a: 1}
+  outlineWidth: 6
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &3725432764248574471
 PrefabInstance:
   m_ObjectHideFlags: 0

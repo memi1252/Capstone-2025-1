@@ -182,15 +182,23 @@ private bool keycodeCheck = false;
         {
             foreach (var item in allItems)
             {
-                if (item != null && item.GetComponentInChildren<Renderer>() != null)
+                if (item.GetComponent<Outline>() != null)
                 {
-                    var renderer = item.GetComponentInChildren<Renderer>();
-                    if (renderer.materials.Length > 1)
-                    {
-                        item.outline = false;
-                        renderer.materials[1].SetFloat("_outlien_thickness", 0.0f);
-                    }
+                    Outline outline = item.GetComponent<Outline>();
+                    outline.enabled = false;
                 }
+                // if (item != null && item.GetComponentInChildren<Renderer>() != null)
+                // {
+                //     var renderer = item.GetComponentInChildren<Renderer>();
+                //     foreach (var mat in renderer.materials)
+                //     {
+                //         if (mat.HasProperty("_outlien_thickness"))
+                //         {
+                //             item.outline = false;
+                //             mat.SetFloat("_outlien_thickness", 0.0f);
+                //         }
+                //     }
+                // }
             }
         }
         
@@ -200,12 +208,20 @@ private bool keycodeCheck = false;
             var item = collider.GetComponent<item>();
             if (item != null && item.GetComponentInChildren<Renderer>() != null)
             {
-                var renderer = item.GetComponentInChildren<Renderer>();
-                if (renderer.materials.Length > 1)
+                if (collider.GetComponent<Outline>() != null)
                 {
-                    item.outline = true;
-                    renderer.materials[1].SetFloat("_outlien_thickness", 0.01f);
+                    Outline outline = collider.GetComponent<Outline>();
+                    outline.enabled = true;
                 }
+                // var renderer = item.GetComponentInChildren<Renderer>();
+                // foreach (var mat in renderer.materials)
+                // {
+                //     if (mat.HasProperty("_outlien_thickness"))
+                //     {
+                //         item.outline = false;
+                //         mat.SetFloat("_outlien_thickness", 0.02f);
+                //     }
+                // }
                 GameManager.Instance.isItemPickUp = true;
             }
             else

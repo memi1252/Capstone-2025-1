@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2839142648618510395}
   - component: {fileID: 3749341016850606015}
   - component: {fileID: 2995939187766969192}
+  - component: {fileID: 8528522576255125025}
   m_Layer: 0
   m_Name: KeyCard1
   m_TagString: Item
@@ -129,6 +130,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.28705877, y: 0.030612271, z: 0.20484152}
   m_Center: {x: 0.0019593006, y: 0.0010676071, z: 0.0004886517}
+--- !u!114 &8528522576255125025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826317450747828678}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.80081564, b: 0.9056604, a: 1}
+  outlineWidth: 6
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5324318340255389399
 GameObject:
   m_ObjectHideFlags: 0
