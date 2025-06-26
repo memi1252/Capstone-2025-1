@@ -36,6 +36,7 @@ public class ActiveColGo : MonoBehaviour
                 if (tdscene.PlayerChar.GetComponent<Player>().haveKeycode == null)
                 {
                     cardKeyDoorSound.Play();
+                    UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
                 }
                 foreach (var key in tdscene.PlayerChar.GetComponent<Player>().haveKeycode)
                 {
@@ -58,7 +59,8 @@ public class ActiveColGo : MonoBehaviour
             {
                 hasexit = false;
                 actived = true;
-                doorOpenSound.Play();
+                if(doorOpenSound != null)
+                    doorOpenSound.Play();
             }
         }
     }

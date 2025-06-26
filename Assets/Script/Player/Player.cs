@@ -327,8 +327,7 @@ private bool keycodeCheck = false;
                             rigidbody.linearVelocity = Vector3.zero;
                             gameObject.SetActive(false);
                             GameManager.Instance.noInventoryOpen = true;
-                            UIManager.Instance.tutorialsUI.move.SetActive(false);
-                            UIManager.Instance.tutorialsUI.interaction.SetActive(false);
+                            UIManager.Instance.tutorialsUI.gameObject.SetActive(false);
                             QuestManager.Instance.quests[0].clear = true;
                         }
                     }
@@ -367,6 +366,10 @@ private bool keycodeCheck = false;
                                 UIManager.Instance.StastUI.SetActive(false);
                                 UIManager.Instance.QuitSlotUI.SetActive(false);
                             }
+                        }else if (hit2.collider.GetComponent<BBASS_Ment3>().enabled)
+                        {
+                            if (!hit2.collider.GetComponent<BBASS_Ment3>().play)
+                                hit2.collider.GetComponent<BBASS_Ment3>().line();
                         }
                         Debug.Log(hit2.collider.name);
                     }
@@ -414,12 +417,19 @@ private bool keycodeCheck = false;
                     }                    
                 }else if (hit2.collider.CompareTag("BED"))
                 {
-                    if (Input.GetKeyDown(KeyCode.F))
+                    BED bed = hit2.collider.GetComponent<BED>();
+                    if (bed.DayCount ==1 && QuestManager.Instance.quests[4].clear)
                     {
-                        hit2.collider.GetComponent<BED>().GoToSleep();
+                        if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            bed.GoToSleep();
+                        }
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 잠자기");
                     }
-                    
-                    UIManager.Instance.tooltipUI.SetText("F를 눌러 잠자기");
+                    else
+                    {
+                        UIManager.Instance.tooltipUI.SetText("아직 잠을 잘수 없습니다.");
+                    }
                 }
             }
             else
