@@ -67,7 +67,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.72279376
-        functionName: WalkSound
+        functionName: WalkSound2
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

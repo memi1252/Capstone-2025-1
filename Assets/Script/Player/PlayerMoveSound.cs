@@ -3,8 +3,9 @@ using UnityEngine;
 public class PlayerMoveSound : MonoBehaviour
 {
     public AudioClip walkSound;
+    public AudioClip walkSound2;
     public AudioClip runSound;
-    public AudioClip jumpSound;
+    public AudioClip runSound2;
     public AudioSource playerAudioSource;
 
     void Update()
@@ -15,12 +16,17 @@ public class PlayerMoveSound : MonoBehaviour
     {
         playerAudioSource.PlayOneShot(walkSound);
     }
+    void WalkSound2()
+    {
+        playerAudioSource.PlayOneShot(walkSound2);
+    }
+
     void RunSound()
     {
         playerAudioSource.PlayOneShot(runSound);
     }
-    void JumpSound()
+    void RunSound2()
     {
-        playerAudioSource.PlayOneShot(jumpSound);
+        playerAudioSource.PlayOneShot(runSound2);
     }
 }

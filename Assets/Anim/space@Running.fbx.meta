@@ -67,7 +67,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.71428573
-        functionName: RunSound
+        functionName: RunSound2
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
