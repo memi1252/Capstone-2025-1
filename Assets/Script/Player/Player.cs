@@ -248,7 +248,8 @@ private bool keycodeCheck = false;
                 if (Input.GetKeyDown(KeyCode.F) && !item.isFrontItem)
                 {
                     item.frontitem(hit.collider.gameObject);
-                    ItemPickupHelpUI.SetActive(false);
+                    if(ItemPickupHelpUI.activeSelf)
+                        ItemPickupHelpUI.SetActive(false);
                     item.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Item");
                 }
                 if (Input.GetKeyDown(KeyCode.F) && item.isRotateItem)
@@ -411,6 +412,14 @@ private bool keycodeCheck = false;
                     {
                         UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
                     }                    
+                }else if (hit2.collider.CompareTag("BED"))
+                {
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        hit2.collider.GetComponent<BED>().GoToSleep();
+                    }
+                    
+                    UIManager.Instance.tooltipUI.SetText("F를 눌러 잠자기");
                 }
             }
             else

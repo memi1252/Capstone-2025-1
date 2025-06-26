@@ -56,6 +56,7 @@ public class SpaceShip : BBASS_MentBASE
         
         Printer.SetActive(false);
         FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
+        GameManager.Instance.spaceStationEntranceHelpUI.SetActive(true);
     }
 
     private bool DoorFrontMent = true;
