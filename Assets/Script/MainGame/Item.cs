@@ -128,23 +128,8 @@ public class item : MonoBehaviour
         {
             InventoryController.instance.AddItem("Quitslot", itemName, itemCount);
             ItemAddInventory();
-            if (itemName == "NutItem")
+            if (!GameManager.Instance.firstItemmat)
             {
-                if(!GameManager.Instance.nipperMax[0]) GameManager.Instance.nipperMax[0] = true;
-            }else if (itemName == "Screwitem")
-            {
-                if(!GameManager.Instance.nipperMax[1]) GameManager.Instance.nipperMax[1] = true;
-            }else if (itemName == "IronPlateItem")
-            {
-                if(!GameManager.Instance.nipperMax[2]) GameManager.Instance.nipperMax[2] = true;
-            }
-        }
-        else
-        {
-            if (!InventoryController.instance.InventoryFull("MainSlot",itemName))
-            {
-                InventoryController.instance.AddItem("MainSlot", itemName, itemCount);
-                ItemAddInventory();
                 if (itemName == "NutItem")
                 {
                     if(!GameManager.Instance.nipperMax[0]) GameManager.Instance.nipperMax[0] = true;
@@ -154,6 +139,52 @@ public class item : MonoBehaviour
                 }else if (itemName == "IronPlateItem")
                 {
                     if(!GameManager.Instance.nipperMax[2]) GameManager.Instance.nipperMax[2] = true;
+                }
+            }else if(!GameManager.Instance.secondItemmat)
+            {
+                if (itemName == "NutItem")
+                {
+                    if (!GameManager.Instance.mongkiMax[0])
+                    {
+                        GameManager.Instance.mongkiMax[0] = true;
+                        GameManager.Instance.mongkiCount[0]++;
+                    }
+                        
+                }else if (itemName == "Screwitem")
+                {
+                    if (!GameManager.Instance.mongkiMax[1])
+                    {
+                        GameManager.Instance.mongkiMax[1] = true;
+                        GameManager.Instance.mongkiCount[1]++;
+                    }
+                }else if (itemName == "IronPlateItem")
+                {
+                    if (!GameManager.Instance.mongkiMax[2])
+                    {
+                        GameManager.Instance.mongkiMax[2] = true;
+                        GameManager.Instance.mongkiCount[2]++;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (!InventoryController.instance.InventoryFull("MainSlot",itemName))
+            {
+                InventoryController.instance.AddItem("MainSlot", itemName, itemCount);
+                ItemAddInventory();
+                if (!GameManager.Instance.firstItemmat)
+                {
+                    if (itemName == "NutItem")
+                    {
+                        if(!GameManager.Instance.nipperMax[0]) GameManager.Instance.nipperMax[0] = true;
+                    }else if (itemName == "Screwitem")
+                    {
+                        if(!GameManager.Instance.nipperMax[1]) GameManager.Instance.nipperMax[1] = true;
+                    }else if (itemName == "IronPlateItem")
+                    {
+                        if(!GameManager.Instance.nipperMax[2]) GameManager.Instance.nipperMax[2] = true;
+                    }
                 }
             }
             else
