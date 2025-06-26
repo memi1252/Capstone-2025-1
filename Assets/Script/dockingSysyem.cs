@@ -94,6 +94,7 @@ public class dockingSysyem : MonoBehaviour
         helpImage.gameObject.SetActive(false);
         GameManager.Instance.MouseCursor(false);
         SpaceON = true;
+        dockingSound.docking_B_Player(); //////
     }
 
     private void Update()
@@ -224,7 +225,8 @@ public class dockingSysyem : MonoBehaviour
         if (other.CompareTag("dockingstation") && currentTime > 1)
         {
             Debug.Log("도킹완료");
-            if(GetComponentInChildren<Canvas>() != null)
+            dockingSound.docking_Clear(); //////
+            if (GetComponentInChildren<Canvas>() != null)
                 GetComponentInChildren<Canvas>().gameObject.SetActive(false);
             foreach (var varCamera in GetComponentsInChildren<Camera>())
             {
