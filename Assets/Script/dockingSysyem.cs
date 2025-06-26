@@ -43,6 +43,7 @@ public class dockingSysyem : MonoBehaviour
     private Vector3 originPos;
     private Quaternion originRot;
 
+    public dockingSound dockingSound;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class dockingSysyem : MonoBehaviour
         originPos = transform.position;
         originRot = transform.rotation;
         ButtonClickCurrentTime = ButtonClickMaxTime;
+        dockingSound.docking_B_Player();
     }
 
     public void Init()
@@ -92,6 +94,7 @@ public class dockingSysyem : MonoBehaviour
         helpImage.gameObject.SetActive(false);
         GameManager.Instance.MouseCursor(false);
         SpaceON = true;
+        dockingSound.docking_B_Player(); //////
     }
 
     private void Update()
@@ -154,11 +157,11 @@ public class dockingSysyem : MonoBehaviour
         TimerBar.fillAmount = currentTime / maxTime;
         if((int)currentTime/60 > 0)
         {
-            TimerText.text = $"{(int)currentTime / 60}분 {(int)currentTime % 60}초 남음";
+            TimerText.text = $"{(int)currentTime / 60} : {(int)currentTime % 60}";
         }
         else
         {
-            TimerText.text = $"{(int)currentTime % 60}초 남음";
+            TimerText.text = $"00 : {(int)currentTime % 60}";
         }
         if(currentTime <= 0)
         {
@@ -222,7 +225,8 @@ public class dockingSysyem : MonoBehaviour
         if (other.CompareTag("dockingstation") && currentTime > 1)
         {
             Debug.Log("도킹완료");
-            if(GetComponentInChildren<Canvas>() != null)
+            dockingSound.docking_Clear(); //////
+            if (GetComponentInChildren<Canvas>() != null)
                 GetComponentInChildren<Canvas>().gameObject.SetActive(false);
             foreach (var varCamera in GetComponentsInChildren<Camera>())
             {
