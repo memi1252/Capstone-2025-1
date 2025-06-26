@@ -9,9 +9,5 @@ public class UI_ESC_Exit : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            gameObject.SetActive(false);
-        }
     }
 }

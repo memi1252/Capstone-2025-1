@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Doublsb.Dialog;
 using UnityEngine;
 using InventorySystem;
 using UnityEditor;
@@ -113,9 +114,11 @@ public class ProductionSystem : MonoBehaviour
         // 결과 슬롯에서 아이템이 제거되었는지 확인
         if (itemCrafted && IsInventoryEmpty(resultSlotName))
         {
-            if (makeItem.name != "NipperItem")
+            if (makeItem.name == "NipperItem")
             {
                 QuestManager.Instance.quests[4].clear = true;
+                GameManager.Instance.nipperMake = true;
+
             }
             itemCrafted = false;
             if (makeItem.name != null)
@@ -286,6 +289,5 @@ public class ProductionSystem : MonoBehaviour
         
         return true;
     }
-    
 }
 

@@ -107,14 +107,16 @@ public class QuitslotItemSelect : MonoBehaviour
                             currentHandItem.SetActive(false);
                             currentHandItem = items;
                             items.SetActive(true);
-                            currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                            if (currentSlot != null)
+                                currentSlot.transform.GetChild(1).gameObject.SetActive(false);
                             currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
                             currentSlot.transform.GetChild(1).gameObject.SetActive(true);
                         }
                         else
                         {
                             currentHandItem.SetActive(false);
-                            currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                            if(currentSlot != null)
+                                currentSlot.transform.GetChild(1).gameObject.SetActive(false);
                             currentSlot = null;
                             currentHandItem = null;
                         }

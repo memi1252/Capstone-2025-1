@@ -51,6 +51,7 @@ public class BBASS_MentBASE : MonoBehaviour
         }
         Printer.SetActive(true);  //대화창 표시
         isPlay = true; //대사 출력 중 상태로 변경
+        GameManager.Instance.BBASSPlay = true;
         foreach (var data in dataList) //dataList 길이만큼 반복
         {
             foreach (var command in data.Commands)
@@ -73,6 +74,7 @@ public class BBASS_MentBASE : MonoBehaviour
             }
         }
         isPlay = false; //대사 출력 완료 상태로 변경
+        GameManager.Instance.BBASSPlay = false;
     }
 
     private IEnumerator WaitForMouseClick()

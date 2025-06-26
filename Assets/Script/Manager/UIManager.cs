@@ -12,4 +12,6 @@ public class UIManager : MonoSingleton<UIManager>
     public TutorialsUI tutorialsUI;
     public GameObject BBASSViewUI;
     public dayContViewUI dayContViewUI;
+    public GameObject ESCMENUUI;
+    public GameObject SettingUI;
 }

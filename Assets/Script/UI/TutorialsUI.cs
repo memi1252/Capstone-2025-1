@@ -28,8 +28,8 @@ public class TutorialsUI : MonoBehaviour
     [SerializeField] public GameObject interaction;
 
 
-    private bool ismove = true;
-    private bool isinteract = true;
+    public bool ismove = true;
+    public bool isinteract = true;
 
     private void Update()
     {
@@ -90,7 +90,8 @@ public class TutorialsUI : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1.5f);
         move.SetActive(false);
-        interaction.SetActive(true);
+        if(!UIManager.Instance.ESCMENUUI.activeSelf)
+            interaction.SetActive(true);
         isinteract = false;
     }
 

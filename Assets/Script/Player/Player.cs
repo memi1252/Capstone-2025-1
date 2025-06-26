@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Doublsb.Dialog;
 using InventorySystem;
 using UnityEditor;
 using UnityEngine;
@@ -273,7 +274,7 @@ private bool keycodeCheck = false;
             Vector3 origin2 = Camera.main.transform.position;
             Debug.DrawRay(origin2, Camera.main.transform.forward * (ItemPickUpDistance-3f), Color.red);
             if (Physics.Raycast(origin2, Camera.main.transform.forward, out hit2, ItemPickUpDistance - 3f) &&
-                !GameManager.Instance.isInventoryOpen)
+                !GameManager.Instance.isInventoryOpen && !UIManager.Instance.ESCMENUUI.activeSelf)
             {
                 if (hit2.collider.CompareTag("crafting table"))
                 {
@@ -292,6 +293,7 @@ private bool keycodeCheck = false;
                         }
                         else if(!isCrafting)
                         {
+                            GameManager.Instance.noESC = true;
                             CraftingTableTransform = hit.collider.transform;
                             CameraOriginalPosition = Camera.main.transform.localPosition;
                             CameraOriginalRotation = Camera.main.transform.rotation;
@@ -462,6 +464,16 @@ private bool keycodeCheck = false;
                     UIManager.Instance.QuitSlotUI.SetActive(true);
                     GameManager.Instance.ismove = true;
                     GameManager.Instance.isCamera = true;
+                    GameManager.Instance.noESC = false;
+                    if (GameManager.Instance.nipperMake)
+                    {
+                        var dialogTexts = new List<DialogData>();
+                        dialogTexts.Add(new DialogData("니퍼를 성공적으로 제작했습니다."));
+                        dialogTexts.Add(new DialogData("우주선 밖으로 나가 전력 분배기를 수리해 보세요!"));
+                        GameManager.Instance.BBASS.Show(dialogTexts);
+                        GameManager.Instance.nipperMake = false;
+                        GameManager.Instance.nipperMakePlay = true;
+                    }
                 }
             }
             

@@ -15,6 +15,20 @@ public class OtherUI : MonoBehaviour
 
     public void ClickButton2()
     {
-        otherUI.SetActive(false);
+        GameManager.Instance.MouseCursor(false);
+        UIManager.Instance.ESCMENUUI.SetActive(false);
+        GameManager.Instance.depthOfField.active = false;
+        GameManager.Instance.noInventoryOpen = false;
+        GameManager.Instance.isCamera = true;
+        UIManager.Instance.SettingUI.SetActive(false);
+        if (!UIManager.Instance.tutorialsUI.ismove)
+        {
+            UIManager.Instance.tutorialsUI.move.SetActive(true);
+        }
+        else if (!UIManager.Instance.tutorialsUI.isinteract)
+        {
+            UIManager.Instance.tutorialsUI.interaction.SetActive(true);
+        }
+        Time.timeScale = 1;
     }
 }

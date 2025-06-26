@@ -30,14 +30,15 @@ public class GameManager : MonoSingleton<GameManager>
     public bool miniGameScene = true;
     public bool noInventoryOpen = true;
     public bool isInventoryOpen = false;
-    
+    public bool noESC = false;
     private bool isNipperMat = false;
     public bool[] nipperMax = new bool[3];
+    public bool BBASSPlay = false;
     
     
 
     private Volume volume;
-    private DepthOfField depthOfField;
+    public DepthOfField depthOfField;
 
     private void Start()
     {
@@ -49,6 +50,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         InventoryOpen();
         NipperMatCheck();
+        MENUOpen();
     }
     
     public void MouseCursor(bool isShow)
@@ -64,10 +66,47 @@ public class GameManager : MonoSingleton<GameManager>
             Cursor.visible = false;
         }
     }
+
+    private void MENUOpen()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isItemPickUp && !noESC && !BBASSPlay)
+        {
+            if (!UIManager.Instance.ESCMENUUI.activeSelf)
+            {
+                MouseCursor(true);
+                UIManager.Instance.ESCMENUUI.SetActive(true);
+                depthOfField.active = true;
+                noInventoryOpen = true;
+                isCamera = false;
+                UIManager.Instance.tutorialsUI.move.SetActive(false);
+                UIManager.Instance.tutorialsUI.interaction.SetActive(false);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                MouseCursor(false);
+                UIManager.Instance.ESCMENUUI.SetActive(false);
+                depthOfField.active = false;
+                noInventoryOpen = false;
+                isCamera = true;
+                UIManager.Instance.SettingUI.SetActive(false);
+                if (!UIManager.Instance.tutorialsUI.ismove)
+                {
+                    UIManager.Instance.tutorialsUI.move.SetActive(true);
+                }
+                else if (!UIManager.Instance.tutorialsUI.isinteract)
+                {
+                    UIManager.Instance.tutorialsUI.interaction.SetActive(true);
+                }
+                Time.timeScale = 1;
+            }
+        }
+        
+    }
     
     private void InventoryOpen()
     {
-        if (Input.GetKeyDown(KeyCode.I) && !isItemPickUp && !noInventoryOpen)
+        if (Input.GetKeyDown(KeyCode.I) && !isItemPickUp && !noInventoryOpen && !BBASSPlay)
         {
             if (UIManager.Instance.InvneoryUI.activeSelf)
             {
@@ -76,6 +115,7 @@ public class GameManager : MonoSingleton<GameManager>
                 MouseCursor(false);
                 depthOfField.active = false;
                 isInventoryOpen = false;
+                noESC = false;
                 UIManager.Instance.InvneoryUI.SetActive(false);
             }
             else
@@ -85,6 +125,7 @@ public class GameManager : MonoSingleton<GameManager>
                 ismove = false;
                 isCamera = false;
                 isInventoryOpen = true;
+                noESC = true;
                 MouseCursor(true);
                 UIManager.Instance.InvneoryUI.transform.localPosition = new Vector3(-180, 1f, 0);
             }
@@ -92,6 +133,8 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
     private bool nipperPlay =false;
+    public bool nipperMakePlay = false;
+    public bool nipperMake = false;
     private void NipperMatCheck()
     {
         if (!isNipperMat)
@@ -109,41 +152,25 @@ public class GameManager : MonoSingleton<GameManager>
                     isNipperMat = true;
                     nipperPlay = true;
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("니퍼를 만들 재료를 모아야 합니다."));
-                    dialogTexts.Add(new DialogData("니퍼를 만들기 위해서는 3가지 재료가 필요합니다."));
-                    dialogTexts.Add(new DialogData("재료를 모두 모으면 우주선으로 돌아가 니퍼를 만들어야 합니다."));
+                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어야 합니다."));
+                    dialogTexts.Add(new DialogData("오늘의 우주선으로 돌아갑시다."));
                     BBASS.Show(dialogTexts);
                     return;
                 }
             }
-                
-            // foreach (var mat in nipperMax)
-            // {
-            //     if(!mat)
-            //     {
-            //         isNipperMat = false;
-            //         return;
-            //     }
-            //     if(mat == nipperMax[nipperMax.Length-1])
-            //     {
-            //         QuestManager.Instance.quests[3].clear = true;
-            //         isNipperMat = true;
-            //         nipperPlay = true;
-            //         var dialogTexts = new List<DialogData>();
-            //         dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-            //         dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어애 합니다."));
-            //         dialogTexts.Add(new DialogData("오늘의 우주선으로 돌아갑시다."));
-            //         BBASS.Show(dialogTexts);
-            //         isNipperMat = true;
-            //         return;
-            //     }
-            // }
         }
 
         if (nipperPlay && !BBASS.isPlay)
         {
             BBASS.Printer.SetActive(false);
             nipperPlay = false;
+        }
+
+        if (nipperMakePlay && !BBASS.isPlay)
+        {
+            BBASS.Printer.SetActive(false);
+            nipperMakePlay = false;
         }
     }
 
