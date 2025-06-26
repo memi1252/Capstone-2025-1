@@ -22,6 +22,7 @@ public class FirstINSpaceStation : MonoBehaviour
                 UIManager.Instance.StastUI.GetComponentInChildren<OtherUIvalue>().isFat = true;
                 StartCoroutine(BBASSMentFrist());
                 GameManager.Instance.spaceStationEntranceHelpUI.SetActive(false);
+                isFirst = true;
             }
             else
             {
@@ -29,6 +30,8 @@ public class FirstINSpaceStation : MonoBehaviour
                 {
                     StartCoroutine(BBASSMent2());
                     QuestManager.Instance.quests[8].clear = true;
+                    GetComponent<Collider>().enabled = false;
+                    isFirst = false;
                 }
                 else
                 {

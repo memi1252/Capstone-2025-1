@@ -128,6 +128,11 @@ public class item : MonoBehaviour
         {
             InventoryController.instance.AddItem("Quitslot", itemName, itemCount);
             ItemAddInventory();
+            if (!GameManager.Instance.isCardKet1)
+            {
+                if(itemName == "KeyCard1")
+                    GameManager.Instance.isCardKet1 = true;
+            }
             if (!GameManager.Instance.firstItemmat)
             {
                 if (itemName == "NutItem")

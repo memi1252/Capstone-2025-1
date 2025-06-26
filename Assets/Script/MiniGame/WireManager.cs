@@ -98,8 +98,8 @@ public class WireManager : MonoBehaviour
             material.EnableKeyword("_EMISSION");
             material.SetColor("_EmissionColor", Color.red * 2f);
         }
-        audioSource.clip = audioClips[1];
-        audioSource.Play();
+        //audioSource.clip = audioClips[1];
+        //audioSource.Play();
         StartCoroutine(FailCoroutine());
     }
     IEnumerator FailCoroutine()

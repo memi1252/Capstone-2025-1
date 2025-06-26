@@ -38,8 +38,8 @@ public class GameManager : MonoSingleton<GameManager>
     
     private bool ismongkiMat = false;
     public bool[] mongkiMax = new bool[3];
-    public int[] mongkiMaxCount = new int[3] { 1, 2, 3 };
-    public int[] mongkiCount = new int[3] { 0, 0, 0 };
+    public int[] mongkiMaxCount;
+    public int[] mongkiCount;
     
     public bool BBASSPlay = false;
     public bool firstItemmat = false;
