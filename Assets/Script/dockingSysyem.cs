@@ -43,6 +43,7 @@ public class dockingSysyem : MonoBehaviour
     private Vector3 originPos;
     private Quaternion originRot;
 
+    public dockingSound dockingSound;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class dockingSysyem : MonoBehaviour
         originPos = transform.position;
         originRot = transform.rotation;
         ButtonClickCurrentTime = ButtonClickMaxTime;
+        dockingSound.docking_B_Player();
     }
 
     public void Init()
@@ -154,11 +156,11 @@ public class dockingSysyem : MonoBehaviour
         TimerBar.fillAmount = currentTime / maxTime;
         if((int)currentTime/60 > 0)
         {
-            TimerText.text = $"{(int)currentTime / 60}분 {(int)currentTime % 60}초 남음";
+            TimerText.text = $"{(int)currentTime / 60} : {(int)currentTime % 60}";
         }
         else
         {
-            TimerText.text = $"{(int)currentTime % 60}초 남음";
+            TimerText.text = $"00 : {(int)currentTime % 60}";
         }
         if(currentTime <= 0)
         {
