@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float ItemDetectionRadius = 15; //아이템 감지 반경
     [SerializeField] private GameObject Rope;
     [SerializeField] public bool isMove = true;
+    [SerializeField] private GameObject ItemPickupHelpUI;
     private bool isjump = false;
     public List<string> haveKeycode = new List<string>();
 
@@ -246,6 +247,7 @@ private bool keycodeCheck = false;
                 if (Input.GetKeyDown(KeyCode.F) && !item.isFrontItem)
                 {
                     item.frontitem(hit.collider.gameObject);
+                    ItemPickupHelpUI.SetActive(false);
                     item.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Item");
                 }
                 if (Input.GetKeyDown(KeyCode.F) && item.isRotateItem)

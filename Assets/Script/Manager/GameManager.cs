@@ -32,7 +32,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isInventoryOpen = false;
     
     private bool isNipperMat = false;
-    public bool[] nipperMax = new bool[3] {false, false, false};
+    public bool[] nipperMax = new bool[3];
     
     
 
@@ -91,29 +91,59 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    private bool nipperPlay =false;
     private void NipperMatCheck()
     {
         if (!isNipperMat)
         {
-            foreach (var mat in nipperMax)
+            for (int i = 0; i < nipperMax.Length; i++)
             {
-                if(mat== false)
+                if (!nipperMax[i])
                 {
                     isNipperMat = false;
                     return;
                 }
-                if(mat == nipperMax[nipperMax.Length - 1])
+                
+                if (i == nipperMax.Length - 1)
                 {
-                    QuestManager.Instance.quests[3].clear = true;
-                    var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어애 합니다."));
-                    dialogTexts.Add(new DialogData("오늘의 우주선으로 돌아갑시다."));
-                    BBASS.Show(dialogTexts);
                     isNipperMat = true;
+                    nipperPlay = true;
+                    var dialogTexts = new List<DialogData>();
+                    dialogTexts.Add(new DialogData("니퍼를 만들 재료를 모아야 합니다."));
+                    dialogTexts.Add(new DialogData("니퍼를 만들기 위해서는 3가지 재료가 필요합니다."));
+                    dialogTexts.Add(new DialogData("재료를 모두 모으면 우주선으로 돌아가 니퍼를 만들어야 합니다."));
+                    BBASS.Show(dialogTexts);
                     return;
                 }
             }
+                
+            // foreach (var mat in nipperMax)
+            // {
+            //     if(!mat)
+            //     {
+            //         isNipperMat = false;
+            //         return;
+            //     }
+            //     if(mat == nipperMax[nipperMax.Length-1])
+            //     {
+            //         QuestManager.Instance.quests[3].clear = true;
+            //         isNipperMat = true;
+            //         nipperPlay = true;
+            //         var dialogTexts = new List<DialogData>();
+            //         dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
+            //         dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어애 합니다."));
+            //         dialogTexts.Add(new DialogData("오늘의 우주선으로 돌아갑시다."));
+            //         BBASS.Show(dialogTexts);
+            //         isNipperMat = true;
+            //         return;
+            //     }
+            // }
+        }
+
+        if (nipperPlay && !BBASS.isPlay)
+        {
+            BBASS.Printer.SetActive(false);
+            nipperPlay = false;
         }
     }
 

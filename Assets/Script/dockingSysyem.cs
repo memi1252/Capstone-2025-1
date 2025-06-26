@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class dockingSysyem : MonoBehaviour
     [SerializeField] private GameObject dockingstationArrow;
     [SerializeField] private Image TimerBar;
     [SerializeField] private float maxTime;
+    [SerializeField] private TextMeshProUGUI TimerText;
     [SerializeField] private Button closeButton;
     [SerializeField] private TextMeshProUGUI ButtonClickTimeText; 
     [SerializeField] private float ButtonClickMaxTime = 5f;
@@ -94,6 +96,7 @@ public class dockingSysyem : MonoBehaviour
 
     private void Update()
     {
+        
         if (ButtonClickCurrentTime >= 0)
         {
             ButtonClickCurrentTime -= Time.deltaTime;
@@ -149,6 +152,14 @@ public class dockingSysyem : MonoBehaviour
         CameraLook();
         currentTime -= Time.deltaTime;
         TimerBar.fillAmount = currentTime / maxTime;
+        if((int)currentTime/60 > 0)
+        {
+            TimerText.text = $"{(int)currentTime / 60}분 {(int)currentTime % 60}초 남음";
+        }
+        else
+        {
+            TimerText.text = $"{(int)currentTime % 60}초 남음";
+        }
         if(currentTime <= 0)
         {
             transparency.enabled = true;

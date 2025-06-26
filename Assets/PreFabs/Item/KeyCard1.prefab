@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 8635026848833421375}
   - component: {fileID: 8729044732272368050}
   - component: {fileID: 2784251465832310183}
+  - component: {fileID: 548482516620099500}
   m_Layer: 0
   m_Name: keyCard1
   m_TagString: Item
@@ -237,3 +238,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &548482516620099500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324318340255389399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04053387, y: 0.029064357, z: 0.007542927}
+  m_Center: {x: 0.00031784174, y: -0.000018070454, z: 0.0000000027939684}

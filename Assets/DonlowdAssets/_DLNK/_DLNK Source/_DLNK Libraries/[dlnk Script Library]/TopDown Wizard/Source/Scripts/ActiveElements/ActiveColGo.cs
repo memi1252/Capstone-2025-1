@@ -13,6 +13,8 @@ public class ActiveColGo : MonoBehaviour
     [Header("key")]
     public bool keyActive;
 
+    [SerializeField] private GameObject LockDoorHelpUI;
+
     private bool isOpen;
     public string keycode;
 
@@ -39,6 +41,10 @@ public class ActiveColGo : MonoBehaviour
                 {
                     if (key == keycode)
                     {
+                        if (LockDoorHelpUI.activeSelf && LockDoorHelpUI != null)
+                        {
+                            LockDoorHelpUI.SetActive(false);
+                        }
                         hasexit = false;
                         actived = true;
                         doorOpenSound.Play();
