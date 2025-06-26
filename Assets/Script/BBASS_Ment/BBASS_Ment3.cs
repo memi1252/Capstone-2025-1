@@ -1,0 +1,49 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Doublsb.Dialog;
+using TMPro;
+using UnityEngine;
+
+public class BBASS_Ment3 : BBASS_MentBASE
+{
+    public bool play = false;
+
+    public GameObject combination1;
+    public GameObject combination2;
+
+    private void Update()
+    {
+        if (play)
+        {
+            UIManager.Instance.tooltipUI.Hide();
+        }
+    }
+
+    public override IEnumerator PrintDialogList(List<DialogData> dataList)
+    {
+        play = true;
+        
+        yield return StartCoroutine(base.PrintDialogList(dataList));
+        
+        play = false;
+        Printer.SetActive(false);
+        QuestManager.Instance.quests[7].clear = true;
+        FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
+        combination1.SetActive(false);
+        combination2.SetActive(true);
+        enabled = false;
+    }
+    
+
+    public void line()
+    {
+        var dialogTexts = new List<DialogData>();
+        dialogTexts.Add(new DialogData("편히 주무셨나요?"));
+        dialogTexts.Add(new DialogData("오늘은 추진 제어판을 수리해야합니다."));
+        dialogTexts.Add(new DialogData("현재 필요한 도구의 조합법을 제작대에 띄워 놓았습니다."));
+        dialogTexts.Add(new DialogData("제작대에 있는 조합법을 확인해 주세요."));
+        dialogTexts.Add(new DialogData("확인한 후 우주정거장으로 가서 필요한 재료를 모아주세요."));
+        Show(dialogTexts);
+    }
+}

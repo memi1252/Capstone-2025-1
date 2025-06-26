@@ -86,6 +86,7 @@ public class ProductionSystem : MonoBehaviour
                         }
                     }
                     makeItem = recipe;
+                    
                     Debug.Log(makeItem.name);
                     InventoryController.instance.AddItem(resultSlotName, recipe.resultItem, recipe.resultAmount);
                     
@@ -114,12 +115,6 @@ public class ProductionSystem : MonoBehaviour
         // 결과 슬롯에서 아이템이 제거되었는지 확인
         if (itemCrafted && IsInventoryEmpty(resultSlotName))
         {
-            if (makeItem.name == "NipperItem")
-            {
-                QuestManager.Instance.quests[4].clear = true;
-                GameManager.Instance.nipperMake = true;
-
-            }
             itemCrafted = false;
             if (makeItem.name != null)
             {
@@ -132,6 +127,11 @@ public class ProductionSystem : MonoBehaviour
                         break;
                     }
                 }
+            }
+            if (makeItem.name == "NipperItem")
+            {
+                QuestManager.Instance.quests[4].clear = true;
+                GameManager.Instance.nipperMake = true;
             }
             makeItem = new recipe();
             makeItem.isCreate = false;

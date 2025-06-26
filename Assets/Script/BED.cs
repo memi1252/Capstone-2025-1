@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Doublsb.Dialog;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +11,16 @@ public class BED : MonoBehaviour
     public float sleepRecoveryTime = 5f; // 수면으로 인한 회복 시간
 
     public int DayCount = 1; // 현재 날짜 카운트
+    
+    private bool getUp1 = false; 
+    private bool getUp2 = false;
+    
     private void Start()
     {
         if (fadeImage != null)
         {
             fadeImage.color = new Color(0, 0, 0, 0); // 초기 색상은 투명
+            fadeImage.gameObject.SetActive(false);
         }
     }
 
@@ -24,6 +31,7 @@ public class BED : MonoBehaviour
 
     private IEnumerator SleepCoroutine()
     {
+        fadeImage.gameObject.SetActive(true);
         // 화면 페이드 아웃
         if (fadeImage != null)
         {
@@ -34,6 +42,30 @@ public class BED : MonoBehaviour
                 float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
                 fadeImage.color = new Color(0, 0, 0, alpha);
                 yield return null;
+            }
+        }
+        GameManager.Instance.isCamera = false; 
+        GameManager.Instance.ismove = false; 
+        GameManager.Instance.noInventoryOpen = true; 
+        GameManager.Instance.noESC = true;
+        FindAnyObjectByType<SpaceDoorOpen>().isOpen = false;
+        if (!getUp1)
+        {
+            GameManager.Instance.BBASS.GetComponent<BBASS_Ment2>().enabled = false;
+            GameManager.Instance.BBASS.GetComponent<BBASS_Ment3>().enabled = true;
+            QuestManager.Instance.quests[6].clear = true;
+            getUp1 = true;
+        }
+        else
+        {
+            if (!getUp1)
+            {
+                //GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = false;
+                getUp2 = true;
+            }
+            else
+            {
+                //GameManager.Instance.BBASS.GetComponent<BBASS_Ment5>().enabled = false;
             }
         }
 
@@ -55,6 +87,11 @@ public class BED : MonoBehaviour
                 yield return null;
             }
         }
+        fadeImage.gameObject.SetActive(false);
+        GameManager.Instance.isCamera = true; 
+        GameManager.Instance.ismove = true;
+        GameManager.Instance.noInventoryOpen = false;
+        GameManager.Instance.noESC = false;
 
         UIManager.Instance.dayContViewUI.DayCountPlay(DayCount);
     }
@@ -66,13 +103,7 @@ public class BED : MonoBehaviour
         otherUIValue.currentHp = otherUIValue.MaxHp;
         otherUIValue.currentFatigue = otherUIValue.maxFatigue;
     }
-    public void Sleep()
-    {
-       //화면이 꺼해지는 연출
-       
-       
-       // 피로도 회복 , hp회복
-       
-       //화면이 밣아 지면서 날자뜸
-    }
+    
+    
+    
 }

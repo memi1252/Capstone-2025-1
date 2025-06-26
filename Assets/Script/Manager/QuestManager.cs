@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : MonoSingleton<QuestManager>
@@ -30,7 +31,7 @@ public class QuestManager : MonoSingleton<QuestManager>
 
     private void Update()
     {
-        if (quests[currentQuestIndex].name != null)
+        if (currentQuestIndex != quests.Length)
         {
             if (quests[currentQuestIndex].clear && !questClear[currentQuestIndex])
             {
@@ -46,7 +47,7 @@ public class QuestManager : MonoSingleton<QuestManager>
     {
         yield return new WaitForSeconds(nextQuestDelay);
         currentQuestIndex++;
-        if (quests[currentQuestIndex].name != null)
+        if (currentQuestIndex != quests.Length)
         {
             QuestNameText.text = quests[currentQuestIndex].name;
             QuestcountText.text = "0 / 1";
