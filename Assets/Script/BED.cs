@@ -48,7 +48,10 @@ public class BED : MonoBehaviour
         GameManager.Instance.ismove = false; 
         GameManager.Instance.noInventoryOpen = true; 
         GameManager.Instance.noESC = true;
-        FindAnyObjectByType<SpaceDoorOpen>().isOpen = false;
+        foreach (var doorOpen in FindObjectsByType<SpaceDoorOpen>((FindObjectsSortMode)FindObjectsInactive.Include))
+        {
+            doorOpen.isOpen = false;
+        }
         if (!getUp1)
         {
             GameManager.Instance.BBASS.GetComponent<BBASS_Ment2>().enabled = false;

@@ -35,6 +35,7 @@ public class GameManager : MonoSingleton<GameManager>
     private bool isNipperMat = false;
     public bool[] nipperMax = new bool[3];
     public bool BBASSPlay = false;
+    public bool CardKetDoor1 = false;
     
     
 
@@ -173,6 +174,28 @@ public class GameManager : MonoSingleton<GameManager>
         {
             BBASS.Printer.SetActive(false);
             nipperMakePlay = false;
+        }
+    }
+
+    public bool isCardKet1 = false;
+    private bool CardKet1 = false;
+    private void CardKet1Check()
+    {
+        if (isCardKet1)
+        {
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
+            dialogTexts.Add(new DialogData("잠긴 문을 열어 봅시다."));
+            BBASS.Show(dialogTexts);
+            QuestManager.Instance.quests[9].clear = true;
+            isCardKet1 = false;
+            CardKet1 = true;
+        }
+        
+        if(CardKet1 && !BBASS.isPlay) 
+        {
+            BBASS.Printer.SetActive(false);
+            CardKet1 = false;
         }
     }
 

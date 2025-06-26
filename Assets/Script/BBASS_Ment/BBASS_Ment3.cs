@@ -9,9 +9,6 @@ public class BBASS_Ment3 : BBASS_MentBASE
 {
     public bool play = false;
 
-    public GameObject combination1;
-    public GameObject combination2;
-
     private void Update()
     {
         if (play)
@@ -29,9 +26,13 @@ public class BBASS_Ment3 : BBASS_MentBASE
         play = false;
         Printer.SetActive(false);
         QuestManager.Instance.quests[7].clear = true;
-        FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
-        combination1.SetActive(false);
-        combination2.SetActive(true);
+        foreach (var doorOpen in FindObjectsByType<SpaceDoorOpen>((FindObjectsSortMode)FindObjectsInactive.Include))
+        {
+            doorOpen.isOpen = true;
+        }
+        //FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
+        UIManager.Instance.combination1.SetActive(false);
+        UIManager.Instance.combination2.SetActive(true);
         enabled = false;
     }
     

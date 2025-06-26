@@ -18,6 +18,7 @@ public class OtherUIvalue : MonoBehaviour
     public float fatIncrease = 0.4f;
     public float maxFatigue = 100f;
     public float currentFatigue;
+    public bool isFat =false;
     void Start()
     {
         currentOxy1 = maxOxy;
@@ -32,8 +33,11 @@ public class OtherUIvalue : MonoBehaviour
         
         Oxy2.value = currentOxy2/ maxOxy;
         Oxy1.value = currentOxy1 / maxOxy;
-        currentFatigue -= Time.deltaTime * fatIncrease;
-        fatigueSlider.value = currentFatigue / maxFatigue;
+        if (isFat)
+        {
+            currentFatigue -= Time.deltaTime * fatIncrease;
+            fatigueSlider.value = currentFatigue / maxFatigue;
+        }
         
         if (currentFatigue <= 0 || currentOxy1 <=0)
         {
