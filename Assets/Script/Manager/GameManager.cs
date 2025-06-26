@@ -32,9 +32,18 @@ public class GameManager : MonoSingleton<GameManager>
     public bool noInventoryOpen = true;
     public bool isInventoryOpen = false;
     public bool noESC = false;
+    
     private bool isNipperMat = false;
     public bool[] nipperMax = new bool[3];
+    
+    private bool ismongkiMat = false;
+    public bool[] mongkiMax = new bool[3];
+    public int[] mongkiMaxCount = new int[3] { 1, 2, 3 };
+    public int[] mongkiCount = new int[3] { 0, 0, 0 };
+    
     public bool BBASSPlay = false;
+    public bool firstItemmat = false;
+    public bool secondItemmat = false;
     public bool CardKetDoor1 = false;
     
     
@@ -52,6 +61,8 @@ public class GameManager : MonoSingleton<GameManager>
     {
         InventoryOpen();
         NipperMatCheck();
+        NmongkiMatCheck();
+        CardKet1Check();
         MENUOpen();
     }
     
@@ -151,7 +162,9 @@ public class GameManager : MonoSingleton<GameManager>
                 
                 if (i == nipperMax.Length - 1)
                 {
+                    Debug.Log("!!!!!!!");
                     isNipperMat = true;
+                    firstItemmat = true;
                     nipperPlay = true;
                     var dialogTexts = new List<DialogData>();
                     dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
@@ -174,6 +187,58 @@ public class GameManager : MonoSingleton<GameManager>
         {
             BBASS.Printer.SetActive(false);
             nipperMakePlay = false;
+        }
+    }
+    
+    private bool mongkiPlay =false;
+    public bool mongkiMakePlay = false;
+    public bool mongkiMake = false;
+    private void NmongkiMatCheck()
+    {
+        if (!ismongkiMat)
+        {
+            for (int i = 0; i < mongkiMax.Length; i++)
+            {
+                if (!mongkiMax[i])
+                {
+                    ismongkiMat = false;
+                    return;
+                }
+                
+                if(mongkiMaxCount[i] != mongkiCount[i])
+                {
+                    
+                    return;
+                }
+                
+                
+                if (i == mongkiMax.Length - 1)
+                {
+                    Debug.Log("??????");
+                    ismongkiMat = true;
+                    secondItemmat = true;
+                    mongkiMake = true;
+                    var dialogTexts = new List<DialogData>();
+                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아가 몽키스페너를 만들어야 합니다."));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
+                    BBASS.Show(dialogTexts);
+                    QuestManager.Instance.quests[11].clear = true;
+                    return;
+                }
+            }
+        }
+
+        if (mongkiPlay && !BBASS.isPlay)
+        {
+            BBASS.Printer.SetActive(false);
+            mongkiPlay = false;
+        }
+
+        if (mongkiMakePlay && !BBASS.isPlay)
+        {
+            BBASS.Printer.SetActive(false);
+            mongkiMakePlay = false;
         }
     }
 

@@ -493,6 +493,16 @@ private bool keycodeCheck = false;
                         GameManager.Instance.nipperMake = false;
                         GameManager.Instance.nipperMakePlay = true;
                     }
+
+                    if (GameManager.Instance.mongkiMake)
+                    {
+                        var dialogTexts = new List<DialogData>();
+                        dialogTexts.Add(new DialogData("몽키스페너를 성공적으로 제작했습니다."));
+                        dialogTexts.Add(new DialogData("우주선 밖으로 나가 추진 제어판를 수리해 보세요!"));
+                        GameManager.Instance.BBASS.Show(dialogTexts);
+                        GameManager.Instance.mongkiMake = false;
+                        GameManager.Instance.mongkiMakePlay = true;
+                    }
                 }
             }
             
