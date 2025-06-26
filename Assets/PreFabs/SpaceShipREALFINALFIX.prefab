@@ -6688,6 +6688,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 7.2254887
       objectReference: {fileID: 0}
+    - target: {fileID: 2549262451034004311, guid: b0f2c5dbe758368498595d141740320e, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2579315497680493306, guid: b0f2c5dbe758368498595d141740320e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.1340389

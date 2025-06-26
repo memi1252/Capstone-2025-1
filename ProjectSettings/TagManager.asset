@@ -20,6 +20,7 @@ TagManager:
   - WireConnectionDoor
   - ReplacingpartsDoor
   - StationDoor
+  - BED
   layers:
   - Default
   - TransparentFX

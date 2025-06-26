@@ -21,6 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public ProductionSystem ProductionSystem1;
     public ProductionSystem ProductionSystem2;
+    public GameObject spaceStationEntranceHelpUI;
     
     public bool isSpace = true;
     public bool ismove = true;
@@ -154,8 +155,9 @@ public class GameManager : MonoSingleton<GameManager>
                     var dialogTexts = new List<DialogData>();
                     dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
                     dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("오늘의 우주선으로 돌아갑시다."));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
                     BBASS.Show(dialogTexts);
+                    QuestManager.Instance.quests[3].clear = true;
                     return;
                 }
             }

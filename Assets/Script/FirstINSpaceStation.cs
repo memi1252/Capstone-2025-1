@@ -16,6 +16,7 @@ public class FirstINSpaceStation : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             //gameObject.SetActive(false);
             StartCoroutine(BBASSMent());
+            GameManager.Instance.spaceStationEntranceHelpUI.SetActive(false);
         }
     }
 
