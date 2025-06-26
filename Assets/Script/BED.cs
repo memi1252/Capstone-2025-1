@@ -48,6 +48,7 @@ public class BED : MonoBehaviour
         GameManager.Instance.ismove = false; 
         GameManager.Instance.noInventoryOpen = true; 
         GameManager.Instance.noESC = true;
+        FindAnyObjectByType<FirstINSpaceStation>().GetComponent<Collider>().enabled = true;
         foreach (var doorOpen in FindObjectsByType<SpaceDoorOpen>((FindObjectsSortMode)FindObjectsInactive.Include))
         {
             doorOpen.isOpen = false;

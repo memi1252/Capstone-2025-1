@@ -344,7 +344,8 @@ private bool keycodeCheck = false;
                 {
                     if (Input.GetKeyDown(KeyCode.F))
                     {
-                        if (hit2.collider.GetComponent<BBASS_Ment1>().enabled)
+                        if (hit2.collider.GetComponent<BBASS_Ment1>().enabled &&
+                            FindAnyObjectByType<SPACESTART>().BBASSMove == false)
                         {
                             if (!hit2.collider.GetComponent<BBASS_Ment1>().play)
                             {

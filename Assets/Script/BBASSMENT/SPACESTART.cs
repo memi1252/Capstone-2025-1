@@ -17,6 +17,7 @@ public class SPACESTART : BBASS_MentBASE
     public GameObject pos1;
     public bool ispos1;
     public GameObject[] Combinations1;
+    public bool BBASSMove = false; //BBASS가 움직이는지 여부
     
     //Test_TestMessage_Selection에서 대사 리스트를 받아 출력
     
@@ -43,6 +44,7 @@ public class SPACESTART : BBASS_MentBASE
 
         if (ispos1)
         {
+            BBASSMove = true;
             GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS").transform.GetChild(0).gameObject;
             BBASS.GetComponent<Animator>().enabled = false;
             BBASS = BBASS.transform.parent.gameObject;
@@ -62,6 +64,7 @@ public class SPACESTART : BBASS_MentBASE
                     else
                     {
                         ispos1 = false;
+                        BBASSMove = false;
                         BBASS.transform.position =pos1.transform.position;
                         BBASS.transform.GetChild(0).GetComponent<Animator>().enabled = true;
                     }
