@@ -7,16 +7,35 @@ using UnityEngine;
 public class FirstINSpaceStation : MonoBehaviour
 {
     private bool isPlay = false;
+    private bool isFirst = false;
+    private bool isSecond = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            UIManager.Instance.dayContViewUI.DayCountPlay(1);
-            QuestManager.Instance.quests[2].clear = true;
-            GetComponent<Collider>().enabled = false;
-            //gameObject.SetActive(false);
-            StartCoroutine(BBASSMent());
-            GameManager.Instance.spaceStationEntranceHelpUI.SetActive(false);
+            if (!isFirst)
+            {
+                UIManager.Instance.dayContViewUI.DayCountPlay(1);
+                QuestManager.Instance.quests[2].clear = true;
+                GetComponent<Collider>().enabled = false;
+                //gameObject.SetActive(false);
+                UIManager.Instance.StastUI.GetComponentInChildren<OtherUIvalue>().isFat = true;
+                StartCoroutine(BBASSMentFrist());
+                GameManager.Instance.spaceStationEntranceHelpUI.SetActive(false);
+            }
+            else
+            {
+                if (!isSecond)
+                {
+                    StartCoroutine(BBASSMent2());
+                    QuestManager.Instance.quests[8].clear = true;
+                }
+                else
+                {
+                    
+                }
+            }
+            
         }
     }
 
@@ -29,7 +48,7 @@ public class FirstINSpaceStation : MonoBehaviour
         }
     }
 
-    IEnumerator BBASSMent()
+    IEnumerator BBASSMentFrist()
     {
         yield return new WaitForSeconds(2f);
         var dialogTexts = new List<DialogData>();
@@ -37,6 +56,18 @@ public class FirstINSpaceStation : MonoBehaviour
         dialogTexts.Add(new DialogData("우주정거장 탐색 결과 도구를 만들 재료는 충분합니다."));
         dialogTexts.Add(new DialogData("현재 필요한 재료는 철판, 나사, 볼트입니다."));
         dialogTexts.Add(new DialogData("피로도가 다 떨어지기 전에 모아서 우주선으로 돌아갑시다!"));
+        GameManager.Instance.BBASS.Show(dialogTexts);
+    }
+
+    IEnumerator BBASSMent2()
+    {
+        yield return new WaitForSeconds(2f);
+        var dialogTexts = new List<DialogData>();
+        isPlay = true;
+        dialogTexts.Add(new DialogData("탐색 결과 재료가 좀 깊숙히 있습니다."));
+        dialogTexts.Add(new DialogData("근데 현재 거기로 가는 길이 잠겨있습니다."));
+        dialogTexts.Add(new DialogData("카드키가 있으면 열릴꺼 같습니다."));
+        dialogTexts.Add(new DialogData("카드키를 찾아서 우주정거장을 탐색해봅시다."));
         GameManager.Instance.BBASS.Show(dialogTexts);
     }
     

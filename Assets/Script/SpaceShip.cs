@@ -55,7 +55,10 @@ public class SpaceShip : BBASS_MentBASE
         yield return StartCoroutine(base.PrintDialogList(dataList));
         
         Printer.SetActive(false);
-        FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
+        foreach (var doorOpen in FindObjectsByType<SpaceDoorOpen>((FindObjectsSortMode)FindObjectsInactive.Include))
+        {
+            doorOpen.isOpen = true;
+        }
         GameManager.Instance.spaceStationEntranceHelpUI.SetActive(true);
     }
 

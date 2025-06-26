@@ -219,7 +219,7 @@ public class dockingSysyem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("dockingstation"))
+        if (other.CompareTag("dockingstation") && currentTime > 1)
         {
             Debug.Log("도킹완료");
             if(GetComponentInChildren<Canvas>() != null)

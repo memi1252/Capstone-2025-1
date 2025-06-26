@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BBABB_WireCLEAR : BBASS_MentBASE
 {
-    
+    public GameObject wire;
+    public Material wireMaterial;
     public override IEnumerator PrintDialogList(List<DialogData> dataList)
     {
         yield return StartCoroutine(base.PrintDialogList(dataList));
@@ -21,6 +22,7 @@ public class BBABB_WireCLEAR : BBASS_MentBASE
 
     public void Clear()
     {
+        wire.GetComponent<MeshRenderer>().material = wireMaterial;
         var dialogTexts = new List<DialogData>();
 
         dialogTexts.Add(new DialogData("전선 연결이 완료되었습니다!"));

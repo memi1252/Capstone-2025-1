@@ -46,6 +46,12 @@ public class ActiveColGo : MonoBehaviour
                         {
                             LockDoorHelpUI.SetActive(false);
                         }
+
+                        if (!GameManager.Instance.CardKetDoor1)
+                        {
+                            GameManager.Instance.CardKetDoor1 = true;
+                            QuestManager.Instance.quests[10].clear = true;
+                        }
                         hasexit = false;
                         actived = true;
                         doorOpenSound.Play();
