@@ -42,6 +42,7 @@ public class ReplacingpartsDoor : MonoBehaviour
         UIManager.Instance.StastUI.SetActive(false);
         UIManager.Instance.QuitSlotUI.SetActive(false);
         UIManager.Instance.BBASSViewUI.SetActive(false);
+        UIManager.Instance.itemDescriptionUI.SetActive(false);
         GameManager.Instance.playerCamera.gameObject.SetActive(false);
         GameManager.Instance.miniGameScene = false;
     }

@@ -29450,6 +29450,7 @@ MonoBehaviour:
   fadeDuration: 2
   sleepRecoveryTime: 5
   DayCount: 1
+  goodNight: 0
 --- !u!1 &8813172255831191415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5054450841154969866, guid: b0f2c5dbe758368498595d141740320e, type: 3}

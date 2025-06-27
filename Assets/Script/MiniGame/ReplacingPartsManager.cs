@@ -83,6 +83,7 @@ public class ReplacingPartsManager : MonoBehaviour
         var material = line.GetComponent<MeshRenderer>().material;
         material.EnableKeyword("_EMISSION");
         material.SetColor("_EmissionColor", Color.green * 2f);
+        QuestManager.Instance.quests[13].clear = true;
         // statusText.gameObject.SetActive(true);
         // statusText.text = "성공";
         // statusText.color = Color.green;
@@ -103,6 +104,7 @@ public class ReplacingPartsManager : MonoBehaviour
         ReplacingpartsDoor.Close();
         UIManager.Instance.BBASSViewUI.SetActive(true);
         GameManager.Instance.noInventoryOpen = false;
+        GameManager.Instance.BBASS.GetComponent<BBABB_ReplacingCLEAR>().Clear();
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }
     

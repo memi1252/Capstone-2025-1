@@ -14,6 +14,8 @@ public class BED : MonoBehaviour
     
     private bool getUp1 = false; 
     private bool getUp2 = false;
+    public bool goodNight =false;
+    private OtherUIvalue otherUIValue;
     
     private void Start()
     {
@@ -22,10 +24,12 @@ public class BED : MonoBehaviour
             fadeImage.color = new Color(0, 0, 0, 0); // 초기 색상은 투명
             fadeImage.gameObject.SetActive(false);
         }
+        otherUIValue = UIManager.Instance.StastUI.GetComponent<OtherUIvalue>();
     }
 
     public void GoToSleep()
     {
+        if (!goodNight) return;
         StartCoroutine(SleepCoroutine());
     }
 
@@ -62,9 +66,10 @@ public class BED : MonoBehaviour
         }
         else
         {
-            if (!getUp1)
+            if (!getUp2)
             {
-                //GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = false;
+                //GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = true;
+                QuestManager.Instance.quests[14].clear = true;
                 getUp2 = true;
             }
             else
@@ -74,6 +79,8 @@ public class BED : MonoBehaviour
         }
 
         DayCount++;
+        otherUIValue.maxFatigue += otherUIValue.dayIncrease;
+        otherUIValue.maxOxy += otherUIValue.dayIncrease;
         // 피로도 회복 및 hp 회복 로직
         RecoverFatigueAndHealth();
 
@@ -98,14 +105,16 @@ public class BED : MonoBehaviour
         GameManager.Instance.noESC = false;
 
         UIManager.Instance.dayContViewUI.DayCountPlay(DayCount);
+        goodNight = false;
     }
 
     private void RecoverFatigueAndHealth()
     {
         // 피로도와 HP 회복 로직 구현
         OtherUIvalue otherUIValue = UIManager.Instance.StastUI.GetComponent<OtherUIvalue>();
-        otherUIValue.currentHp = otherUIValue.MaxHp;
         otherUIValue.currentFatigue = otherUIValue.maxFatigue;
+        otherUIValue.currentOxy1 = otherUIValue.maxOxy;
+        otherUIValue.currentOxy2 = otherUIValue.maxOxy;
     }
     
     

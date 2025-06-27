@@ -306,6 +306,7 @@ private bool keycodeCheck = false;
                             rigidbody.linearVelocity = Vector3.zero;
                             GameManager.Instance.noInventoryOpen = true;
                         }
+                        rigidbody.linearVelocity = Vector3.zero;
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 작업대 열기");
                 }
@@ -331,6 +332,7 @@ private bool keycodeCheck = false;
                             UIManager.Instance.tutorialsUI.gameObject.SetActive(false);
                             QuestManager.Instance.quests[0].clear = true;
                         }
+                        rigidbody.linearVelocity = Vector3.zero;
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
                 }else if (hit2.collider.CompareTag("BBAAbattery"))
@@ -339,12 +341,14 @@ private bool keycodeCheck = false;
                     {
                         hit2.collider.GetComponent<BBAAbattery>().charing = true;
                         FindAnyObjectByType<SPACESTART>().ispos1 = false;
+                        rigidbody.linearVelocity = Vector3.zero;
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS 배터리 충전");
                 }else if (hit2.collider.CompareTag("BBASS"))
                 {
                     if (Input.GetKeyDown(KeyCode.F))
                     {
+                        rigidbody.linearVelocity = Vector3.zero;
                         if (hit2.collider.GetComponent<BBASS_Ment1>().enabled &&
                             FindAnyObjectByType<SPACESTART>().BBASSMove == false)
                         {
@@ -389,17 +393,25 @@ private bool keycodeCheck = false;
                         {
                             cabinetDoor.Open();
                         }
+                        rigidbody.linearVelocity = Vector3.zero;
                     }
                 }else if (hit2.collider.CompareTag("WireConnectionDoor"))
                 {
                     if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<WireConnectionDoor>().Clear)
+                    {
                         hit2.collider.GetComponent<WireConnectionDoor>().Open();
+                        rigidbody.linearVelocity = Vector3.zero;
+                    }
                     if(!hit.collider.GetComponent<WireConnectionDoor>().Clear)
                         UIManager.Instance.tooltipUI.SetText("F를 눌러 전력 분배기문 열기(니퍼 필요)");
                 }else if (hit2.collider.CompareTag("ReplacingpartsDoor"))
                 {
-                    if(Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
+                    if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
+                    {
                         hit2.collider.GetComponent<ReplacingpartsDoor>().Open();
+                        rigidbody.linearVelocity = Vector3.zero;
+                    }
+                        
                     if (!hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
                         UIManager.Instance.tooltipUI.SetText("F를 눌러 추진 제어판문 열기(몽키스패너 필요)");
                 }else if (hit2.collider.CompareTag("StationDoor"))
@@ -420,11 +432,12 @@ private bool keycodeCheck = false;
                 }else if (hit2.collider.CompareTag("BED"))
                 {
                     BED bed = hit2.collider.GetComponent<BED>();
-                    if (bed.DayCount ==1 && QuestManager.Instance.quests[4].clear)
+                    if (bed.DayCount ==1 && bed.goodNight)
                     {
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             bed.GoToSleep();
+                            rigidbody.linearVelocity = Vector3.zero;
                         }
                         UIManager.Instance.tooltipUI.SetText("F를 눌러 잠자기");
                     }

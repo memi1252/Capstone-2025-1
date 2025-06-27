@@ -16,4 +16,5 @@ public class UIManager : MonoSingleton<UIManager>
     public GameObject SettingUI;
     public GameObject combination1;
     public GameObject combination2;
+    public GameObject combination3;
 }

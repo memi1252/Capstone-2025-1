@@ -16,7 +16,7 @@ public class BBABB_WireCLEAR : BBASS_MentBASE
         GameManager.Instance.MouseCursor(false);
         UIManager.Instance.StastUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
-        
+        FindAnyObjectByType<BED>().goodNight = true;
         Printer.SetActive(false);
     }
 

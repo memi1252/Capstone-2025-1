@@ -19,6 +19,7 @@ public class OtherUIvalue : MonoBehaviour
     public float maxFatigue = 100f;
     public float currentFatigue;
     public bool isFat =false;
+    public float dayIncrease = 30f;
     void Start()
     {
         currentOxy1 = maxOxy;
