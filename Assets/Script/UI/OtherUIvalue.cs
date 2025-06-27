@@ -58,15 +58,15 @@ public class OtherUIvalue : MonoBehaviour
         }
         else
         {
-            if (currentOxy1 < 50)
+            if (currentOxy2 < maxOxy)
             {
-                if (currentOxy2 < 50)
+                if (currentOxy1 < maxOxy)
                 {
-                    currentOxy2 += Time.deltaTime * OxyIncrease;
+                    currentOxy1 += Time.deltaTime * OxyIncrease;
                 }
                 else
                 {
-                    currentOxy1 += Time.deltaTime * OxyIncrease;
+                    currentOxy2 += Time.deltaTime * OxyIncrease;
                 }
             }
         }

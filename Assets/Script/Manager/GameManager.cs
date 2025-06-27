@@ -218,6 +218,7 @@ public class GameManager : MonoSingleton<GameManager>
                     ismongkiMat = true;
                     secondItemmat = true;
                     mongkiMake = true;
+                    mongkiPlay = true;
                     var dialogTexts = new List<DialogData>();
                     dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
                     dialogTexts.Add(new DialogData("우주선으로 돌아가 몽키스페너를 만들어야 합니다."));

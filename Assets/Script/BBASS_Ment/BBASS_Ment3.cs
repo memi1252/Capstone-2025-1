@@ -20,7 +20,8 @@ public class BBASS_Ment3 : BBASS_MentBASE
     public override IEnumerator PrintDialogList(List<DialogData> dataList)
     {
         play = true;
-        
+        UIManager.Instance.combination1.SetActive(false);
+        UIManager.Instance.combination2.SetActive(true);
         yield return StartCoroutine(base.PrintDialogList(dataList));
         
         play = false;
@@ -31,8 +32,6 @@ public class BBASS_Ment3 : BBASS_MentBASE
             doorOpen.isOpen = true;
         }
         //FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
-        UIManager.Instance.combination1.SetActive(false);
-        UIManager.Instance.combination2.SetActive(true);
         enabled = false;
     }
     

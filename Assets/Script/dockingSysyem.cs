@@ -157,11 +157,11 @@ public class dockingSysyem : MonoBehaviour
         TimerBar.fillAmount = currentTime / maxTime;
         if((int)currentTime/60 > 0)
         {
-            TimerText.text = $"{(int)currentTime / 60} : {(int)currentTime % 60}";
+            TimerText.text = $"{((int)currentTime / 60).ToString("D2")} : {((int)currentTime % 60).ToString("D2")}";
         }
         else
         {
-            TimerText.text = $"00 : {(int)currentTime % 60}";
+            TimerText.text = $"00 : {((int)currentTime % 60).ToString("D2")}";
         }
         if(currentTime <= 0)
         {

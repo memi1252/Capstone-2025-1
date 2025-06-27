@@ -151,23 +151,32 @@ public class item : MonoBehaviour
                 {
                     if (!GameManager.Instance.mongkiMax[0])
                     {
-                        GameManager.Instance.mongkiMax[0] = true;
                         GameManager.Instance.mongkiCount[0]++;
+                        if (GameManager.Instance.mongkiCount[0] == GameManager.Instance.mongkiMaxCount[0])
+                        {
+                            GameManager.Instance.mongkiMax[0] = true;
+                        }
                     }
                         
                 }else if (itemName == "Screwitem")
                 {
                     if (!GameManager.Instance.mongkiMax[1])
                     {
-                        GameManager.Instance.mongkiMax[1] = true;
                         GameManager.Instance.mongkiCount[1]++;
+                        if (GameManager.Instance.mongkiCount[1] == GameManager.Instance.mongkiMaxCount[1])
+                        {
+                            GameManager.Instance.mongkiMax[1] = true;
+                        }
                     }
                 }else if (itemName == "IronPlateItem")
                 {
                     if (!GameManager.Instance.mongkiMax[2])
                     {
-                        GameManager.Instance.mongkiMax[2] = true;
                         GameManager.Instance.mongkiCount[2]++;
+                        if (GameManager.Instance.mongkiCount[2] == GameManager.Instance.mongkiMaxCount[2])
+                        {
+                            GameManager.Instance.mongkiMax[2] = true;
+                        }
                     }
                 }
             }

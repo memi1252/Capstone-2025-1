@@ -133,6 +133,11 @@ public class ProductionSystem : MonoBehaviour
                 QuestManager.Instance.quests[4].clear = true;
                 GameManager.Instance.nipperMake = true;
             }
+            if (makeItem.name == "mongkeyspanerItem")
+            {
+                QuestManager.Instance.quests[12].clear = true;
+                GameManager.Instance.mongkiMake = true;
+            }
             makeItem = new recipe();
             makeItem.isCreate = false;
             foreach (var recipe in recipes)
