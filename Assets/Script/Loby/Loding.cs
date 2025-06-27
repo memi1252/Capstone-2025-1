@@ -55,7 +55,7 @@ public class Loding : MonoBehaviour
         
         if (!VideoPlayer.isPlaying)
         {
-            LongText.transform.Translate(Vector2.up * Time.deltaTime * LongMoveSpeed);
+            LongText.transform.Translate(Vector2.up * Time.deltaTime * LongMoveSpeed); //이어 설명 나오는부분
         }
 
         if (skip)
