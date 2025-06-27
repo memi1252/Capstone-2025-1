@@ -35,7 +35,7 @@ public class ReplacingPartsManager : MonoBehaviour
 
     private void Start()
     {
-        ReplacingpartsDoor = FindObjectOfType<ReplacingpartsDoor>();
+        ReplacingpartsDoor = GameObject.FindGameObjectWithTag("ReplacingpartsDoor").GetComponent<ReplacingpartsDoor>();
     }
 
     public void GameStart()

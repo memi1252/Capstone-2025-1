@@ -68,6 +68,10 @@ public class Player : MonoBehaviour
 
 
     private bool isRun;
+
+    private float h;
+    private float v;
+    private float currentSpeed;
     void HandleMovement()
     {
         if (isMove)
@@ -76,27 +80,29 @@ public class Player : MonoBehaviour
             {
                 animator.SetBool("SpaceShipIn", true);
                 Camera.main.transform.localPosition = CameraOriginalPosition;
-                Vector3 moveDirection = Vector3.zero;
 
-                // 기본 이동
-                if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward; // 전진
-                if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward; // 후진
-                if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right;   // 좌측 이동
-                if (Input.GetKey(KeyCode.D)) moveDirection += transform.right;   // 우측 이동
-
-                if (moveDirection != Vector3.zero)
+                
+                if (!isjump)
                 {
-                    animator.SetBool("walk", true);
-                    animator.SetBool("Run", isRun);
+                    h = Input.GetAxisRaw("Horizontal");
+                    v = Input.GetAxisRaw("Vertical");
                 }
-                else
-                { 
-                    animator.SetBool("walk", false);
-                    animator.SetBool("Run", false);
-                }
-                // 달리기
-                float currentSpeed = moveSpeed;
-                if (Input.GetKey(KeyCode.LeftShift)) // 달리기
+                
+                
+                
+                //if(Mathf.Abs(h) < 0.4f && Mathf.Abs(v) < 0.4f) rigidbody.linearVelocity = Vector3.zero;
+                
+                Vector3 cameraForward = Camera.main.transform.forward;
+                Vector3 cameraRight = Camera.main.transform.right;
+                
+                cameraForward.y = 0;
+                cameraRight.y = 0;
+                cameraForward.Normalize();
+                cameraRight.Normalize();
+
+                Vector3 moveDirection = (cameraForward * v + cameraRight * h).normalized;
+
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
                     isRun = true;
                 }
@@ -104,24 +110,27 @@ public class Player : MonoBehaviour
                 {
                     isRun = false;
                 }
-                        
-                if (!isRun)
+                
+                currentSpeed = isRun ? moveSpeed +2 : moveSpeed;
+                Vector3 velocity = moveDirection * currentSpeed;
+
+                if (moveDirection != Vector3.zero)
                 {
-                    currentSpeed = moveSpeed/2 ; // 달리기 속도
+                    rigidbody.linearVelocity = new Vector3(velocity.x, rigidbody.linearVelocity.y, velocity.z);
+                    animator.SetBool("walk", true);
+                    animator.SetBool("Run", isRun); // 달리기 애니메이션 제거
                 }
                 else
                 {
-                    currentSpeed = moveSpeed;
+                    rigidbody.linearVelocity = new Vector3(0, rigidbody.linearVelocity.y, 0);
+                    animator.SetBool("walk", false);
+                    animator.SetBool("Run", false);
                 }
 
-                // 이동 처리
-                transform.position += moveDirection * currentSpeed * Time.deltaTime;
-
-                // 점프 처리
-                if (Input.GetKeyDown(KeyCode.Space) && !isjump)
+                if (Input.GetKeyDown(KeyCode.Space) && !isjump) // 점프
                 {
-                    rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                     isjump = true;
+                    rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 }
             }
             else
@@ -153,15 +162,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    void HandleRotation()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
-
-        transform.Rotate(Vector3.up * mouseX, Space.Self);
-        transform.Rotate(Vector3.left * mouseY, Space.Self);
-    }
+    
 
     void OnCollisionEnter(Collision collision)
     {

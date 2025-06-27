@@ -15,7 +15,7 @@ public class ActiveColGo : MonoBehaviour
 
     [SerializeField] private GameObject LockDoorHelpUI;
 
-    private bool isOpen;
+    public bool isOpen;
     public string keycode;
 
     public AudioSource doorOpenSound;
