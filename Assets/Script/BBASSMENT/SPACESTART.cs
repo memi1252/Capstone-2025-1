@@ -133,7 +133,7 @@ public class SPACESTART : BBASS_MentBASE
         dialogTexts.Add(new DialogData("행성 HKSN로 가던 중 시스템 오작동으로 인해 더 이상 나아갈 수 없는 상황입니다"));
         dialogTexts.Add(new DialogData("오작동이 일어난 곳은 전력 분배기, 생명 유지장치, 추진 제어판 입니다"));
         dialogTexts.Add(new DialogData("수리를 위해 도구가 필요합니다"));
-        dialogTexts.Add(new DialogData("근처 우주정거장으로 이동해 도구를 만들기 위한 재료를 구해야 합니다"));
+        dialogTexts.Add(new DialogData("도구는 우주정거장으로 이동해 재료를 구한 다음 직접 만들어야 합니다"));
         dialogTexts.Add(new DialogData("우주정거장으로 이동해 주세요"));
         
         Show(dialogTexts);
@@ -143,7 +143,9 @@ public class SPACESTART : BBASS_MentBASE
     {
         var dialogTexts = new List<DialogData>();
         
-        dialogTexts.Add(new DialogData("현재 필요한 도구의 조합법을 제작대에 띄워 놓았습니다"));
+        dialogTexts.Add(new DialogData("왼쪽 위에 체력바는 피로도나 산소가 다 닳게되면 채워질때까지 줄어들게 됩니다"));
+        dialogTexts.Add(new DialogData("무엇을 해야할지 모르겠다면 오른쪽 위에 퀘스트 창을 봐주세요"));
+        dialogTexts.Add(new DialogData("현재 필요한 도구의 조합법은 제작대에 띄워 놓았습니다"));
         
         Show(dialogTexts);
     }
