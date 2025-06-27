@@ -48,28 +48,8 @@ Material:
         m_Texture: {fileID: 2800000, guid: 473d67f54ce86624eb8dd1c82bcc1983, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_0ca313a43688421bac6ea16e5523361e_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 473d67f54ce86624eb8dd1c82bcc1983, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_2f38c0dae5e04d40a5ac6b0685cf7bf4_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 7b6840dc6fc53f7448dc0f5fab843ad5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_4948bc2742ee41f0ac7986d7c3e414cf_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 7b6840dc6fc53f7448dc0f5fab843ad5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_b0463f4791d8493897383b3f6eac5b94_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 5fdf12a36ba5d67488ef58e8e7bc1397, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_cac70b9c9fad495e832b41664e4d29a5_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 473d67f54ce86624eb8dd1c82bcc1983, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _bbassTexture:
-        m_Texture: {fileID: 2800000, guid: 5fdf12a36ba5d67488ef58e8e7bc1397, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -92,7 +72,7 @@ Material:
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _FresnelPower: 3.76
+    - _FresnelPower: 3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5
@@ -102,8 +82,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _FresnelColor: {r: 3.168045, g: 39.880096, b: 44.775043, a: 1}
-    - _ScanLineTilling: {r: 0, g: 20, b: 0, a: 0}
-    - _ScanfLineSpeed: {r: 0, g: 0.7, b: 0, a: 0}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
+    - _ScanLineTilling: {r: 1, g: 1, b: 0, a: 0}
+    - _ScanfLineSpeed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
