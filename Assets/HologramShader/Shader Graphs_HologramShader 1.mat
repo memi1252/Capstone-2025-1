@@ -81,7 +81,7 @@ Material:
     - _VertexOffset: 0.05
     - _blink_interval: 0
     m_Colors:
-    - _FresnelColor: {r: 1.1622534, g: 0, b: 0.024122214, a: 1}
+    - _FresnelColor: {r: 0.5811267, g: 0, b: 0.012061107, a: 1}
     - _ScanLinesSpeed: {r: 0, g: 1, b: 0, a: 0}
     - _ScansLinesTiling: {r: 1, g: 32, b: 0, a: 0}
   m_BuildTextureStacks: []
