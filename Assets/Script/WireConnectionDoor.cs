@@ -27,7 +27,8 @@ public class WireConnectionDoor : MonoBehaviour
     }
 
     public void Close()
-    {
+    { 
+        one = false;
         animator.SetTrigger("Close");
     }
 

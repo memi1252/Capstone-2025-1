@@ -7,6 +7,7 @@ public class NextScene : MonoBehaviour
     
     public void ClickButton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneNumber);
         //GameManager.Instance.isCamera = true;
     }

@@ -28,6 +28,7 @@ public class ReplacingpartsDoor : MonoBehaviour
 
     public void Close()
     {
+        one = false;
         animator.SetTrigger("Close");
     }
 

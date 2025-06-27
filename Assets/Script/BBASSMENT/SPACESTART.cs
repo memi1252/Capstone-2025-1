@@ -40,6 +40,7 @@ public class SPACESTART : BBASS_MentBASE
             Printer.SetActive(false);
             UIManager.Instance.tutorialsUI.MoveOn();
             GameManager.Instance.noInventoryOpen = false;
+            GameManager.Instance.BBASS.GetComponent<Collider>().enabled = false;
         }
 
         if (ispos1)
@@ -66,6 +67,7 @@ public class SPACESTART : BBASS_MentBASE
                         ispos1 = false;
                         BBASSMove = false;
                         BBASS.transform.position =pos1.transform.position;
+                        GameManager.Instance.BBASS.GetComponent<Collider>().enabled = true;
                         BBASS.transform.GetChild(0).GetComponent<Animator>().enabled = true;
                     }
                 }
@@ -98,6 +100,7 @@ public class SPACESTART : BBASS_MentBASE
             ispos1 = true;
             first = true;
             second = false;
+            GameManager.Instance.BBASS.GetComponent<Collider>().enabled = false;
             GameManager.Instance.noInventoryOpen = false;
         }
 
