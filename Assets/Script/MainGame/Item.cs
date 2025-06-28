@@ -192,6 +192,14 @@ public class item : MonoBehaviour
                     if(itemName == "KeyCard1")
                         GameManager.Instance.isCardKet1 = true;
                 }
+
+                if (!GameManager.Instance.isCardKey2)
+                {
+                    if (itemName == "KeyCard2")
+                    {
+                        GameManager.Instance.isCardKey2 = true;
+                    }
+                }
                 if (!GameManager.Instance.firstItemmat)
                 {
                     if (itemName == "NutItem")
@@ -235,6 +243,40 @@ public class item : MonoBehaviour
                             if (GameManager.Instance.mongkiCount[2] == GameManager.Instance.mongkiMaxCount[2])
                             {
                                 GameManager.Instance.mongkiMax[2] = true;
+                            }
+                        }
+                    }
+                }else if (!GameManager.Instance.thirdItemmat)
+                {
+                    if (itemName == "NutItem")
+                    {
+                        if (!GameManager.Instance.fliterMax[0])
+                        {
+                            GameManager.Instance.fliterCount[0]++;
+                            if (GameManager.Instance.fliterCount[0] == GameManager.Instance.fliterMaxCount[0])
+                            {
+                                GameManager.Instance.fliterMax[0] = true;
+                            }
+                        }
+                            
+                    }else if (itemName == "Screwitem")
+                    {
+                        if (!GameManager.Instance.fliterMax[1])
+                        {
+                            GameManager.Instance.fliterCount[1]++;
+                            if (GameManager.Instance.fliterCount[1] == GameManager.Instance.fliterMaxCount[1])
+                            {
+                                GameManager.Instance.fliterMax[1] = true;
+                            }
+                        }
+                    }else if (itemName == "IronPlateItem")
+                    {
+                        if (!GameManager.Instance.fliterMax[2])
+                        {
+                            GameManager.Instance.fliterCount[2]++;
+                            if (GameManager.Instance.fliterCount[2] == GameManager.Instance.fliterMaxCount[2])
+                            {
+                                GameManager.Instance.fliterMax[2] = true;
                             }
                         }
                     }

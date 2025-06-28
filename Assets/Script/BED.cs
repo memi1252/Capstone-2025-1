@@ -68,7 +68,7 @@ public class BED : MonoBehaviour
         {
             if (!getUp2)
             {
-                //GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = true;
+                GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = true;
                 QuestManager.Instance.quests[14].clear = true;
                 getUp2 = true;
             }

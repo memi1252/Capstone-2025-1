@@ -376,6 +376,12 @@ private bool keycodeCheck = false;
                         {
                             if (!hit2.collider.GetComponent<BBASS_Ment3>().play)
                                 hit2.collider.GetComponent<BBASS_Ment3>().line();
+                        }else if (hit2.collider.GetComponent<BBASS_Ment4>().enabled)
+                        {
+                            if (!hit2.collider.GetComponent<BBASS_Ment4>().play)
+                            {
+                                hit2.collider.GetComponent<BBASS_Ment4>().line();
+                            }
                         }
                         Debug.Log(hit2.collider.name);
                     }

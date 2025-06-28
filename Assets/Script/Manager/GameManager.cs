@@ -41,11 +41,17 @@ public class GameManager : MonoSingleton<GameManager>
     public int[] mongkiMaxCount;
     public int[] mongkiCount;
     
+    private bool isFliterMat = false;
+    public bool[] fliterMax = new bool[3];
+    public int[] fliterMaxCount;
+    public int[] fliterCount;
+    
     public bool BBASSPlay = false;
     public bool firstItemmat = false;
     public bool secondItemmat = false;
+    public bool thirdItemmat = false;
     public bool CardKetDoor1 = false;
-    
+    public bool CardKetDoor2 = false;
     
 
     private Volume volume;
@@ -55,6 +61,9 @@ public class GameManager : MonoSingleton<GameManager>
     {
         volume = Camera.main.transform.GetComponent<Volume>();
         volume.profile.TryGet(out depthOfField);
+        fliterMaxCount[0] = 1;
+        fliterMaxCount[1] = 4;
+        fliterMaxCount[2] = 4;
     }
 
     private void Update()
@@ -65,6 +74,7 @@ public class GameManager : MonoSingleton<GameManager>
         CardKet1Check();
         CardKeyDoorOpen();
         MENUOpen();
+        Cardkey1Check();
     }
     
     public void MouseCursor(bool isShow)
@@ -266,7 +276,24 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    public bool isCardKey2 = false;
+    private bool CardKey2;
+    private void Cardkey1Check()
+    {
+        if (isCardKey2)
+        {
+            var dialogTexts = new List<DialogData>();
+            dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
+            dialogTexts.Add(new DialogData("잠긴 문을 열어 봅시다."));
+            BBASS.Show(dialogTexts);
+            QuestManager.Instance.quests[10].clear = true;
+            isCardKey2 = false;
+            CardKey2 = true;
+        }
+    }
+
     public bool CardKetDoorOpen1 = false;
+    public bool CardKeyDoorOpen2 = false;
     private void CardKeyDoorOpen()
     {
         if (CardKetDoorOpen1 && !BBASS.isPlay)
@@ -274,6 +301,13 @@ public class GameManager : MonoSingleton<GameManager>
             BBASS.Printer.SetActive(false);
             CardKetDoorOpen1 = false;
         }
+        
+        if (CardKeyDoorOpen2 && !BBASS.isPlay)
+        {
+            BBASS.Printer.SetActive(false);
+            CardKeyDoorOpen2 = false;
+        }
     }
     
+
 }
