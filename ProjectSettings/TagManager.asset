@@ -21,8 +21,6 @@ TagManager:
   - ReplacingpartsDoor
   - StationDoor
   - BED
-  - Fliter
-  - FliterOnOff
   layers:
   - Default
   - TransparentFX

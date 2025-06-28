@@ -383,13 +383,6 @@ private bool keycodeCheck = false;
                                 hit2.collider.GetComponent<BBASS_Ment4>().line();
                             }
                         }
-                        else if (hit2.collider.GetComponent<BBASS_Ment5>().enabled)
-                        {
-                            if (!hit2.collider.GetComponent<BBASS_Ment5>().play)
-                            {
-                                hit2.collider.GetComponent<BBASS_Ment5>().line();
-                            }
-                        }
                         Debug.Log(hit2.collider.name);
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS와 대화");
@@ -427,55 +420,7 @@ private bool keycodeCheck = false;
                         
                     if (!hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
                         UIManager.Instance.tooltipUI.SetText("F를 눌러 추진 제어판문 열기(몽키스패너 필요)");
-                }else if (hit2.collider.CompareTag("Fliter"))
-                {
-                    FliterSystem fs = FindAnyObjectByType<FliterSystem>();
-                    if (fs.isbroken && fs.off && !fs.outFliter)
-                    {
-                        if (Input.GetKeyDown(KeyCode.F))
-                        {
-                            hit2.collider.transform.GetChild(1).gameObject.SetActive(false);
-                            fs.outFliter = true;
-                        }
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 필터 뺴기");
-                    }
-                    else if (fs.isbroken && !fs.off && !fs.outFliter)
-                    {
-                        UIManager.Instance.tooltipUI.SetText("생명 유지장치를 꺼주세요");
-                    }else if (fs.isbroken && fs.off && fs.outFliter)
-                    {
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 필터 넣기(필터를 들고있어야함)");
-                        if (Input.GetKeyDown(KeyCode.F))
-                        {
-                            QuitslotItemSelect qsi = GameManager.Instance.player.GetComponent<QuitslotItemSelect>();
-                            if (qsi.currentHandItem.name ==
-                                "fliterItem")
-                            {
-                                var item = InventoryController.instance.GetItem(qsi.inventoryName,qsi.currentHandItemIndex);
-                                InventoryController.instance.RemoveItem(qsi.inventoryName,item, 1);
-                                hit2.collider.transform.GetChild(1).gameObject.SetActive(true);
-                                fs.isbroken = false;
-                                fs.clear = true;
-                            }
-                        }
-                    }
-                }else if (hit2.collider.CompareTag("FliterOnOff"))
-                {
-                    FliterSystem fs = FindAnyObjectByType<FliterSystem>();
-                    if (fs.isbroken)
-                    {
-                        fs.off = !fs.off;
-                        if (fs.off)
-                        {
-                            UIManager.Instance.tooltipUI.SetText("생명 유지장치 켜기");
-                        }
-                        else
-                        {
-                            UIManager.Instance.tooltipUI.SetText("생명 유지장치 끄기");
-                        }
-                    }
-                }
-                else if (hit2.collider.CompareTag("StationDoor"))
+                }else if (hit2.collider.CompareTag("StationDoor"))
                 {
                     keycodeCheck = false;
                     foreach (var key in haveKeycode)

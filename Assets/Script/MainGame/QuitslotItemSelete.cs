@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class QuitslotItemSelect : MonoBehaviour
 {
-    public string inventoryName = "Quitslot";
+    private string inventoryName = "Quitslot";
     [SerializeField] private GameObject[] HandItem; 
     public GameObject currentHandItem = null;
-    public int currentHandItemIndex = -1;
+    private int currentHandItemIndex = -1;
     private GameObject currentSlot;
 
     private bool TakeKeycode = false;
@@ -72,7 +72,7 @@ public class QuitslotItemSelect : MonoBehaviour
             {
                 if (!TakeKeycode)
                 {
-                    GameManager.Instance.player.haveKeycode.Add("0125");
+                    GameManager.Instance.player.haveKeycode.Add("1252");
                     TakeKeycode = true;
                 }
             }else

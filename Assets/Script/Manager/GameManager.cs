@@ -75,7 +75,6 @@ public class GameManager : MonoSingleton<GameManager>
         CardKeyDoorOpen();
         MENUOpen();
         Cardkey1Check();
-        fliterMatCheck();
     }
     
     public void MouseCursor(bool isShow)
@@ -254,58 +253,6 @@ public class GameManager : MonoSingleton<GameManager>
             mongkiMakePlay = false;
         }
     }
-    
-    private bool fliterPlay =false;
-    public bool fliterMakePlay = false;
-    public bool fliterMake = false;
-    private void fliterMatCheck()
-    {
-        if (!isFliterMat)
-        {
-            for (int i = 0; i < fliterMax.Length; i++)
-            {
-                if (!fliterMax[i])
-                {
-                    isFliterMat = false;
-                    return;
-                }
-                
-                if(fliterMaxCount[i] != fliterCount[i])
-                {
-                    
-                    return;
-                }
-                
-                
-                if (i == fliterMax.Length - 1)
-                {
-                    isFliterMat = true;
-                    thirdItemmat = true;
-                    fliterMake = true;
-                    fliterPlay = true;
-                    var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 필터를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
-                    BBASS.Show(dialogTexts);
-                    QuestManager.Instance.quests[18].clear = true;
-                    return;
-                }
-            }
-        }
-
-        if (fliterPlay && !BBASS.isPlay)
-        {
-            BBASS.Printer.SetActive(false);
-            fliterPlay = false;
-        }
-
-        if (fliterMakePlay && !BBASS.isPlay)
-        {
-            BBASS.Printer.SetActive(false);
-            fliterMakePlay = false;
-        }
-    }
 
     public bool isCardKet1 = false;
     private bool CardKet1 = false;
@@ -337,8 +284,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
-            dialogTexts.Add(new DialogData("해당키는 2개의 문을 열수있습니다."));
-            dialogTexts.Add(new DialogData("잠긴 문들을 열어 봅시다."));
+            dialogTexts.Add(new DialogData("잠긴 문을 열어 봅시다."));
             BBASS.Show(dialogTexts);
             QuestManager.Instance.quests[10].clear = true;
             isCardKey2 = false;

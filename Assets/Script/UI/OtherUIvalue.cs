@@ -20,14 +20,12 @@ public class OtherUIvalue : MonoBehaviour
     public float currentFatigue;
     public bool isFat =false;
     public float dayIncrease = 30f;
-    private FliterSystem fs;
     void Start()
     {
         currentOxy1 = maxOxy;
         currentOxy2 = maxOxy ;
         currentHp = MaxHp;
         currentFatigue = maxFatigue;
-        fs = FindAnyObjectByType<FliterSystem>();
     }
 
     void Update()
@@ -61,20 +59,18 @@ public class OtherUIvalue : MonoBehaviour
                 currentOxy1 -= Time.deltaTime * OxyIncrease;
             }
         }
-        else if(GameManager.Instance.inSpaceShip && fs != null && !fs.isbroken)
-        {
-            currentOxy1 = maxOxy;
-            currentOxy2 = maxOxy;
-        }
         else
         {
-            if (currentOxy2 >= 0)
+            if (currentOxy2 < maxOxy)
             {
-                currentOxy2 -= Time.deltaTime * OxyIncrease;
-            }
-            else
-            {
-                currentOxy1 -= Time.deltaTime * OxyIncrease;
+                if (currentOxy1 < maxOxy)
+                {
+                    currentOxy1 += Time.deltaTime * OxyIncrease;
+                }
+                else
+                {
+                    currentOxy2 += Time.deltaTime * OxyIncrease;
+                }
             }
         }
     }
