@@ -112,7 +112,7 @@ public class dockingSysyem : MonoBehaviour
         }
         
         
-        if (Vector3.Distance(transform.position, dockingstationArrow.transform.position) < 20f)
+        if (Vector3.Distance(transform.position, dockingstationArrow.transform.position) < 30f)
         {
             dockingstationArrow.SetActive(false);
         }
