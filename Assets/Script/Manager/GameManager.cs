@@ -63,6 +63,7 @@ public class GameManager : MonoSingleton<GameManager>
         NipperMatCheck();
         NmongkiMatCheck();
         CardKet1Check();
+        CardKeyDoorOpen();
         MENUOpen();
     }
     
@@ -265,5 +266,14 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    public bool CardKetDoorOpen1 = false;
+    private void CardKeyDoorOpen()
+    {
+        if (CardKetDoorOpen1 && !BBASS.isPlay)
+        {
+            BBASS.Printer.SetActive(false);
+            CardKetDoorOpen1 = false;
+        }
+    }
     
 }

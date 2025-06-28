@@ -131,7 +131,7 @@ public class SPACESTART : BBASS_MentBASE
         dialogTexts.Add(new DialogData("안녕하세요, 저는 AI도우미 로봇 BBASS입니다"));
         dialogTexts.Add(new DialogData("현재 상황을 알려드리겠습니다"));
         dialogTexts.Add(new DialogData("행성 HKSN로 가던 중 시스템 오작동으로 인해 더 이상 나아갈 수 없는 상황입니다"));
-        dialogTexts.Add(new DialogData("오작동이 일어난 곳은 전력 분배기, 생명 유지장치, 추진 제어판 입니다"));
+        dialogTexts.Add(new DialogData("오작동이 일어난 곳은 전력 분배기, 추진 제어판 입니다"));
         dialogTexts.Add(new DialogData("수리를 위해 도구가 필요합니다"));
         dialogTexts.Add(new DialogData("도구는 우주정거장으로 이동해 재료를 구한 다음 직접 만들어야 합니다"));
         dialogTexts.Add(new DialogData("우주정거장으로 이동해 주세요"));
