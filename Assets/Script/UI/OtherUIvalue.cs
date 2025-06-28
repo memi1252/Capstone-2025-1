@@ -34,16 +34,18 @@ public class OtherUIvalue : MonoBehaviour
         
         Oxy2.value = currentOxy2/ maxOxy;
         Oxy1.value = currentOxy1 / maxOxy;
+        HPSlider.value = currentHp / MaxHp;
+        fatigueSlider.value = currentFatigue / maxFatigue;
+        
         if (isFat)
         {
             currentFatigue -= Time.deltaTime * fatIncrease;
-            fatigueSlider.value = currentFatigue / maxFatigue;
         }
         
         if (currentFatigue <= 0 || currentOxy1 <=0)
         {
             currentHp -= Time.deltaTime * HpIncrease;
-            HPSlider.value = currentHp / MaxHp;
+            
         }
 
         if (!GameManager.Instance.inSpaceShip)

@@ -64,7 +64,8 @@ public class BBASS_MentBASE : MonoBehaviour
                 }
             }
         }
-
+        isPlay = false; //대사 출력 완료 상태로 변경
+        GameManager.Instance.BBASSPlay = false;
         if (LookAtCamera)
         {
             while (GameManager.Instance.BBASS.transform.rotation.eulerAngles != originalRotation.eulerAngles)
@@ -73,8 +74,7 @@ public class BBASS_MentBASE : MonoBehaviour
                 yield return null;
             }
         }
-        isPlay = false; //대사 출력 완료 상태로 변경
-        GameManager.Instance.BBASSPlay = false;
+        
     }
 
     private IEnumerator WaitForMouseClick()
