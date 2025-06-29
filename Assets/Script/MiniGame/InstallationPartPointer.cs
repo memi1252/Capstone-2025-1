@@ -5,6 +5,7 @@ public class InstallationPartPointer : MonoBehaviour
    [SerializeField] private bool inside;
     public bool take;
     public int value;
+    public AudioSource audioSource;
     void Start()
     {
         
@@ -17,7 +18,7 @@ public class InstallationPartPointer : MonoBehaviour
         {
             if (inside && ReplacingPartsManager.instance.takePart != null && ReplacingPartsManager.instance.takePart.take && !take)
             {
-            
+                audioSource.Play();
                 Debug.Log("Taking part");
                 ReplacingPartsManager.instance.takePart.objectFollow.enabled = false;
                 ReplacingPartsManager.instance.takePart.transform.position = transform.position;

@@ -17,6 +17,8 @@ public class ReplacingPartsManager : MonoBehaviour
     public float TImer;
     public GameObject helpImage;
     private float currentTime;
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
 
     public GameObject line;
     private ReplacingpartsDoor ReplacingpartsDoor;
@@ -89,6 +91,8 @@ public class ReplacingPartsManager : MonoBehaviour
         // statusText.gameObject.SetActive(true);
         // statusText.text = "성공";
         // statusText.color = Color.green;
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
         StartCoroutine(SuccessCoroutine());
     }
     
@@ -115,6 +119,8 @@ public class ReplacingPartsManager : MonoBehaviour
         var material = line.GetComponent<MeshRenderer>().material;
         material.EnableKeyword("_EMISSION");
         material.SetColor("_EmissionColor", Color.black * 2f);
+        audioSource.clip = audioClips[1];
+        audioSource.Play();
         StartCoroutine(FailCoroutine());
     }
     IEnumerator FailCoroutine()

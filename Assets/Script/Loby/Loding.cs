@@ -52,11 +52,6 @@ public class Loding : MonoBehaviour
     private void Update()
     {
         skipImage.transform.position = Input.mousePosition;
-        
-        if (!VideoPlayer.isPlaying)
-        {
-            LongText.transform.Translate(Vector2.up * Time.deltaTime * LongMoveSpeed); //이어 설명 나오는부분
-        }
 
         if (skip)
         {

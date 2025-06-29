@@ -12,6 +12,9 @@ public class BED : MonoBehaviour
 
     public int DayCount = 1; // 현재 날짜 카운트
     
+    public AudioSource bedSound; // 침대 소리
+    public AudioSource getUpSound; // 일어날 때 소리
+    
     private bool getUp1 = false; 
     private bool getUp2 = false;
     public bool goodNight =false;
@@ -30,6 +33,10 @@ public class BED : MonoBehaviour
     public void GoToSleep()
     {
         if (!goodNight) return;
+        if (bedSound != null)
+        {
+            bedSound.Play(); // 침대 소리 재생
+        }
         StartCoroutine(SleepCoroutine());
     }
 
@@ -98,6 +105,10 @@ public class BED : MonoBehaviour
                 fadeImage.color = new Color(0, 0, 0, alpha);
                 yield return null;
             }
+        }
+        if (getUpSound != null)
+        {
+            getUpSound.Play(); // 일어날 때 소리 재생
         }
         fadeImage.gameObject.SetActive(false);
         GameManager.Instance.isCamera = true; 

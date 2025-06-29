@@ -25,8 +25,8 @@ public class WireManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    
+
+    public bool start = false;
 
     
 
@@ -36,26 +36,62 @@ public class WireManager : MonoBehaviour
 
     public int count = 4;
 
+    public float wireTimer = 60;
+
     private void Start()
     {
         //wirecontainer[Random.Range(0, wirecontainer.Length)].SetActive(true);
         audioSource = GetComponent<AudioSource>();
+        foreach (var meshRenderer in Light_Bulbs)
+        {
+            meshRenderer.material.color = Color.white;
+            var material = meshRenderer.material;
+            material.EnableKeyword("_EMISSION");
+            material.SetColor("_EmissionColor", Color.white * 2f);
+        }
         wireConnectionDoor = GameObject.FindGameObjectWithTag("WireConnectionDoor").GetComponent<WireConnectionDoor>();
+    }
+    
+    private IEnumerator TurnOffLightsSequentially()
+    {
+        float turnOffInterval = wireTimer / Light_Bulbs.Length; // 각 전등이 꺼지는 간격 계산
+
+        foreach (var light in Light_Bulbs)
+        {
+            // 전등 색상을 빨간색으로 변경 (꺼진 효과)
+            light.material.color = Color.black;
+            var material = light.material;
+            material.EnableKeyword("_EMISSION");
+            material.SetColor("_EmissionColor", Color.black * 0.5f);
+
+            yield return new WaitForSeconds(turnOffInterval); // 간격 대기
+        }
+    }
+    
+    public void TurnOnLights()
+    {
+        // 모든 전등을 켜는 코루틴 시작
+        StartCoroutine(TurnOffLightsSequentially());
     }
     
     private void Update()
     {
-        countText.text = $"남은 횟수 : {count}";
-        
-        if(count <= 0)
+        if (start)
         {
-            Fail();
+            countText.text = $"남은 횟수 : {count}";
+            
+            if(count <= 0)
+            {
+                Fail();
+            }
         }
+        
     }
 
     public void Success()
     {
         //statusText.color = Color.green;
+        StopCoroutine(TurnOffLightsSequentially());
         foreach (var meshRenderer in Light_Bulbs)
         {
             meshRenderer.material.color = Color.green;
@@ -91,6 +127,7 @@ public class WireManager : MonoBehaviour
     
     public void Fail()
     {
+        StopCoroutine(TurnOffLightsSequentially());
         foreach (var meshRenderer in Light_Bulbs)
         {
             meshRenderer.material.color = Color.red;
@@ -98,8 +135,8 @@ public class WireManager : MonoBehaviour
             material.EnableKeyword("_EMISSION");
             material.SetColor("_EmissionColor", Color.red * 2f);
         }
-        //audioSource.clip = audioClips[1];
-        //audioSource.Play();
+        audioSource.clip = audioClips[1];
+        audioSource.Play();
         StartCoroutine(FailCoroutine());
     }
     IEnumerator FailCoroutine()

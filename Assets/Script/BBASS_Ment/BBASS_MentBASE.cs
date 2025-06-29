@@ -79,7 +79,7 @@ public class BBASS_MentBASE : MonoBehaviour
 
     private IEnumerator WaitForMouseClick()
     {
-        while (!Input.GetMouseButtonDown(0))
+        while (!Input.GetMouseButtonDown(0) && !Input.GetKeyDown(KeyCode.Space))
         {
             yield return null;
         }

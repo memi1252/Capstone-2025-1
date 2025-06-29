@@ -23,6 +23,8 @@ public class WireRule : MonoBehaviour
 
     public void HelpBookOut()
     {
+        WireManager.instance.TurnOnLights();
+        WireManager.instance.start = true;
         page2.SetActive(false);
     }
 }
