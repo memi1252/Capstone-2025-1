@@ -23,6 +23,7 @@ TagManager:
   - BED
   - Fliter
   - FliterOnOff
+  - Door
   layers:
   - Default
   - TransparentFX

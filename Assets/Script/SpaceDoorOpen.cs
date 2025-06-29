@@ -7,6 +7,13 @@ public class SpaceDoorOpen : MonoBehaviour
 
     private bool colin;
     public bool isOpen = false;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,6 +30,7 @@ public class SpaceDoorOpen : MonoBehaviour
         if (other.tag == "Player" && isOpen)
         {
             colin = true;
+            audioSource.Play();
             animator.SetBool("Opened", false);
             animator.SetTrigger("Actived");
             
@@ -34,6 +42,7 @@ public class SpaceDoorOpen : MonoBehaviour
         if (other.tag == "Player"  && isOpen)
         {
             colin = false;
+            audioSource.Play();
             animator.SetBool("Opened", true);
             animator.SetTrigger("Actived");
         }

@@ -13,7 +13,7 @@ public class ItemDescriptionUI : UIBase
     {
         CancelButton.onClick.AddListener(() =>
         {
-            itemData.back();
+            itemData.Backd();
         });
         UseButton.onClick.AddListener(() =>
         {

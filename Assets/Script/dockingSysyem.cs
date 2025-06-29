@@ -93,6 +93,7 @@ public class dockingSysyem : MonoBehaviour
     {
         helpImage.gameObject.SetActive(false);
         GameManager.Instance.MouseCursor(false);
+        GameManager.Instance.isdoking = false;
         SpaceON = true;
         dockingSound.docking_B_Player(); //////
     }
@@ -203,7 +204,7 @@ public class dockingSysyem : MonoBehaviour
     
     private void CameraLook()
     {
-        if (lookCamera != null)
+        if (lookCamera != null && GameManager.Instance.isCamera)
         {
             mouseX = Input.GetAxis("Mouse X") *0.3f;
             mouseY = Input.GetAxis("Mouse Y") * 0.5f;

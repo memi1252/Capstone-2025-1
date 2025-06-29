@@ -44,6 +44,10 @@ public class BED : MonoBehaviour
     {
         fadeImage.gameObject.SetActive(true);
         // 화면 페이드 아웃
+        GameManager.Instance.isCamera = false; 
+        GameManager.Instance.ismove = false; 
+        GameManager.Instance.noInventoryOpen = true; 
+        GameManager.Instance.noESC = true;
         if (fadeImage != null)
         {
             float elapsedTime = 0f;
@@ -55,10 +59,7 @@ public class BED : MonoBehaviour
                 yield return null;
             }
         }
-        GameManager.Instance.isCamera = false; 
-        GameManager.Instance.ismove = false; 
-        GameManager.Instance.noInventoryOpen = true; 
-        GameManager.Instance.noESC = true;
+        
         FindAnyObjectByType<FirstINSpaceStation>().GetComponent<Collider>().enabled = true;
         foreach (var doorOpen in FindObjectsByType<SpaceDoorOpen>((FindObjectsSortMode)FindObjectsInactive.Include))
         {

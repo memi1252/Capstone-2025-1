@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject Rope;
     [SerializeField] public bool isMove = true;
     [SerializeField] private GameObject ItemPickupHelpUI;
-    [SerializeField] private AudioSource ItemPickupSound;
+    public AudioSource ItemPickupSound;
     private bool isjump = false;
     public List<string> haveKeycode = new List<string>();
 
@@ -162,6 +162,11 @@ public class Player : MonoBehaviour
                 rigidbody.AddForce(moveDirection * speed, ForceMode.Acceleration);
             }
         }
+        else
+        {
+            animator.SetBool("walk", false);
+            animator.SetBool("Run", false);
+        }
     }
     
 
@@ -217,34 +222,22 @@ private bool keycodeCheck = false;
                     Outline outline = collider.GetComponent<Outline>();
                     outline.enabled = true;
                 }
-                // var renderer = item.GetComponentInChildren<Renderer>();
-                // foreach (var mat in renderer.materials)
-                // {
-                //     if (mat.HasProperty("_outlien_thickness"))
-                //     {
-                //         item.outline = false;
-                //         mat.SetFloat("_outlien_thickness", 0.02f);
-                //     }
-                // }
-                GameManager.Instance.isItemPickUp = true;
+                
             }
-            else
-            {
-                GameManager.Instance.isItemPickUp = false;
-            }
+            
         }
         
-        
+        bool itemlook = false;
         
         if(Camera.main == null) return;
         RaycastHit hit;
         Vector3 origin = Camera.main.transform.position;
         Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * ItemPickUpDistance, Color.red);
-        if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance) &&
-            !GameManager.Instance.isItemPickUp)
+        if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out hit, ItemPickUpDistance))
         {
             if (hit.collider.CompareTag("Item"))
             {
+                itemlook = true;
                 item item = hit.transform.GetComponent<item>();
                 
                 if (Input.GetKeyDown(KeyCode.F) && !item.isFrontItem)
@@ -252,22 +245,19 @@ private bool keycodeCheck = false;
                     item.frontitem(hit.collider.gameObject);
                     if(ItemPickupHelpUI.activeSelf)
                         ItemPickupHelpUI.SetActive(false);
+                    rigidbody.linearVelocity = Vector3.zero;
+                    rigidbody.angularVelocity = Vector3.zero;
                     item.transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Item");
                 }
                 if (Input.GetKeyDown(KeyCode.F) && item.isRotateItem)
                 {
                     item.Pickup();
-                    ItemPickupSound.Play();
                 }
                 UIManager.Instance.tooltipUI.SetText(item.itemName);
-                GameManager.Instance.isItemPickUp = true;
             }
             else
             {
-                if (GameManager.Instance.isItemPickUp)
-                {
-                    UIManager.Instance.tooltipUI.Hide();
-                }
+                UIManager.Instance.tooltipUI.Hide();
             }
         }
         
@@ -317,7 +307,6 @@ private bool keycodeCheck = false;
                     if (Input.GetKeyDown(KeyCode.F))
                     {
                         GameManager.Instance.ismove = false;
-                        GameManager.Instance.isCamera = false;
                         GameManager.Instance.MouseCursor(true);
                         UIManager.Instance.StastUI.SetActive(false);
                         UIManager.Instance.QuitSlotUI.SetActive(false);
@@ -334,6 +323,7 @@ private bool keycodeCheck = false;
                             UIManager.Instance.tutorialsUI.gameObject.SetActive(false);
                             QuestManager.Instance.quests[0].clear = true;
                         }
+                        GameManager.Instance.isdoking = true;
                         rigidbody.linearVelocity = Vector3.zero;
                     }
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
@@ -507,6 +497,15 @@ private bool keycodeCheck = false;
                     else
                     {
                         UIManager.Instance.tooltipUI.SetText("아직 잠을 잘수 없습니다.");
+                    }
+                }else if (hit2.collider.CompareTag("Door"))
+                {
+                    if (hit2.collider.GetComponentInChildren<ActiveColGo>().keyActive)
+                    {
+                        if (!hit2.collider.GetComponentInChildren<ActiveColGo>().hasValidKey)
+                        {
+                            UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
+                        }
                     }
                 }
             }

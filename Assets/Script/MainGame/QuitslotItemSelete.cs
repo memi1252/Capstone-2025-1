@@ -8,15 +8,12 @@ public class QuitslotItemSelect : MonoBehaviour
     [SerializeField] private GameObject[] HandItem; 
     public GameObject currentHandItem = null;
     public int currentHandItemIndex = -1;
-    private GameObject currentSlot;
+    public GameObject currentSlot;
 
     private bool TakeKeycode = false;
     
     private void Update()
     {
-        
-        
-        
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             HandleSlotItem(0);
@@ -82,50 +79,88 @@ public class QuitslotItemSelect : MonoBehaviour
             }
         }
     }
-
+    
     private void HandleSlotItem(int slotIndex)
-    {
-        var item = InventoryController.instance.GetItem(inventoryName, slotIndex);
+{
+    var item = InventoryController.instance.GetItem(inventoryName, slotIndex);
 
-        if (item != null && !item.GetIsNull())
+    if (item != null && !item.GetIsNull())
+    {
+        foreach (var items in HandItem)
         {
-            foreach (var items in HandItem)
+            if (item.GetItemType() == items.name)
             {
-                if (item.GetItemType() == items.name)
+                if (currentHandItem == null)
                 {
-                    if (currentHandItem == null)
+                    currentHandItem = items;
+                    items.SetActive(true);
+                    if (currentSlot != null)
                     {
+                        currentSlot.SetActive(false);
+                        currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                    }
+                    currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
+                    currentSlot.transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else
+                {
+                    if (currentHandItem != items)
+                    {
+                        currentHandItem.SetActive(false);
                         currentHandItem = items;
                         items.SetActive(true);
+                        if (currentSlot != null)
+                        {
+                            currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                        }
+                            
                         currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
                         currentSlot.transform.GetChild(1).gameObject.SetActive(true);
                     }
                     else
                     {
-                        if (currentHandItem != items)
+                        currentHandItem.SetActive(false);
+                        if (currentSlot != null)
                         {
-                            currentHandItem.SetActive(false);
-                            currentHandItem = items;
-                            items.SetActive(true);
-                            if (currentSlot != null)
-                                currentSlot.transform.GetChild(1).gameObject.SetActive(false);
-                            currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
-                            currentSlot.transform.GetChild(1).gameObject.SetActive(true);
+                            currentSlot.transform.GetChild(1).gameObject.SetActive(false);
                         }
-                        else
-                        {
-                            currentHandItem.SetActive(false);
-                            if(currentSlot != null)
-                                currentSlot.transform.GetChild(1).gameObject.SetActive(false);
-                            currentSlot = null;
-                            currentHandItem = null;
-                        }
+                        currentSlot = null;
+                        currentHandItem = null;
                     }
                 }
             }
-            
         }
     }
-    
+    else
+    {
+        // 빈 슬롯 선택 처리
+        if (currentHandItem != null)
+        {
+            currentHandItem.SetActive(false);
+            if (currentSlot != null)
+                currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+            currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
+            currentSlot.SetActive(true);
+            currentSlot.transform.GetChild(1).gameObject.SetActive(true);
+            currentHandItem = null;
+        }
+        else
+        {
+            // 빈 슬롯에서 빈 슬롯으로 넘어갈 때 처리
+            if (currentSlot != null)
+            {
+                currentSlot.SetActive(false);
+                currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+            }
+
+            if (currentHandItemIndex != slotIndex)
+            {
+                currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
+                currentSlot.SetActive(true);
+                currentSlot.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
+    }
+}
     
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using InventorySystem;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -33,7 +34,6 @@ public class item : MonoBehaviour
         origiPos = transform.position;
         origiRot = transform.rotation;
         isFrontItem = true;
-        Item.transform.GetComponent<Collider>().isTrigger = true;
         GameManager.Instance.ismove = false;
         GameManager.Instance.isCamera = false;
         GameManager.Instance.MouseCursor(true);
@@ -41,7 +41,8 @@ public class item : MonoBehaviour
         UIManager.Instance.QuitSlotUI.SetActive(false);
         UIManager.Instance.StastUI.SetActive(false);
         isMoveItem = true;
-        GameManager.Instance.isItemPickUp = true;
+        GameManager.Instance.noESC = true;
+        GameManager.Instance.noInventoryOpen = true;
     }
 
     private void Update()
@@ -55,7 +56,7 @@ public class item : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                back();
+                StartCoroutine(back());
             }
             transform.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
@@ -89,9 +90,9 @@ public class item : MonoBehaviour
                 transform.rotation = origiRot;
                 UIManager.Instance.QuitSlotUI.SetActive(true);
                 UIManager.Instance.StastUI.SetActive(true);
+                
                 Item.transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 Item.transform.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                Item.transform.GetComponent<Collider>().isTrigger = false;
             }
         }
         
@@ -105,12 +106,14 @@ public class item : MonoBehaviour
         }
     }
 
-    public void back()
+    public void Backd()
+    {
+        StartCoroutine(back());
+    }
+    public IEnumerator back()
     {
         UIManager.Instance.itemDescriptionUI.SetActive(false);
         transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
-        GameManager.Instance.isItemPickUp= false;
-        
         isBackItem = true;
         isFrontItem = false;
         GameManager.Instance.ismove = true;
@@ -120,6 +123,9 @@ public class item : MonoBehaviour
         //GameManager.Instance.player.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         // Camera.main.transform.GetComponent<Volume>().enabled = true;
         depthOfField.active = false;
+        GameManager.Instance.noInventoryOpen = false;
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.noESC = false;
     }
     
     public void Pickup()
@@ -326,7 +332,7 @@ public class item : MonoBehaviour
             else
             {
                 Debug.Log("Inventory Cannot Fit Item");
-                back();
+                StartCoroutine(back());
             }
 
         }
@@ -335,11 +341,13 @@ public class item : MonoBehaviour
     
     private void ItemAddInventory()
     {
+        GameManager.Instance.player.ItemPickupSound.Play();
+        GameManager.Instance.noESC = false;
+        GameManager.Instance.noInventoryOpen = false;
         UIManager.Instance.itemDescriptionUI.SetActive(false);;
         UIManager.Instance.tooltipUI.Hide();
         UIManager.Instance.QuitSlotUI.SetActive(true);
         UIManager.Instance.StastUI.SetActive(true);
-        GameManager.Instance.isItemPickUp= false;
         GameManager.Instance.MouseCursor(false);
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;

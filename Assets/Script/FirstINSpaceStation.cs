@@ -81,7 +81,7 @@ public class FirstINSpaceStation : MonoBehaviour
         dialogTexts.Add(new DialogData("스캔 결과 좀 더 안쪽으로 들어가야 할 것 같습니다"));
         dialogTexts.Add(new DialogData("만약 잠긴문이 있다면 카드키를 찾아 열어야 합니다"));
         dialogTexts.Add(new DialogData("카드키가 있으면 열릴꺼 같습니다"));
-        dialogTexts.Add(new DialogData("카드키를 찾아서 우주정거장을 탐색해봅시."));
+        dialogTexts.Add(new DialogData("카드키를 찾아서 우주정거장을 탐색해봅시다."));
         GameManager.Instance.BBASS.Show(dialogTexts);
     }
 

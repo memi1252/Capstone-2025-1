@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LodingScene.unity
     guid: 4d578ec6b7475bd458148eb435139b44
+  - enabled: 1
+    path: Assets/CapstoneEndingScene/lastScene.unity
+    guid: 9cf9c6ddc6506e54d8623d4cf5bf9479
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5a157b05d8bb44d43b122c6cab265aae, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

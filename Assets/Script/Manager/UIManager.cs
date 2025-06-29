@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoSingleton<UIManager>
 {
@@ -18,4 +19,10 @@ public class UIManager : MonoSingleton<UIManager>
     public GameObject combination2;
     public GameObject combination3;
     public GameObject GameOverUI;
+    
+    
+    [Header("sound slider")]
+    public Slider MasSoundSlider;
+    public Slider BGMVolumeSlider;
+    public Slider SFXVolumeSlider;
 }

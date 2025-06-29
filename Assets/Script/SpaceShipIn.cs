@@ -43,6 +43,7 @@ public class SpaceShipIn : MonoBehaviour
                {
                     Camera.main.transform.localRotation = Quaternion.Euler(0f, Camera.main.transform.localRotation.y, 0f);
                }
+               other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
 
                if (!firstOutside && spaceShip != null)
                {

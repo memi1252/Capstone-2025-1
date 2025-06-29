@@ -27,11 +27,11 @@ public class GameManager : MonoSingleton<GameManager>
     public bool ismove = true;
     public bool inSpaceShip = true;
     public bool isCamera;
-    public bool isItemPickUp = false;
     public bool miniGameScene = true;
     public bool noInventoryOpen = true;
     public bool isInventoryOpen = false;
     public bool noESC = false;
+    public bool isdoking = false;
     
     private bool isNipperMat = false;
     public bool[] nipperMax = new bool[3];
@@ -94,7 +94,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void MENUOpen()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isItemPickUp && !noESC && !BBASSPlay)
+        if (Input.GetKeyDown(KeyCode.Escape) && !noESC && !BBASSPlay)
         {
             if (!UIManager.Instance.ESCMENUUI.activeSelf)
             {
@@ -109,7 +109,8 @@ public class GameManager : MonoSingleton<GameManager>
             }
             else
             {
-                MouseCursor(false);
+                if(!isdoking)
+                    MouseCursor(false);
                 UIManager.Instance.ESCMENUUI.SetActive(false);
                 depthOfField.active = false;
                 noInventoryOpen = false;
@@ -126,12 +127,11 @@ public class GameManager : MonoSingleton<GameManager>
                 Time.timeScale = 1;
             }
         }
-        
     }
     
     private void InventoryOpen()
     {
-        if (Input.GetKeyDown(KeyCode.I) && !isItemPickUp && !noInventoryOpen && !BBASSPlay)
+        if (Input.GetKeyDown(KeyCode.I) && !noInventoryOpen && !BBASSPlay)
         {
             if (UIManager.Instance.InvneoryUI.activeSelf)
             {
@@ -343,6 +343,12 @@ public class GameManager : MonoSingleton<GameManager>
             QuestManager.Instance.quests[10].clear = true;
             isCardKey2 = false;
             CardKey2 = true;
+        }
+        
+        if(CardKey2 && !BBASS.isPlay) 
+        {
+            BBASS.Printer.SetActive(false);
+            CardKey2 = false;
         }
     }
 

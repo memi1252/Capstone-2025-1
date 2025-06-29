@@ -124,11 +124,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.28705877, y: 0.030612271, z: 0.20484152}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.0019593006, y: 0.0010676071, z: 0.0004886517}
 --- !u!114 &8528522576255125025
 MonoBehaviour:
@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 8729044732272368050}
   - component: {fileID: 2784251465832310183}
   - component: {fileID: 548482516620099500}
+  - component: {fileID: 1456588358279635914}
   m_Layer: 0
   m_Name: keyCard1
   m_TagString: Item
@@ -258,4 +259,25 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.04053387, y: 0.029064357, z: 0.007542927}
+  m_Center: {x: 0.00031784174, y: -0.000018070454, z: 0.0000000027939684}
+--- !u!65 &1456588358279635914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324318340255389399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.1, z: 0.2}
   m_Center: {x: 0.00031784174, y: -0.000018070454, z: 0.0000000027939684}

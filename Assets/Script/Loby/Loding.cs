@@ -35,17 +35,19 @@ public class Loding : MonoBehaviour
     {
         op = SceneManager.LoadSceneAsync(SceneNumber);
         op.allowSceneActivation = false;
-
-        float timer = 0f;
+        
         while (!op.isDone)
         {
-            yield return null;
+            
             if (op.progress >= 0.9f)
             {
                 skip = true;
                 skipTrueText.SetActive(true);
+                
+                if (op.allowSceneActivation)
+                    yield break;
             }
-            yield break;
+            yield return null;
         }
     }
     
