@@ -187,7 +187,7 @@ MonoBehaviour:
   LongText: {fileID: 1503934825}
   skipTrueText: {fileID: 441139884}
   LongMoveSpeed: 500
-  nextSceneTime: 46
+  nextSceneTime: 60
   skipImage: {fileID: 1299511326}
   maxSkipTime: 5
 --- !u!4 &202039606
@@ -213,7 +213,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202039604}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 75cae673da15fe3499f4c11338f61afb, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: fbca8d383b746ff49bfb24e0e2a5c2e7, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject Rope;
     [SerializeField] public bool isMove = true;
     [SerializeField] private GameObject ItemPickupHelpUI;
+    [SerializeField] private AudioSource ItemPickupSound;
     private bool isjump = false;
     public List<string> haveKeycode = new List<string>();
 
@@ -256,7 +257,7 @@ private bool keycodeCheck = false;
                 if (Input.GetKeyDown(KeyCode.F) && item.isRotateItem)
                 {
                     item.Pickup();
-                    transform.GetChild(3).GetComponent<AudioSource>().Play();
+                    ItemPickupSound.Play();
                 }
                 UIManager.Instance.tooltipUI.SetText(item.itemName);
                 GameManager.Instance.isItemPickUp = true;
@@ -494,7 +495,7 @@ private bool keycodeCheck = false;
                 }else if (hit2.collider.CompareTag("BED"))
                 {
                     BED bed = hit2.collider.GetComponent<BED>();
-                    if (bed.DayCount ==1 && bed.goodNight)
+                    if (bed.goodNight)
                     {
                         if (Input.GetKeyDown(KeyCode.F))
                         {

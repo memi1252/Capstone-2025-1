@@ -7,6 +7,7 @@ public class ReplacingpartsDoor : MonoBehaviour
     Animator animator;
     private bool one =false;
     public bool Clear = false;
+    public GameObject[] partials;
     
     private void Awake()
     {
@@ -18,6 +19,13 @@ public class ReplacingpartsDoor : MonoBehaviour
         if(GameManager.Instance.player.GetComponent<QuitslotItemSelect>().currentHandItem.name != "mongkeyspanerItem")
             return;
         animator.SetTrigger("Open");
+        foreach (GameObject part in partials)
+        {
+            if (part != null)
+            {
+                part.SetActive(true);
+            }
+        }
         GameManager.Instance.player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         if (!one)
         {
@@ -30,6 +38,16 @@ public class ReplacingpartsDoor : MonoBehaviour
     {
         one = false;
         animator.SetTrigger("Close");
+        if (Clear)
+        {
+            foreach (GameObject part in partials)
+            {
+                if (part != null)
+                {
+                    part.SetActive(false);
+                }
+            }
+        }
     }
 
     IEnumerator Scemeload()
