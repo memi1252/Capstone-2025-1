@@ -57,7 +57,7 @@ public class SpaceShipIn : MonoBehaviour
      {
           var dialogTexts = new List<DialogData>();
 
-          dialogTexts.Add(new DialogData("저는 밖으로 나갈수 없어 무선통신으로 도와드리겠습니다."));
+          dialogTexts.Add(new DialogData("저는 밖으로 나갈수 없어 무선통신으로 도와드리겠습니다"));
         
           spaceShip.Show(dialogTexts);
      }

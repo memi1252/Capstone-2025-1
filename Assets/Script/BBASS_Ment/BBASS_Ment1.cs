@@ -43,14 +43,14 @@ public class BBASS_Ment1 : BBASS_MentBASE
         if (!first)
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("우주정거장으로 이동합시다!!"));
+            dialogTexts.Add(new DialogData("우주정거장으로 이동해야합니다"));
             dialogTexts.Add(new DialogData("조종실로 이동해주세요"));
             Show(dialogTexts);
         }
         else
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("AI도우미 BBASS입니다."));
+            dialogTexts.Add(new DialogData("AI도우미 BBASS입니다"));
             Show(dialogTexts);
         }
     }

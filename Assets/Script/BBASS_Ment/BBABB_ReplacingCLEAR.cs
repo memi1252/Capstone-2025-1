@@ -25,9 +25,9 @@ public class BBABB_ReplacingCLEAR : BBASS_MentBASE
         wire.GetComponent<MeshRenderer>().material = wireMaterial;
         var dialogTexts = new List<DialogData>();
 
-        dialogTexts.Add(new DialogData("추진 제어판가 수리되었습니다."));
-        dialogTexts.Add(new DialogData("내일 생명 유지장치만 수리하면 될꺼 같습니다."));
-        dialogTexts.Add(new DialogData("오늘은 이만 돌아가 휴식을 취합시다."));
+        dialogTexts.Add(new DialogData("추진 제어판이 수리되었습니다"));
+        dialogTexts.Add(new DialogData("다음날 더 문제가 안생긴다면 출발 가능할 것 같습니다"));
+        dialogTexts.Add(new DialogData("오늘은 이만 돌아가 휴식을 취합시다"));
         Show(dialogTexts);
         
     }

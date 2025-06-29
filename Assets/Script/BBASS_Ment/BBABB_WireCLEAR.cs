@@ -25,9 +25,9 @@ public class BBABB_WireCLEAR : BBASS_MentBASE
         wire.GetComponent<MeshRenderer>().material = wireMaterial;
         var dialogTexts = new List<DialogData>();
 
-        dialogTexts.Add(new DialogData("전력 분배기가 수리되었습니다."));
-        dialogTexts.Add(new DialogData("수리하느라 수고하셨습니다."));
-        dialogTexts.Add(new DialogData("오늘은 여기까지 수리하고 휴식을 취합시다."));
+        dialogTexts.Add(new DialogData("전력 분배기가 수리되었습니다"));
+        dialogTexts.Add(new DialogData("수리하느라 수고하셨습니다"));
+        dialogTexts.Add(new DialogData("오늘은 여기까지 수리하고 휴식을 취합시다"));
         Show(dialogTexts);
         
     }

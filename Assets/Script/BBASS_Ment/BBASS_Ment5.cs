@@ -43,7 +43,7 @@ public class BBASS_Ment5 : BBASS_MentBASE
         QuestManager.Instance.quests[15].clear = true;
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("행성 HKSH로갈 준비가 되었나요??"));
-        dialogTexts.Add(new DialogData("그럼 바로 이동하겠습니다."));
+        dialogTexts.Add(new DialogData("그럼 바로 이동하겠습니다"));
        
         Show(dialogTexts);
     }

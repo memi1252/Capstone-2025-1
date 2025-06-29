@@ -80,8 +80,8 @@ public class FirstINSpaceStation : MonoBehaviour
         isPlay = true;
         dialogTexts.Add(new DialogData("스캔 결과 좀 더 안쪽으로 들어가야 할 것 같습니다"));
         dialogTexts.Add(new DialogData("만약 잠긴문이 있다면 카드키를 찾아 열어야 합니다"));
-        dialogTexts.Add(new DialogData("카드키가 있으면 열릴꺼 같습니다"));
-        dialogTexts.Add(new DialogData("카드키를 찾아서 우주정거장을 탐색해봅시다."));
+        dialogTexts.Add(new DialogData("잠긴 문이 보이면"));
+        dialogTexts.Add(new DialogData("카드키를 찾아서 우주정거장을 탐색해주세요"));
         GameManager.Instance.BBASS.Show(dialogTexts);
     }
 
@@ -90,9 +90,9 @@ public class FirstINSpaceStation : MonoBehaviour
         yield return new WaitForSeconds(2f);
         var dialogTexts = new List<DialogData>();
         isPlay = true;
-        dialogTexts.Add(new DialogData("스캔 결과 재료가 어제 보다 더 깊숙히 있습니다."));
-        dialogTexts.Add(new DialogData("어제 처럼 아이템을 먹을려면 잠긴 문을 지나가야 합니다."));
-        dialogTexts.Add(new DialogData("카드키를 찾아 잠긴 문을 열고 재료를 구해봅시다."));
+        dialogTexts.Add(new DialogData("스캔 결과 재료가 어제보다 더 깊숙히 있습니다"));
+        dialogTexts.Add(new DialogData("아이템을 찾으려면 잠긴 문을 지나가야 합니다"));
+        dialogTexts.Add(new DialogData("카드키를 찾아 잠긴 문을 열고 재료를 구해주세요"));
         GameManager.Instance.BBASS.Show(dialogTexts);
     }
     
