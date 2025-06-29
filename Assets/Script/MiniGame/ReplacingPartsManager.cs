@@ -41,6 +41,7 @@ public class ReplacingPartsManager : MonoBehaviour
     public void GameStart()
     {
         isStart = true;
+        UIManager.Instance.itemDescriptionUI.SetActive(false);
         GameManager.Instance.DirectionalLight.SetActive(true);
         helpImage.SetActive(false);
     }
@@ -84,6 +85,7 @@ public class ReplacingPartsManager : MonoBehaviour
         material.EnableKeyword("_EMISSION");
         material.SetColor("_EmissionColor", Color.green * 2f);
         QuestManager.Instance.quests[13].clear = true;
+        
         // statusText.gameObject.SetActive(true);
         // statusText.text = "성공";
         // statusText.color = Color.green;

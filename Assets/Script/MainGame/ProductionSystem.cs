@@ -138,6 +138,12 @@ public class ProductionSystem : MonoBehaviour
                 QuestManager.Instance.quests[12].clear = true;
                 GameManager.Instance.mongkiMake = true;
             }
+
+            if (makeItem.name == "fliterItem")
+            {
+                QuestManager.Instance.quests[19].clear = true;
+                GameManager.Instance.fliterMake = true;
+            }
             makeItem = new recipe();
             makeItem.isCreate = false;
             foreach (var recipe in recipes)
