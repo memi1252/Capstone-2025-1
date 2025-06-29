@@ -12,19 +12,19 @@ public class OtherUIvalue : MonoBehaviour
     public float maxOxy;
     public float currentOxy1;
     public float currentOxy2;
-    public float HpIncrease =3;
+    public float HpIncrease = 3;
     public float MaxHp;
     public float currentHp;
     public float fatIncrease = 0.4f;
     public float maxFatigue = 100f;
     public float currentFatigue;
-    public bool isFat =false;
+    public bool isFat = false;
     public float dayIncrease = 30f;
     private FliterSystem fs;
     void Start()
     {
         currentOxy1 = maxOxy;
-        currentOxy2 = maxOxy ;
+        currentOxy2 = maxOxy;
         currentHp = MaxHp;
         currentFatigue = maxFatigue;
         fs = FindAnyObjectByType<FliterSystem>();
@@ -32,22 +32,22 @@ public class OtherUIvalue : MonoBehaviour
 
     void Update()
     {
-        
-        
-        Oxy2.value = currentOxy2/ maxOxy;
+
+
+        Oxy2.value = currentOxy2 / maxOxy;
         Oxy1.value = currentOxy1 / maxOxy;
         HPSlider.value = currentHp / MaxHp;
         fatigueSlider.value = currentFatigue / maxFatigue;
-        
+
         if (isFat)
         {
             currentFatigue -= Time.deltaTime * fatIncrease;
         }
-        
-        if (currentFatigue <= 0 || currentOxy1 <=0)
+
+        if (currentFatigue <= 0 || currentOxy1 <= 0)
         {
             currentHp -= Time.deltaTime * HpIncrease;
-            
+
         }
 
         if (!GameManager.Instance.inSpaceShip)
@@ -61,7 +61,7 @@ public class OtherUIvalue : MonoBehaviour
                 currentOxy1 -= Time.deltaTime * OxyIncrease;
             }
         }
-        else if(GameManager.Instance.inSpaceShip && fs != null && !fs.isbroken)
+        else if (GameManager.Instance.inSpaceShip && fs != null && !fs.isbroken)
         {
             currentOxy1 = maxOxy;
             currentOxy2 = maxOxy;
@@ -77,6 +77,12 @@ public class OtherUIvalue : MonoBehaviour
                 currentOxy1 -= Time.deltaTime * OxyIncrease;
             }
         }
+        if (HPSlider.value <= 0)
+        {
+            Time.timeScale = 0;
+            UIManager.Instance.GameOverUI.SetActive(true);
+        }
     }
+    
     
 }
