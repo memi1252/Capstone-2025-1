@@ -256,6 +256,7 @@ private bool keycodeCheck = false;
                 if (Input.GetKeyDown(KeyCode.F) && item.isRotateItem)
                 {
                     item.Pickup();
+                    transform.GetChild(3).GetComponent<AudioSource>().Play();
                 }
                 UIManager.Instance.tooltipUI.SetText(item.itemName);
                 GameManager.Instance.isItemPickUp = true;

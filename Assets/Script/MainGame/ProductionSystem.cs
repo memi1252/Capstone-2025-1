@@ -12,6 +12,7 @@ public class ProductionSystem : MonoBehaviour
     [SerializeField] private string resultSlotName = "Production";
     private InventoryItem[] craftingTableItems = new InventoryItem[9];
 
+    [SerializeField] private AudioSource craftingAudio;
     private bool itemCrafted = false;
 
     private string[] itemNames;
@@ -144,6 +145,7 @@ public class ProductionSystem : MonoBehaviour
                 QuestManager.Instance.quests[19].clear = true;
                 GameManager.Instance.fliterMake = true;
             }
+            craftingAudio.Play();
             makeItem = new recipe();
             makeItem.isCreate = false;
             foreach (var recipe in recipes)
