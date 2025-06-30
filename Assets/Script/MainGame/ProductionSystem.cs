@@ -142,7 +142,7 @@ public class ProductionSystem : MonoBehaviour
 
             if (makeItem.name == "fliterItem")
             {
-                QuestManager.Instance.quests[19].clear = true;
+                QuestManager.Instance.quests[20].clear = true;
                 GameManager.Instance.fliterMake = true;
             }
             craftingAudio.Play();

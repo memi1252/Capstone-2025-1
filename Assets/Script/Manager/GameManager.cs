@@ -288,7 +288,7 @@ public class GameManager : MonoSingleton<GameManager>
                     dialogTexts.Add(new DialogData("우주선으로 돌아가 필터를 만들어야 합니다."));
                     dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
                     BBASS.Show(dialogTexts);
-                    QuestManager.Instance.quests[18].clear = true;
+                    QuestManager.Instance.quests[19].clear = true;
                     return;
                 }
             }

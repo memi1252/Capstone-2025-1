@@ -136,14 +136,19 @@ public class item : MonoBehaviour
             ItemAddInventory();
             if (!GameManager.Instance.isCardKet1)
             {
-                if(itemName == "KeyCard1")
+                if (itemName == "KeyCard1")
+                {
                     GameManager.Instance.isCardKet1 = true;
+                    GameManager.Instance.CardKetDoor1 = true;
+                }
+                    
             }
             if (!GameManager.Instance.isCardKey2)
             { 
                 if (itemName == "KeyCard2")
                 {
                     GameManager.Instance.isCardKey2 = true;
+                    GameManager.Instance.CardKetDoor2 = true;
                 }
             }
             if (!GameManager.Instance.firstItemmat)
@@ -236,15 +241,19 @@ public class item : MonoBehaviour
                 ItemAddInventory();
                 if (!GameManager.Instance.isCardKet1)
                 {
-                    if(itemName == "KeyCard1")
+                    if (itemName == "KeyCard1")
+                    {
                         GameManager.Instance.isCardKet1 = true;
+                        GameManager.Instance.CardKetDoor1 = true;
+                    }
+                    
                 }
-
                 if (!GameManager.Instance.isCardKey2)
-                {
+                { 
                     if (itemName == "KeyCard2")
                     {
                         GameManager.Instance.isCardKey2 = true;
+                        GameManager.Instance.CardKetDoor2 = true;
                     }
                 }
                 if (!GameManager.Instance.firstItemmat)

@@ -126,6 +126,18 @@ public class ActiveColGo : MonoBehaviour
                         LockDoorHelpUI.SetActive(false);
                     }
 
+                    if (GameManager.Instance.CardKetDoor1 && !QuestManager.Instance.quests[10].clear)
+                    {
+                        QuestManager.Instance.quests[10].clear = true;
+                        GameManager.Instance.CardKetDoor1 = false;
+                    }
+                    
+                    if (GameManager.Instance.CardKetDoor2 && !QuestManager.Instance.quests[18].clear)
+                    {
+                        QuestManager.Instance.quests[18].clear = true;
+                        GameManager.Instance.CardKetDoor2 = false;
+                    }
+
                     // 기존 문 열기 로직
                     hasexit = false;
                     actived = true;
