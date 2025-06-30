@@ -16,9 +16,6 @@ public class GravityOffset : MonoBehaviour
             {
                 GameManager.Instance.isSpace = false;
                 RopeObject.SetActive(false);
-                GameManager.Instance.inSpaceShip = true;
-                GameManager.Instance.player.GetComponent<Rigidbody>().useGravity = true;
-                GameManager.Instance.player.transform.localRotation = Quaternion.Euler(0f, other.transform.eulerAngles.y, 0f);
             }
         }
     }
@@ -32,12 +29,6 @@ public class GravityOffset : MonoBehaviour
             {
                 GameManager.Instance.isSpace = true;
                 RopeObject.SetActive(true);
-                GameManager.Instance.inSpaceShip = false;
-                GameManager.Instance.player.GetComponent<Rigidbody>().useGravity = false;
-                if(Camera.main != null)
-                {
-                    Camera.main.transform.localRotation = Quaternion.Euler(0f, Camera.main.transform.localRotation.y, 0f);
-                }
                 other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             }
         }

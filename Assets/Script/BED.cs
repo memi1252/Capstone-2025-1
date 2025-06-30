@@ -70,6 +70,7 @@ public class BED : MonoBehaviour
             GameManager.Instance.BBASS.GetComponent<BBASS_Ment2>().enabled = false;
             GameManager.Instance.BBASS.GetComponent<BBASS_Ment3>().enabled = true;
             QuestManager.Instance.quests[6].clear = true;
+            GameManager.Instance.noOpen = false;
             getUp1 = true;
         }
         else

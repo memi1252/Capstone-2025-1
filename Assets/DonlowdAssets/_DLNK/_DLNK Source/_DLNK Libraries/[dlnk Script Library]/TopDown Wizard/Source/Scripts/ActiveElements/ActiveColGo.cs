@@ -33,7 +33,12 @@ public class ActiveColGo : MonoBehaviour
         {
             if (keyActive)
             {
-                
+                if (GameManager.Instance.noOpen)
+                {
+                    cardKeyDoorSound.Play();
+                    hasValidKey = false;
+                    return;
+                }
 
                 if (tdscene.PlayerChar.GetComponent<Player>().haveKeycode == null)
                 {
@@ -96,7 +101,12 @@ public class ActiveColGo : MonoBehaviour
         {
             if (keyActive)
             {
-                
+                if (GameManager.Instance.noOpen)
+                {
+                    cardKeyDoorSound.Play();
+                    hasValidKey = false;
+                    return;
+                }
 
                 if (tdscene.PlayerChar.GetComponent<Player>().haveKeycode == null)
                 {

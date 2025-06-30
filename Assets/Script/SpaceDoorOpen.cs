@@ -8,7 +8,6 @@ public class SpaceDoorOpen : MonoBehaviour
 
     private bool colin;
     public bool isOpen = false;
-    public bool opned = false;
     private AudioSource audioSource;
 
     private void Awake()
@@ -27,31 +26,32 @@ public class SpaceDoorOpen : MonoBehaviour
 
     private bool BBASSMove;
 
-    public void Open()
+    private void OnTriggerEnter(Collider other)
     {
-        if(!isOpen) return;
-        colin = true;
-        opned = true;
+        if (other.tag == "Player" && isOpen)
+        {
+            colin = true;
+            StartCoroutine(sound());
+            animator.SetBool("Opened", false);
+            animator.SetTrigger("Actived");
+            
+        }
+    }
+
+    IEnumerator sound()
+    {
+        yield return new WaitForSeconds(.5f);
         audioSource.Play();
-        animator.SetBool("Opened", false);
-        animator.SetTrigger("Actived");
-        StartCoroutine(timeClose());
     }
-
-    IEnumerator timeClose()
-    {
-        yield return new WaitForSeconds(5f);
-        Close();
-    }
-
-    public void Close()
-    {
-        colin = false;
-        opned = false;
-        audioSource.Play();
-        animator.SetBool("Opened", true);
-        animator.SetTrigger("Actived");
-    }
-
     
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player"  && isOpen)
+        {
+            colin = false;
+            StartCoroutine(sound());
+            animator.SetBool("Opened", true);
+            animator.SetTrigger("Actived");
+        }
+    }
 }

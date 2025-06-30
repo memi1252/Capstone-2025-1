@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
                     animator.SetBool("Run", false);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space) && !isjump) // 점프
+                if (Input.GetKeyDown(KeyCode.Space) && !isjump && GameManager.Instance.isJump) // 점프
                 {
                     isjump = true;
                     rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -480,7 +480,14 @@ private bool keycodeCheck = false;
 
                     if (!keycodeCheck)
                     {
-                        UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
+                        if (GameManager.Instance.noOpen)
+                        {
+                            UIManager.Instance.tooltipUI.SetText("2일차부터 입장가능");
+                        }
+                        else
+                        {
+                            UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
+                        }
                     }                    
                 }else if (hit2.collider.CompareTag("BED"))
                 {
@@ -506,17 +513,6 @@ private bool keycodeCheck = false;
                         {
                             UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
                         }
-                    }
-                }else if (hit2.collider.CompareTag("SpaceDoor"))
-                {
-                    if (!hit2.collider.GetComponent<SpaceDoorOpen>().opned)
-                    {
-                        hit2.collider.GetComponent<SpaceDoorOpen>().Open();
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 우주선 문 열기");
-                    }
-                    else
-                    {
-                        UIManager.Instance.tooltipUI.SetText("BBASS와 대화 후 우주선 밖으로 나가세요");
                     }
                 }
             }
