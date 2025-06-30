@@ -23,7 +23,7 @@ public class BBABB_FliterCLEAR : BBASS_MentBASE
     {
         var dialogTexts = new List<DialogData>();
 
-        dialogTexts.Add(new DialogData("성공적으로 수리되었습니다."));
+        dialogTexts.Add(new DialogData("성공적으로 수리되었습니다"));
         dialogTexts.Add(new DialogData("이제 행성 HKSN으로 이동 할 수 있습니다"));
         dialogTexts.Add(new DialogData("준비가 다 되셨다면 저에게 알려주세요"));
         QuestManager.Instance.quests[22].clear = true;
