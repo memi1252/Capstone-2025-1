@@ -23,13 +23,16 @@ public class GravityZone : MonoBehaviour
             playerInsideCount++;
             if (playerInsideCount == 1)
             {
-                other.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
                 GameManager.Instance.isSpace = false;
                 GameManager.Instance.player.moveSpeed += movespeedAddORSub;
                 GameManager.Instance.player.thrustPower += thrustPowerAddORSub;
                 if (isRotate)
                 {
                     _rigidbody.freezeRotation = false;
+                }
+                else
+                {
+                    other.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
                 }
             }
         }

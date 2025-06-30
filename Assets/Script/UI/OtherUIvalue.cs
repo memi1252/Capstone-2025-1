@@ -81,6 +81,11 @@ public class OtherUIvalue : MonoBehaviour
         {
             Time.timeScale = 0;
             UIManager.Instance.GameOverUI.SetActive(true);
+            GameManager.Instance.MouseCursor(true);
+            GameManager.Instance.ismove = false;
+            GameManager.Instance.isCamera = false;
+            GameManager.Instance.noOpen = true;
+            GameManager.Instance.noInventoryOpen = true;
         }
     }
     

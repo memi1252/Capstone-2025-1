@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OtherUI : MonoBehaviour
@@ -30,5 +32,16 @@ public class OtherUI : MonoBehaviour
             UIManager.Instance.tutorialsUI.interaction.SetActive(true);
         }
         Time.timeScale = 1;
+    }
+
+    private void Update()
+    {
+        if (otherUI.activeSelf)
+        {
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                otherUI.SetActive(false);
+            }
+        }
     }
 }

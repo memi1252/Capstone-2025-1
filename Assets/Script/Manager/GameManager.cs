@@ -21,6 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public ProductionSystem ProductionSystem1;
     public ProductionSystem ProductionSystem2;
+    public ProductionSystem ProductionSystem3;
     public GameObject spaceStationEntranceHelpUI;
     
     public bool isSpace = true;
@@ -52,6 +53,10 @@ public class GameManager : MonoSingleton<GameManager>
     public bool thirdItemmat = false;
     public bool CardKetDoor1 = false;
     public bool CardKetDoor2 = false;
+
+    public bool isJump = false;
+    
+    public bool noOpen = true;
     
 
     private Volume volume;
@@ -61,8 +66,8 @@ public class GameManager : MonoSingleton<GameManager>
     {
         volume = Camera.main.transform.GetComponent<Volume>();
         volume.profile.TryGet(out depthOfField);
-        fliterMaxCount[0] = 1;
-        fliterMaxCount[1] = 4;
+        fliterMaxCount[0] = 4;
+        fliterMaxCount[1] = 1;
         fliterMaxCount[2] = 4;
     }
 
@@ -311,7 +316,7 @@ public class GameManager : MonoSingleton<GameManager>
     private bool CardKet1 = false;
     private void CardKet1Check()
     {
-        if (isCardKet1)
+        if (isCardKet1 && QuestManager.Instance.quests[8].clear)
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
@@ -333,14 +338,14 @@ public class GameManager : MonoSingleton<GameManager>
     private bool CardKey2;
     private void Cardkey1Check()
     {
-        if (isCardKey2)
+        if (isCardKey2 && QuestManager.Instance.quests[16].clear)
         {
             var dialogTexts = new List<DialogData>();
             dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
-            dialogTexts.Add(new DialogData("해당키는 2개의 문을 열수있습니다."));
+            dialogTexts.Add(new DialogData("해당키는 3개의 문을 열수있습니다."));
             dialogTexts.Add(new DialogData("잠긴 문들을 열어 봅시다."));
             BBASS.Show(dialogTexts);
-            QuestManager.Instance.quests[10].clear = true;
+            QuestManager.Instance.quests[17].clear = true;
             isCardKey2 = false;
             CardKey2 = true;
         }

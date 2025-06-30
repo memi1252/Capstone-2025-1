@@ -120,8 +120,6 @@ public class WireManager : MonoBehaviour
         UIManager.Instance.BBASSViewUI.SetActive(true);
         GameManager.Instance.noInventoryOpen = false;
         GameManager.Instance.BBASS.GetComponent<BBABB_WireCLEAR>().Clear();
-        GameManager.Instance.ProductionSystem2.enabled = true;
-        GameManager.Instance.ProductionSystem1.enabled = false;
         SceneManager.UnloadSceneAsync(GameManager.Instance.WireConnectionScene);
     }
     

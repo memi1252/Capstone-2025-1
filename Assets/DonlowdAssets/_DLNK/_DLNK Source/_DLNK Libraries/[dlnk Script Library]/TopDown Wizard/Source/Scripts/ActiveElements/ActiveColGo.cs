@@ -19,6 +19,7 @@ public class ActiveColGo : MonoBehaviour
     public bool isOpen;
     public string keycode;
     public bool hasValidKey = false;
+    
 
     public AudioSource doorOpenSound;
     public AudioSource cardKeyDoorSound;
@@ -31,7 +32,7 @@ public class ActiveColGo : MonoBehaviour
     {
         if (trig.GetComponent<Collider>() == tdscene.PlayerChar)
         {
-            if (keyActive)
+            if (keyActive && !GameManager.Instance.noOpen)
             {
                 
 
