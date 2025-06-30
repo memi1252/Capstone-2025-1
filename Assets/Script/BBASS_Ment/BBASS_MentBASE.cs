@@ -18,9 +18,6 @@ public class BBASS_MentBASE : MonoBehaviour
     public bool LookAtCamera = true; //카메라를 바라볼지 여부
 
     private Coroutine printingRoutine;
-    private Coroutine printRoutine;
-    
-    private bool isSkipping = false;
     
     
     public bool isPlay = false; //대사 출력 중인지 여부
@@ -33,11 +30,14 @@ public class BBASS_MentBASE : MonoBehaviour
             StopCoroutine(printingRoutine);
         printingRoutine = StartCoroutine(PrintDialogList(dataList));
     }
+
     
-    
+
     //대사 리스트 순서대로 출력
     public virtual IEnumerator PrintDialogList(List<DialogData> dataList)
     {
+        
+
         if (LookAtCamera)
         {
             originalRotation = GameManager.Instance.BBASS.transform.rotation;
@@ -45,58 +45,41 @@ public class BBASS_MentBASE : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(targetRotation);
             while (GameManager.Instance.BBASS.transform.rotation.eulerAngles != rotation.eulerAngles)
             {
-                GameManager.Instance.BBASS.transform.rotation = Quaternion.RotateTowards(GameManager.Instance.BBASS.transform.rotation, rotation, 100f * Time.deltaTime);
+                GameManager.Instance.BBASS.transform.rotation = Quaternion.RotateTowards(GameManager.Instance.BBASS.transform.rotation, rotation, 100f* Time.deltaTime);
                 yield return null;
             }
         }
-        Printer.SetActive(true); 
-        GameManager.Instance.isJump = false;
-        isPlay = true; 
+        Printer.SetActive(true);  //대화창 표시
+        isPlay = true; //대사 출력 중 상태로 변경
         GameManager.Instance.BBASSPlay = true;
-
-        foreach (var data in dataList) 
+        foreach (var data in dataList) //dataList 길이만큼 반복
         {
             foreach (var command in data.Commands)
             {
                 if (command.Command == Command.print)
                 {
-                    isSkipping = false; 
-                    Coroutine printCoroutine = StartCoroutine(PrintText(command.Context));
-
+                    yield return StartCoroutine(PrintText(command.Context));
                     
-                    while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0))
-                    {
-                        yield return null;
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButtonDown(0)) 
-                    {
-                        isSkipping = true;
-                    }
-
-                    yield return printCoroutine;
-                    yield return WaitForMouseClick(); 
+                    yield return WaitForMouseClick(); //마우스 클릭 대기
                 }
             }
         }
-
-        isPlay = false; // 대사 출력 완료 상태로 변경
+        isPlay = false; //대사 출력 완료 상태로 변경
         GameManager.Instance.BBASSPlay = false;
-        GameManager.Instance.isJump = true;
-
         if (LookAtCamera)
         {
             while (GameManager.Instance.BBASS.transform.rotation.eulerAngles != originalRotation.eulerAngles)
             {
-                GameManager.Instance.BBASS.transform.rotation = Quaternion.RotateTowards(GameManager.Instance.BBASS.transform.rotation, originalRotation, 100f * Time.deltaTime);
+                GameManager.Instance.BBASS.transform.rotation = Quaternion.RotateTowards(GameManager.Instance.BBASS.transform.rotation, originalRotation, 100f* Time.deltaTime);
                 yield return null;
             }
         }
+        
     }
 
     private IEnumerator WaitForMouseClick()
     {
-        while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0))
+        while (!Input.GetMouseButtonDown(0) && !Input.GetKeyDown(KeyCode.Space))
         {
             yield return null;
         }
@@ -114,13 +97,6 @@ public class BBASS_MentBASE : MonoBehaviour
 
         for (int i = 0; i < text.Length; i++)
         {
-            if (isSkipping) // 스페이스바로 스킵 시 전체 출력
-            {
-                PrinterText.text = text;
-                isSkipping = false;
-                yield break;
-            }
-
             current += text[i];
             PrinterText.text = current;
 
@@ -130,10 +106,7 @@ public class BBASS_MentBASE : MonoBehaviour
             {
                 GameManager.Instance.BBASS.transform.LookAt(Camera.main.transform.position);
             }
-
             yield return new WaitForSeconds(Delay);
         }
     }
-    
-    
 }

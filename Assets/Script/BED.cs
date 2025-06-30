@@ -19,7 +19,6 @@ public class BED : MonoBehaviour
     private bool getUp2 = false;
     public bool goodNight =false;
     private OtherUIvalue otherUIValue;
-    private bool sleep = false;
     
     private void Start()
     {
@@ -38,13 +37,11 @@ public class BED : MonoBehaviour
         {
             bedSound.Play(); // 침대 소리 재생
         }
-        if(!sleep)
-            StartCoroutine(SleepCoroutine());
+        StartCoroutine(SleepCoroutine());
     }
 
     private IEnumerator SleepCoroutine()
     {
-        sleep = true;
         fadeImage.gameObject.SetActive(true);
         // 화면 페이드 아웃
         GameManager.Instance.isCamera = false; 
@@ -70,11 +67,8 @@ public class BED : MonoBehaviour
         }
         if (!getUp1)
         {
-            GameManager.Instance.noOpen = false;
             GameManager.Instance.BBASS.GetComponent<BBASS_Ment2>().enabled = false;
             GameManager.Instance.BBASS.GetComponent<BBASS_Ment3>().enabled = true;
-            GameManager.Instance.ProductionSystem2.enabled = true;
-            GameManager.Instance.ProductionSystem1.enabled = false;
             QuestManager.Instance.quests[6].clear = true;
             getUp1 = true;
         }
@@ -84,8 +78,6 @@ public class BED : MonoBehaviour
             {
                 GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = true;
                 QuestManager.Instance.quests[14].clear = true;
-                GameManager.Instance.ProductionSystem3.enabled = true;
-                GameManager.Instance.ProductionSystem2.enabled = false;
                 FindAnyObjectByType<FliterSystem>().isbroken = true;
                 getUp2 = true;
             }
@@ -127,7 +119,6 @@ public class BED : MonoBehaviour
 
         UIManager.Instance.dayContViewUI.DayCountPlay(DayCount);
         goodNight = false;
-        sleep = false;
     }
 
     private void RecoverFatigueAndHealth()
@@ -137,7 +128,6 @@ public class BED : MonoBehaviour
         otherUIValue.currentFatigue = otherUIValue.maxFatigue;
         otherUIValue.currentOxy1 = otherUIValue.maxOxy;
         otherUIValue.currentOxy2 = otherUIValue.maxOxy;
-        otherUIValue.currentHp = otherUIValue.MaxHp;
     }
     
     

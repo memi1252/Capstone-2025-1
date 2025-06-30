@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
                     animator.SetBool("Run", false);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space) && !isjump && GameManager.Instance.isJump) // 점프
+                if (Input.GetKeyDown(KeyCode.Space) && !isjump) // 점프
                 {
                     isjump = true;
                     rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -480,14 +480,7 @@ private bool keycodeCheck = false;
 
                     if (!keycodeCheck)
                     {
-                        if (GameManager.Instance.noOpen)
-                        {
-                            UIManager.Instance.tooltipUI.SetText("2일차부터 입장가능");
-                        }
-                        else
-                        {
-                            UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
-                        }
+                        UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
                     }                    
                 }else if (hit2.collider.CompareTag("BED"))
                 {

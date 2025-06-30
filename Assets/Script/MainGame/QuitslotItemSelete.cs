@@ -72,12 +72,11 @@ public class QuitslotItemSelect : MonoBehaviour
                     GameManager.Instance.player.haveKeycode.Add("0125");
                     TakeKeycode = true;
                 }
+            }else
+            {
+                TakeKeycode = false;
+                GameManager.Instance.player.haveKeycode.Clear();
             }
-        }
-        else
-        {
-            TakeKeycode = false;
-            GameManager.Instance.player.haveKeycode.Clear();
         }
 
         if (currentHandItem == null)

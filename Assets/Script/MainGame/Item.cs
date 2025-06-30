@@ -60,8 +60,6 @@ public class item : MonoBehaviour
             }
             transform.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            GameManager.Instance.player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-            GameManager.Instance.player.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
 
         if (isMoveItem)
