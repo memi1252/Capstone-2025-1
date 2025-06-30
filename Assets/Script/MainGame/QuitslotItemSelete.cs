@@ -78,6 +78,32 @@ public class QuitslotItemSelect : MonoBehaviour
                 GameManager.Instance.player.haveKeycode.Clear();
             }
         }
+
+        if (currentHandItem == null)
+        {
+            if (currentHandItemIndex != -1)
+            {
+                var item = InventoryController.instance.GetItem(inventoryName, currentHandItemIndex);
+                foreach (var items in HandItem)
+                {
+                    if (item.GetItemType() == items.name)
+                    {
+                        currentHandItem = items;
+                        items.SetActive(true);
+                    }
+                }
+
+                var inventoryUIManager = GameObject.Find(inventoryName)?.GetComponent<InventoryUIManager>();
+                if (inventoryUIManager != null)
+                {
+                    currentSlot = inventoryUIManager.GetSlot(currentHandItemIndex)?.transform.GetChild(0).gameObject;
+                    if (currentSlot != null)
+                    {
+                        currentSlot.transform.GetChild(1).gameObject.SetActive(true);
+                    }
+                }
+            }
+        }
     }
     
     private void HandleSlotItem(int slotIndex)
@@ -96,8 +122,10 @@ public class QuitslotItemSelect : MonoBehaviour
                     items.SetActive(true);
                     if (currentSlot != null)
                     {
+                        currentSlot.SetActive(false);
                         currentSlot.transform.GetChild(1).gameObject.SetActive(false);
                     }
+                    currentHandItemIndex = slotIndex;
                     currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
                     currentSlot.transform.GetChild(1).gameObject.SetActive(true);
                 }
@@ -112,7 +140,7 @@ public class QuitslotItemSelect : MonoBehaviour
                         {
                             currentSlot.transform.GetChild(1).gameObject.SetActive(false);
                         }
-                            
+                        currentHandItemIndex = slotIndex;
                         currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
                         currentSlot.transform.GetChild(1).gameObject.SetActive(true);
                     }
@@ -123,8 +151,10 @@ public class QuitslotItemSelect : MonoBehaviour
                         {
                             currentSlot.transform.GetChild(1).gameObject.SetActive(false);
                         }
+                        currentHandItemIndex = -1;
                         currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
                         currentHandItem = null;
+                        currentSlot = null;
                     }
                 }
             }
@@ -138,6 +168,7 @@ public class QuitslotItemSelect : MonoBehaviour
             currentHandItem.SetActive(false);
             if (currentSlot != null)
                 currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+            currentHandItemIndex = slotIndex;
             currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
             currentSlot.SetActive(true);
             currentSlot.transform.GetChild(1).gameObject.SetActive(true);
@@ -146,19 +177,27 @@ public class QuitslotItemSelect : MonoBehaviour
         else
         {
             // 빈 슬롯에서 빈 슬롯으로 넘어갈 때 처리
-            if (currentSlot != null)
+            if (currentSlot != null && currentHandItemIndex != slotIndex)
             {
                 currentSlot.SetActive(false);
                 currentSlot.transform.GetChild(1).gameObject.SetActive(false);
-            }
-            else
+                currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
+                currentHandItemIndex = slotIndex;
+                currentSlot.SetActive(true);
+                currentSlot.transform.GetChild(1).gameObject.SetActive(true);
+            }else if (currentSlot != null && currentHandItemIndex == slotIndex)
             {
-                if (currentHandItemIndex != slotIndex)
-                {
-                    currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
-                    currentSlot.SetActive(true);
-                    currentSlot.transform.GetChild(1).gameObject.SetActive(true);
-                }
+                currentSlot.SetActive(false);
+                currentSlot.transform.GetChild(1).gameObject.SetActive(false);
+                currentHandItemIndex = -1;
+                currentSlot = null;
+            }
+            else if(currentSlot == null)
+            {
+                currentSlot = GameObject.Find(inventoryName).GetComponent<InventoryUIManager>().GetSlot(slotIndex).transform.GetChild(0).gameObject;
+                currentSlot.SetActive(true);
+                currentHandItemIndex = slotIndex;
+                currentSlot.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
     }

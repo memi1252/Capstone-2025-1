@@ -43,10 +43,6 @@ public class ReplacingPartsManager : MonoBehaviour
     public void GameStart()
     {
         isStart = true;
-        if (UIManager.Instance.itemDescriptionUI != null && UIManager.Instance.itemDescriptionUI.activeSelf)
-        {
-            UIManager.Instance.itemDescriptionUI.SetActive(false);
-        }
         GameManager.Instance.DirectionalLight.SetActive(true);
         helpImage.SetActive(false);
     }
