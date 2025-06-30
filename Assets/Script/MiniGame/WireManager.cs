@@ -38,6 +38,8 @@ public class WireManager : MonoBehaviour
 
     public float wireTimer = 60;
 
+    private Coroutine dddd;
+    
     private void Start()
     {
         //wirecontainer[Random.Range(0, wirecontainer.Length)].SetActive(true);
@@ -71,7 +73,7 @@ public class WireManager : MonoBehaviour
     public void TurnOnLights()
     {
         // 모든 전등을 켜는 코루틴 시작
-        StartCoroutine(TurnOffLightsSequentially());
+        dddd = StartCoroutine(TurnOffLightsSequentially());
     }
     
     private void Update()
@@ -91,7 +93,7 @@ public class WireManager : MonoBehaviour
     public void Success()
     {
         //statusText.color = Color.green;
-        StopCoroutine(TurnOffLightsSequentially());
+        StopCoroutine(dddd);
         foreach (var meshRenderer in Light_Bulbs)
         {
             meshRenderer.material.color = Color.green;
