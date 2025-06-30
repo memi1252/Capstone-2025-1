@@ -514,6 +514,17 @@ private bool keycodeCheck = false;
                             UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
                         }
                     }
+                }else if (hit2.collider.CompareTag("SpaceDoor"))
+                {
+                    if (!hit2.collider.GetComponent<SpaceDoorOpen>().opned)
+                    {
+                        hit2.collider.GetComponent<SpaceDoorOpen>().Open();
+                        UIManager.Instance.tooltipUI.SetText("F를 눌러 우주선 문 열기");
+                    }
+                    else
+                    {
+                        UIManager.Instance.tooltipUI.SetText("BBASS와 대화 후 우주선 밖으로 나가세요");
+                    }
                 }
             }
             else

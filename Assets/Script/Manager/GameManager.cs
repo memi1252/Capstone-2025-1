@@ -184,9 +184,9 @@ public class GameManager : MonoSingleton<GameManager>
                     firstItemmat = true;
                     nipperPlay = true;
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
+                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다"));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어야 합니다"));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다"));
                     BBASS.Show(dialogTexts);
                     QuestManager.Instance.quests[3].clear = true;
                     return;
@@ -237,9 +237,9 @@ public class GameManager : MonoSingleton<GameManager>
                     mongkiMake = true;
                     mongkiPlay = true;
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 몽키스페너를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
+                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다"));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아가 몽키스페너를 만들어야 합니다"));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다"));
                     BBASS.Show(dialogTexts);
                     QuestManager.Instance.quests[11].clear = true;
                     return;
@@ -289,9 +289,9 @@ public class GameManager : MonoSingleton<GameManager>
                     fliterMake = true;
                     fliterPlay = true;
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 필터를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
+                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다"));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아가 필터를 만들어야 합니다"));
+                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다"));
                     BBASS.Show(dialogTexts);
                     QuestManager.Instance.quests[19].clear = true;
                     return;
@@ -319,8 +319,8 @@ public class GameManager : MonoSingleton<GameManager>
         if (isCardKet1 && QuestManager.Instance.quests[8].clear)
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
-            dialogTexts.Add(new DialogData("잠긴 문을 열어 봅시다."));
+            dialogTexts.Add(new DialogData("카드키를 찾았습니다"));
+            dialogTexts.Add(new DialogData("잠긴 문을 열어 봅시다"));
             BBASS.Show(dialogTexts);
             QuestManager.Instance.quests[9].clear = true;
             isCardKet1 = false;
@@ -341,9 +341,9 @@ public class GameManager : MonoSingleton<GameManager>
         if (isCardKey2 && QuestManager.Instance.quests[16].clear)
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
-            dialogTexts.Add(new DialogData("해당키는 3개의 문을 열수있습니다."));
-            dialogTexts.Add(new DialogData("잠긴 문들을 열어 봅시다."));
+            dialogTexts.Add(new DialogData("카드키를 찾았습니다"));
+            dialogTexts.Add(new DialogData("해당키는 3개의 문을 열수있습니다"));
+            dialogTexts.Add(new DialogData("잠긴 문들을 열어 봅시다"));
             BBASS.Show(dialogTexts);
             QuestManager.Instance.quests[17].clear = true;
             isCardKey2 = false;

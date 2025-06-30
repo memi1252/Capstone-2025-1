@@ -189,7 +189,7 @@ MonoBehaviour:
   LongMoveSpeed: 500
   nextSceneTime: 60
   skipImage: {fileID: 1299511326}
-  maxSkipTime: 5
+  maxSkipTime: 3
 --- !u!4 &202039606
 Transform:
   m_ObjectHideFlags: 0

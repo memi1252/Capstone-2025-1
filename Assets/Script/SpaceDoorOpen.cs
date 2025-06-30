@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class SpaceDoorOpen : MonoBehaviour
@@ -7,6 +8,7 @@ public class SpaceDoorOpen : MonoBehaviour
 
     private bool colin;
     public bool isOpen = false;
+    public bool opned = false;
     private AudioSource audioSource;
 
     private void Awake()
@@ -25,26 +27,31 @@ public class SpaceDoorOpen : MonoBehaviour
 
     private bool BBASSMove;
 
-    private void OnTriggerEnter(Collider other)
+    public void Open()
     {
-        if (other.tag == "Player" && isOpen)
-        {
-            colin = true;
-            audioSource.Play();
-            animator.SetBool("Opened", false);
-            animator.SetTrigger("Actived");
-            
-        }
+        if(!isOpen) return;
+        colin = true;
+        opned = true;
+        audioSource.Play();
+        animator.SetBool("Opened", false);
+        animator.SetTrigger("Actived");
+        StartCoroutine(timeClose());
     }
+
+    IEnumerator timeClose()
+    {
+        yield return new WaitForSeconds(5f);
+        Close();
+    }
+
+    public void Close()
+    {
+        colin = false;
+        opned = false;
+        audioSource.Play();
+        animator.SetBool("Opened", true);
+        animator.SetTrigger("Actived");
+    }
+
     
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player"  && isOpen)
-        {
-            colin = false;
-            audioSource.Play();
-            animator.SetBool("Opened", true);
-            animator.SetTrigger("Actived");
-        }
-    }
 }

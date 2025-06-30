@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 8729044732272368050}
   - component: {fileID: 2784251465832310183}
   - component: {fileID: 548482516620099500}
-  - component: {fileID: 1456588358279635914}
+  - component: {fileID: 1455299202043350164}
   m_Layer: 0
   m_Name: keyCard1
   m_TagString: Item
@@ -260,8 +260,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.04053387, y: 0.029064357, z: 0.007542927}
   m_Center: {x: 0.00031784174, y: -0.000018070454, z: 0.0000000027939684}
---- !u!65 &1456588358279635914
-BoxCollider:
+--- !u!135 &1455299202043350164
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -279,5 +279,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 0.2}
-  m_Center: {x: 0.00031784174, y: -0.000018070454, z: 0.0000000027939684}
+  m_Radius: 0.1
+  m_Center: {x: 0.000008426607, y: -0.0001243376, z: 0.000000014901161}

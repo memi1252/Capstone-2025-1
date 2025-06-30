@@ -24,6 +24,7 @@ TagManager:
   - Fliter
   - FliterOnOff
   - Door
+  - SpaceDoor
   layers:
   - Default
   - TransparentFX
