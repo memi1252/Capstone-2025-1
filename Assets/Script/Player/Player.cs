@@ -456,7 +456,11 @@ private bool keycodeCheck = false;
                     FliterSystem fs = FindAnyObjectByType<FliterSystem>();
                     if (fs.isbroken)
                     {
-                        fs.off = !fs.off;
+                        if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            
+                            fs.off = !fs.off;
+                        }
                         if (fs.off)
                         {
                             UIManager.Instance.tooltipUI.SetText("생명 유지장치 켜기");

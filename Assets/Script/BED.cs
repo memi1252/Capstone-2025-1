@@ -71,6 +71,8 @@ public class BED : MonoBehaviour
             GameManager.Instance.BBASS.GetComponent<BBASS_Ment3>().enabled = true;
             QuestManager.Instance.quests[6].clear = true;
             GameManager.Instance.noOpen = false;
+            GameManager.Instance.ProductionSystem2.enabled = true;
+            GameManager.Instance.ProductionSystem1.enabled = false;
             getUp1 = true;
         }
         else
@@ -80,6 +82,8 @@ public class BED : MonoBehaviour
                 GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = true;
                 QuestManager.Instance.quests[14].clear = true;
                 FindAnyObjectByType<FliterSystem>().isbroken = true;
+                GameManager.Instance.ProductionSystem3.enabled = true;
+                GameManager.Instance.ProductionSystem2.enabled = false;
                 getUp2 = true;
             }
             else
