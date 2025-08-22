@@ -61,6 +61,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private Volume volume;
     public DepthOfField depthOfField;
+    public AsyncOperation finerAsync;
 
     private void Start()
     {

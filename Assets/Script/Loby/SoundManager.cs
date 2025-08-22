@@ -6,12 +6,26 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = System.Object;
 
-public class SoundManager : MonoSingleton<SoundManager>
+public class SoundManager : MonoBehaviour
 {
+    public static SoundManager Instance { get; private set; }
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] public Slider MasterSlider;
     [SerializeField] public Slider BackgroundSlider;
     [SerializeField] public Slider EffectSlider;
+
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {

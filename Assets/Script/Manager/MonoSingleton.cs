@@ -10,7 +10,6 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
         if(Instance == null)
         {
             Instance = gameObject.GetComponent<T>();
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

@@ -21,6 +21,7 @@ public class FliterSystem : MonoBehaviour
     {
         if (clear)
         {
+            QuestManager.Instance.quests[21].clear = true;
             GameManager.Instance.BBASS.GetComponent<BBABB_FliterCLEAR>().Clear();
             clear = false;
         }
