@@ -114,6 +114,7 @@ public class SPACESTART : BBASS_MentBASE
             Second();
             Combinations1[0].SetActive(true);
             Combinations1[1].SetActive(true);
+            GameManager.Instance.sitcar = true;
             second = true;
         }
         

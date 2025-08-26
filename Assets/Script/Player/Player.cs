@@ -304,7 +304,7 @@ private bool keycodeCheck = false;
                 }
                 else if (hit2.collider.CompareTag("cockpit"))
                 {
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.F) && !GameManager.Instance.BBASSPlay)
                     {
                         GameManager.Instance.ismove = false;
                         GameManager.Instance.MouseCursor(true);

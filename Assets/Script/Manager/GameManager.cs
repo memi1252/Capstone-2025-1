@@ -57,6 +57,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isJump = false;
     
     public bool noOpen = true;
+    public bool sitcar = false;
     
 
     private Volume volume;
@@ -82,6 +83,13 @@ public class GameManager : MonoSingleton<GameManager>
         MENUOpen();
         Cardkey1Check();
         fliterMatCheck();
+        if(Input.GetKeyDown(KeyCode.F8))
+        {
+            Destroy(GameManager.Instance.gameObject);
+            Destroy(UIManager.Instance.gameObject);
+            Destroy(QuestManager.Instance.gameObject);
+            SceneManager.LoadScene(6);
+        }
     }
     
     public void MouseCursor(bool isShow)
