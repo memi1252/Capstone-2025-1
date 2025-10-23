@@ -1,4 +1,4 @@
-# 🚀 Capstone 2025 - 우주 탈출 게임
+# 🚀 AstralOutlaw - 우주 탈출 게임
 
 > **2419년, 인류는 자원의 고갈로 지구를 떠난다. 마지막으로 떠난 우주선이 운석에 충돌하면서 벌어지는 생존 이야기.**
 
@@ -48,9 +48,9 @@
 
 ---
 
-## 📸 스크린샷
+## 다운로드 링크
 
-> 게임 화면이나 주요 장면을 이미지로 첨부할 수 있습니다.
+> 링크
 
 ```md
-![우주정거장 탐험](https://github.com/memi1252/Capstone-2025-1/blob/main/Images/screenshot1.png)
+https://drive.google.com/file/d/13hEkL2ctA4HsgHiBXTnHvKF6BAKJwEaE/view?usp=drive_link
