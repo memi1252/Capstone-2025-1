@@ -128,6 +128,7 @@ public class dockingSysyem : MonoBehaviour
                 varCamera.enabled = false;
             }
             GetComponent<MeshRenderer>().enabled = false;
+            dockingstationArrow.SetActive(false);
             SpaceShip.SetActive(true);
             GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");
             BBASS.GetComponent<BBASS_Ment1>().enabled = false;

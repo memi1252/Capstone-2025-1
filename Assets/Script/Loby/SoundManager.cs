@@ -75,6 +75,25 @@ public class SoundManager : MonoBehaviour
                 EffectSlider.value = PlayerPrefs.GetFloat("EffectVolume");
             }   
         }
+
+        if (SceneManager.GetActiveScene().name == "LodyScene")
+        {
+            if (MasterSlider == null)
+            {
+                MasterSlider = FindAnyObjectByType<BackgorundRotate>().Slider1;
+                MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+            }
+            if (BackgroundSlider == null)
+            {
+                BackgroundSlider = FindAnyObjectByType<BackgorundRotate>().Slider2;
+                BackgroundSlider.value = PlayerPrefs.GetFloat("BackgroundVolume");
+            }
+            if (EffectSlider == null)
+            {
+                EffectSlider = FindAnyObjectByType<BackgorundRotate>().Slider3;
+                EffectSlider.value = PlayerPrefs.GetFloat("EffectVolume");
+            }   
+        }
        
         audioMixer.SetFloat("Background", Mathf.Log10(BackgroundSlider.value) * 20);
         audioMixer.SetFloat("Master", Mathf.Log10(MasterSlider.value) * 20);

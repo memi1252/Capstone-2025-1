@@ -49,6 +49,10 @@ public class ReplacingPartsManager : MonoBehaviour
 
     private void Update()
     {
+        if (!isClear)
+        {   
+            GameManager.Instance.MouseCursor(true);
+        }
         if (isStart)
         {
             currentTime += Time.deltaTime;
@@ -80,13 +84,15 @@ public class ReplacingPartsManager : MonoBehaviour
         }
     }
     
+    
+    public bool isClear = false;
     public void Success()
     {
         var material = line.GetComponent<MeshRenderer>().material;
         material.EnableKeyword("_EMISSION");
         material.SetColor("_EmissionColor", Color.green * 2f);
         QuestManager.Instance.quests[13].clear = true;
-        
+        isClear = true; 
         // statusText.gameObject.SetActive(true);
         // statusText.text = "성공";
         // statusText.color = Color.green;
@@ -101,6 +107,7 @@ public class ReplacingPartsManager : MonoBehaviour
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         GameManager.Instance.MouseCursor(false);
+        GameManager.Instance.noESC = false;
         UIManager.Instance.StastUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
@@ -109,6 +116,7 @@ public class ReplacingPartsManager : MonoBehaviour
         ReplacingpartsDoor.Close();
         UIManager.Instance.BBASSViewUI.SetActive(true);
         GameManager.Instance.noInventoryOpen = false;
+        GameManager.Instance.depthOfField.active = false;
         GameManager.Instance.BBASS.GetComponent<BBABB_ReplacingCLEAR>().Clear();
         SceneManager.UnloadSceneAsync(GameManager.Instance.ReplacingPartsScene);
     }

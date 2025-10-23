@@ -54,6 +54,10 @@ public class ReplacingpartsDoor : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("ReplacingpartsScene", LoadSceneMode.Additive);
+        UIManager.Instance.InvneoryUI.SetActive(false);
+        UIManager.Instance.ESCMENUUI.SetActive(false);
+        GameManager.Instance.noInventoryOpen = true;
+        GameManager.Instance.noESC = true;
         GameManager.Instance.ismove = false;
         GameManager.Instance.isCamera = false;
         GameManager.Instance.MouseCursor(true);

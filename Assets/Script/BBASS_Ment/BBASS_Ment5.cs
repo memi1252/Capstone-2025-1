@@ -28,12 +28,13 @@ public class BBASS_Ment5 : BBASS_MentBASE
         
         play = false;
         Printer.SetActive(false);
-        QuestManager.Instance.quests[21].clear = true;
-        //FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
-        GameManager.Instance.finerAsync.allowSceneActivation = true;
         Destroy(GameManager.Instance.gameObject);
         Destroy(UIManager.Instance.gameObject);
         Destroy(QuestManager.Instance.gameObject);
+        QuestManager.Instance.quests[21].clear = true;
+        //FindAnyObjectByType<SpaceDoorOpen>().isOpen = true;
+        GameManager.Instance.finerAsync.allowSceneActivation = true;
+        
         enabled = false;
     }
     

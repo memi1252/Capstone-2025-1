@@ -19,6 +19,8 @@ public class BED : MonoBehaviour
     private bool getUp2 = false;
     public bool goodNight =false;
     private OtherUIvalue otherUIValue;
+
+    public bool isSleep = false;
     
     private void Start()
     {
@@ -124,6 +126,7 @@ public class BED : MonoBehaviour
 
         UIManager.Instance.dayContViewUI.DayCountPlay(DayCount);
         goodNight = false;
+        isSleep = false;
     }
 
     private void RecoverFatigueAndHealth()

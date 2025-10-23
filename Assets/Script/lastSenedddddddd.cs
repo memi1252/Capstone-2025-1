@@ -13,6 +13,20 @@ public class lastSenedddddddd : MonoBehaviour
     IEnumerator ss()
     {
         yield return new WaitForSeconds(190);
+        if(GameManager.Instance != null)
+        {
+            Destroy(GameManager.Instance.gameObject);
+        }
+
+        if (UIManager.Instance != null)
+        {
+            Destroy(UIManager.Instance.gameObject);
+        }
+
+        if (QuestManager.Instance != null)
+        {
+            Destroy(QuestManager.Instance.gameObject);
+        }
         SceneManager.LoadScene(0);
     }
 }

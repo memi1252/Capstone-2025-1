@@ -90,6 +90,37 @@ public class GameManager : MonoSingleton<GameManager>
             Destroy(QuestManager.Instance.gameObject);
             SceneManager.LoadScene(6);
         }
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            ProductionSystem1.enabled = true;
+            ProductionSystem2.enabled = false;
+            ProductionSystem3.enabled = false;
+            UIManager.Instance.combination1.SetActive(true);
+            UIManager.Instance.combination2.SetActive(false);
+            UIManager.Instance.combination3.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            ProductionSystem1.enabled = false;
+            ProductionSystem2.enabled = true;
+            ProductionSystem3.enabled = false;
+            UIManager.Instance.combination1.SetActive(false);
+            UIManager.Instance.combination2.SetActive(true);
+            UIManager.Instance.combination3.SetActive(false);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            ProductionSystem1.enabled = false;
+            ProductionSystem2.enabled = false;
+            ProductionSystem3.enabled = true;
+            UIManager.Instance.combination1.SetActive(false);
+            UIManager.Instance.combination2.SetActive(false);
+            UIManager.Instance.combination3.SetActive(true);
+        }
+        
     }
     
     public void MouseCursor(bool isShow)
@@ -243,7 +274,6 @@ public class GameManager : MonoSingleton<GameManager>
                     Debug.Log("??????");
                     ismongkiMat = true;
                     secondItemmat = true;
-                    mongkiMake = true;
                     mongkiPlay = true;
                     var dialogTexts = new List<DialogData>();
                     dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));

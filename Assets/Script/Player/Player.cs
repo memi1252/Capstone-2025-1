@@ -498,9 +498,10 @@ private bool keycodeCheck = false;
                     BED bed = hit2.collider.GetComponent<BED>();
                     if (bed.goodNight)
                     {
-                        if (Input.GetKeyDown(KeyCode.F))
+                        if (Input.GetKeyDown(KeyCode.F) && !bed.isSleep)
                         {
                             bed.GoToSleep();
+                            bed.isSleep = true;
                             rigidbody.linearVelocity = Vector3.zero;
                         }
                         UIManager.Instance.tooltipUI.SetText("F를 눌러 잠자기");

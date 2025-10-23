@@ -68,6 +68,12 @@ public class WireManager : MonoBehaviour
 
             yield return new WaitForSeconds(turnOffInterval); // 간격 대기
         }
+
+        if (!isClear)
+        {
+            Fail();
+        }
+        
     }
     
     public void TurnOnLights()
@@ -86,14 +92,20 @@ public class WireManager : MonoBehaviour
             {
                 Fail();
             }
+
+            if (!isClear)
+            {
+                GameManager.Instance.MouseCursor(true);
+            }
         }
         
     }
-
+    public bool isClear = false;
     public void Success()
     {
         //statusText.color = Color.green;
         StopCoroutine(dddd);
+        isClear = true;
         foreach (var meshRenderer in Light_Bulbs)
         {
             meshRenderer.material.color = Color.green;
@@ -113,6 +125,7 @@ public class WireManager : MonoBehaviour
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         GameManager.Instance.MouseCursor(false);
+        GameManager.Instance.noESC = false;
         UIManager.Instance.StastUI.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
         GameManager.Instance.playerCamera.gameObject.SetActive(true);
@@ -121,6 +134,7 @@ public class WireManager : MonoBehaviour
         wireConnectionDoor.Close();
         UIManager.Instance.BBASSViewUI.SetActive(true);
         GameManager.Instance.noInventoryOpen = false;
+        GameManager.Instance.depthOfField.active = false;
         GameManager.Instance.BBASS.GetComponent<BBABB_WireCLEAR>().Clear();
         SceneManager.UnloadSceneAsync(GameManager.Instance.WireConnectionScene);
     }

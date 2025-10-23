@@ -38,6 +38,7 @@ namespace AmplifyShaderEditor
 			EditorGUILayout.EndHorizontal();
 		}
 
+		[Obsolete("Obsolete")]
 		private void DisplayShaderContext( ParentNode node, Rect r )
 		{
 			if ( m_dummyCommand == null )
@@ -46,6 +47,7 @@ namespace AmplifyShaderEditor
 			if ( m_dummyMaterial == null )
 				m_dummyMaterial = new Material( Shader.Find( "Hidden/ASESShaderSelectorUnlit" ) );
 
+			
 #pragma warning disable 0618
 			UnityEditorInternal.InternalEditorUtility.SetupShaderMenu( m_dummyMaterial );
 #pragma warning restore 0618
