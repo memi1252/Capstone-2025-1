@@ -52,6 +52,39 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-4647110131179670617
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Group
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 833f88160721d6349a62fed31cdf9903
+  m_Children: []
+  m_Volume: 918872fd860dcfc4aa3d20cbf4a2434d
+  m_Pitch: 4925d3f472759d548869f5dea3387957
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4478557118847943988}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-4478557118847943988
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: df280eaaa7df2034da32fc9a6dc85bad
+  m_EffectName: Attenuation
+  m_MixLevel: 3fafa2b088147c9419e9c83be2b54562
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-1039523767821309358
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -88,11 +121,14 @@ AudioMixerController:
     name: Effect
   - guid: 7fd80c36e1f00754185c3c6f90891c6b
     name: Master
+  - guid: 918872fd860dcfc4aa3d20cbf4a2434d
+    name: kimchi
   m_AudioMixerGroupViews:
   - guids:
     - 2b06640e6b8a5d945a1737dc6a615698
     - 8d4402a52970c6c42b7e990654463be3
     - df1080c127e6e6a48a62304bb9696625
+    - 833f88160721d6349a62fed31cdf9903
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -108,6 +144,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -6577757420562481675}
   - {fileID: -7678984952284183124}
+  - {fileID: -4647110131179670617}
   m_Volume: 7fd80c36e1f00754185c3c6f90891c6b
   m_Pitch: f6f1a89a92d94fc4b9fedecb5683a4da
   m_Send: 00000000000000000000000000000000
