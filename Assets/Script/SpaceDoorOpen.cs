@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceDoorOpen : MonoBehaviour
 {
     private Animator animator;
-
+    public int index;
     private bool colin;
     public bool isOpen = false;
     private AudioSource audioSource;
@@ -34,7 +34,17 @@ public class SpaceDoorOpen : MonoBehaviour
             StartCoroutine(sound());
             animator.SetBool("Opened", false);
             animator.SetTrigger("Actived");
-            
+            if (QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex].doors.Length > 0)
+            {
+                if (QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex]
+                        .doors[QuestManager.Instance.doorindex].index == index)
+                {
+                    QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex]
+                        .doors[QuestManager.Instance.doorindex].open = true;
+                    QuestManager.Instance.doorindex++;
+                    QuestManager.Instance.dd();
+                }
+            }
         }
     }
 

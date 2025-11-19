@@ -21,6 +21,8 @@ public class OtherUIvalue : MonoBehaviour
     public bool isFat = false;
     public float dayIncrease = 30f;
     private FliterSystem fs;
+    public GameObject spaceinSideObj;
+    public GameObject rotatiomnObj;
     void Start()
     {
         currentOxy1 = maxOxy;

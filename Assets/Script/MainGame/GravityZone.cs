@@ -28,12 +28,25 @@ public class GravityZone : MonoBehaviour
                 GameManager.Instance.player.thrustPower += thrustPowerAddORSub;
                 if (isRotate)
                 {
-                    _rigidbody.freezeRotation = false;
+                    _rigidbody.freezeRotation =false;
+                    UIManager.Instance.StastUI.GetComponent<OtherUIvalue>().rotatiomnObj.SetActive(true);
                 }
                 else
                 {
                     other.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
                 }
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _rigidbody.angularVelocity = Vector3.zero;
+                _rigidbody.linearVelocity = Vector3.zero;
             }
         }
     }
@@ -52,6 +65,7 @@ public class GravityZone : MonoBehaviour
                 {
                     GameManager.Instance.player.transform.GetChild(0).rotation = GameManager.Instance.player.transform.rotation;
                     _rigidbody.freezeRotation = true;
+                    UIManager.Instance.StastUI.GetComponent<OtherUIvalue>().rotatiomnObj.SetActive(false);
                 }
             }
         }

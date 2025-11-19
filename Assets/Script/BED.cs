@@ -39,6 +39,7 @@ public class BED : MonoBehaviour
         {
             bedSound.Play(); // 침대 소리 재생
         }
+        WayPointUI.Instance.isActive = false;
         StartCoroutine(SleepCoroutine());
     }
 
@@ -123,7 +124,8 @@ public class BED : MonoBehaviour
         GameManager.Instance.ismove = true;
         GameManager.Instance.noInventoryOpen = false;
         GameManager.Instance.noESC = false;
-
+        
+        WayPointUI.Instance.isActive = true;
         UIManager.Instance.dayContViewUI.DayCountPlay(DayCount);
         goodNight = false;
         isSleep = false;

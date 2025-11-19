@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpaceShipIn : MonoBehaviour
 {
      public SpaceShip spaceShip;
-     private bool inside = false;
+     public bool inside = false;
 
 
 
@@ -15,6 +15,7 @@ public class SpaceShipIn : MonoBehaviour
      {
           if (other.tag == "Player")
           {
+               inside = true;
                other.GetComponent<Rigidbody>().useGravity = true;
                GameManager.Instance.inSpaceShip = true;
                other.transform.localRotation = Quaternion.Euler(0f, other.transform.eulerAngles.y, 0f);
@@ -35,7 +36,7 @@ public class SpaceShipIn : MonoBehaviour
      private void OnTriggerExit(Collider other)
      {
           if (other.tag == "Player")
-          {
+          {inside = false;
                other.GetComponent<Rigidbody>().useGravity = false;
                GameManager.Instance.inSpaceShip = false;
                UIManager.Instance.BBASSViewUI.SetActive(true);

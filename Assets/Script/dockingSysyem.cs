@@ -60,6 +60,7 @@ public class dockingSysyem : MonoBehaviour
         transform.position = originPos;
         transform.rotation = originRot;
         helpImage.gameObject.SetActive(true);
+        WayPointUI.Instance.isActive = false;
         GameManager.Instance.MouseCursor(true);
         SpaceON = false;
         a = 1;
@@ -251,12 +252,14 @@ public class dockingSysyem : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         player.SetActive(true);
         UIManager.Instance.QuitSlotUI.SetActive(true);
+        FindAnyObjectByType<SpaceShipIn>().inside = true;
         UIManager.Instance.StastUI.SetActive(true);
         UIManager.Instance.itemDescriptionUI.SetActive(false);
         GameManager.Instance.ismove = true;
         GameManager.Instance.isCamera = true;
         player.transform.position = PlayerPos;
         player.transform.rotation = PlayerRot;
+        WayPointUI.Instance.isActive = true;
         GameManager.Instance.MouseCursor(false);
         gameObject.SetActive(false);
         GameObject BBASS = GameObject.FindGameObjectWithTag("BBASS");

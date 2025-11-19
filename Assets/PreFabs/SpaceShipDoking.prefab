@@ -41136,6 +41136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e393eb49d53811245816a8eb322e5bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   isOpen: 0
 --- !u!4 &8078083359398008804 stripped
 Transform:
@@ -41224,6 +41225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceShip: {fileID: 4301861385133989139}
+  inside: 0
 --- !u!114 &4301861385133989139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41244,6 +41246,8 @@ MonoBehaviour:
   isPlay: 0
   posDoorFront: {fileID: 7389441281574462239}
   isDoorFront: 0
+  Range: 0
+  pos: {fileID: 0}
 --- !u!82 &5385688906881811512
 AudioSource:
   m_ObjectHideFlags: 0
@@ -41400,6 +41404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e393eb49d53811245816a8eb322e5bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   isOpen: 0
 --- !u!95 &8201566223366967200
 Animator:

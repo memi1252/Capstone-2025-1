@@ -154,14 +154,28 @@ public class item : MonoBehaviour
             if (!GameManager.Instance.firstItemmat)
             {
                 if (itemName == "NutItem") 
-                { 
-                    if(!GameManager.Instance.nipperMax[0]) GameManager.Instance.nipperMax[0] = true;
+                {
+                    if (!GameManager.Instance.nipperMax[0])
+                    {
+                        GameManager.Instance.nipperMax[0] = true;
+                        QuestManager.Instance.dd();
+                    }
+                    
                 }else if (itemName == "Screwitem")
                 { 
-                    if(!GameManager.Instance.nipperMax[1]) GameManager.Instance.nipperMax[1] = true;
+                    if(!GameManager.Instance.nipperMax[1])
+                    {
+                        GameManager.Instance.nipperMax[1] = true;
+                        QuestManager.Instance.dd();
+                    }
                 }else if (itemName == "IronPlateItem")
-                { 
-                    if(!GameManager.Instance.nipperMax[2]) GameManager.Instance.nipperMax[2] = true;
+                {
+                    if (!GameManager.Instance.nipperMax[2])
+                    {
+                        GameManager.Instance.nipperMax[2] = true;
+                        QuestManager.Instance.dd();
+                    }
+                    
                 }
             }else if(!GameManager.Instance.secondItemmat)
             {
@@ -169,7 +183,7 @@ public class item : MonoBehaviour
                 { 
                     if (!GameManager.Instance.mongkiMax[0])
                     { 
-                        GameManager.Instance.mongkiCount[0]++; 
+                        GameManager.Instance.mongkiCount[0]++;
                         if (GameManager.Instance.mongkiCount[0] == GameManager.Instance.mongkiMaxCount[0])
                         { 
                             GameManager.Instance.mongkiMax[0] = true;
@@ -181,6 +195,7 @@ public class item : MonoBehaviour
                     if (!GameManager.Instance.mongkiMax[1])
                     {
                         GameManager.Instance.mongkiCount[1]++; 
+                        QuestManager.Instance.dd();
                         if (GameManager.Instance.mongkiCount[1] == GameManager.Instance.mongkiMaxCount[1])
                         { 
                             GameManager.Instance.mongkiMax[1] = true;
@@ -191,6 +206,7 @@ public class item : MonoBehaviour
                     if (!GameManager.Instance.mongkiMax[2])
                     { 
                         GameManager.Instance.mongkiCount[2]++; 
+                        QuestManager.Instance.dd();
                         if (GameManager.Instance.mongkiCount[2] == GameManager.Instance.mongkiMaxCount[2])
                         { 
                             GameManager.Instance.mongkiMax[2] = true;
@@ -204,6 +220,7 @@ public class item : MonoBehaviour
                     if (!GameManager.Instance.fliterMax[0]) 
                     { 
                         GameManager.Instance.fliterCount[0]++; 
+                        QuestManager.Instance.dd();
                         if (GameManager.Instance.fliterCount[0] == GameManager.Instance.fliterMaxCount[0]) 
                         {
                             GameManager.Instance.fliterMax[0] = true;
@@ -215,6 +232,7 @@ public class item : MonoBehaviour
                     if (!GameManager.Instance.fliterMax[1])
                     { 
                         GameManager.Instance.fliterCount[1]++; 
+                        QuestManager.Instance.dd();
                         if (GameManager.Instance.fliterCount[1] == GameManager.Instance.fliterMaxCount[1])
                         { 
                             GameManager.Instance.fliterMax[1] = true;
@@ -225,6 +243,7 @@ public class item : MonoBehaviour
                     if (!GameManager.Instance.fliterMax[2])
                     {
                         GameManager.Instance.fliterCount[2]++;
+                        QuestManager.Instance.dd();
                         if (GameManager.Instance.fliterCount[2] == GameManager.Instance.fliterMaxCount[2])
                         { 
                             GameManager.Instance.fliterMax[2] = true;
@@ -260,13 +279,25 @@ public class item : MonoBehaviour
                 {
                     if (itemName == "NutItem")
                     {
-                        if(!GameManager.Instance.nipperMax[0]) GameManager.Instance.nipperMax[0] = true;
+                        if (!GameManager.Instance.nipperMax[0])
+                        {
+                            GameManager.Instance.nipperMax[0] = true;
+                            QuestManager.Instance.dd();
+                        }
                     }else if (itemName == "Screwitem")
                     {
-                        if(!GameManager.Instance.nipperMax[1]) GameManager.Instance.nipperMax[1] = true;
+                        if (!GameManager.Instance.nipperMax[1])
+                        {
+                            GameManager.Instance.nipperMax[1] = true;
+                            QuestManager.Instance.dd();
+                        }
                     }else if (itemName == "IronPlateItem")
                     {
-                        if(!GameManager.Instance.nipperMax[2]) GameManager.Instance.nipperMax[2] = true;
+                        if (!GameManager.Instance.nipperMax[2])
+                        {
+                            GameManager.Instance.nipperMax[2] = true;
+                            QuestManager.Instance.dd();
+                        }
                     }
                 }else if(!GameManager.Instance.secondItemmat)
                 {
@@ -275,6 +306,7 @@ public class item : MonoBehaviour
                         if (!GameManager.Instance.mongkiMax[0])
                         {
                             GameManager.Instance.mongkiCount[0]++;
+                            QuestManager.Instance.dd();
                             if (GameManager.Instance.mongkiCount[0] == GameManager.Instance.mongkiMaxCount[0])
                             {
                                 GameManager.Instance.mongkiMax[0] = true;
@@ -286,6 +318,7 @@ public class item : MonoBehaviour
                         if (!GameManager.Instance.mongkiMax[1])
                         {
                             GameManager.Instance.mongkiCount[1]++;
+                            QuestManager.Instance.dd();
                             if (GameManager.Instance.mongkiCount[1] == GameManager.Instance.mongkiMaxCount[1])
                             {
                                 GameManager.Instance.mongkiMax[1] = true;
@@ -296,6 +329,7 @@ public class item : MonoBehaviour
                         if (!GameManager.Instance.mongkiMax[2])
                         {
                             GameManager.Instance.mongkiCount[2]++;
+                            QuestManager.Instance.dd();
                             if (GameManager.Instance.mongkiCount[2] == GameManager.Instance.mongkiMaxCount[2])
                             {
                                 GameManager.Instance.mongkiMax[2] = true;
@@ -309,6 +343,7 @@ public class item : MonoBehaviour
                         if (!GameManager.Instance.fliterMax[0])
                         {
                             GameManager.Instance.fliterCount[0]++;
+                            QuestManager.Instance.dd();
                             if (GameManager.Instance.fliterCount[0] == GameManager.Instance.fliterMaxCount[0])
                             {
                                 GameManager.Instance.fliterMax[0] = true;
@@ -320,6 +355,7 @@ public class item : MonoBehaviour
                         if (!GameManager.Instance.fliterMax[1])
                         {
                             GameManager.Instance.fliterCount[1]++;
+                            QuestManager.Instance.dd();
                             if (GameManager.Instance.fliterCount[1] == GameManager.Instance.fliterMaxCount[1])
                             {
                                 GameManager.Instance.fliterMax[1] = true;
@@ -330,6 +366,7 @@ public class item : MonoBehaviour
                         if (!GameManager.Instance.fliterMax[2])
                         {
                             GameManager.Instance.fliterCount[2]++;
+                            QuestManager.Instance.dd();
                             if (GameManager.Instance.fliterCount[2] == GameManager.Instance.fliterMaxCount[2])
                             {
                                 GameManager.Instance.fliterMax[2] = true;

@@ -38,6 +38,8 @@ public class SPACESTART : BBASS_MentBASE
             GameManager.Instance.MouseCursor(false);
             ispos1 = true;
             Printer.SetActive(false);
+            
+            WayPointUI.Instance.isActive = true;    
             UIManager.Instance.tutorialsUI.MoveOn();
             GameManager.Instance.noInventoryOpen = false;
             GameManager.Instance.BBASS.GetComponent<Collider>().enabled = false;
@@ -116,6 +118,7 @@ public class SPACESTART : BBASS_MentBASE
             Combinations1[1].SetActive(true);
             GameManager.Instance.sitcar = true;
             second = true;
+            WayPointUI.Instance.isActive = true;
         }
         
         

@@ -326,6 +326,8 @@ private bool keycodeCheck = false;
                         GameManager.Instance.isdoking = true;
                         rigidbody.linearVelocity = Vector3.zero;
                     }
+
+                    WayPointUI.Instance.isActive = false;
                     UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
                 }else if (hit2.collider.CompareTag("BBAAbattery"))
                 {

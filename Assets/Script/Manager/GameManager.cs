@@ -220,6 +220,7 @@ public class GameManager : MonoSingleton<GameManager>
                 if (i == nipperMax.Length - 1)
                 {
                     Debug.Log("!!!!!!!");
+                    QuestManager.Instance.ResetQuestIndex();
                     isNipperMat = true;
                     firstItemmat = true;
                     nipperPlay = true;
@@ -273,6 +274,7 @@ public class GameManager : MonoSingleton<GameManager>
                 {
                     Debug.Log("??????");
                     ismongkiMat = true;
+                    QuestManager.Instance.ResetQuestIndex();
                     secondItemmat = true;
                     mongkiPlay = true;
                     var dialogTexts = new List<DialogData>();
@@ -325,6 +327,7 @@ public class GameManager : MonoSingleton<GameManager>
                 {
                     isFliterMat = true;
                     thirdItemmat = true;
+                    QuestManager.Instance.ResetQuestIndex();
                     fliterMake = true;
                     fliterPlay = true;
                     var dialogTexts = new List<DialogData>();

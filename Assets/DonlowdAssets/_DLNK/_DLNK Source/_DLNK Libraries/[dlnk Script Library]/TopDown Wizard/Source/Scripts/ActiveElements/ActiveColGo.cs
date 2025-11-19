@@ -14,6 +14,8 @@ public class ActiveColGo : MonoBehaviour
     [Header("key")]
     public bool keyActive;
 
+    public int index;
+
     [SerializeField] private GameObject LockDoorHelpUI;
 
     public bool isOpen;
@@ -73,6 +75,17 @@ public class ActiveColGo : MonoBehaviour
                     // 기존 문 열기 로직
                     hasexit = false;
                     actived = true;
+                    if (QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex].doors.Length > 0)
+                    {
+                        if (QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex]
+                                .doors[QuestManager.Instance.doorindex].index == index)
+                        {
+                            QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex]
+                                .doors[QuestManager.Instance.doorindex].open = true;
+                            QuestManager.Instance.doorindex++;
+                            QuestManager.Instance.dd();
+                        }
+                    }
                     if (doorOpenSound != null)
                     {
                         doorOpenSound.Stop(); // 이전 재생 중인 소리를 중지
@@ -86,6 +99,17 @@ public class ActiveColGo : MonoBehaviour
             {
                 hasexit = false;
                 actived = true;
+                if (QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex].doors.Length > 0)
+                {
+                    if (QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex]
+                            .doors[QuestManager.Instance.doorindex].index == index)
+                    {
+                        QuestManager.Instance.quests[QuestManager.Instance.currentQuestIndex]
+                            .doors[QuestManager.Instance.doorindex].open = true;
+                        QuestManager.Instance.doorindex++;
+                        QuestManager.Instance.dd();
+                    }
+                }
                 if (doorOpenSound != null)
                 {
                     doorOpenSound.Stop(); // 이전 재생 중인 소리를 중지
@@ -160,7 +184,6 @@ public class ActiveColGo : MonoBehaviour
             {
                 hasexit = false;
                 actived = true;
-                
             }
         }
     }
