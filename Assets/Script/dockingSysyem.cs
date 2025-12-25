@@ -192,11 +192,11 @@ public class dockingSysyem : MonoBehaviour
         ud = Input.GetAxis("upanddown");
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            movdeSpeed = 2f;
+            movdeSpeed = 7f;
         }
         else
         {
-            movdeSpeed = 1f;
+            movdeSpeed = 4f;
         }
         
         Vector3 moveDirection = new Vector3(h, ud, v).normalized;
