@@ -29,9 +29,23 @@ public class BBABB_FliterCLEAR : BBASS_MentBASE
         dialogTexts.Add(new DialogData("준비가 다 되셨다면 저에게 알려주세요"));
         Show(dialogTexts);
 
-        GameManager.Instance.finerAsync = SceneManager.LoadSceneAsync(6);
-
-        GameManager.Instance.finerAsync.allowSceneActivation = false;
-
+        // 씬 로딩 및 null 체크
+        try
+        {
+            GameManager.Instance.finerAsync = SceneManager.LoadSceneAsync(6);
+            
+            if (GameManager.Instance.finerAsync != null)
+            {
+                GameManager.Instance.finerAsync.allowSceneActivation = false;
+            }
+            else
+            {
+                Debug.LogError("Failed to load scene asynchronously");
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error loading scene: {e.Message}");
+        }
     }
 }
