@@ -9,8 +9,6 @@ public class QuitslotItemSelect : MonoBehaviour
     public GameObject currentHandItem = null;
     public int currentHandItemIndex = -1;
     public GameObject currentSlot;
-
-    private bool TakeKeycode = false;
     
     private void Update()
     {
@@ -57,25 +55,31 @@ public class QuitslotItemSelect : MonoBehaviour
                         currentHandItemIndex = -1;
                     }
                 }
+            }else
+            {
+                // 해당 키코드가 있을 때만 제거
+                if (GameManager.Instance.player.haveKeycode.Contains("1234"))
+                {
+                    GameManager.Instance.player.haveKeycode.Remove("1234");
+                }
+                if (GameManager.Instance.player.haveKeycode.Contains("0125"))
+                {
+                    GameManager.Instance.player.haveKeycode.Remove("0125");
+                }
             }
             if (currentHandItem == HandItem[5])
             {
-                if (!TakeKeycode)
+                if (!GameManager.Instance.player.haveKeycode.Contains("1234"))
                 {
                     GameManager.Instance.player.haveKeycode.Add("1234");
-                    TakeKeycode = true;
                 }
-            }else if (currentHandItem == HandItem[6])
+            }
+            else if (currentHandItem == HandItem[6])
             {
-                if (!TakeKeycode)
+                if (!GameManager.Instance.player.haveKeycode.Contains("0125"))
                 {
                     GameManager.Instance.player.haveKeycode.Add("0125");
-                    TakeKeycode = true;
                 }
-            }else
-            {
-                TakeKeycode = false;
-                GameManager.Instance.player.haveKeycode.Clear();
             }
         }
 

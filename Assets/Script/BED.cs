@@ -84,6 +84,7 @@ public class BED : MonoBehaviour
             {
                 GameManager.Instance.BBASS.GetComponent<BBASS_Ment4>().enabled = true;
                 QuestManager.Instance.quests[14].clear = true;
+                GameManager.Instance.noOpen = false;
                 FindAnyObjectByType<FliterSystem>().isbroken = true;
                 GameManager.Instance.ProductionSystem3.enabled = true;
                 GameManager.Instance.ProductionSystem2.enabled = false;
