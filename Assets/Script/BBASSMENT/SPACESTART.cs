@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Doublsb.Dialog;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class SPACESTART : BBASS_MentBASE
 {
@@ -131,14 +132,14 @@ public class SPACESTART : BBASS_MentBASE
     {
         var dialogTexts = new List<DialogData>();
 
-        dialogTexts.Add(new DialogData("깨어나셨군요 무사하셔서 다행입니다"));
-        dialogTexts.Add(new DialogData("안녕하세요, 저는 AI도우미 로봇 BBASS입니다"));
-        dialogTexts.Add(new DialogData("현재 상황을 알려드리겠습니다"));
-        dialogTexts.Add(new DialogData("행성 HKSN로 가던 중 시스템 오작동으로 인해 더 이상 나아갈 수 없는 상황입니다"));
-        dialogTexts.Add(new DialogData("오작동이 일어난 곳은 전력 분배기, 추진 제어판 입니다"));
-        dialogTexts.Add(new DialogData("수리를 위해 도구가 필요합니다"));
-        dialogTexts.Add(new DialogData("도구는 우주정거장으로 이동해 재료를 구한 다음 직접 만들어야 합니다"));
-        dialogTexts.Add(new DialogData("우주정거장으로 이동해 주세요"));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story1")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story2")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story3")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story4")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story5")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story6")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story7")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story8")));
         
         Show(dialogTexts);
     }
@@ -147,9 +148,9 @@ public class SPACESTART : BBASS_MentBASE
     {
         var dialogTexts = new List<DialogData>();
         
-        dialogTexts.Add(new DialogData("왼쪽 위에 체력바는 피로도나 산소가 다 닳게되면 채워질때까지 줄어들게 됩니다"));
-        dialogTexts.Add(new DialogData("무엇을 해야할지 모르겠다면 오른쪽 위에 퀘스트 창을 봐주세요"));
-        dialogTexts.Add(new DialogData("현재 필요한 도구의 조합법은 제작대에 띄워 놓았습니다"));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story9")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story10")));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story11")));
         
         Show(dialogTexts);
     }

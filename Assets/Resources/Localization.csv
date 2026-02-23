@@ -1,0 +1,167 @@
+Key,ko,en
+newgame,새로운게임,NewGame
+setting,설정,Setting
+exit,게임종료,Exit
+sound,사운드,Sound
+master,마스터,Master
+background,배경음악,Background
+effect,효과음,Effect
+hp,채력,HP
+fatiguelevel,피로도,FatigueLevel
+quest,퀘스트,Quest
+oxygen,산소,Oxygen
+tutorial1,해당키를 눌러 움직여 보세요,Press the corresponding key to move
+tutorial2,해당키를 눌러 달려보세요,Press the key to run
+tutorial3,해당키를 눌러 점프해보세요,Press the corresponding key to jump
+tutorial4,해당키를 눌러 상호작용해보세요,Press the corresponding key to interact
+tutorial5,해당키를 눌러 인벤토리를 열어보세요,Press the key to open your inventory
+tutorial6,번호키를 눌러 아이템을 들수 있습니다,You can pick up items by pressing the number keys.
+itemcancle,취소(esc를 눌러 뒤로가기 가능),Cancel (press esc to go back)
+itemget,획듣(F를 눌러 획득 가능),Pick up (can be obtained by pressing F)
+restart,다시하기,Do it again
+gameexit,게임종료,GameExit
+SpacecraftOperationManual,우주선 조작법,Spacecraft Operation Manual
+docking1,도킹스테이션 입니다. 여기에 도킹을 해야합니다.,This is a docking station. You need to dock here.
+docking2,제한시간 : 60초,Time limit: 60 seconds
+docking3,초후 버튼이 활성화 됩니다,The second button will be activated
+docking4,조종시작,Start control
+docking5,로 우주선을 조작 할수있습니다.,You can control the spaceship with .
+docking6,를 눌러 좀 더 빠르게 갈 수 있습니다.,You can press to go a little faster.
+docking7,통해 위아래로 움직일수 있습니다.,You can move up and down through it.
+docking8,와,And
+docking9,이동-wasd부스터-shift상승-space하강-ctrl,Move-wasdBooster-shiftUp-spaceDown-ctrl
+docking10,우주선 밑 카메라,Camera under the spaceship
+tip1,여기에 착륙 하세요,Land here
+tip2,여기가 우주정거장 입구 입니다.,This is the entrance to the space station.
+tip3,F를 눌러 아이템을 획득할 수 있습니다,You can obtain items by pressing F
+tip4,카드키가 필요합니다,A card key is required
+Warning,주의,Warning
+Warning2,해당구역부터는 중력이 이상합니다!!,Gravity is strange from that area onwards!!
+1-1,부품 교체 미션 설명서,Parts Replacement Mission Manual
+1-2,제한 시간 1분,1 minute time limit
+1-3,현재 모듈의 위치가 제각각 입니다,The current module locations are different.
+1-4,모듈을 옮기면서 맞는 위치에 놓아야 합니다,"When moving modules, you must place them in the correct location."
+1-5,미션 시작,Mission Start
+2-1,와이어 연결 미션 설명서,Wire Connection Mission Manual
+2-2,제한 시간 40초 타이머는 전등 불빛입니다,The time limit is 40 seconds and the timer is a light.
+2-3,맞는 기호끼리 연결해야 합니다,You must connect the correct symbols.
+2-4,연결에 성공하면 초록빛이 들어옵니다,"If the connection is successful, the light will turn green."
+2-5,만약 틀리면 남은횟수가 차감됩니다,"If you are wrong, the remaining number of attempts will be deducted."
+2-6,남은횟수가 0이되면 빨간빛이 들어옵니다,"When the remaining number of turns becomes 0, the red light comes on."
+2-7,미션 시작,Mission Start
+2-8,남은 횟수,Number of turns remaining
+3-1,F를 눌러 작업대 열기,Press F to open the workbench
+3-2,F를 눌러 조종시작,Press F to start controlling
+3-3,F를 눌러 BBASS 배터리 충전,Press F to charge the BBASS battery
+3-4,F를 눌러 BBASS와 대화,Press F to talk to BBASS
+3-5,F를 눌러 전력 분배기문 열기(니퍼 필요),Press F to open the power distribution panel (requires nippers)
+3-6,F를 눌러 추진 제어판문 열기(몽키스패너 필요),Press F to open the propulsion control panel door (requires a monkey wrench)
+3-7,F를 눌러 필터 뺴기,Press F to remove filter
+3-8,생명 유지장치를 꺼주세요,Please turn off the life support machine.
+3-9,F를 눌러 필터 넣기(필터를 들고있어야함),Press F to insert a filter (you must be holding the filter)
+3-10,생명 유지장치 켜기,Turn on life support
+3-11,생명 유지장치 끄기,Turn off life support
+3-12,2일차부터 입장가능,Entry available from the 2nd day
+3-13,카드키가 필요합니다.,A card key is required.
+3-14,F를 눌러 잠자기,Press F to sleep
+3-15,아직 잠을 잘수 없습니다.,I still can't sleep.
+3-16,카드키가 필요합니다.,A card key is required.
+language,언어,Language
+day1,우주생존,Space survival
+day2,일차,Primary
+quest0,퀘스트 완료!,Quest complete!
+quest1,우주선 조종하기,Piloting a spaceship
+quest2,BBASS한테 말걸기,Talk to BBASS
+quest3,우주정거장 들어가기,Entering the space station
+quest4,니퍼 재료 구하기,Get nipper materials
+quest5,니퍼 제작 하기,Making Nippers
+quest6,전력 분배기 수리,Power distribution board repair
+quest7,우주선으로 돌아가 잠자기,Return to the spaceship and sleep
+quest8,BBASS한테 말걸기,Talk to BBASS
+quest9,우주정거장으로 들어가기,Entering the space station
+quest10,카드키 찾기,Find your card key
+quest11,잠긴문 열기,Open the locked door
+quest12,몽키스페너 재료 구하기,Finding monkey wrench materials
+quest13,몽키스페너제작하기,Making a monkey wrench
+quest14,추진 제어판 수리,Propulsion control panel repair
+quest15,우주선으로 돌아가 잠자기,Return to the spaceship and sleep
+quest16,BBASS한테 말걸기,Talk to BBASS
+quest17,우주정거장 들어가기,Entering the space station
+quest18,카드키 찾기,Find your card key
+quest19,잠긴문 열기,Open the locked door
+quest20,필터 재료 구하기,Finding filter materials
+quest21,필터 제작 하기,Creating a filter
+quest22,생명 유지장치 수리하기,Repairing life support equipment
+quest23,BBASS한테 말걸기,Talk to BBASS
+Story1,깨어나셨군요 무사하셔서 다행입니다,I'm glad you're awake. I'm glad you're safe.
+Story2,"안녕하세요, 저는 AI도우미 로봇 BBASS입니다","Hello, I am BBASS, an AI assistant robot."
+Story3,현재 상황을 알려드리겠습니다,I'll let you know the current situation.
+Story4,행성 HKSN로 가던 중 시스템 오작동으로 인해 더 이상 나아갈 수 없는 상황입니다,"While en route to planet HKSN, a system malfunction occurred and no further progress was possible."
+Story5,"오작동이 일어난 곳은 전력 분배기, 추진 제어판 입니다",The malfunction occurred in the power distribution unit and the propulsion control panel.
+Story6,수리를 위해 도구가 필요합니다,I need tools for repairs
+Story7,도구는 우주정거장으로 이동해 재료를 구한 다음 직접 만들어야 합니다,"Tools must be crafted by traveling to the space station, gathering materials, and then creating them yourself."
+Story8,우주정거장으로 이동해 주세요,Please move to the space station.
+Story9,왼쪽 위에 체력바는 피로도나 산소가 다 닳게되면 채워질때까지 줄어들게 됩니다,The stamina bar in the upper left will decrease as fatigue or oxygen is depleted until it is fully refilled.
+Story10,무엇을 해야할지 모르겠다면 오른쪽 위에 퀘스트 창을 봐주세요,"If you don't know what to do, look at the quest window in the top right corner."
+Story11,현재 필요한 도구의 조합법은 제작대에 띄워 놓았습니다,The recipe for the currently required tools is displayed on the crafting table.
+Story12,우주정거장으로 이동해야합니다,We need to go to the space station
+Story13,조종실로 이동해주세요,Please go to the cockpit.
+Story14,AI도우미 BBASS입니다,This is AI assistant BBASS
+Story15,무사히 우주정거장에 도착했습니다,We arrived at the space station safely.
+Story16,이제 우주정거장에 진입해주세요,"Now, please enter the space station."
+Story17,편히 주무셨나요?,Did you sleep well?
+Story18,오늘은 추진 제어판을 수리해야합니다,Today I need to repair the propulsion control panel.
+Story19,현재 필요한 도구의 조합법은 제작대에 띄워 놓았습니다,The recipe for the currently required tools is displayed on the crafting table.
+Story20,확인 후 우주정거장으로 가서 필요한 재료들를 모아주세요,"After checking, go to the space station and collect the necessary materials."
+Story21,우주정거장 스캔 결과 도구를 만들 재료는 충분합니다,Space station scans show there is enough material to make tools.
+Story22,"현재 필요한 재료는 철판, 나사, 볼트입니다","The materials currently needed are steel plates, screws, and bolts."
+Story23,피로도와 산소가 다 떨어지기 전에 모아서 우주선으로 복귀해주세요,Please collect them and return to the spaceship before your fatigue and oxygen levels run out.
+Story24,스캔 결과 좀 더 안쪽으로 들어가야 할 것 같습니다,The scan results seem to suggest that we need to go a little further in.
+Story25,만약 잠긴문이 있다면 카드키를 찾아 열어야 합니다,"If there is a locked door, you need to find the card key to open it."
+Story26,잠긴 문이 보이면,If you see a locked door
+Story27,카드키를 찾아서 우주정거장을 탐색해주세요,Find the card key and explore the space station.
+Story28,스캔 결과 재료가 어제보다 더 깊숙히 있습니다,Scan results show the material is deeper than yesterday
+Story29,아이템을 찾으려면 잠긴 문을 지나가야 합니다,You have to go through a locked door to find the item.
+Story30,카드키를 찾아 잠긴 문을 열고 재료를 구해주세요,Find the card key to open the locked door and get the materials.
+Story31,저는 밖으로 나갈수 없어 무선통신으로 도와드리겠습니다,"I can't go outside, so I'll help you via radio."
+Story32,이문을 열고 나가시면 바로 밑에 우주정거장 입구가 있습니다!,"Open this door and go out, and the entrance to the space station is right below you!"
+Story33,니퍼를 성공적으로 제작했습니다.,We have successfully created a nipper.
+Story34,우주선 밖으로 나가 전력 분배기를 수리해 보세요!,Go outside the spaceship and repair the power distributor!
+Story35,몽키스페너를 성공적으로 제작했습니다.,We have successfully created a monkey wrench.
+Story36,우주선 밖으로 나가 추진 제어판를 수리해 보세요!,Get out of the spaceship and repair the propulsion control panel!
+Story37,재료를 모두 모았습니다.,I've gathered all the ingredients.
+Story38,우주선으로 돌아가 니퍼를 만들어야 합니다.,You need to return to the spaceship and create a nipper.
+Story39,우주선으로 돌아갑시다.,Let's go back to the spaceship.
+Story40,재료를 모두 모았습니다.,I've gathered all the ingredients.
+Story41,우주선으로 돌아가 몽키스페너를 만들어야 합니다.,You need to return to the spaceship and craft a monkey wrench.
+Story42,우주선으로 돌아갑시다.,Let's go back to the spaceship.
+Story43,재료를 모두 모았습니다.,I've gathered all the ingredients.
+Story44,우주선으로 돌아가 필터를 만들어야 합니다.,You need to return to the spaceship and create a filter.
+Story45,우주선으로 돌아갑시다.,Let's go back to the spaceship.
+Story46,카드키를 찾았습니다.,I found the card key.
+Story47,잠긴 문을 열어 봅시다.,Let's open the locked door.
+Story48,카드키를 찾았습니다.,I found the card key.
+Story49,해당키는 3개의 문을 열수있습니다.,This key can open three doors.
+Story50,잠긴 문들을 열어 봅시다.,Let's open the locked doors.
+Story51,여기서 부터 몇몇의 방들이,"From here, there are several rooms"
+Story52,중력 이상으로 인해 중력이 약해져 몸을 움직이기 힘들 수 있습니다,Gravity abnormalities can weaken gravity and make it difficult to move your body.
+Story53,조심하시길 바랍니다,Please be careful
+Story54,충전중!,Charging!
+Story55,충전이 완료되었습니다.,Charging is complete.
+Story56,전력 분배기가 수리되었습니다,The power distributor has been repaired
+Story57,수리하느라 수고하셨습니다,Thank you for your hard work in repairing it.
+Story58,오늘은 여기까지 수리하고 휴식을 취합시다,Let's stop here for today and take a break.
+Story59,비상입니다!,It's an emergency!
+Story60,생명 유지장치가 고장났습니다,Life support machine failed
+Story61,원래 오늘 출발할 예정이였지만 생명 유지장치가 고장나서 출발이 불가능합니다,"It was originally scheduled to depart today, but departure is impossible due to a failure of the life support system."
+Story62,생명유지 장치를 수리하기 위해서는 유지 장치의 전원을 끈다음,"To repair a life support device, turn off the power to the device."
+Story63,필터를 교체를 하고 전원을 다시 켜야합니다,You need to replace the filter and turn the power back on.
+Story64,현재 필요한 필터의 조합법은 제작대에 띄워 놓았습니다,The combination of filters currently required is displayed on the crafting table.
+Story65,행성 HKSH로갈 준비가 되었나요??,Are you ready to go to Planet HKSH??
+Story66,그럼 바로 이동하겠습니다,Then let's move right away
+Story67,추진 제어판이 수리되었습니다,The propulsion control panel has been repaired.
+Story68,다음날 더 문제가 안생긴다면 출발 가능할 것 같습니다,"If there are no more problems the next day, I think we can leave."
+Story69,오늘은 이만 돌아가 휴식을 취합시다,Let's go back and rest for today.
+Story70,성공적으로 수리되었습니다,Repaired successfully
+Story71,이제 행성 HKSN으로 이동 할 수 있습니다,You can now travel to planet HKSN
+Story72,준비가 다 되셨다면 저에게 알려주세요,Please let me know when you are ready

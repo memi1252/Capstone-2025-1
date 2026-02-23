@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 
 public class Player : MonoBehaviour
@@ -300,7 +301,7 @@ private bool keycodeCheck = false;
                         }
                         rigidbody.linearVelocity = Vector3.zero;
                     }
-                    UIManager.Instance.tooltipUI.SetText("F를 눌러 작업대 열기");
+                    UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-1"));
                 }
                 else if (hit2.collider.CompareTag("cockpit"))
                 {
@@ -328,7 +329,7 @@ private bool keycodeCheck = false;
                     }
 
                     WayPointUI.Instance.isActive = false;
-                    UIManager.Instance.tooltipUI.SetText("F를 눌러 조종시작");
+                    UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-2"));
                 }else if (hit2.collider.CompareTag("BBAAbattery"))
                 {
                     if (Input.GetKeyDown(KeyCode.F))
@@ -337,7 +338,7 @@ private bool keycodeCheck = false;
                         FindAnyObjectByType<SPACESTART>().ispos1 = false;
                         rigidbody.linearVelocity = Vector3.zero;
                     }
-                    UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS 배터리 충전");
+                    UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-3"));
                 }else if (hit2.collider.CompareTag("BBASS"))
                 {
                     if (Input.GetKeyDown(KeyCode.F))
@@ -386,7 +387,7 @@ private bool keycodeCheck = false;
                         }
                         Debug.Log(hit2.collider.name);
                     }
-                    UIManager.Instance.tooltipUI.SetText("F를 눌러 BBASS와 대화");
+                    UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-4"));
                 }else if (hit2.collider.GetComponent<CabinetDoor>())
                 {
                     CabinetDoor cabinetDoor = hit2.collider.GetComponent<CabinetDoor>();
@@ -410,7 +411,7 @@ private bool keycodeCheck = false;
                         rigidbody.linearVelocity = Vector3.zero;
                     }
                     if(!hit.collider.GetComponent<WireConnectionDoor>().Clear)
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 전력 분배기문 열기(니퍼 필요)");
+                        UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-5"));
                 }else if (hit2.collider.CompareTag("ReplacingpartsDoor"))
                 {
                     if (Input.GetKeyDown(KeyCode.F) && !hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
@@ -420,7 +421,7 @@ private bool keycodeCheck = false;
                     }
                         
                     if (!hit.collider.GetComponent<ReplacingpartsDoor>().Clear)
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 추진 제어판문 열기(몽키스패너 필요)");
+                        UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-6"));
                 }else if (hit2.collider.CompareTag("Fliter"))
                 {
                     FliterSystem fs = FindAnyObjectByType<FliterSystem>();
@@ -431,14 +432,14 @@ private bool keycodeCheck = false;
                             hit2.collider.transform.GetChild(1).gameObject.SetActive(false);
                             fs.outFliter = true;
                         }
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 필터 뺴기");
+                        UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-7"));
                     }
                     else if (fs.isbroken && !fs.off && !fs.outFliter)
                     {
-                        UIManager.Instance.tooltipUI.SetText("생명 유지장치를 꺼주세요");
+                        UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-8"));
                     }else if (fs.isbroken && fs.off && fs.outFliter)
                     {
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 필터 넣기(필터를 들고있어야함)");
+                        UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-9"));
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             QuitslotItemSelect qsi = GameManager.Instance.player.GetComponent<QuitslotItemSelect>();
@@ -465,11 +466,11 @@ private bool keycodeCheck = false;
                         }
                         if (fs.off)
                         {
-                            UIManager.Instance.tooltipUI.SetText("생명 유지장치 켜기");
+                            UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-10"));
                         }
                         else
                         {
-                            UIManager.Instance.tooltipUI.SetText("생명 유지장치 끄기");
+                            UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-11"));
                         }
                     }
                 }
@@ -488,11 +489,11 @@ private bool keycodeCheck = false;
                     {
                         if (GameManager.Instance.noOpen)
                         {
-                            UIManager.Instance.tooltipUI.SetText("2일차부터 입장가능");
+                            UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-12"));
                         }
                         else
                         {
-                            UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
+                            UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-13"));
                         }
                     }                    
                 }else if (hit2.collider.CompareTag("BED"))
@@ -506,11 +507,11 @@ private bool keycodeCheck = false;
                             bed.isSleep = true;
                             rigidbody.linearVelocity = Vector3.zero;
                         }
-                        UIManager.Instance.tooltipUI.SetText("F를 눌러 잠자기");
+                        UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-14"));
                     }
                     else
                     {
-                        UIManager.Instance.tooltipUI.SetText("아직 잠을 잘수 없습니다.");
+                        UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-15"));
                     }
                 }else if (hit2.collider.CompareTag("Door"))
                 {
@@ -518,7 +519,7 @@ private bool keycodeCheck = false;
                     {
                         if (!hit2.collider.GetComponentInChildren<ActiveColGo>().hasValidKey)
                         {
-                            UIManager.Instance.tooltipUI.SetText("카드키가 필요합니다.");
+                            UIManager.Instance.tooltipUI.SetText(LocalizationManager.Instance.GetText("3-16"));
                         }
                     }
                 }
@@ -578,8 +579,8 @@ private bool keycodeCheck = false;
                     if (GameManager.Instance.nipperMake)
                     {
                         var dialogTexts = new List<DialogData>();
-                        dialogTexts.Add(new DialogData("니퍼를 성공적으로 제작했습니다."));
-                        dialogTexts.Add(new DialogData("우주선 밖으로 나가 전력 분배기를 수리해 보세요!"));
+                        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story33")));
+                        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story34")));
                         GameManager.Instance.BBASS.Show(dialogTexts);
                         GameManager.Instance.nipperMake = false;
                         GameManager.Instance.nipperMakePlay = true;
@@ -588,8 +589,8 @@ private bool keycodeCheck = false;
                     if (GameManager.Instance.mongkiMake)
                     {
                         var dialogTexts = new List<DialogData>();
-                        dialogTexts.Add(new DialogData("몽키스페너를 성공적으로 제작했습니다."));
-                        dialogTexts.Add(new DialogData("우주선 밖으로 나가 추진 제어판를 수리해 보세요!"));
+                        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story35")));
+                        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story36")));
                         GameManager.Instance.BBASS.Show(dialogTexts);
                         GameManager.Instance.mongkiMake = false;
                         GameManager.Instance.mongkiMakePlay = true;

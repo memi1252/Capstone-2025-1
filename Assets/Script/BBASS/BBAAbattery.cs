@@ -138,7 +138,7 @@ public class BBAAbattery : BBASS_MentBASE
     private void Charging()
     {
         var dialogTexts = new List<DialogData>();
-        dialogTexts.Add(new DialogData("충전중!"));
+        dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story54")));
         Show(dialogTexts);
     }
 
@@ -167,7 +167,7 @@ public class BBAAbattery : BBASS_MentBASE
                 if (!completed)
                 {
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("충전이 완료되었습니다."));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story55")));
                     Show(dialogTexts);
                     completed = true;
                 }

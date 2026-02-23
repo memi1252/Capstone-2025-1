@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class dockingSysyem : MonoBehaviour
@@ -105,7 +106,7 @@ public class dockingSysyem : MonoBehaviour
         if (ButtonClickCurrentTime >= 0)
         {
             ButtonClickCurrentTime -= Time.deltaTime;
-            ButtonClickTimeText.text = $"{(int)ButtonClickCurrentTime}초후 버튼이 활성화 됩니다.";
+            ButtonClickTimeText.text = $"{(int)ButtonClickCurrentTime}{LocalizationManager.Instance.GetText("docking3")}";
         }
         else
         {

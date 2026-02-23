@@ -225,9 +225,9 @@ public class GameManager : MonoSingleton<GameManager>
                     firstItemmat = true;
                     nipperPlay = true;
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 니퍼를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story37")));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story38")));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story39")));
                     BBASS.Show(dialogTexts);
                     QuestManager.Instance.quests[3].clear = true;
                     return;
@@ -278,9 +278,9 @@ public class GameManager : MonoSingleton<GameManager>
                     secondItemmat = true;
                     mongkiPlay = true;
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 몽키스페너를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story40")));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story41")));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story42")));
                     BBASS.Show(dialogTexts);
                     QuestManager.Instance.quests[11].clear = true;
                     return;
@@ -331,9 +331,9 @@ public class GameManager : MonoSingleton<GameManager>
                     fliterMake = true;
                     fliterPlay = true;
                     var dialogTexts = new List<DialogData>();
-                    dialogTexts.Add(new DialogData("재료를 모두 모았습니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아가 필터를 만들어야 합니다."));
-                    dialogTexts.Add(new DialogData("우주선으로 돌아갑시다."));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story43")));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story44")));
+                    dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story45")));
                     BBASS.Show(dialogTexts);
                     QuestManager.Instance.quests[19].clear = true;
                     return;
@@ -361,8 +361,8 @@ public class GameManager : MonoSingleton<GameManager>
         if (isCardKet1 && QuestManager.Instance.quests[8].clear)
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
-            dialogTexts.Add(new DialogData("잠긴 문을 열어 봅시다."));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story46")));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story47")));
             BBASS.Show(dialogTexts);
             QuestManager.Instance.quests[9].clear = true;
             isCardKet1 = false;
@@ -383,9 +383,9 @@ public class GameManager : MonoSingleton<GameManager>
         if (isCardKey2 && QuestManager.Instance.quests[16].clear)
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("카드키를 찾았습니다."));
-            dialogTexts.Add(new DialogData("해당키는 3개의 문을 열수있습니다."));
-            dialogTexts.Add(new DialogData("잠긴 문들을 열어 봅시다."));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story48")));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story49")));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story50")));
             BBASS.Show(dialogTexts);
             QuestManager.Instance.quests[17].clear = true;
             isCardKey2 = false;

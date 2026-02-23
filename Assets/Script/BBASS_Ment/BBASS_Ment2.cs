@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Doublsb.Dialog;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class BBASS_Ment2 : BBASS_MentBASE
 {
@@ -40,8 +41,8 @@ public class BBASS_Ment2 : BBASS_MentBASE
     public void line()
     {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("무사히 우주정거장에 도착했습니다"));
-            dialogTexts.Add(new DialogData("이제 우주정거장에 진입해주세요"));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story15")));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story16")));
             Show(dialogTexts);
         
     }

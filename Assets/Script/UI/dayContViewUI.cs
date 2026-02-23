@@ -17,7 +17,7 @@ public class dayContViewUI : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("Play");
-            Text.text = $"--우주생존{count}일차--";
+            Text.text = $"--{LocalizationManager.Instance.GetText("day1")}{count}{LocalizationManager.Instance.GetText("day2")}--";
         }
     }
 }

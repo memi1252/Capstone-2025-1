@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Doublsb.Dialog;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class BBASS_Ment1 : BBASS_MentBASE
 {
@@ -43,14 +44,14 @@ public class BBASS_Ment1 : BBASS_MentBASE
         if (!first)
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("우주정거장으로 이동해야합니다"));
-            dialogTexts.Add(new DialogData("조종실로 이동해주세요"));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story12")));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story13")));
             Show(dialogTexts);
         }
         else
         {
             var dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("AI도우미 BBASS입니다"));
+            dialogTexts.Add(new DialogData(LocalizationManager.Instance.GetText("Story14")));
             Show(dialogTexts);
         }
     }

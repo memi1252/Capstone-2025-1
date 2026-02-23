@@ -36,7 +36,7 @@ public class QuestManager : MonoSingleton<QuestManager>
     private void Start()
     {
         questClear = new bool[quests.Length];
-        QuestNameText.text = quests[currentQuestIndex].name;
+        QuestNameText.text = LocalizationManager.Instance.GetText(quests[currentQuestIndex].name);
         QuestcountText.text = "0 / 1";
     }
 
@@ -54,7 +54,7 @@ public class QuestManager : MonoSingleton<QuestManager>
             {
                 questClear[currentQuestIndex] = true;
                 QuestcountText.text = "1 / 1";
-                QuestNameText.text = "퀘스트 완료!";
+                QuestNameText.text = LocalizationManager.Instance.GetText("quest0");
                 StartCoroutine(NextQuest());
             }
             if (quests[currentQuestIndex].pos[index] != null)
@@ -77,7 +77,7 @@ public class QuestManager : MonoSingleton<QuestManager>
         doorindex = 0;
         if (currentQuestIndex != quests.Length)
         {
-            QuestNameText.text = quests[currentQuestIndex].name;
+            QuestNameText.text = LocalizationManager.Instance.GetText(quests[currentQuestIndex].name);
             QuestcountText.text = "0 / 1";
         }
 

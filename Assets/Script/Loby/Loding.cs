@@ -18,6 +18,8 @@ public class Loding : MonoBehaviour
     [SerializeField] private float nextSceneTime = 5f;
     [SerializeField] private Image skipImage;
     [SerializeField] private float maxSkipTime = 5f;
+
+    [SerializeField] private VideoClip[] videoClips;
     
     private float currentSkipTime;
     
@@ -26,6 +28,14 @@ public class Loding : MonoBehaviour
     private bool skip = false;
     void Start()
     {
+        if(LocalizationManager.Instance.CurrentLanguage == "ko")
+        {
+            VideoPlayer.clip = videoClips[0];
+        }
+        else
+        {
+            VideoPlayer.clip = videoClips[1];
+        }
         VideoPlayer.Play();
         StartCoroutine(LodingGameScene());
         StartCoroutine(LodingGame());

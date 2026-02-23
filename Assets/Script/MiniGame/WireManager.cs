@@ -86,7 +86,7 @@ public class WireManager : MonoBehaviour
     {
         if (start)
         {
-            countText.text = $"남은 횟수 : {count}";
+            countText.text = $"{LocalizationManager.Instance.GetText("2-8")} : {count}";
             
             if(count <= 0)
             {
