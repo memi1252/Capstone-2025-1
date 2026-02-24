@@ -68,9 +68,6 @@ MonoBehaviour:
     - line: '|   - logo: {fileID: 10404, guid: 0000000000000000f000000000000000,
         type: 0}'
     - line: '|     duration: 2'
-    - line: '|   - logo: {fileID: 21300000, guid: 17885bacf258ecc4abbe64ac73b6b8d4,
-        type: 3}'
-    - line: '|     duration: 2'
     - line: '|   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: a5099e7601ffe974a80a0da8cfeb526a,
         type: 3}'
     - line: '|   m_HolographicTrackingLossScreen: {instanceID: 0}'
@@ -874,7 +871,7 @@ MonoBehaviour:
     - line: '|     PS5: UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI'
     - line: '|     QNX: UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI'
     - line: '|     Server: UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI'
-    - line: '|     Standalone: AMPLIFY_SHADER_EDITOR;UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI'
+    - line: '|     Standalone: AMPLIFY_SHADER_EDITOR;UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI;STEAMWORKS_NET'
     - line: '|     VisionOS: UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI'
     - line: '|     WebGL: UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI'
     - line: '|     Windows Store Apps: UNITY_VISUAL_SCRIPTING;ES3_TMPRO;ES3_UGUI'
