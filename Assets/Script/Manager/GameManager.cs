@@ -139,7 +139,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void MENUOpen()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !noESC && !BBASSPlay)
+        if (Input.GetKeyDown(KeyCode.Escape) && !noESC && !BBASSPlay && 
+            SceneManager.GetActiveScene().name != WireConnectionScene && SceneManager.GetActiveScene().name != ReplacingPartsScene)
         {
             if (!UIManager.Instance.ESCMENUUI.activeSelf)
             {

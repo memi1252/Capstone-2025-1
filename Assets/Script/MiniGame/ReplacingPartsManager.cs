@@ -49,6 +49,10 @@ public class ReplacingPartsManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(FailCoroutine());
+        }
         if (!isClear)
         {   
             GameManager.Instance.MouseCursor(true);

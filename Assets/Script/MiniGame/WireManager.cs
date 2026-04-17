@@ -86,6 +86,10 @@ public class WireManager : MonoBehaviour
     {
         if (start)
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                StartCoroutine(FailCoroutine());
+            }
             countText.text = $"{LocalizationManager.Instance.GetText("2-8")} : {count}";
             
             if(count <= 0)
